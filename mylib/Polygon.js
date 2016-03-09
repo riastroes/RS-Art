@@ -5,12 +5,13 @@ function Polygon(pos, maxcorners, size, rot){
   this.size = size;
   this.rot = rot; //radians 0 - TWO_PI
   this.pg = createGraphics(this.size*2,this.size*2);
-  this.create();
-  this.strokecolor;
-  this.fillcolor;
-  this.strokeweight;
+
+  this.strokecolor = color(0);
+  this.fillcolor = color(255);
+  this.strokeweight =1;
+    this.init();
 }
-Polygon.prototype.create = function(){
+Polygon.prototype.init = function(){
   
   for(var c = 0; c < this.maxcorners; c++){
     var pgcenter =createVector((this.size/2),(this.size/2));

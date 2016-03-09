@@ -7,14 +7,14 @@ Screenshots.prototype.click = function(nr){
   shot.click();
   append(this.shots, shot);
   return shot;
-}
+};
   
 
 function Shot(nr){
   this.nr = nr;
   this.img = createImage(width,height);
   
-}
+};
 Shot.prototype.click = function(){
   loadPixels();
   this.img.loadPixels();
@@ -22,4 +22,4 @@ Shot.prototype.click = function(){
     this.img.pixels[i] = pixels[i];
   }
   this.img.updatePixels();
-}
+};

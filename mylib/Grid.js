@@ -23,7 +23,7 @@ Grid.prototype.show = function(){
       point(this.pos[x][y].x, this.pos[x][y].y);
     }
   }
-}
+};
 Grid.prototype.shownr = function(){
   style.set(pal.colors[1], false, 4);
   var i = 0;
@@ -35,19 +35,17 @@ Grid.prototype.shownr = function(){
       i++;
     }
   }
-}
+};
 Grid.prototype.get = function(index){
-  //var i = constrain(index, 0, this.maxi);
-  var x = index % this.cols;
-  var y = int(index / this.cols);
+  var i = constrain(index, 0, this.maxi);
+  var x = i % this.cols;
+  var y = int(i / this.cols);
   
   return this.pos[x][y];
 };
 Grid.prototype.x = function(index){
-  var x = index % this.cols;
-  return x;
+  return index % this.cols;
 };
 Grid.prototype.y = function(index){
-  var y = int(index / this.cols);
-  return y;
+  return int(index / this.cols);
 };

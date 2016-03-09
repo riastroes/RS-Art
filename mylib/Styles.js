@@ -1,23 +1,14 @@
 function Style(){
-  //default
-  this.reset();
+
+
 }
-Style.prototype.reset = function(){
-  fill(pal.colors[1]);
-  stroke(pal.colors[0]);
-  strokeWeight(1);
-  rectMode(CORNER);
-  imageMode(CORNER);
-  textSize(12);
-  textAlign(LEFT);
-};
+
 Style.prototype.text = function( size, align, acolor){
-  rectMode(align);
   textSize(size);
   textAlign(align);
   fill(acolor);
-  noStroke();
-  strokeWeight(1);
+  //noStroke();
+  //strokeWeight(0);
 };
 Style.prototype.image = function( alignmode , blendmode){ 
   imageMode(alignmode);

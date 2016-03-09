@@ -11,7 +11,7 @@ Drawing.prototype.createAgentPalette = function(palette){
     //elke agent wordt gekoppeld aan een kleur
     append(this.palette, palette[int(random(palette.length))]);
   }
-}
+};
 Drawing.prototype.add = function(img, imgpos, agentpos, agentsize){
   append(this.images, img);
   append(this.imagepos, imgpos);

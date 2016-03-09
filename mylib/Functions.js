@@ -37,18 +37,19 @@ function moveOnCircle(centerX, centerY, radius,  maxsteps, step){
   v.y = v.y + (radius * sin(angle));
   return v;
 };
-function posOnCircle(center, radius,  maxsteps, step){
-  v = center.copy();
-  var angle = ( TWO_PI / maxsteps ) * step;
-  v.x = v.x + (radius * cos(angle));
-  v.y = v.y + (radius * sin(angle));
-  return v;
-};
+
 function posOnEllipse(center, wradius, hradius,  maxsteps, step){
   v = center.copy();
   var angle = ( TWO_PI / maxsteps ) * step;
   v.x = v.x + (wradius * cos(angle));
   v.y = v.y + (hradius * sin(angle));
+  return v;
+};
+function posOnCircle(center, radius,  maxsteps, step){
+  v = center.copy();
+  var angle = ( TWO_PI / maxsteps ) * step;
+  v.x = v.x + (radius * cos(angle));
+  v.y = v.y + (radius * sin(angle));
   return v;
 };
 function moveOnLine(begin, end, maxsteps, step){
@@ -63,11 +64,11 @@ function moveOnLine(begin, end, maxsteps, step){
   
 };
 function posInCircle(pos, center, radius){
-  var inCircle = false;
+  var incircle = false;
   if(dist(pos.x, pos.y, center.x, center.y) < radius){
     inCircle = true;
   }
-  return inCircle;
+  return incircle;
 };
 function vectorTo(pos, center){
   var v = center.copy();
@@ -82,6 +83,21 @@ function contains(array, obj) {
         }
     }
     return false;
+};
+function equals(array1, array2){
+    ok = true;
+    if(array1.length == array2.length){
+        for(var i = 0; i < array1.length; i++){
+            if(array1[i] != array2[i]){
+                ok = false;
+                break;
+            }
+        }
+    }
+    else{
+        ok = false;
+    }
+    return ok;
 };
 function sortArray(array){
   var p = [];

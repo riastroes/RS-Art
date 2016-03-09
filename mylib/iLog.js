@@ -24,7 +24,7 @@ iLog.prototype.update = function(){
     this.duration = cell.proces.time + "/" + cell.proces.timelimit;
   }
   
-}
+};
 iLog.prototype.reset = function(){
   
   this.minframerate = 60;
@@ -33,7 +33,7 @@ iLog.prototype.reset = function(){
   this.totframerate = 0;
   this.totcount = 0;
   this.msg = "";
-}
+};
 iLog.prototype.show = function(){
   
     style.set(false, pal.tint(pal.colors[0],20),1);
@@ -52,4 +52,4 @@ iLog.prototype.show = function(){
     text("seen: " + menu.show, 10, 180);
     text("msg: " + this.msg, 10, 200);
   
-}
+};

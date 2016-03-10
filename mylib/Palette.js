@@ -43,19 +43,25 @@ Palette.prototype.init = function(nr){
    }
   
 };
-Palette.prototype.fromImage = function(img, collection, count){
+
+//TODO random imgcolor
+//TODO random color
+//TODO random rgbcolor (light / dark)
+
+Palette.prototype.fromImage = function(img, count){
  
     var acolor;
     var c = 0;
     var attempt = 0;
+    this.imgcolors = [];
     
     img.loadPixels();
     while( c  < count){
       var r = random(img.pixels.length - 4);
       var i = int(r - (r % 4));
       acolor = color(img.pixels[i], img.pixels[i+1], img.pixels[i+2], img.pixels[i+3]);
-      if(!contains(collection, acolor) || attempt > 100){
-        append(collection, acolor);
+      if(!contains(this.imgcolors, acolor) || attempt > 100){
+        append(this.imgcolors, acolor);
         c++;
       }
         attempt++;

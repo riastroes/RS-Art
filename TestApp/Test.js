@@ -6,13 +6,15 @@ function Test(){
 
 }
 Test.prototype.start = function(){
-    app.style.text(16,CENTER,app.colors[0]);
+    app.style.text(16,CENTER,app.pal.colors[0]);
     text("START TESTRUN",width/2, height/2);
+    app.style.text(12,CENTER,app.pal.colors[0]);
+    text("Use the LEFT-ARROW and RIGHT-ARROW keys in this test run.",width/2, height/2 + 20);
 };
 Test.prototype.end = function(){
-    app.style.text(16,CENTER,app.colors[0]);
+    app.style.text(16,CENTER,app.pal.colors[0]);
     text("END TESTRUN",width/2, height/2);
-}
+};
 Test.prototype.palette = function(testnr){
     //testing palette functions
     this.name = "palette test " + testnr;
@@ -21,11 +23,11 @@ Test.prototype.palette = function(testnr){
         case 0:
         {
             //use a black and white palette
-            app.style.set(app.colors[1], app.colors[0], 2);
-            ellipse(random(width), random(height), 50,50);
+            app.style.set(app.pal.colors[1], app.pal.colors[0], 2);
+            ellipse(random(width), random(height-50), 50,50);
 
             //testresult
-            if(app.colors.length == 2 && equals(app.colors[0],app.colors[1])) {
+            if(app.pal.colors.length == 2 && equals(app.pal.colors[0],app.pal.colors[1])) {
                 app.info.add(this.name + " ok");
             }
             else {
@@ -40,11 +42,11 @@ Test.prototype.palette = function(testnr){
                 app.imgPalette(app.images[0], 5, "sand");
             }
             //use colors from the image
-            app.style.set(app.imgcolors[0], app.imgcolors[3], 2);
-            rect(random(width), random(height), 50,50);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[3], 2);
+            rect(random(width), random(height-50), 50,50);
 
             //testresult
-            if(app.imgcolors.length == 5 && equals(app.imgcolors[0],app.imgcolors[1])) {
+            if(app.pal.imgcolors.length == 5 && equals(app.pal.imgcolors[0],app.pal.imgcolors[1])) {
                 app.info.add(this.name + " ok");
             }
             else {
@@ -61,14 +63,16 @@ Test.prototype.palette = function(testnr){
             }
             // use colors from the image
             var x, y;
-            for(var index in app.imgcolors) {
-                app.style.set(app.colors[0], app.imgcolors[index], 1);
-                x = int(index) * 100;
-                y = 100;
-                rect(x + 300, y + 300, 100, 100);
+            for(var index in app.pal.imgcolors) {
+                if (app.pal.imgcolors.hasOwnProperty(index)) {
+                    app.style.set(app.pal.colors[0], app.pal.imgcolors[index], 1);
+                    x = int(index) * 100;
+                    y = 100;
+                    rect(x + 300, y + 300, 100, 100);
+                }
             }
             //testresult
-            if(app.imgcolors.length == 5 && equals(app.imgcolors[0],app.imgcolors[1])) {
+            if(app.pal.imgcolors.length == 5 && equals(app.pal.imgcolors[0],app.pal.imgcolors[1])) {
                 app.info.add(this.name + " ok");
             }
             else {
@@ -85,14 +89,16 @@ Test.prototype.palette = function(testnr){
             }
             // use colors from this.imgpalette
             var x, y;
-            for(var index in app.imgcolors) {
-                app.style.set(app.colors[0], app.imgcolors[index], 1);
-                x = int(index) * 100;
-                y = 100;
-                rect(x + 300, y + 500, 100, 100);
+            for(var index in app.pal.imgcolors) {
+                if (app.pal.imgcolors.hasOwnProperty(index)) {
+                    app.style.set(app.pal.colors[0], app.pal.imgcolors[index], 1);
+                    x = int(index) * 100;
+                    y = 100;
+                    rect(x + 300, y + 500, 100, 100);
+                }
             }
             //testresult
-            if(app.imgcolors.length == 10 && equals(app.imgcolors[0],app.imgcolors[6])) {
+            if(app.pal.imgcolors.length == 10 && equals(app.pal.imgcolors[0],app.pal.imgcolors[6])) {
                 app.info.add(this.name + " ok");
             }
             else {
@@ -100,11 +106,62 @@ Test.prototype.palette = function(testnr){
             }
             break;
         }
+        case 4:
+        {
+            //test random color from palette
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("Test random colors form palette", width/2, height-30);
 
-//TODO random imgcolor
-//TODO random color
-//TODO random rgbcolor (light / dark)
+            app.style.set(app.pal.colors[1], app.pal.randomColor(), 2);
+            ellipse(random(width), random(height-50), 50,50);
 
+            //testresult
+            app.info.add(this.name + " visible");
+            break;
+        }
+        case 5:
+        {
+            //test random color from palette
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("Test random colors form imagepalette", width/2, height-30);
+
+            app.style.set(app.pal.colors[1], app.pal.randomImgColor(), 2);
+            ellipse(random(width), random(height-50), 50,50);
+
+            //testresult
+            app.info.add(this.name + " visible");
+            break;
+        }
+        case 6:
+        {
+            //test random color from palette
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("Test random RGB colors", width/2, height-30);
+
+            app.style.set(app.pal.colors[1], app.pal.randomRGBColor(), 2);
+            ellipse(random(width), random(height-50), 50,50);
+
+            //testresult
+            app.info.add(this.name + " visible");
+            break;
+        }
+        case 7:
+        {
+            //test random color from palette
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("Test random RGB colors", width/2, height-30);
+
+            app.style.set(app.pal.colors[1], app.pal.randomRGBColor("DARK"), 2);
+            ellipse(random(width/3), random(height-50), 50,50);
+            app.style.set(app.pal.colors[0], app.pal.randomRGBColor("GRAY"), 2);
+            ellipse(random(width/3, width/3*2), random(height-50), 50,50);
+            app.style.set(app.pal.colors[1], app.pal.randomRGBColor("LIGHT"), 2);
+            ellipse(random(width/3*2, width), random(height-50), 50,50);
+
+            //testresult
+            app.info.add(this.name + " visible");
+            break;
+        }
         default:
         {
             app.info.add(this.name + " UNKNOWN");
@@ -130,7 +187,7 @@ Test.prototype.styles = function(testnr){
             rect(x,y, 100, 100);
             ellipse(x,y,10,10);
 
-            app.style.text(12,CENTER,app.colors[0]);
+            app.style.text(12,CENTER,app.pal.colors[0]);
             text("mode == undefined", x,y + 100);
 
             //rectMode = CORNER
@@ -140,7 +197,7 @@ Test.prototype.styles = function(testnr){
             rect(x,y, 100, 100);
             ellipse(x,y,10,10);
 
-            app.style.text(12,CENTER,app.colors[0]);
+            app.style.text(12,CENTER,app.pal.colors[0]);
             text("mode == CORNER", x,y + 100);
 
             //rectMode = CENTER
@@ -150,7 +207,7 @@ Test.prototype.styles = function(testnr){
             rect(x,y, 100, 100);
             ellipse(x,y,10,10);
 
-            app.style.text(12,CENTER,app.colors[0]);
+            app.style.text(12,CENTER,app.pal.colors[0]);
             text("mode == CENTER", x,y + 100);
             app.style.reset();
 

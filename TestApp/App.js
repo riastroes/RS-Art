@@ -25,13 +25,12 @@ function App(ascene, lastscene){
     this.namedpalettes = [];
     this.namedpalettes[0]= new NamedPalette("standard");
     this.currentpalettename = "standard";
-    this.colors = [];
-    this.imgcolors = [];
-    arrayCopy(this.namedpalettes[0].pal.colors, this.colors);
+
+    arrayCopy(this.namedpalettes[0].pal.colors, this.pal.colors);
     this.style = new Style();
 
     //workflow
-    this.proces = new Proces(0,10);
+    this.proces = new Proces(ascene, lastscene);
     this.test = new Test();
     this.info = new Info();
 
@@ -43,29 +42,31 @@ App.prototype.imgPalette = function(img, count, name, more){
     //extract a color collection from an image
     var haspalette = false;
     for(var index in this.namedpalettes){
-        if(this.namedpalettes[index].name == name){
-            if(!more) {
-                this.currentpalettename = name;
-                this.imgcolors = [];
+        if (this.namedpalettes.hasOwnProperty(index)) {
+            if (this.namedpalettes[index].name == name) {
+                if (!more) {
+                    this.currentpalettename = name;
+                    this.pal.imgcolors = [];
+                }
+                else {
+                    this.currentpalettename += "," + name;
+                }
+                for (var i = 0; i < this.namedpalettes[index].pal.imgcolors.length; i++) {
+                    append(this.pal.imgcolors, this.namedpalettes[index].pal.imgcolors[i]);
+                }
+                haspalette = true;
             }
-            else{
-                this.currentpalettename += ","+name;
-             }
-            for(var i = 0 ; i <this.namedpalettes[index].pal.imgcolors.length; i++ ){
-                append(this.imgcolors, this.namedpalettes[index].pal.imgcolors[i]);
-            }
-            haspalette = true;
         }
     }
     if(!haspalette){
         append(this.namedpalettes, new NamedPalette(name));
         if(!more) {
-            this.imgcolors = [];
+            this.pal.imgcolors = [];
         }
         var last =  this.namedpalettes.length -1;
         this.namedpalettes[last].pal.fromImage(img, count);
         for(var i = 0 ; i <this.namedpalettes[index].pal.imgcolors.length; i++ ){
-            append(this.imgcolors, this.namedpalettes[index].pal.imgcolors[i]);
+            append(this.pal.imgcolors, this.namedpalettes[index].pal.imgcolors[i]);
         }
     }
 
@@ -137,4 +138,13 @@ App.prototype.is = function(param){
         }
     }
     return ok;
-}
+};
+App.prototype.randomInt = function(min, max){
+    if(app.is(max)){
+        return int(random(min,max));
+    }
+    else{
+        return int(random(min));
+    }
+};
+

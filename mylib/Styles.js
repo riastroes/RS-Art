@@ -3,12 +3,12 @@ function Style(){
 
 }
 Style.prototype.reset = function(){
-  stroke(app.colors[0]);
-  fill(app.colors[1]);
+  stroke(app.pal.colors[0]);
+  fill(app.pal.colors[1]);
   strokeWeight(1);
   rectMode(CORNER);
   blendMode(BLEND);
-}
+};
 Style.prototype.text = function( size, align, acolor){
   textSize(size);
   textAlign(align);
@@ -60,4 +60,4 @@ Style.prototype.pg = function(pg, strokecolor, fillcolor, strokeweight){
   pg.strokeWeight(strokeweight);
   pg.rectMode(CORNER);
   pg.imageMode(CORNER);
-}
+};

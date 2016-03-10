@@ -9,7 +9,7 @@ function Info(){
     this.log = [];
 }
 Info.prototype.show = function(){
-    app.style.set(app.colors[0], app.pal.tint(app.colors[0], 1), 1);
+    app.style.set(app.pal.colors[0], app.pal.tint(app.pal.colors[0], 1), 1);
     rect(0, 0, 200, 200);
 
     if (frameCount % 100 == 0) {
@@ -23,16 +23,18 @@ Info.prototype.show = function(){
 
     }
 
-    app.style.text(12, LEFT, app.colors[1]);
+    app.style.text(12, LEFT, app.pal.colors[1]);
     text("frameRate: " + int(frameRate()), this.leftmarge, this.liney);
     text("gem. frameRate: " + int(app.gemframerate), this.leftmarge, this.liney += this.lineheight);
 
     for(var index in this.log){
-        text(this.log[index], this.leftmarge, this.liney += this.lineheight);
+        if (this.log.hasOwnProperty(index)) {
+            text(this.log[index], this.leftmarge, this.liney += this.lineheight);
+        }
     }
     this.log =[];
     this.liney = this.topmarge;
 };
 Info.prototype.add = function (msg){
     append(this.log, msg);
-}
+};

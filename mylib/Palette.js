@@ -8,16 +8,7 @@ function Palette(){
 Palette.prototype.add = function(i, acolor){
   this.colors[i] = acolor;
 };
-Palette.prototype.addPalette  = function(nr){
-  this.black = color(0,0,0);
-  this.white = color(255,255,255);
-  this.red = color(200,12,4,255);
-  this.rose = color("#ea5455");
-  this.orange = color("#f07b3f");
-  this.gray = color(125,125,125);
-  this.pink = color(200,12,4,10);
-  
-};
+
 Palette.prototype.init = function(nr){
   this.nr = nr;
   if(this.nr == 0) {
@@ -44,9 +35,7 @@ Palette.prototype.init = function(nr){
   
 };
 
-//TODO random imgcolor
-//TODO random color
-//TODO random rgbcolor (light / dark)
+
 
 Palette.prototype.fromImage = function(img, count){
  
@@ -69,16 +58,48 @@ Palette.prototype.fromImage = function(img, count){
 
   
 };
-Palette.prototype.random = function(){
-  return this.colors[randomInt(0,this.colors.length)];
+Palette.prototype.randomColor = function(){
+    if(this.colors.length > 0) {
+        return this.colors[randomInt(0, this.colors.length)];
+    }
+    return false;
 };
-Palette.prototype.randombg = function(){
-  return this.bgcolors[randomInt(0,this.bgcolors.length)];
+
+Palette.prototype.randomImgColor = function(){
+    if(this.imgcolors.length > 0) {
+        return this.imgcolors[randomInt(0, this.imgcolors.length)];
+    }
+    return false;
+};
+Palette.prototype.randomRGBColor = function(colorgroup){
+    var acolor = this.colors[0];
+    switch(colorgroup){
+        case "GRAY":{
+            acolor = color(app.randomInt(255));
+            break;
+        }
+        case "DARK":{
+            acolor = color(app.randomInt(127),app.randomInt(127),app.randomInt(127));
+            break;
+        }
+        case "LIGHT":{
+            acolor = color(app.randomInt(127,255),app.randomInt(127,255),app.randomInt(127,255));
+            break;
+        }
+        default:{
+            acolor = color(app.randomInt(255),app.randomInt(255),app.randomInt(255));
+        }
+
+    }
+    return acolor;
 };
 Palette.prototype.tint = function(acolor, percentage){
   var p = (255/100) * percentage;
   return color(red(acolor), green(acolor), blue(acolor), p );
 };
+
+
+
 
 function NamedPalette(name){
   this.name = name;

@@ -31,7 +31,24 @@ function draw() {
                 app.test.palette(3);
                 break;
             }
-            case 5 :{
+            case 5:{
+                app.test.palette(4);
+                break;
+            }
+            case 6:{
+                app.test.palette(5);
+                break;
+            }
+            case 7:{
+                app.test.palette(6);
+                break;
+            }
+            case 8:{
+                app.test.palette(7);
+                break;
+            }
+            //TEST STYLES
+            case 9 :{
                 app.test.styles(0);
                 break;
             }
@@ -58,11 +75,11 @@ function keyPressed() {
         }
     }
     if (keyCode == RIGHT_ARROW) {
-        app.proces.nextScene(app.colors[1]);
+        app.proces.nextScene(app.pal.colors[1]);
 
     }
     if (keyCode == LEFT_ARROW) {
-        app.proces.previousScene(app.colors[1]);
+        app.proces.previousScene(app.pal.colors[1]);
 
     }
 }

@@ -148,10 +148,7 @@ function between(min, max, step){
   return r;
 };
 //time functions
-function getTimeInSeconds(){
-  return (hour()*60*60) + (minute()* 60) + second();
 
-};
 
 
 

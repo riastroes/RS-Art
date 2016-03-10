@@ -2,13 +2,19 @@ function Style(){
 
 
 }
-
+Style.prototype.reset = function(){
+  stroke(app.colors[0]);
+  fill(app.colors[1]);
+  strokeWeight(1);
+  rectMode(CORNER);
+  blendMode(BLEND);
+}
 Style.prototype.text = function( size, align, acolor){
   textSize(size);
   textAlign(align);
   fill(acolor);
-  //noStroke();
-  //strokeWeight(0);
+  noStroke();
+
 };
 Style.prototype.image = function( alignmode , blendmode){ 
   imageMode(alignmode);
@@ -19,21 +25,23 @@ Style.prototype.image = function( alignmode , blendmode){
     blendMode(blendmode);
   }
 };
-Style.prototype.set = function(  strokecolor, fillcolor, strokeweight){
-  if(strokecolor == ""||strokecolor == null || strokecolor == false){
+Style.prototype.set = function(  strokecolor, fillcolor, strokeweight, mode) {
+  if (strokecolor == "" || strokecolor == null || strokecolor == false) {
     noStroke();
   }
-  else{
+  else {
     stroke(strokecolor);
   }
-  if(fillcolor == ""||fillcolor == null || fillcolor == false){
+  if (fillcolor == "" || fillcolor == null || fillcolor == false) {
     noFill();
   }
-  else{
+  else {
     fill(fillcolor);
   }
   strokeWeight(strokeweight);
-  rectMode(CORNER);
+  if (typeof(mode) !== "undefined") {
+    rectMode(mode);
+  }
 };
 Style.prototype.pg = function(pg, strokecolor, fillcolor, strokeweight){
   this.set(strokecolor, fillcolor, strokeweight);

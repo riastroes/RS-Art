@@ -25,12 +25,12 @@ Palette.prototype.init = function(nr){
     
   }
   else if(this.nr == 2){
-    this.add(2, color('#cc0000')); // donkerrood
-    this.add(3, color('#ff9900')); // goud
+    this.add(2, color('#cc0000')); // dark red
+    this.add(3, color('#ff9900')); // gold
     this.add(5, color('#804d00'));
     this.add(4, color('#ffcc80'));
-    this.add(6, color('#0f3761')); // donker blauw
-    this.add(7, color('#368026')); // kikker groen
+    this.add(6, color('#0f3761')); // dark blue
+    this.add(7, color('#368026')); // frog green
    }
   
 };

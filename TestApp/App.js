@@ -9,7 +9,7 @@ function App(ascene, lastscene){
     /// LIGHT, DARK
 
     pixelDensity(1);
-    this.canvas = createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth, windowHeight);
 
     //resources
     this.resourcepath = "resources"; //default resource map
@@ -30,6 +30,7 @@ function App(ascene, lastscene){
     this.style = new Style();
 
     //workflow
+    this.menu = new Menu();
     this.proces = new Proces(ascene, lastscene);
     this.test = new Test();
     this.info = new Info();
@@ -40,6 +41,7 @@ function App(ascene, lastscene){
 }
 App.prototype.imgPalette = function(img, count, name, more){
     //extract a color collection from an image
+    var i;
     var haspalette = false;
     for(var index in this.namedpalettes){
         if (this.namedpalettes.hasOwnProperty(index)) {
@@ -51,7 +53,7 @@ App.prototype.imgPalette = function(img, count, name, more){
                 else {
                     this.currentpalettename += "," + name;
                 }
-                for (var i = 0; i < this.namedpalettes[index].pal.imgcolors.length; i++) {
+                for (i = 0; i < this.namedpalettes[index].pal.imgcolors.length; i++) {
                     append(this.pal.imgcolors, this.namedpalettes[index].pal.imgcolors[i]);
                 }
                 haspalette = true;
@@ -65,7 +67,7 @@ App.prototype.imgPalette = function(img, count, name, more){
         }
         var last =  this.namedpalettes.length -1;
         this.namedpalettes[last].pal.fromImage(img, count);
-        for(var i = 0 ; i <this.namedpalettes[index].pal.imgcolors.length; i++ ){
+        for(i = 0 ; i <this.namedpalettes[index].pal.imgcolors.length; i++ ){
             append(this.pal.imgcolors, this.namedpalettes[index].pal.imgcolors[i]);
         }
     }
@@ -73,7 +75,7 @@ App.prototype.imgPalette = function(img, count, name, more){
 };
 App.prototype.loadResources = function(strimages, strsounds, path){
     // the images and sound should be stored in the map path
-
+    var i,s;
     this.isloaded = false;
     this.loaded = 0;
     var imagenames = [];
@@ -85,7 +87,7 @@ App.prototype.loadResources = function(strimages, strsounds, path){
     else if(typeof(strimages) !== "undefined"){
         // array
         this.maximages = strimages.length;
-        for(var i = 0; i < this.maximages; i++){
+        for(i = 0; i < this.maximages; i++){
             imagenames[i] = strimages[i];
         }
      }
@@ -112,11 +114,11 @@ App.prototype.loadResources = function(strimages, strsounds, path){
     if(typeof(path) !== "undefined"){
         this.resourcepath = path;
     }
-    for(var i = 0; i < this.maximages; i++){
+    for(i = 0; i < this.maximages; i++){
         this.images[i] =loadImage(this.resourcepath + "/" + imagenames[i], this.callbackResources);
     }
 
-    for(var s = 0; s < this.maxsounds; s++){
+    for(s = 0; s < this.maxsounds; s++){
         this.sounds[s] = loadSound(this.resourcepath + "/" + soundnames[s], this.callbackResources);
     }
 };
@@ -131,7 +133,7 @@ App.prototype.callbackResources = function(){
 };
 //SMART FUNCTIONS
 App.prototype.is = function(param){
-    ok = false;
+    var ok = false;
     if(typeof(param) !== "undefined"){
         if(param !== null){
             ok = true;

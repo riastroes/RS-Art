@@ -8,7 +8,7 @@ function Drawing(dwidth, dheight){
 }
 Drawing.prototype.createAgentPalette = function(palette){
   for(var index in this.agents){
-    //elke agent wordt gekoppeld aan een kleur
+    //every agent is chained to a color
     append(this.palette, palette[int(random(palette.length))]);
   }
 };

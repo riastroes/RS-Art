@@ -28,7 +28,7 @@ Proces.prototype.nextScene = function(bgcolor){
     if(app.is(bgcolor)) {
         background(bgcolor);
     }
-}
+};
 Proces.prototype.previousScene = function(bgcolor){
     if (this.scene > 0) {
         this.scene = (this.scene - 1) % (this.lastscene + 1);
@@ -36,7 +36,7 @@ Proces.prototype.previousScene = function(bgcolor){
     if(app.is(bgcolor)) {
         background(bgcolor);
     }
-}
+};
 
 /*
 

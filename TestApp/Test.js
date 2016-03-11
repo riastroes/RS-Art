@@ -15,8 +15,10 @@ Test.prototype.end = function(){
     app.style.text(16,CENTER,app.pal.colors[0]);
     text("END TESTRUN",width/2, height/2);
 };
+
 Test.prototype.palette = function(testnr){
     //testing palette functions
+    var x, y, index;
     this.name = "palette test " + testnr;
 
     switch (testnr) {
@@ -62,8 +64,8 @@ Test.prototype.palette = function(testnr){
                 app.imgPalette(app.images[1], 5, "water");
             }
             // use colors from the image
-            var x, y;
-            for(var index in app.pal.imgcolors) {
+
+            for(index in app.pal.imgcolors) {
                 if (app.pal.imgcolors.hasOwnProperty(index)) {
                     app.style.set(app.pal.colors[0], app.pal.imgcolors[index], 1);
                     x = int(index) * 100;
@@ -88,8 +90,7 @@ Test.prototype.palette = function(testnr){
                 app.imgPalette(app.images[1], 5, "sand", true);
             }
             // use colors from this.imgpalette
-            var x, y;
-            for(var index in app.pal.imgcolors) {
+            for(index in app.pal.imgcolors) {
                 if (app.pal.imgcolors.hasOwnProperty(index)) {
                     app.style.set(app.pal.colors[0], app.pal.imgcolors[index], 1);
                     x = int(index) * 100;
@@ -169,16 +170,90 @@ Test.prototype.palette = function(testnr){
     }
 
 };
+
+Test.prototype.testrun = function(subject){
+    if(subject == "palette") {
+
+        switch (app.proces.scene) {
+            case 0:
+            {
+                this.start();
+                break;
+            }
+            case 1:
+            {
+                this.palette(0);
+                break;
+            }
+            case 2:
+            {
+                this.palette(1);
+                break;
+            }
+            case 3:
+            {
+                this.palette(2);
+                break;
+            }
+            case 4:
+            {
+                this.palette(3);
+                break;
+            }
+            case 5:
+            {
+                this.palette(4);
+                break;
+            }
+            case 6:
+            {
+                this.palette(5);
+                break;
+            }
+            case 7:
+            {
+                this.palette(6);
+                break;
+            }
+            case 8:
+            {
+                this.palette(7);
+                break;
+            }
+            default :
+            {
+                app.test.end();
+                break;
+            }
+        }
+    }
+    else if(this.subject == "styles") {
+
+            //TODO TEST STYLES
+    }
+            //TEST STYLES
+        //case
+        //    9
+        //:
+        //    {
+        //        app.test.styles(0);
+        //        break;
+        //    }
+        }
+
+}
 Test.prototype.styles = function(testnr){
     //testing style functions
+    var x, y;
+    var strokecolor, fillcolor;
     this.name = "style test " + testnr;
 
     switch (testnr) {
         case 0:
         {
-            var strokecolor = color(40,80,220);
-            var fillcolor = color(190,80,40);
-            var x, y;
+            strokecolor = color(40,80,220);
+            fillcolor = color(190,80,40);
+
 
             //DEFAULT rectMode
             app.style.set(strokecolor, fillcolor, 1);

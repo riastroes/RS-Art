@@ -11,7 +11,7 @@ function Grid(cols, rows, wmarge, hmarge){
     this.pos[x] = []; // create nested array
     for (var y = 0; y < this.rows; y++) {
       var vx = (wmarge/2) + (this.cellwidth * x) + (this.cellwidth/2);
-      var vy = (hmarge/2) + (this.cellheight * y) + (this.cellheight/2)
+      var vy = (hmarge/2) + (this.cellheight * y) + (this.cellheight/2);
       this.pos[x][y] = createVector(vx, vy);
     }
   }

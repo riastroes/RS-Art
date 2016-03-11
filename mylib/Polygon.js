@@ -20,7 +20,7 @@ Polygon.prototype.init = function(){
     append(this.corners, pos);
   }
   this.drawpg();
-}
+};
 Polygon.prototype.style = function(strokecolor, fillcolor, strokeweight){
   if((strokecolor != this.strokecolor)||
       (fillcolor != this.fillcolor)||
@@ -31,7 +31,7 @@ Polygon.prototype.style = function(strokecolor, fillcolor, strokeweight){
     style.pg(this.pg, strokecolor, fillcolor, strokeweight);
     this.drawpg();
   }
-}
+};
 Polygon.prototype.drawpg = function(){
   this.pg.beginShape();
       for(var i = 0; i < this.maxcorners; i +=1){
@@ -39,7 +39,7 @@ Polygon.prototype.drawpg = function(){
       }
   this.pg.endShape(CLOSE);
   
-}
+};
 Polygon.prototype.draw = function(){
    push();
     translate(this.pos.x, this.pos.y);
@@ -47,4 +47,4 @@ Polygon.prototype.draw = function(){
     style.image(CENTER);
     image(this.pg, 0,0);
   pop();
-}
+};

@@ -21,16 +21,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Functions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mylib/Functions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestApp/App.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -96,8 +86,18 @@
       <file leaf-file-name="Test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestApp/Test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.16698292">
+            <state vertical-scroll-proportion="6.6034155">
               <caret line="232" column="4" selection-start-line="232" selection-start-column="4" selection-end-line="232" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Styles.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mylib/Styles.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -418,14 +418,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mylib/Styles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestApp/Scene.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -580,9 +572,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/Styles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TestApp/Test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.16698292">
+        <state vertical-scroll-proportion="6.6034155">
           <caret line="232" column="4" selection-start-line="232" selection-start-column="4" selection-end-line="232" selection-end-column="4" />
           <folding />
         </state>

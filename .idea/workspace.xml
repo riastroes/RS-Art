@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="792a3738-56d4-4810-8cdf-e9af6c96bc6c" name="Default" comment="More palette test and the color array and imgcolor array are moved to the palette class. So the app always needs a palette.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/riastroes.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TestApp/Menu.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mylib/iLog.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/RS-Art.iml" afterPath="$PROJECT_DIR$/.idea/RS-Art.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestApp/App.js" afterPath="$PROJECT_DIR$/TestApp/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestApp/Proces.js" afterPath="$PROJECT_DIR$/TestApp/Proces.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestApp/Scene.js" afterPath="$PROJECT_DIR$/TestApp/Scene.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestApp/Test.js" afterPath="$PROJECT_DIR$/TestApp/Test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestApp/sketch.js" afterPath="$PROJECT_DIR$/TestApp/sketch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Agent.js" afterPath="$PROJECT_DIR$/mylib/Agent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Blob.js" afterPath="$PROJECT_DIR$/mylib/Blob.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Drawing.js" afterPath="$PROJECT_DIR$/mylib/Drawing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Functions.js" afterPath="$PROJECT_DIR$/mylib/Functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Grid.js" afterPath="$PROJECT_DIR$/mylib/Grid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Palette.js" afterPath="$PROJECT_DIR$/mylib/Palette.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Polygon.js" afterPath="$PROJECT_DIR$/mylib/Polygon.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Screenshots.js" afterPath="$PROJECT_DIR$/mylib/Screenshots.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/UserRecord.js" afterPath="$PROJECT_DIR$/mylib/UserRecord.js" />
-    </list>
+    <list default="true" id="792a3738-56d4-4810-8cdf-e9af6c96bc6c" name="Default" comment="More palette test and the color array and imgcolor array are moved to the palette class. So the app always needs a palette." />
     <ignored path="RS-Art.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -120,7 +96,7 @@
       <file leaf-file-name="Test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestApp/Test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.7438331">
+            <state vertical-scroll-proportion="-0.16698292">
               <caret line="232" column="4" selection-start-line="232" selection-start-column="4" selection-end-line="232" selection-end-column="4" />
               <folding />
             </state>
@@ -406,7 +382,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24305555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -414,7 +390,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39903265" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -606,7 +582,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestApp/Test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7438331">
+        <state vertical-scroll-proportion="-0.16698292">
           <caret line="232" column="4" selection-start-line="232" selection-start-column="4" selection-end-line="232" selection-end-column="4" />
           <folding />
         </state>

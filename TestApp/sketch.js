@@ -2,19 +2,28 @@ var app;
 
 function setup() {
 
-    app = new App(0,3);
+    app = new App();
     app.loadResources("sandcolors.jpg,watercolors.jpg");
+
 
 }
 
 function draw() {
     if(app.isloaded) {
-        if(app.menu.selected == ""){
+
+        if(app.currentpalettename != "menu") {
+            app.imgPalette(app.images[0], 8, "menu");
+        }
+        if(typeof(app.menu) =="undefined"){
+            app.menu = new Menu("Palette,Styles,Grid,Stopwatch");
+        }
+        else if(app.menu.selected == ""){
             app.menu.draw();
             app.menu.isclicked();
+
         }
         else{
-            app.test.testrun(app.menu.selected);
+            app.test.testrun(app.menu.selected, app.proces.scene);
         }
 
 
@@ -41,6 +50,10 @@ function keyPressed() {
     }
     if (keyCode == LEFT_ARROW) {
         app.proces.previousScene(app.pal.colors[1]);
+
+    }
+    if (key  == " ") {
+        app.menu.selected ="";
 
     }
 }

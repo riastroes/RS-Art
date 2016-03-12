@@ -15,6 +15,7 @@ function Grid(cols, rows, wmarge, hmarge){
       this.pos[x][y] = createVector(vx, vy);
     }
   }
+
 }
 Grid.prototype.show = function(){
   style.set(pal.colors[1], false, 4);

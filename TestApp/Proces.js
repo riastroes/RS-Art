@@ -3,6 +3,7 @@ function Proces(ascene, lastscene){
     this.scene = ascene;
     this.lastscene = lastscene;
     this.isrunning = false;
+
 }
 Proces.prototype.init = function(){
     //initialize the work proces

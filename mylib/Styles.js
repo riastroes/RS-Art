@@ -1,6 +1,5 @@
 function Style(){
 
-
 }
 Style.prototype.reset = function(){
   stroke(app.pal.colors[0]);
@@ -25,7 +24,7 @@ Style.prototype.image = function( alignmode , blendmode){
     blendMode(blendmode);
   }
 };
-Style.prototype.set = function(  strokecolor, fillcolor, strokeweight, mode) {
+Style.prototype.set = function(  strokecolor, fillcolor, strokeweight, rectmode, blendmode) {
   if (strokecolor == "" || strokecolor == null || strokecolor == false) {
     noStroke();
   }
@@ -39,8 +38,11 @@ Style.prototype.set = function(  strokecolor, fillcolor, strokeweight, mode) {
     fill(fillcolor);
   }
   strokeWeight(strokeweight);
-  if (typeof(mode) !== "undefined") {
-    rectMode(mode);
+  if (typeof(rectmode) !== "undefined") {
+    rectMode(rectmode);
+  }
+  if (typeof(blendmode) !== "undefined") {
+    blendMode(blendmode);
   }
 };
 Style.prototype.pg = function(pg, strokecolor, fillcolor, strokeweight){

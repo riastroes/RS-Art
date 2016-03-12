@@ -7,9 +7,12 @@ function Drawing(dwidth, dheight){
   
 }
 Drawing.prototype.createAgentPalette = function(palette){
-  for(var index in this.agents){
-    //every agent is chained to a color
+  var index;
+  for(index in this.agents){
+
+  if(this.agents.hasOwnProperty(index)) {   //every agent is chained to a color
     append(this.palette, palette[int(random(palette.length))]);
+  }
   }
 };
 Drawing.prototype.add = function(img, imgpos, agentpos, agentsize){

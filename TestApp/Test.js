@@ -208,7 +208,7 @@ Test.prototype.palette = function (testnr) {
 };
 Test.prototype.styles = function (testnr) {
     //testing style functions
-    var x, y;
+    var x, y, i, c;
     var strokecolor, fillcolor;
     this.name = "style test " + testnr;
 
@@ -234,7 +234,7 @@ Test.prototype.styles = function (testnr) {
             ellipse(x, y, 10, 10);
 
             app.style.text(12, CENTER, app.pal.colors[0]);
-            text("mode == undefined", x, y + 100);
+            text("mode == undefined", x, y + 120);
 
             //rectMode = CORNER
             app.style.set(strokecolor, fillcolor, 1, CORNER);
@@ -244,7 +244,7 @@ Test.prototype.styles = function (testnr) {
             ellipse(x, y, 10, 10);
 
             app.style.text(12, CENTER, app.pal.colors[0]);
-            text("mode == CORNER", x, y + 100);
+            text("mode == CORNER", x, y + 120);
 
             //rectMode = CENTER
             app.style.set(strokecolor, fillcolor, 4, CENTER);
@@ -254,7 +254,7 @@ Test.prototype.styles = function (testnr) {
             ellipse(x, y, 10, 10);
 
             app.style.text(12, CENTER, app.pal.colors[0]);
-            text("mode == CENTER", x, y + 100);
+            text("mode == CENTER", x, y + 120);
             app.style.reset();
 
 
@@ -266,45 +266,56 @@ Test.prototype.styles = function (testnr) {
         case 2:
         {
             background(app.pal.colors[1]);
-            this.showDescription("Test blendMode with drawings.");
+            this.showDescription("Test blendMode with drawings and two the same colors.");
+            //first row
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(300,200, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,BLEND);
             ellipse(350,200,100,100);
+            ellipse(400,200,100,100);
             app.style.image(CORNER, BLEND);
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-BLEND-BLEND",350,130);
             text("BLEND : "+ BLEND,350,270);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(500,200, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,MULTIPLY);
             ellipse(550,200,100,100);
+            ellipse(600,200,100,100);
             app.style.image(CORNER, BLEND);
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-MULTIPLY-MULTIPLY",550,130);
             text("MULTIPLY : "+ MULTIPLY,550,270);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(700,200, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,DODGE);
             ellipse(750,200,100,100);
+            ellipse(800,200,100,100);
             app.style.reset();
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-DODGE-DODGE",750,130);
             text("DODGE : "+ DODGE,750,270);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(900,200, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,ADD);
             ellipse(950,200,100,100);
+            ellipse(1000,200,100,100);
             app.style.reset();
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-ADD-ADD",950,130);
             text("ADD : "+ ADD,950,270);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(1100,200, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,BURN);
             ellipse(1150,200,100,100);
+            ellipse(1200,200,100,100);
             app.style.reset();
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-BURN-BURN",1150,130);
             text("BURN : "+ BURN,1150,270);
 
 //second row
@@ -312,32 +323,40 @@ Test.prototype.styles = function (testnr) {
             ellipse(300,400, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,DARKEST);
             ellipse(350,400,100,100);
+            ellipse(400,400,100,100);
             app.style.image(CORNER, BLEND);
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-DARKEST-DARKEST",350,330);
             text("DARKEST : "+ DARKEST,350,470);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(500,400, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,LIGHTEST);
             ellipse(550,400,100,100);
+            ellipse(600,400,100,100);
             app.style.image(CORNER, BLEND);
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-LIGHTEST-LIGHTEST",550,330);
             text("LIGHTEST : "+ LIGHTEST,550,470);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(700,400, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,EXCLUSION);
             ellipse(750,400,100,100);
+            ellipse(800,400,100,100);
             app.style.reset();
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-EXCLUSION-EXCLUSION",750,330);
             text("EXCLUSION : "+ EXCLUSION,750,470);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(900,400, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,SCREEN);
             ellipse(950,400,100,100);
+            ellipse(1000,400,100,100);
             app.style.reset();
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-SCREEN-SCREEN",950,330);
             text("SCREEN : "+ SCREEN,950,470);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
@@ -346,6 +365,7 @@ Test.prototype.styles = function (testnr) {
             ellipse(1150,400,100,100);
             app.style.reset();
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-DIFFERENCE-DIFFERENCE",1150,330);
             text("DIFFERENCE : "+ DIFFERENCE ,1150,470);
 
             //3e row
@@ -353,32 +373,40 @@ Test.prototype.styles = function (testnr) {
             ellipse(300,600, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,HARD_LIGHT);
             ellipse(350,600,100,100);
+            ellipse(400,600,100,100);
             app.style.image(CORNER, BLEND);
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-HARD_LIGHT-HARD_LIGHT",350,530);
             text("HARD_LIGHT : "+ HARD_LIGHT,350,670);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(500,600, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,SOFT_LIGHT);
             ellipse(550,600,100,100);
+            ellipse(600,600,100,100);
             app.style.image(CORNER, BLEND);
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-SOFT_LIGHT-SOFT_LIGHT",550,530);
             text("SOFT_LIGHT : "+ SOFT_LIGHT,550,670);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(700,600, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,REPLACE);
             ellipse(750,600,100,100);
+            ellipse(800,600,100,100);
             app.style.reset();
             app.style.text(12,CENTER,app.pal.colors[0]);
-            text("REPLACE : "+ REPLACE,750,470);
+            text("BLEND-REPLACE-REPLACE",750,530);
+            text("REPLACE : "+ REPLACE,750,670);
 
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(900,600, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1,undefined,OVERLAY);
             ellipse(950,600,100,100);
+            ellipse(1000,600,100,100);
             app.style.reset();
             app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-OVERLAY-OVERLAY",950,530);
             text("OVERLAY : "+ OVERLAY,950,670);
 
 
@@ -387,8 +415,215 @@ Test.prototype.styles = function (testnr) {
 
             break;
         }
+        case 3:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test blendMode with drawings and two different colors.");
+            //first row
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(300,200, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,BLEND);
+            ellipse(350,200,100,100);
+            ellipse(400,200,100,100);
+            app.style.image(CORNER, BLEND);
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-BLEND-BLEND",350,130);
+            text("BLEND : "+ BLEND,350,270);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(500,200, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,MULTIPLY);
+            ellipse(550,200,100,100);
+            ellipse(600,200,100,100);
+            app.style.image(CORNER, BLEND);
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-MULTIPLY-MULTIPLY",550,130);
+            text("MULTIPLY : "+ MULTIPLY,550,270);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(700,200, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,DODGE);
+            ellipse(750,200,100,100);
+            ellipse(800,200,100,100);
+            app.style.reset();
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-DODGE-DODGE",750,130);
+            text("DODGE : "+ DODGE,750,270);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(900,200, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,ADD);
+            ellipse(950,200,100,100);
+            ellipse(1000,200,100,100);
+            app.style.reset();
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-ADD-ADD",950,130);
+            text("ADD : "+ ADD,950,270);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(1100,200, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,BURN);
+            ellipse(1150,200,100,100);
+            ellipse(1200,200,100,100);
+            app.style.reset();
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-BURN-BURN",1150,130);
+            text("BURN : "+ BURN,1150,270);
+
+//second row
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(300,400, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,DARKEST);
+            ellipse(350,400,100,100);
+            ellipse(400,400,100,100);
+            app.style.image(CORNER, BLEND);
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-DARKEST-DARKEST",350,330);
+            text("DARKEST : "+ DARKEST,350,470);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(500,400, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,LIGHTEST);
+            ellipse(550,400,100,100);
+            ellipse(600,400,100,100);
+            app.style.image(CORNER, BLEND);
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-LIGHTEST-LIGHTEST",550,330);
+            text("LIGHTEST : "+ LIGHTEST,550,470);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(700,400, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,EXCLUSION);
+            ellipse(750,400,100,100);
+            ellipse(800,400,100,100);
+            app.style.reset();
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-EXCLUSION-EXCLUSION",750,330);
+            text("EXCLUSION : "+ EXCLUSION,750,470);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(900,400, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,SCREEN);
+            ellipse(950,400,100,100);
+            ellipse(1000,400,100,100);
+            app.style.reset();
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-SCREEN-SCREEN",950,330);
+            text("SCREEN : "+ SCREEN,950,470);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(1100,400, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,DIFFERENCE );
+            ellipse(1150,400,100,100);
+            app.style.reset();
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-DIFFERENCE-DIFFERENCE",1150,330);
+            text("DIFFERENCE : "+ DIFFERENCE ,1150,470);
+
+            //3e row
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(300,600, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,HARD_LIGHT);
+            ellipse(350,600,100,100);
+            ellipse(400,600,100,100);
+            app.style.image(CORNER, BLEND);
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-HARD_LIGHT-HARD_LIGHT",350,530);
+            text("HARD_LIGHT : "+ HARD_LIGHT,350,670);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(500,600, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,SOFT_LIGHT);
+            ellipse(550,600,100,100);
+            ellipse(600,600,100,100);
+            app.style.image(CORNER, BLEND);
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-SOFT_LIGHT-SOFT_LIGHT",550,530);
+            text("SOFT_LIGHT : "+ SOFT_LIGHT,550,670);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(700,600, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,REPLACE);
+            ellipse(750,600,100,100);
+            ellipse(800,600,100,100);
+            app.style.reset();
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-REPLACE-REPLACE",750,530);
+            text("REPLACE : "+ REPLACE,750,670);
+
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
+            ellipse(900,600, 100, 100);
+            app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1,undefined,OVERLAY);
+            ellipse(950,600,100,100);
+            ellipse(1000,600,100,100);
+            app.style.reset();
+            app.style.text(12,CENTER,app.pal.colors[0]);
+            text("BLEND-OVERLAY-OVERLAY",950,530);
+            text("OVERLAY : "+ OVERLAY,950,670);
 
 
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 4:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test blendMode with colors form the app.pal.imgcolors on a white background.");
+            app.style.set(app.pal.colors[1],app.pal.colors[1],1);
+            rect(200,300,(app.pal.imgcolors.length * 100) + 40, 140);
+            //different colors in cols
+            //different blendings in rows
+            //on white
+            for(c = 0; c < app.pal.imgcolors.length; c++) {
+                for (i = 0; i < 14; i++) {
+                    app.style.set(app.pal.colors[0], app.pal.imgcolors[c], 1, undefined, app.style.getBlendMode(i));
+                    x = (i * 50) + 220;
+                    y = (c * 50) + 120;
+                    rect(x, y, 50, 50);
+
+
+                if (c == app.pal.imgcolors.length - 1) {
+                    app.style.text(10, CENTER, app.pal.colors[0]);
+                    text(app.style.getBlendMode(i), x + 25, y + 90);
+                }
+            }
+            }
+
+
+            app.info.add(this.name + " visible");
+            break;
+        }
+        case 5:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test blendMode with colors form the app.pal.imgcolors on a black background.");
+            app.style.set(app.pal.colors[1],app.pal.colors[1],1);
+            rect(200,300,(app.pal.imgcolors.length * 100) + 20, 140);
+            //different colors in cols
+            //different blendings in rows
+            //on black
+            app.style.set(app.pal.colors[1], app.pal.colors[0],1);
+            rect(210,110,800,(app.pal.imgcolors.length*50) +40);
+            for(c = 0; c < app.pal.imgcolors.length; c++) {
+                for (i = 0; i < 14; i++) {
+                    app.style.set(app.pal.colors[0], app.pal.imgcolors[c], 1, undefined, app.style.getBlendMode(i));
+                    x = (i * 50) + 220;
+                    y = (c * 50) + 120;
+                    rect(x, y, 50, 50);
+
+                    if (c == app.pal.imgcolors.length - 1) {
+                        app.style.text(10, CENTER, app.pal.colors[0]);
+                        text(app.style.getBlendMode(i), x + 25, y + 90);
+                    }
+                }
+            }
+
+
+            app.info.add(this.name + " visible");
+            break;
+        }
         default:
         {
             this.end();

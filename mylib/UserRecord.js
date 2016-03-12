@@ -10,10 +10,8 @@ function UserRecord(){
       //localStorage.removeItem("RSProjects");
       
       visiting = localStorage.getItem("RSProjects");
-      if( visiting == "undefined"){
-        visiting = "";
-      }
-      else{
+      if( visiting !== "undefined"){
+
         allvisited = visiting.split(",");
         
         for(v in allvisited) {

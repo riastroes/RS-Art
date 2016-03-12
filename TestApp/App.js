@@ -5,8 +5,6 @@
  */
 function App(){
 
-    //TODO DEFINE ENUMS
-    /// LIGHT, DARK
 
     pixelDensity(1);
     createCanvas(windowWidth, windowHeight);
@@ -21,7 +19,7 @@ function App(){
     this.isloaded = false;
 
     //styles and colors
-    this.pal = new Palette();
+    this.pal = new Palette(3);
     this.namedpalettes = [];
     this.namedpalettes[0]= new NamedPalette("standard");
     this.currentpalettename = "standard";

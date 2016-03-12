@@ -33,6 +33,13 @@ Palette.prototype.init = function(nr){
     this.add(6, color('#0f3761')); // dark blue
     this.add(7, color('#368026')); // frog green
    }
+    else if(this.nr == 3){
+      //MCCC palette march 2016
+      this.add(2, color('#FAEE5A'));
+      this.add(2, color('#E4FCF9'));
+      this.add(2, color('#ACE6F6'));
+      this.add(2, color('#4B89AC'));
+  }
   
 };
 

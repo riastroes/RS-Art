@@ -6,6 +6,7 @@ function Test() {
     this.testnr = -1;
     this.subject = "";
     this.firstscene = 0;
+    this.testgrid;
 
 
 }
@@ -29,6 +30,11 @@ Test.prototype.testrun = function (subject, scene) {
         case "Styles":
         {
             this.styles(this.testnr);
+            break;
+        }
+        case "Grid":
+        {
+            this.grid(this.testnr);
             break;
         }
     }
@@ -77,6 +83,17 @@ Test.prototype.palette = function (testnr) {
         }
         case 2:
         {
+            this.showDescription("Show colors in app.pal.colors.");
+            for(i = 0 ; i < app.pal.colors.length; i++){
+                app.style.set(app.pal.colors[0], app.pal.colors[i], 1);
+                x = 220 + (i * 50);
+                y = 120;
+                rect(x, y, 50,50);
+            }
+            break;
+        }
+        case 3:
+        {
             this.showDescription("Use colors from an image.");
 
             if (app.currentpalettename != "sand") {
@@ -96,8 +113,7 @@ Test.prototype.palette = function (testnr) {
             }
             break;
         }
-
-        case 3:
+        case 4:
         {
             this.showDescription("Use colors from an image.");
 
@@ -124,7 +140,7 @@ Test.prototype.palette = function (testnr) {
             }
             break;
         }
-        case 4:
+        case 5:
         {
             this.showDescription("Use colors from a mixed palette.");
 
@@ -151,7 +167,7 @@ Test.prototype.palette = function (testnr) {
             }
             break;
         }
-        case 5:
+        case 6:
         {
             this.showDescription("Test random colors from app.pal.colors");
 
@@ -162,7 +178,7 @@ Test.prototype.palette = function (testnr) {
             app.info.add(this.name + " visible");
             break;
         }
-        case 6:
+        case 7:
         {
             this.showDescription("Test random image colors");
 
@@ -173,7 +189,7 @@ Test.prototype.palette = function (testnr) {
             app.info.add(this.name + " visible");
             break;
         }
-        case 7:
+        case 8:
         {
             this.showDescription("Test random RGB colors");
 
@@ -184,7 +200,7 @@ Test.prototype.palette = function (testnr) {
             app.info.add(this.name + " visible");
             break;
         }
-        case 8:
+        case 9:
         {
             this.showDescription("Test random RGB colors in groups");
 
@@ -630,7 +646,52 @@ Test.prototype.styles = function (testnr) {
         }
     }
 };
-Test.prototype.showDescription = function (description) {
+Test.prototype.grid= function (testnr) {
+    //testing grid functions
+    var x, y, index;
+
+    this.name = "grid test " + testnr;
+
+    switch (testnr) {
+        case 0:
+        {
+            this.start();
+            break;
+        }
+        case 1:
+        {
+            this.showDescription("Use a testgrid 6 by 3.");
+            if(typeof(this.testgrid) == "undefined"){
+                this.testgrid = new Grid(6,3, 50,100);
+            }
+            else{
+                app.style.set(app.pal.colors[1], app.pal.colors[0], 2);
+                for(y = 0; y < this.testgrid.rows; y++){
+                    for(x = 0 ; x < this.testgrid.cols; x++){
+
+                        ellipse(this.testgrid.pos[x][y].x, this.testgrid.pos[x][y].y, 50, 50);
+                    }
+
+                }
+
+            }
+
+
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 2:
+        {
+        break;
+        }
+        default:{
+            this.end();
+        }
+    }
+}
+            Test.prototype.showDescription = function (description) {
     app.style.set(false, app.pal.colors[1], 0);
     rect(200, 0, width, 100);
     app.style.text(12, CENTER, app.pal.colors[0]);

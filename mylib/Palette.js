@@ -4,6 +4,7 @@ function Palette(){
   this.imgcolors = [];
   this.nr = 0;
   this.init(this.nr);
+
 }
 Palette.prototype.add = function(i, acolor){
   this.colors[i] = acolor;

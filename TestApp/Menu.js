@@ -10,8 +10,6 @@ function Menu(strmenu){
     this.menuheight = 50;
     this.selected = "";
 
-
-
 }
 
 Menu.prototype.draw = function(){

@@ -3,17 +3,24 @@
  */
 function Test(){
     this.name = "";
+    this.testnr = -1;
+    this.subject = "";
+    this.firstscene = 0;
 
 }
 Test.prototype.start = function(){
+    background(app.pal.colors[1]);
     app.style.text(16,CENTER,app.pal.colors[0]);
     text("START TESTRUN",width/2, height/2);
     app.style.text(12,CENTER,app.pal.colors[0]);
     text("Use the LEFT-ARROW and RIGHT-ARROW keys in this test run.",width/2, height/2 + 20);
 };
 Test.prototype.end = function(){
+    background(app.pal.colors[1]);
     app.style.text(16,CENTER,app.pal.colors[0]);
     text("END TESTRUN",width/2, height/2);
+    app.style.text(12,CENTER,app.pal.colors[0]);
+    text("Click on SPACEBAR to return to menu",width/2, height/2 + 20);
 };
 
 Test.prototype.palette = function(testnr){
@@ -24,9 +31,10 @@ Test.prototype.palette = function(testnr){
     switch (testnr) {
         case 0:
         {
-            //use a black and white palette
+            this.showDescription("Use black and white colors.");
+
             app.style.set(app.pal.colors[1], app.pal.colors[0], 2);
-            ellipse(random(width), random(height-50), 50,50);
+            ellipse(random(width),  random(100,height), 50,50);
 
             //testresult
             if(app.pal.colors.length == 2 && equals(app.pal.colors[0],app.pal.colors[1])) {
@@ -39,13 +47,15 @@ Test.prototype.palette = function(testnr){
         }
         case 1:
         {
+            this.showDescription("Use colors from an image.");
+
             if(app.currentpalettename != "sand"){
                 //load a palette from an image
                 app.imgPalette(app.images[0], 5, "sand");
             }
             //use colors from the image
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[3], 2);
-            rect(random(width), random(height-50), 50,50);
+            rect(random(width), random(100,height), 50,50);
 
             //testresult
             if(app.pal.imgcolors.length == 5 && equals(app.pal.imgcolors[0],app.pal.imgcolors[1])) {
@@ -59,6 +69,8 @@ Test.prototype.palette = function(testnr){
 
         case 2:
         {
+            this.showDescription("Use colors from an image.");
+
             if(app.currentpalettename != "water") {
                 //load a palette from an image
                 app.imgPalette(app.images[1], 5, "water");
@@ -84,6 +96,8 @@ Test.prototype.palette = function(testnr){
         }
         case 3:
         {
+            this.showDescription("Use colors from a mixed palette.");
+
             if(app.currentpalettename != "water,sand") {
                 //mix to palettes from two images
                 app.imgPalette(app.images[0], 5, "water");
@@ -95,7 +109,7 @@ Test.prototype.palette = function(testnr){
                     app.style.set(app.pal.colors[0], app.pal.imgcolors[index], 1);
                     x = int(index) * 100;
                     y = 100;
-                    rect(x + 300, y + 500, 100, 100);
+                    rect(x + 300, y + 300, 100, 100);
                 }
             }
             //testresult
@@ -109,12 +123,10 @@ Test.prototype.palette = function(testnr){
         }
         case 4:
         {
-            //test random color from palette
-            app.style.text(12,CENTER,app.pal.colors[0]);
-            text("Test random colors form palette", width/2, height-30);
+            this.showDescription("Test random colors from app.pal.colors");
 
             app.style.set(app.pal.colors[1], app.pal.randomColor(), 2);
-            ellipse(random(width), random(height-50), 50,50);
+            ellipse(random(width), random(100,height), 50,50);
 
             //testresult
             app.info.add(this.name + " visible");
@@ -122,12 +134,10 @@ Test.prototype.palette = function(testnr){
         }
         case 5:
         {
-            //test random color from palette
-            app.style.text(12,CENTER,app.pal.colors[0]);
-            text("Test random colors form imagepalette", width/2, height-30);
+            this.showDescription("Test random image colors");
 
             app.style.set(app.pal.colors[1], app.pal.randomImgColor(), 2);
-            ellipse(random(width), random(height-50), 50,50);
+            ellipse(random(width), random(100,height), 50,50);
 
             //testresult
             app.info.add(this.name + " visible");
@@ -135,12 +145,10 @@ Test.prototype.palette = function(testnr){
         }
         case 6:
         {
-            //test random color from palette
-            app.style.text(12,CENTER,app.pal.colors[0]);
-            text("Test random RGB colors", width/2, height-30);
+            this.showDescription("Test random RGB colors");
 
             app.style.set(app.pal.colors[1], app.pal.randomRGBColor(), 2);
-            ellipse(random(width), random(height-50), 50,50);
+            ellipse(random(width), random(100,height), 50,50);
 
             //testresult
             app.info.add(this.name + " visible");
@@ -148,16 +156,14 @@ Test.prototype.palette = function(testnr){
         }
         case 7:
         {
-            //test random color from palette
-            app.style.text(12,CENTER,app.pal.colors[0]);
-            text("Test random RGB colors", width/2, height-30);
+            this.showDescription("Test random RGB colors in groups");
 
             app.style.set(app.pal.colors[1], app.pal.randomRGBColor("DARK"), 2);
-            ellipse(random(width/3), random(height-50), 50,50);
+            ellipse(random(width/3), random(100,height), 50,50);
             app.style.set(app.pal.colors[0], app.pal.randomRGBColor("GRAY"), 2);
-            ellipse(random(width/3, width/3*2), random(height-50), 50,50);
+            ellipse(random(width/3, width/3*2), random(100,height), 50,50);
             app.style.set(app.pal.colors[1], app.pal.randomRGBColor("LIGHT"), 2);
-            ellipse(random(width/3*2, width), random(height-50), 50,50);
+            ellipse(random(width/3*2, width), random(100,height), 50,50);
 
             //testresult
             app.info.add(this.name + " visible");
@@ -171,10 +177,15 @@ Test.prototype.palette = function(testnr){
 
 };
 
-Test.prototype.testrun = function(subject){
-    if(subject == "palette") {
-
-        switch (app.proces.scene) {
+Test.prototype.testrun = function(subject, scene){
+    this.subject = subject;
+    if(this.testnr == -1){
+        this.firstscene = scene;
+        this.testnr = scene;
+    }
+    this.testnr = scene - this.firstscene;
+    if(this.subject == "Palette") {
+        switch (this.testnr) {
             case 0:
             {
                 this.start();
@@ -220,28 +231,34 @@ Test.prototype.testrun = function(subject){
                 this.palette(7);
                 break;
             }
-            default :
+            default:
             {
-                app.test.end();
+                this.end();
                 break;
             }
         }
     }
-    else if(this.subject == "styles") {
+    else if(this.subject == "Styles") {
 
-            //TODO TEST STYLES
-    }
-            //TEST STYLES
-        //case
-        //    9
-        //:
-        //    {
-        //        app.test.styles(0);
-        //        break;
-        //    }
+        switch (this.testnr) {
+            case 0:
+            {
+                this.start();
+                break;
+            }
+            case 1:
+            {
+                this.styles(0);
+                break;
+            }
+            default:
+            {
+                this.end();
+                break;
+            }
         }
-
-}
+    }
+};
 Test.prototype.styles = function(testnr){
     //testing style functions
     var x, y;
@@ -253,6 +270,7 @@ Test.prototype.styles = function(testnr){
         {
             strokecolor = color(40,80,220);
             fillcolor = color(190,80,40);
+            background(app.pal.colors[1]);
 
 
             //DEFAULT rectMode
@@ -312,4 +330,10 @@ Test.prototype.styles = function(testnr){
         }
     }
 };
-
+Test.prototype.showDescription = function(description){
+    app.style.set(false, app.pal.colors[1],0);
+    rect(200, 0, width, 100);
+    app.style.text(12,CENTER,app.pal.colors[0]);
+    text(this.name, width/2,30);
+    text(description, width/2,50);
+};

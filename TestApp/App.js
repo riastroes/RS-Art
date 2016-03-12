@@ -3,7 +3,7 @@
  * App is the main object to store the global variables
  * en general settings for the project(s)
  */
-function App(ascene, lastscene){
+function App(){
 
     //TODO DEFINE ENUMS
     /// LIGHT, DARK
@@ -30,8 +30,8 @@ function App(ascene, lastscene){
     this.style = new Style();
 
     //workflow
-    this.menu = new Menu();
-    this.proces = new Proces(ascene, lastscene);
+    //TODO get rid of these parameters
+    this.proces = new Proces(0,30);
     this.test = new Test();
     this.info = new Info();
 
@@ -67,8 +67,8 @@ App.prototype.imgPalette = function(img, count, name, more){
         }
         var last =  this.namedpalettes.length -1;
         this.namedpalettes[last].pal.fromImage(img, count);
-        for(i = 0 ; i <this.namedpalettes[index].pal.imgcolors.length; i++ ){
-            append(this.pal.imgcolors, this.namedpalettes[index].pal.imgcolors[i]);
+        for(i = 0 ; i <this.namedpalettes[last].pal.imgcolors.length; i++ ){
+            append(this.pal.imgcolors, this.namedpalettes[last].pal.imgcolors[i]);
         }
     }
 
@@ -102,7 +102,7 @@ App.prototype.loadResources = function(strimages, strsounds, path){
     else if(typeof(strsounds) !== "undefined"){
         // array
         this.maxsounds = strsounds.length;
-        for(var s = 0; s < this.maxsounds; s++){
+        for(s = 0; s < this.maxsounds; s++){
             soundnames[s] = strsounds[s];
         }
     }

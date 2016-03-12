@@ -37,6 +37,11 @@ Test.prototype.testrun = function (subject, scene) {
             this.grid(this.testnr);
             break;
         }
+        case "Stopwatch":
+        {
+            this.stopwatch(this.testnr);
+            break;
+        }
     }
 };
 Test.prototype.start = function () {
@@ -690,7 +695,68 @@ Test.prototype.grid= function (testnr) {
             this.end();
         }
     }
-}
+};
+Test.prototype.stopwatch= function (testnr) {
+    //testing stopwatch functions
+    var x, y, index;
+
+    this.name = "stopwatch test " + testnr;
+
+    switch (testnr) {
+        case 0:
+        {
+            this.start();
+            break;
+        }
+        case 1:
+        {
+            if(mouseIsPressed && dist(350,175, mouseX, mouseY)<75) {
+                app.style.set(app.pal.colors[2], app.pal.colors[5], 2, CENTER);
+                rect(350,175,150,150);
+
+            }
+            else{
+                app.style.set(app.pal.colors[1], app.pal.colors[0], 2, CENTER);
+                rect(350.175,150,150);
+            }
+            if(mouseIsPressed && dist(600,175, mouseX, mouseY)<75) {
+                app.style.set(app.pal.colors[2], app.pal.colors[5], 2, CENTER);
+                rect(600,175,150,150);
+            }
+            else{
+            app.style.set(app.pal.colors[1], app.pal.colors[0], 2, CENTER);
+            rect(600,175,150,150);
+        }
+            if(mouseIsPressed && dist(850,175, mouseX, mouseY)<75) {
+                app.style.set(app.pal.colors[2], app.pal.colors[5], 2, CENTER);
+                rect(850.175,150,150);
+            }
+            else{
+                app.style.set(app.pal.colors[1], app.pal.colors[0], 2, CENTER);
+                rect(850.175,150,150);
+            }
+
+
+            app.style.text(14, CENTER, app.pal.colors[1]);
+            text("START",350,175);
+            text("CHECK",600,175);
+            text("STOP",850,175);
+
+
+
+
+
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+
+        default:{
+            this.end();
+        }
+    }
+};
             Test.prototype.showDescription = function (description) {
     app.style.set(false, app.pal.colors[1], 0);
     rect(200, 0, width, 100);

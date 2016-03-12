@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="792a3738-56d4-4810-8cdf-e9af6c96bc6c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestApp/Menu.js" afterPath="$PROJECT_DIR$/TestApp/Menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestApp/Proces.js" afterPath="$PROJECT_DIR$/TestApp/Proces.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestApp/Test.js" afterPath="$PROJECT_DIR$/TestApp/Test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Grid.js" afterPath="$PROJECT_DIR$/mylib/Grid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Palette.js" afterPath="$PROJECT_DIR$/mylib/Palette.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Styles.js" afterPath="$PROJECT_DIR$/mylib/Styles.js" />
     </list>
     <ignored path="RS-Art.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -395,7 +389,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457783200965</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="More palette test and the color array and imgcolor array are moved to the palette class. So the app always needs a palette.">
+      <created>1457790401156</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1457790401156</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">

@@ -2,15 +2,18 @@
  * Created by Ria Stroes on 9-3-2016.
  */
 function Info(){
+    this.pg = createGraphics(200, height);
     this.leftmarge = 10;
     this.topmarge = 20;
     this.liney = this.topmarge;
     this.lineheight = 20;
     this.log = [];
+
+
 }
+
 Info.prototype.show = function(){
-    app.style.set(app.colors[0], app.pal.tint(app.colors[0], 1), 1);
-    rect(0, 0, 200, 200);
+    this.pg.background(app.pal.colors[1]);
 
     if (frameCount % 100 == 0) {
         app.totframerate = frameRate();  // reset
@@ -22,17 +25,21 @@ Info.prototype.show = function(){
         app.gemframerate = app.totframerate / 100;
 
     }
+    app.style.pg(this.pg, false,app.pal.colors[0] ,1);
 
-    app.style.text(12, LEFT, app.colors[1]);
-    text("frameRate: " + int(frameRate()), this.leftmarge, this.liney);
-    text("gem. frameRate: " + int(app.gemframerate), this.leftmarge, this.liney += this.lineheight);
+    this.pg.text("frameRate: " + int(frameRate()), this.leftmarge, this.liney);
+    this.pg.text("gem. frameRate: " + int(app.gemframerate), this.leftmarge, this.liney += this.lineheight);
 
     for(var index in this.log){
-        text(this.log[index], this.leftmarge, this.liney += this.lineheight);
+        if (this.log.hasOwnProperty(index)) {
+            this.pg.text(this.log[index], this.leftmarge, this.liney += this.lineheight);
+        }
     }
     this.log =[];
     this.liney = this.topmarge;
+    app.style.image(CORNER, BLEND);
+    image(this.pg, 0,0);
 };
 Info.prototype.add = function (msg){
     append(this.log, msg);
-}
+};

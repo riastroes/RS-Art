@@ -3,6 +3,7 @@ function Proces(ascene, lastscene){
     this.scene = ascene;
     this.lastscene = lastscene;
     this.isrunning = false;
+
 }
 Proces.prototype.init = function(){
     //initialize the work proces
@@ -28,7 +29,7 @@ Proces.prototype.nextScene = function(bgcolor){
     if(app.is(bgcolor)) {
         background(bgcolor);
     }
-}
+};
 Proces.prototype.previousScene = function(bgcolor){
     if (this.scene > 0) {
         this.scene = (this.scene - 1) % (this.lastscene + 1);
@@ -36,7 +37,7 @@ Proces.prototype.previousScene = function(bgcolor){
     if(app.is(bgcolor)) {
         background(bgcolor);
     }
-}
+};
 
 /*
 

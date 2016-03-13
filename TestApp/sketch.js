@@ -2,44 +2,31 @@ var app;
 
 function setup() {
 
+    app = new App();
+    app.loadResources("watercolors.jpg,sandcolors.jpg");
 
-    app = new App(0,3);
-    app.loadResources("sandcolors.jpg,watercolors.jpg");
 
 }
 
 function draw() {
     if(app.isloaded) {
-        switch(app.proces.scene){
-            case 0:{
-                app.test.start();
-                break;
-            }
-            case 1:{
-                app.test.palette(0);
-               break;
-            }
-            case 2:{
-                app.test.palette(1);
-                 break;
-            }
-            case 3:{
-                app.test.palette(2);
-                break;
-            }
-            case 4:{
-                app.test.palette(3);
-                break;
-            }
-            case 5 :{
-                app.test.styles(0);
-                break;
-            }
-            default :{
-                app.test.end();
-                break;
-            }
+
+        if(app.currentpalettename != "menu") {
+            app.imgPalette(app.images[0], 8, "menu");
         }
+        if(typeof(app.menu) =="undefined"){
+            app.menu = new Menu("Palette,Styles,Grid,Stopwatch");
+        }
+        else if(app.menu.selected == ""){
+            app.menu.draw();
+            app.menu.isclicked();
+
+        }
+        else{
+            app.test.testrun(app.menu.selected, app.proces.scene);
+        }
+
+
         app.info.show();
     }
     else{
@@ -58,11 +45,15 @@ function keyPressed() {
         }
     }
     if (keyCode == RIGHT_ARROW) {
-        app.proces.nextScene(app.colors[1]);
+        app.proces.nextScene(app.pal.colors[1]);
 
     }
     if (keyCode == LEFT_ARROW) {
-        app.proces.previousScene(app.colors[1]);
+        app.proces.previousScene(app.pal.colors[1]);
+
+    }
+    if (key  == " ") {
+        app.menu.selected ="";
 
     }
 }

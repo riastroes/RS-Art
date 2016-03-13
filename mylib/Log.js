@@ -1,4 +1,4 @@
-function iLog(){
+function Log(){
   this.showstatus = false;
   this.minframerate = 60;
   this.maxframerate = 0;
@@ -8,7 +8,7 @@ function iLog(){
   this.duration = "";
   this.msg = "";
 }
-iLog.prototype.update = function(){
+Log.prototype.update = function(){
   var fr = int(frameRate());
   this.totcount += 1;
   this.totframerate += fr;
@@ -25,7 +25,7 @@ iLog.prototype.update = function(){
   }
   
 };
-iLog.prototype.reset = function(){
+Log.prototype.reset = function(){
   
   this.minframerate = 60;
   this.maxframerate = 0;
@@ -34,7 +34,7 @@ iLog.prototype.reset = function(){
   this.totcount = 0;
   this.msg = "";
 };
-iLog.prototype.show = function(){
+Log.prototype.show = function(){
   
     style.set(false, pal.tint(pal.colors[0],20),1);
     rect(0,0,225,height);

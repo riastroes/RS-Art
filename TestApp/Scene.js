@@ -1,7 +1,7 @@
 function Scene(nr, duration, strimages, strsounds, path){
     this.nr = nr;
     this.isrunning = false;
-    this.duration = duration // in frameCounts
+    this.duration = duration; // in frameCounts
     //resources
     this.strimages = strimages;
     this.strsounds = strsounds;

@@ -1,4 +1,4 @@
-# RS- Art
+# RS-Art
 Creative Coding in P5
 
 this library is not ready ...

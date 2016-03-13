@@ -24,7 +24,7 @@ Agent.prototype.search = function(searchcolor){
   if(step.x < 0 ){step.x = 0;}
   if(step.y < 0 ){step.y = 0;}
   if(step.x > this.img.width ){step.x = this.img.width;}
-  if(step.y > this.img.height ){step.x = this.img.height;}
+  if(step.y > this.img.height ){step.y = this.img.height;}
   this.pos = step.copy();
   var found = this.findColor(this.img, searchcolor);
   if(found){
@@ -41,7 +41,7 @@ Agent.prototype.move2 = function(){
   if(step.x < 0 ){step.x = 0;}
   if(step.y < 0 ){step.y = 0;}
   if(step.x > width ){step.x = width;}
-  if(step.y > height ){step.x = height;}
+  if(step.y > height ){step.y = height;}
   this.pos = step.copy();
 };
 
@@ -56,8 +56,8 @@ Agent.prototype.findColor = function(img, acolor){
     
   }
   return found;
-}
+};
 Agent.prototype.pgShow = function(pg){
   pg.ellipse(this.pos.x, this.pos.y, 10,10);
-}
+};
   

@@ -1,4 +1,7 @@
 function UserRecord(){
+  var visiting;
+  var allvisited;
+  var v;
   this.visited = [];
   
   if(typeof(Storage) !== "undefined"){
@@ -6,16 +9,16 @@ function UserRecord(){
       
       //localStorage.removeItem("RSProjects");
       
-      var visiting = localStorage.getItem("RSProjects");
-      if( visiting == null){
-        visiting = "";
-      }
-      else{
-        var allvisited = visiting.split(",");
+      visiting = localStorage.getItem("RSProjects");
+      if( visiting !== "undefined"){
+
+        allvisited = visiting.split(",");
         
-        for(var v in allvisited){
-          if(!contains(this.visited, allvisited[v])){
-            append( this.visited, int(allvisited[v]));
+        for(v in allvisited) {
+          if (allvisited.hasOwnProperty(v)) {
+            if (!contains(this.visited, allvisited[v])) {
+              append(this.visited, int(allvisited[v]));
+            }
           }
         }
       }
@@ -65,11 +68,11 @@ UserRecord.prototype.show = function(){
   }
   println(localStorage.getItem("RSProjects"));
 
-}
+};
 UserRecord.prototype.visit = function(nr){
   if(!contains(this.visited, nr)){
     append(this.visited, nr);
     localStorage.setItem("RSProjects", this.visited);
   }
  
-}
+};

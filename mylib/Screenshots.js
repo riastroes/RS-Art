@@ -14,7 +14,7 @@ function Shot(nr){
   this.nr = nr;
   this.img = createImage(width,height);
   
-};
+}
 Shot.prototype.click = function(){
   loadPixels();
   this.img.loadPixels();

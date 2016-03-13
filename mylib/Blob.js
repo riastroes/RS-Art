@@ -3,10 +3,10 @@ function Blob(){
   this.strokecolor = color(0);
   this.fillcolor = color(255);
   this.thickness = 1;
-  this.center;
-  this.corners;
-  this.size;
-};
+  this.center = undefined;
+  this.corners = 0;
+  this.size = 0;
+}
 
 Blob.prototype.style = function(strokecolor, fillcolor, thickness){
   if (strokecolor != undefined){
@@ -46,7 +46,7 @@ Blob.prototype.create = function(center, corners, cellwidth, cellheight){
   append(this.pos, this.pos[1]);
   append(this.pos, this.pos[2]);
   append(this.pos, this.pos[3]);
-}
+};
 
 Blob.prototype.draw = function(){
   
@@ -56,7 +56,7 @@ Blob.prototype.draw = function(){
     }
   endShape();
   
-}
+};
 
 
 

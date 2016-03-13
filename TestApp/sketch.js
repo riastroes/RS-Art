@@ -3,7 +3,7 @@ var app;
 function setup() {
 
     app = new App();
-    app.loadResources("sandcolors.jpg,watercolors.jpg");
+    app.loadResources("watercolors.jpg,sandcolors.jpg");
 
 
 }

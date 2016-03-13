@@ -1,8 +1,8 @@
-function Palette(){
+function Palette(nr){
  
   this.colors =[];
   this.imgcolors = [];
-  this.nr = 0;
+  this.nr = nr;
   this.init(this.nr);
 
 }
@@ -12,12 +12,12 @@ Palette.prototype.add = function(i, acolor){
 
 Palette.prototype.init = function(nr){
   this.nr = nr;
-  if(this.nr == 0) {
+
     //these colors are always available
     this.add(0, color('#000000')); // black
     this.add(1, color('#ffffff')); // white
-  }
-  else if(this.nr == 1){
+
+  if(this.nr == 1){
     this.add(2, color('#ff6666')); //red
     this.add(3, color('#002266'));  //blue
     this.add(4, color('#888888')); // gray
@@ -33,6 +33,13 @@ Palette.prototype.init = function(nr){
     this.add(6, color('#0f3761')); // dark blue
     this.add(7, color('#368026')); // frog green
    }
+    else if(this.nr == 3){
+      //MCCC palette march 2016
+      this.add(2, color('#FAEE5A'));
+      this.add(3, color('#E4FCF9'));
+      this.add(4, color('#ACE6F6'));
+      this.add(5, color('#4B89AC'));
+  }
   
 };
 

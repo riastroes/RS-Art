@@ -25,7 +25,7 @@ Button.prototype.draw = function(){
 
 
 };
-Button.prototype.isclicked = function(){
+Button.prototype.isClicked = function(){
     if(mouseIsPressed && (abs(mouseX - this.pos.x) < this.width/2) && (abs(mouseY - this.pos.y) < this.height/2)){
         mouseIsPressed = false;
         if(typeof(this.fun) !== "undefined"){

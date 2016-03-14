@@ -8,6 +8,7 @@ function Test() {
     this.firstscene = 0;
     this.testgrid = undefined;
     this.stopwatch  = undefined;
+    this.bgcolor  = undefined;
 
 
 }
@@ -632,12 +633,12 @@ Test.prototype.stylestest = function (testnr) {
             //different blendings in rows
             //on black
             app.style.set(app.pal.colors[1], app.pal.colors[0], 1);
-            rect(250, 200,(14* 80 )+40, (app.pal.imgcolors.length *80) + 40);
+            rect(250, 150,(14* 80 )+40, (app.pal.imgcolors.length *80) + 40);
             for (c = 0; c < app.pal.imgcolors.length; c++) {
                 for (i = 0; i < 14; i++) {
                     app.style.set(app.pal.colors[0], app.pal.imgcolors[c], 1, undefined, app.style.getBlendMode(i));
                     x = (i * 80) + 270;
-                    y = (c * 80) + 120;
+                    y = (c * 80) + 170;
                     rect(x, y, 80, 80);
 
                     if (c == app.pal.imgcolors.length - 1) {
@@ -653,8 +654,16 @@ Test.prototype.stylestest = function (testnr) {
         {
             background(app.pal.colors[1]);
             this.showDescription("Test blendMode with colors form the app.pal.imgcolors on a colored background.");
-            app.style.set(app.pal.colors[1], app.pal.imgcolors[0], 1, CORNER);
-            rect(250, 100,(14* 80 )+40, (app.pal.imgcolors.length * 80) + 40);
+            if(typeof(this.button) == "undefined"){
+                this.button = new Button("Change BG Color",createVector(400,100), 200, 50, app.pal.colors[0],app.pal.imgcolors[0],10, app.test.changeColor);
+            }
+            this.button.isClicked();
+            this.button.draw();
+            if(typeof(this.bgcolor) == "undefined"){
+                this.changeColor();
+            }
+            app.style.set(app.pal.colors[1], this.bgcolor, 1, CORNER);
+            rect(250, 150,(14* 80 )+40, (app.pal.imgcolors.length * 80) + 40);
             //different colors in cols
             //different blendings in rows
             //on white
@@ -662,7 +671,7 @@ Test.prototype.stylestest = function (testnr) {
                 for (bm = 0; bm < 14; bm++) {
                     app.style.set(app.pal.colors[0], app.pal.imgcolors[c], 1, undefined, app.style.getBlendMode(bm));
                     x = (bm * 80) + 270;
-                    y = (c * 80) + 120;
+                    y = (c * 80) + 170;
                     rect(x, y, 80, 80);
 
 
@@ -778,8 +787,8 @@ Test.prototype.buttontest = function (testnr) {
                 pos.x += this.button.width;
                 this.button2 = new Button("BUTTON", pos, 150, 50, app.pal.colors[0], app.pal.imgcolors[0], 10, app.test.clickTestButton2);
             }
-            this.button.isclicked();
-            this.button2.isclicked();
+            this.button.isClicked();
+            this.button2.isClicked();
             this.button.draw();
             this.button2.draw();
 
@@ -796,13 +805,20 @@ Test.prototype.buttontest = function (testnr) {
     }
 };
 Test.prototype.clickTestButton1 = function () {
+    //call back function, do not use this
     app.style.set(app.pal.imgcolors[3], app.pal.imgcolors[4], 1);
     ellipse(random(250, width - 50), random(150, height - 50), 100, 100);
 
 };
 Test.prototype.clickTestButton2 = function () {
+    //call back function, do not use this
     app.style.set(app.pal.imgcolors[3], app.pal.imgcolors[4], 1);
     rect(random(250, width - 50), random(150, height - 50), 100, 100);
+
+};
+Test.prototype.changeColor = function(){
+    //call back function, do not use this
+  app.test.bgcolor = app.pal.imgcolors[app.randomInt(0,app.pal.imgcolors.length)] ;
 
 };
 Test.prototype.stopwatchtest = function (testnr) {

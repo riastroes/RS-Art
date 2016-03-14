@@ -41,7 +41,7 @@ Menu.prototype.isclicked = function () {
     if (mouseIsPressed) {
         for (index in this.buttons) {
             if (this.buttons.hasOwnProperty(index)) {
-                if(this.buttons[index].isclicked()){
+                if(this.buttons[index].isClicked()){
                     this.selected = this.buttons[index].text;
                     return true;
                 }

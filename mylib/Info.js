@@ -3,7 +3,7 @@
  */
 function Info(){
     this.pg = createGraphics(200, height);
-    this.leftmarge = 10;
+    this.leftmarge = 20;
     this.topmarge = 20;
     this.liney = this.topmarge;
     this.lineheight = 20;

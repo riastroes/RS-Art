@@ -7,7 +7,7 @@ function App(){
 
 
     pixelDensity(1);
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(displayWidth, displayHeight);
 
     //resources
     this.resourcepath = "resources"; //default resource map

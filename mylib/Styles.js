@@ -47,23 +47,46 @@ Style.prototype.set = function (strokecolor, fillcolor, strokeweight, rectmode, 
         blendMode(blendmode);
     }
 };
-Style.prototype.pg = function (pg, strokecolor, fillcolor, strokeweight) {
-    this.set(strokecolor, fillcolor, strokeweight);
+Style.prototype.pg = function (pg, strokecolor, fillcolor, strokeweight, rectmode, imagemode, blendmode) {
+
     if (strokecolor == "" || strokecolor == null || strokecolor == false) {
         pg.noStroke();
     }
     else {
         pg.stroke(strokecolor);
     }
-    if (fillcolor == "" || fillcolor == null || fillcolor == false) {
+    if (fillcolor == "" || fillcolor == null || fillcolor == false ||typeof(fillcolor) == "undefined" ) {
         pg.noFill();
     }
     else {
         pg.fill(fillcolor);
     }
+    if(typeof(strokeweight) == "undefined"){
+        pg.strokeweight = 1;
+    }
+    else{
+        pg.strokeweight = strokeweight;
+    }
     pg.strokeWeight(strokeweight);
-    pg.rectMode(CORNER);
-    pg.imageMode(CORNER);
+    if(typeof(rectmode) == "undefined"){
+        pg.rectMode(CORNER);
+    }
+    else{
+        pg.rectMode = rectmode;
+    }
+    if(typeof(imagemode) == "undefined"){
+        pg.imageMode(CORNER);
+    }
+    else{
+        pg.imageMode = imagemode;
+    }
+    if(typeof(blendmode) == "undefined"){
+        pg.blendMode(BLEND);
+    }
+    else{
+        pg.blendMode = blendmode;
+    }
+
 };
 
 Style.prototype.getBlendMode = function (i) {
@@ -107,19 +130,19 @@ Style.prototype.getBlendMode = function (i) {
         }
         case 10:
         {
-            return HARD_LIGHT;
+            return DODGE;
         }
         case 11:
         {
-            return SOFT_LIGHT;
+            return BURN;
         }
         case 12:
         {
-            return DODGE;
+            return HARD_LIGHT;
         }
         case 13:
         {
-            return BURN;
+            return SOFT_LIGHT;
         }
         default:
         {

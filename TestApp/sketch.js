@@ -15,11 +15,13 @@ function draw() {
             app.imgPalette(app.images[0], 8, "menu");
         }
         if(typeof(app.menu) =="undefined"){
-            app.menu = new Menu("Palette,Styles,Grid,Stopwatch");
+            app.menu = new Menu("Palette,Styles,Grid,Button,Stopwatch");
+
         }
         else if(app.menu.selected == ""){
             app.menu.draw();
             app.menu.isclicked();
+
 
         }
         else{

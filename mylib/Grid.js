@@ -1,17 +1,36 @@
-function Grid(cols, rows, wmarge, hmarge){
+function Grid(cols, rows, lmarge, tmarge, rmarge, bmarge){
   this.cols = cols;
   this.rows = rows;
   this.maxi = this.cols * this.rows;
   this.pos = []; //the center positions of the grid;
-  this.cellwidth = (width - wmarge) / cols;
-  this.cellheight = (height - hmarge)/ rows;
+
+  if(typeof(rmarge) == "undefined"){
+    this.rmarge = lmarge/2;
+    this.lmarge = lmarge/2;
+  }
+  else{
+    this.rmarge = rmarge;
+    this.lmarge = lmarge;
+  }
+
+  if(typeof(bmarge) == "undefined"){
+    this.bmarge = tmarge/2;
+    this.tmarge = tmarge/2;
+  }
+  else{
+    this.bmarge = bmarge;
+    this.tmarge = tmarge;
+  }
+
+  this.cellwidth = (width -  (this.lmarge + this.rmarge))/ cols;
+  this.cellheight = (height - (this.tmarge + this.bmarge))/ rows;
   
   
   for (var x = 0; x < this.cols; x++) {
     this.pos[x] = []; // create nested array
     for (var y = 0; y < this.rows; y++) {
-      var vx = (wmarge/2) + (this.cellwidth * x) + (this.cellwidth/2);
-      var vy = (hmarge/2) + (this.cellheight * y) + (this.cellheight/2);
+      var vx = (this.lmarge) + (this.cellwidth * x) + (this.cellwidth/2);
+      var vy = (this.tmarge) + (this.cellheight * y) + (this.cellheight/2);
       this.pos[x][y] = createVector(vx, vy);
     }
   }

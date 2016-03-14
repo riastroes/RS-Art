@@ -4,7 +4,7 @@
 function Menu(strmenu){
     this.strmenu = strmenu;
     this.menu = this.strmenu.split(",");
-    this.grid = new Grid(2,this.menu.length/2, width -(400 + 50), height-(100 +50));
+    this.grid = new Grid(2,int(this.menu.length/2),width-(450+200),150,undefined,400);
 
     this.menuwidth = 200;
     this.menuheight = 50;
@@ -18,11 +18,16 @@ Menu.prototype.draw = function(){
 
     for(y = 0; y < this.grid.rows; y++){
 
-        for(x = 0; x < this.grid.cols; x++){
+        for(x = 0; x < this.grid.cols; x++) {
             i++;
             app.style.set(app.pal.colors[0], app.pal.imgcolors[0], 1, CENTER);
             rect(this.grid.pos[x][y].x, this.grid.pos[x][y].y, this.menuwidth, this.menuheight);
-            app.style.text(16,CENTER,app.pal.colors[0]);
+            if ((red(app.pal.imgcolors[0]) + green(app.pal.imgcolors[0]) + blue(app.pal.imgcolors[0])) < 300){
+                app.style.text(16,CENTER,app.pal.colors[1]);
+             }
+            else {
+                app.style.text(16,CENTER,app.pal.colors[0]);
+            }
             text(this.menu[i],this.grid.pos[x][y].x, this.grid.pos[x][y].y+5);
             app.style.reset();
         }

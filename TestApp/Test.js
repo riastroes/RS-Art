@@ -7,6 +7,7 @@ function Test() {
     this.subject = "";
     this.firstscene = 0;
     this.testgrid;
+    this.stopwatch;
 
 
 }
@@ -24,22 +25,22 @@ Test.prototype.testrun = function (subject, scene) {
     switch (this.subject) {
         case "Palette":
         {
-            this.palette(this.testnr);
+            this.palettetest(this.testnr);
             break;
         }
         case "Styles":
         {
-            this.styles(this.testnr);
+            this.stylestest(this.testnr);
             break;
         }
         case "Grid":
         {
-            this.grid(this.testnr);
+            this.gridtest(this.testnr);
             break;
         }
         case "Stopwatch":
         {
-            this.stopwatch(this.testnr);
+            this.stopwatchtest(this.testnr);
             break;
         }
     }
@@ -59,7 +60,7 @@ Test.prototype.end = function () {
     text("Click on SPACEBAR to return to menu", width / 2, height / 2 + 20);
 };
 
-Test.prototype.palette = function (testnr) {
+Test.prototype.palettetest = function (testnr) {
     //testing palette functions
     var x, y, index;
     this.name = "palette test " + testnr;
@@ -227,7 +228,7 @@ Test.prototype.palette = function (testnr) {
     }
 
 };
-Test.prototype.styles = function (testnr) {
+Test.prototype.stylestest = function (testnr) {
     //testing style functions
     var x, y, i, c;
     var strokecolor, fillcolor;
@@ -651,7 +652,7 @@ Test.prototype.styles = function (testnr) {
         }
     }
 };
-Test.prototype.grid= function (testnr) {
+Test.prototype.gridtest= function (testnr) {
     //testing grid functions
     var x, y, index;
 
@@ -667,7 +668,8 @@ Test.prototype.grid= function (testnr) {
         {
             this.showDescription("Use a testgrid 6 by 3.");
             if(typeof(this.testgrid) == "undefined"){
-                this.testgrid = new Grid(6,3, 50,100);
+                this.testgrid = new Grid(6,3, 225,125,25, height - 300);
+
             }
             else{
                 app.style.set(app.pal.colors[1], app.pal.colors[0], 2);
@@ -683,7 +685,12 @@ Test.prototype.grid= function (testnr) {
 
 
             //testresult
-            app.info.add(this.name + " visible");
+            app.info.add(this.name);
+            app.info.add("left margin:" +this.testgrid.lmarge);
+            app.info.add("right margin:" +this.testgrid.rmarge);
+            app.info.add("top margin:" +this.testgrid.tmarge);
+            app.info.add("bottom margin:" +this.testgrid.bmarge);
+
 
             break;
         }
@@ -696,8 +703,10 @@ Test.prototype.grid= function (testnr) {
         }
     }
 };
-Test.prototype.stopwatch= function (testnr) {
+Test.prototype.stopwatchtest= function (testnr) {
     //testing stopwatch functions
+
+    //TODO start stop isn't working yet
     var x, y, index;
 
     this.name = "stopwatch test " + testnr;
@@ -710,30 +719,65 @@ Test.prototype.stopwatch= function (testnr) {
         }
         case 1:
         {
-            if(mouseIsPressed && dist(350,175, mouseX, mouseY)<75) {
+            background(app.pal.colors[1]);
+            if(typeof(this.stopwatch) =="undefined"){
+                this.stopwatch = new Stopwatch();
+            }
+
+            if((mouseIsPressed && dist(350,175, mouseX, mouseY)<75) || this.stopwatch.status =="STARTED") {
                 app.style.set(app.pal.colors[2], app.pal.colors[5], 2, CENTER);
-                rect(350,175,150,150);
+                rect(350, 175, 150, 150);
+                if (this.stopwatch.status !== "STARTED") {
+                    this.stopwatch.start(10);
+
+                }
+                app.style.text(12, CENTER, app.pal.colors[0]);
+                text(this.stopwatch.starttime, 350, 280);
+                text((this.stopwatch.stoptime -this.stopwatch.starttime ),550, 280);
+                text((this.stopwatch.stoptime), 850, 280);
 
             }
             else{
                 app.style.set(app.pal.colors[1], app.pal.colors[0], 2, CENTER);
-                rect(350.175,150,150);
+                rect(350,175,150,150);
+                if (this.stopwatch.status !== "STARTED") {
+                    app.style.text(12, CENTER, app.pal.colors[0]);
+                    text(this.stopwatch.starttime, 350, 280 );
+                }
             }
             if(mouseIsPressed && dist(600,175, mouseX, mouseY)<75) {
                 app.style.set(app.pal.colors[2], app.pal.colors[5], 2, CENTER);
                 rect(600,175,150,150);
-            }
-            else{
-            app.style.set(app.pal.colors[1], app.pal.colors[0], 2, CENTER);
-            rect(600,175,150,150);
-        }
-            if(mouseIsPressed && dist(850,175, mouseX, mouseY)<75) {
-                app.style.set(app.pal.colors[2], app.pal.colors[5], 2, CENTER);
-                rect(850.175,150,150);
+                this.stopwatch.checktime();
+                app.style.text(12, CENTER, app.pal.colors[0]);
+                text(this.stopwatch.now, 600, 280 );
+
+
             }
             else{
                 app.style.set(app.pal.colors[1], app.pal.colors[0], 2, CENTER);
-                rect(850.175,150,150);
+                rect(600,175,150,150);
+                if( this.stopwatch.status =="STARTED") {
+                    this.stopwatch.checktime();
+                }
+            }
+            if((mouseIsPressed && dist(850,175, mouseX, mouseY)<75) && this.stopwatch.status =="STARTED") {
+                app.style.set(app.pal.colors[2], app.pal.colors[5], 2, CENTER);
+                rect(850,175,150,150);
+                this.stopwatch.stop();
+                app.style.text(12, CENTER, app.pal.colors[0]);
+                text(this.stopwatch.stoptime, 850, 280 );
+            }
+            else if(this.stopwatch.status =="STOPPED") {
+                app.style.set(app.pal.colors[0], app.pal.colors[4], 2, CENTER);
+                rect(850,175,150,150);
+                app.style.text(12, CENTER, app.pal.colors[0]);
+                text(this.stopwatch.stoptime, 850, 280);
+
+            }
+            else{
+                app.style.set(app.pal.colors[1], app.pal.colors[0], 2, CENTER);
+                rect(850,175,150,150);
             }
 
 

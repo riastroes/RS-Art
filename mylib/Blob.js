@@ -28,7 +28,7 @@ Blob.prototype.style = function(strokecolor, fillcolor, thickness){
   }
   
 };
-Blob.prototype.create = function(center, corners, cellwidth, cellheight){
+Blob.prototype.create = function(center, corners, width, height){
   this.pos = [];
   this.center = center.copy();
   this.corners = corners;
@@ -37,8 +37,8 @@ Blob.prototype.create = function(center, corners, cellwidth, cellheight){
   var p;
   var r = random(TWO_PI/corners);
   for (var i = 0; i < corners; i += 1) {
-    var wradius = random( 0, cellwidth/2);
-    var hradius = random( 0, cellheight/2);
+    var wradius = random( 0, width/2);
+    var hradius = random( 0, height/2);
     p = posOnEllipse(center,wradius, hradius, corners, i + r);
     append(this.pos, p);
   }
@@ -48,13 +48,21 @@ Blob.prototype.create = function(center, corners, cellwidth, cellheight){
   append(this.pos, this.pos[3]);
 };
 
-Blob.prototype.draw = function(){
-  
-  beginShape();
+Blob.prototype.draw = function(pg){
+  if(typeof(pg) == "undefined"){
+    beginShape();
     for (var i = 0; i < this.pos.length - 1; i += 1) {
       curveVertex(this.pos[i].x, this.pos[i].y);
     }
-  endShape();
+   endShape();
+  }
+  else {
+    pg.beginShape();
+    for (var i = 0; i < this.pos.length - 1; i += 1) {
+      pg.curveVertex(this.pos[i].x, this.pos[i].y);
+    }
+    pg.endShape();
+  }
   
 };
 

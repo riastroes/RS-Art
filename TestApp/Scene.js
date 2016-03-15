@@ -9,7 +9,7 @@ function Scene(nr, duration, strimages, strsounds, path){
         this.resourcepath = path;
     }
     else{
-        this.resourcepath = "resources";   //default resource map
+        this.resourcepath = "../resources";   //default resource map
     }
     this.images = [];
     this.sounds = [];
@@ -26,6 +26,7 @@ Scene.prototype.loadResources = function(strimages, strsounds, path){
     this.loaded = 0;
     var imagenames = [];
     var soundnames = [];
+    var i,s;
     if(typeof(strimages) === "string"){
         imagenames = strimages.split(",");
         this.maximages = imagenames.length;
@@ -33,7 +34,7 @@ Scene.prototype.loadResources = function(strimages, strsounds, path){
     else if(typeof(strimages) !== "undefined"){
         // array
         this.maximages = strimages.length;
-        for(var i = 0; i < this.maximages; i++){
+        for(i = 0; i < this.maximages; i++){
             imagenames[i] = strimages[i];
         }
     }
@@ -48,7 +49,7 @@ Scene.prototype.loadResources = function(strimages, strsounds, path){
     else if(typeof(strsounds) !== "undefined"){
         // array
         this.maxsounds = strsounds.length;
-        for(var s = 0; s < this.maxsounds; s++){
+        for( s = 0; s < this.maxsounds; s++){
             soundnames[s] = strsounds[s];
         }
     }
@@ -60,11 +61,11 @@ Scene.prototype.loadResources = function(strimages, strsounds, path){
     if(typeof(path) !== "undefined"){
         this.resourcepath = path;
     }
-    for(var i = 0; i < this.maximages; i++){
+    for(i = 0; i < this.maximages; i++){
         this.images[i] = loadImage(this.resourcepath + "/" + imagenames[i], this.callbackLoadResources());
     }
 
-    for(var s = 0; s < this.maxsounds; s++){
+    for(s = 0; s < this.maxsounds; s++){
         this.sounds[s] = loadSound(this.resourcepath + "/" + soundnames[s], this.callbackLoadResources());
     }
     if( (this.maximages + this.maxsounds) ==  0){

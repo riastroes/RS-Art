@@ -10,7 +10,7 @@ function App(){
     createCanvas(displayWidth, displayHeight);
 
     //resources
-    this.resourcepath = "resources"; //default resource map
+    this.resourcepath = "../resources"; //default resource map
     this.images = [];
     this.sounds = [];
     this.maximages = 0;

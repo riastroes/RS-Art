@@ -14,10 +14,16 @@ function draw() {
         if(app.currentpalettename != "menu") {
             app.imgPalette(app.images[0], 8, "menu");
         }
-        if(typeof(app.menu) =="undefined"){
-            app.menu = new Menu("Palette,Styles,Grid,Button,Stopwatch");
-
+        if(app.isnot(app.menu)){
+            app.menu = new Menu("Palette,Styles,Grid,Button,Stopwatch,Blob");
         }
+        if(app.isnot(app.proces)) {
+            app.proces = new Proces(0, 30);
+        }
+        if(app.isnot(app.test)) {
+            app.test = new Test();
+        }
+
         else if(app.menu.selected == ""){
             app.menu.draw();
             app.menu.isclicked();

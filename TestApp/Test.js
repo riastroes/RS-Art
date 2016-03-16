@@ -9,6 +9,8 @@ function Test() {
     this.testgrid = undefined;
     this.stopwatch  = undefined;
     this.bgcolor  = undefined;
+    this.blobber = undefined;
+    this.blobgrid = undefined;
 
 
 }
@@ -47,6 +49,11 @@ Test.prototype.testrun = function (subject, scene) {
         case "Stopwatch":
         {
             this.stopwatchtest(this.testnr);
+            break;
+        }
+        case "Blob":
+        {
+            this.blobtest(this.testnr);
             break;
         }
     }
@@ -915,6 +922,128 @@ Test.prototype.stopwatchtest = function (testnr) {
         default:
         {
             this.end();
+        }
+    }
+};
+Test.prototype.blobtest = function (testnr) {
+    //testing blobber functions
+
+    //TODO start stop isn't working yet
+    var x, y, index, i, pos, mp;
+
+    this.name = "blobber test " + testnr;
+
+    switch (testnr) {
+        case 0:
+        {
+
+            this.start();
+            break;
+        }
+        case 1:
+        {
+
+            background(app.pal.colors[1]);
+
+            this.showDescription("Test Blob");
+            if(frameRate()> 2){
+                frameRate(2);
+            }
+            if (typeof(this.blobber) == "undefined") {
+                this.blobber = new Blobber();
+            }
+            if(typeof(this.blobgrid) == "undefined"){
+                this.blobgrid = new Grid(3,4,200 + 100,100,100,200);
+
+            }
+            if(app.currentpalettename != "spring"){
+                app.imgPalette(app.images[0],6,"spring");
+
+            }
+            for(i = 0; i <4; i++){
+                this.blobber.init(this.blobgrid.get(i), 4, 200,200);
+                this.blobber.style(app.pal.colors[1], app.pal.imgcolors[0],1);
+                this.blobber.draw();
+            }
+            for(i = 4; i <8; i++){
+                this.blobber.init(this.blobgrid.get(i), 6, 200,200);
+                this.blobber.style(app.pal.colors[1], app.pal.imgcolors[1],1);
+                this.blobber.draw();
+            }
+            for(i = 8; i <12; i++){
+                this.blobber.init(this.blobgrid.get(i), 8, 200,200);
+                this.blobber.style(app.pal.colors[1], app.pal.imgcolors[2],1);
+                this.blobber.draw();
+
+            }
+
+
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 2:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test Blob in ellipse and show 5 points.");
+            if(frameRate()> 1){
+                frameRate(1);
+            }
+            if (typeof(this.blobber) == "undefined") {
+                this.blobber = new Blob();
+            }
+            if(app.currentpalettename != "spring"){
+                app.imgPalette(app.images[0],6,"spring");
+
+            }
+            app.style.set(app.pal.imgcolors[3], app.pal.imgcolors[4],1);
+            pos = createVector(width/2, height/2);
+            ellipse(pos.x, pos.y, 600,300);
+            this.blobber.create(pos, 5, 600,300);
+            this.blobber.style(app.pal.colors[1], app.pal.imgcolors[2],1);
+            this.blobber.draw();
+            this.blobber.showPoints();
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 3:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test Blob in ellipse and show 10 points.");
+            if(frameRate()> 1){
+                frameRate(1);
+            }
+            if (typeof(this.blobber) == "undefined") {
+                this.blobber = new Blob();
+            }
+            if(app.currentpalettename != "spring"){
+                app.imgPalette(app.images[0],6,"spring");
+
+            }
+            app.style.set(app.pal.imgcolors[3], app.pal.imgcolors[4],1);
+            pos = createVector(width/2, height/2);
+            ellipse(pos.x, pos.y, 600,300);
+            this.blobber.create(pos, 5, 600,300);
+            this.blobber.style(app.pal.colors[1], app.pal.imgcolors[2],1);
+            this.blobber.draw();
+            this.blobber.showPoints();
+            mp = 3;
+            this.blobber.createMorePoints(mp);
+            this.blobber.showMorePoints(mp);
+            //testresult
+            app.info.add(this.name + " visible");
+            app.info.add(mp * this.blobber.corners + "points");
+
+            break;
+        }
+
+        default:
+        {
+            this.end();
+            frameRate(60);
         }
     }
 };

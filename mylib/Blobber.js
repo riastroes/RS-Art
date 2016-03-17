@@ -1,7 +1,5 @@
 function Blobber(){
   this.pos = [];
-  this.strokecolor = color(0);
-  this.fillcolor = color(255);
   this.thickness = 1;
   this.center = undefined;
   this.corners = 0;
@@ -9,40 +7,25 @@ function Blobber(){
   this.morepos = [];
 }
 
-//Blobber.prototype.style = function(strokecolor, fillcolor, thickness){
-//  if (strokecolor != undefined  && strokecolor != false && strokecolor != ""){
-//    this.strokecolor = strokecolor;
-//    stroke(this.strokecolor);
-//  }
-//  else{
-//    noStroke();
-//  }
-//  if (fillcolor != undefined  && fillcolor != false && fillcolor != "" ) {
-//    this.fillcolor = fillcolor;
-//    fill(this.fillcolor);
-//  }
-// else{
-//    noFill();
-//  }
-//  if (thickness != undefined) {
-//    this.thickness = thickness;
-//  }
-//  else{
-//    this.thickness = 1;
-//  }
-//
-//};
-Blobber.prototype.init = function(center, corners, width, height){
+
+Blobber.prototype.init = function(center, corners, minwidth, maxwidth, minheight, maxheight){
+  //the flexibility of the blopper is dependend of the difference in minwidth and maxwidth and minheight and maxheight.
   this.pos = [];
   this.center = center.copy();
   this.corners = corners;
   this.size = size;
-  
+
+  this.wminradius = minwidth/2;
+  this.wmaxradius = maxwidth/2;
+  this.hminradius = minheight/2;
+  this.hmaxradius = maxheight/2;
+
+
   var p;
   var r = random(TWO_PI/corners);
   for (var i = 0; i < corners; i += 1) {
-    var wradius = random( width/4, width/2);
-    var hradius = random( height/4, height/2);
+    var wradius = random(this.wminradius, this.wmaxradius);
+    var hradius = random(this.hminradius, this.hmaxradius);
     p = posOnEllipse(center,wradius, hradius, corners, i + r);
     append(this.pos, p);
   }
@@ -72,7 +55,6 @@ Blobber.prototype.draw = function(pg){
 };
 Blobber.prototype.showPoints = function(pg){
   var i;
-  app.style.set(app.pal.colors[0], app.pal.colors[1],1);
   for(i in this.pos){
     if(typeof(pg) == "undefined") {
       ellipse(this.pos[i].x, this.pos[i].y, 10, 10);

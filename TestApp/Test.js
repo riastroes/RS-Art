@@ -928,7 +928,7 @@ Test.prototype.stopwatchtest = function (testnr) {
 Test.prototype.blobtest = function (testnr) {
     //testing blobber functions
 
-    //TODO start stop isn't working yet
+
     var x, y, index, i, pos, mp;
 
     this.name = "blobber test " + testnr;
@@ -961,18 +961,18 @@ Test.prototype.blobtest = function (testnr) {
 
             }
             for(i = 0; i <4; i++){
-                this.blobber.init(this.blobgrid.get(i), 4, 200,200);
-                this.blobber.style(app.pal.colors[1], app.pal.imgcolors[0],1);
+                this.blobber.init(this.blobgrid.get(i), 4, 100,200,100,200);
+                app.style.set(app.pal.colors[1], app.pal.imgcolors[0],1);
                 this.blobber.draw();
             }
             for(i = 4; i <8; i++){
-                this.blobber.init(this.blobgrid.get(i), 6, 200,200);
-                this.blobber.style(app.pal.colors[1], app.pal.imgcolors[1],1);
+                this.blobber.init(this.blobgrid.get(i), 6, 100,200,100,200);
+                app.style.set(app.pal.colors[1], app.pal.imgcolors[1],1);
                 this.blobber.draw();
             }
             for(i = 8; i <12; i++){
-                this.blobber.init(this.blobgrid.get(i), 8, 200,200);
-                this.blobber.style(app.pal.colors[1], app.pal.imgcolors[2],1);
+                this.blobber.init(this.blobgrid.get(i), 8, 100,200,100,200);
+                app.style.set(app.pal.colors[1], app.pal.imgcolors[2],1);
                 this.blobber.draw();
 
             }
@@ -1000,8 +1000,8 @@ Test.prototype.blobtest = function (testnr) {
             app.style.set(app.pal.imgcolors[3], app.pal.imgcolors[4],1);
             pos = createVector(width/2, height/2);
             ellipse(pos.x, pos.y, 600,300);
-            this.blobber.create(pos, 5, 600,300);
-            this.blobber.style(app.pal.colors[1], app.pal.imgcolors[2],1);
+            this.blobber.init(pos, 5, 300,600,150,300);
+            app.style.set(app.pal.colors[1], app.pal.imgcolors[2],1);
             this.blobber.draw();
             this.blobber.showPoints();
             //testresult
@@ -1026,8 +1026,8 @@ Test.prototype.blobtest = function (testnr) {
             app.style.set(app.pal.imgcolors[3], app.pal.imgcolors[4],1);
             pos = createVector(width/2, height/2);
             ellipse(pos.x, pos.y, 600,300);
-            this.blobber.create(pos, 5, 600,300);
-            this.blobber.style(app.pal.colors[1], app.pal.imgcolors[2],1);
+            this.blobber.init(pos, 5, 300,600,150,300);
+            app.style.set(app.pal.colors[1], app.pal.imgcolors[2],1);
             this.blobber.draw();
             this.blobber.showPoints();
             mp = 3;
@@ -1035,11 +1035,51 @@ Test.prototype.blobtest = function (testnr) {
             this.blobber.showMorePoints(mp);
             //testresult
             app.info.add(this.name + " visible");
-            app.info.add(mp * this.blobber.corners + "points");
+            app.info.add(mp * this.blobber.corners + " points");
 
             break;
         }
+        case 4:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test Blobber flexibility.");
+            if(frameRate()> 1){
+                frameRate(1);
+            }
+            if (app.isnot(this.blobber1)) {
+                this.blobber1 = new Blobber();
+                this.blobber2 = new Blobber();
+            }
+            if(app.currentpalettename != "spring"){
+                app.imgPalette(app.images[0],6,"spring");
 
+            }
+            app.style.set(app.pal.imgcolors[3], app.pal.imgcolors[4],1);
+            pos = createVector(200+(width-200)/4, height/2);
+            ellipse(pos.x, pos.y, 500,500);
+            this.blobber1.init(pos, 5, 300,500,300,500);
+            app.style.set(app.pal.colors[1], app.pal.imgcolors[2],1);
+            this.blobber1.draw();
+            this.blobber1.showPoints();
+
+            pos = createVector(200+(width-200)/4*3, height/2);
+            ellipse(pos.x, pos.y, 500,500);
+            this.blobber2.init(pos, 5, 0,500,0,500);
+            app.style.set(app.pal.colors[1], app.pal.imgcolors[2],1);
+            this.blobber2.draw();
+            this.blobber2.showPoints();
+
+            //testresult
+            app.info.add(this.name + " visible");
+            app.info.add("left Blobber:");
+            app.info.add("wradius: " + this.blobber1.wminradius + "-" + this.blobber1.wmaxradius);
+            app.info.add("hradius: " + this.blobber1.hminradius + "-" + this.blobber1.hmaxradius);
+            app.info.add("right Blobber:");
+            app.info.add("wradius: " + this.blobber2.wminradius + "-" + this.blobber2.wmaxradius);
+            app.info.add("hradius: " + this.blobber2.hminradius + "-" + this.blobber2.hmaxradius);
+
+                break;
+        }
         default:
         {
             this.end();

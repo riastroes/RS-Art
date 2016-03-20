@@ -2,7 +2,7 @@ var app;
 
 function setup() {
 
-    app = new App();
+    app = new App("TestApp");
     app.loadResources("watercolors.jpg,sandcolors.jpg");
 
 
@@ -15,7 +15,7 @@ function draw() {
             app.imgPalette(app.images[0], 8, "menu");
         }
         if(app.isnot(app.menu)){
-            app.menu = new Menu("Palette,Styles,Grid,Button,Stopwatch,Blob");
+            app.menu = new Menu("Palette,Styles,Grid,Button,Stopwatch,Blobber");
         }
         if(app.isnot(app.proces)) {
             app.proces = new Proces(0, 30);

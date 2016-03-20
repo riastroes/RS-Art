@@ -2,7 +2,7 @@ var app;
 
 function setup() {
 
-    app = new App();
+    app = new App("Horizon");
     app.loadResources("greens.jpg,blues.jpg,church.png");
 
 

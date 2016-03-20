@@ -105,7 +105,11 @@ Palette.prototype.tint = function(acolor, percentage){
   var p = (255/100) * percentage;
   return color(red(acolor), green(acolor), blue(acolor), p );
 };
+Palette.prototype.frameCountImgColor = function(frames){
+    var a = int((frameCount/frames)) % this.imgcolors.length;
+    return this.imgcolors[a];
 
+}
 
 
 

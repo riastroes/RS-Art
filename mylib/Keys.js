@@ -2,6 +2,8 @@
  * Created by Ria Stroes on 16-3-2016.
  */
 function keyPressed() {
+    app.acanvas.elt.focus();
+
     if (key == 'l' || key == 'L') {
         if (app.isrunning) {
             noLoop();
@@ -26,4 +28,19 @@ function keyPressed() {
             app.menu.selected = "";
         }
    }
+    if(key == 'g' || key =='G'){
+        app.makeGif = !app.makeGif;
+        if(app.makeGif){
+            frameRate(1);
+        }
+        else{
+            app.gif.render();
+            frameRate(60);
+        }
+    }
+    if(key == 's' || key =='S'){
+        save(app.name + app.savedimages + ".jpg");
+        app.savedimages++;
+    }
+
 }

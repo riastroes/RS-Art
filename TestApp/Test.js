@@ -51,7 +51,7 @@ Test.prototype.testrun = function (subject, scene) {
             this.stopwatchtest(this.testnr);
             break;
         }
-        case "Blob":
+        case "Blobber":
         {
             this.blobtest(this.testnr);
             break;

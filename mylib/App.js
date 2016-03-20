@@ -3,11 +3,13 @@
  * App is the main object to store the global variables
  * en general settings for the project(s)
  */
-function App(){
+function App(name){
 
 
     pixelDensity(1);
-    createCanvas(displayWidth, displayHeight);
+    this.acanvas = createCanvas(displayWidth, displayHeight);
+    background(255);
+    this.name = name;
 
     //resources
     this.resourcepath = "../resources"; //default resource map
@@ -28,7 +30,11 @@ function App(){
     this.style = new Style();
     this.info = new Info();
 
-    //workflow
+    //images, movi and gif maker
+    this.savedimages = 0;
+    this.setupGif();
+    this.makeGif = false;
+
 
 
 
@@ -80,6 +86,7 @@ App.prototype.loadResources = function(strimages, strsounds, path){
     if(typeof(strimages) === "string"){
         imagenames = strimages.split(",");
         this.maximages = imagenames.length;
+
     }
     else if(typeof(strimages) !== "undefined"){
         // array
@@ -156,3 +163,17 @@ App.prototype.randomInt = function(min, max){
     }
 };
 
+App.prototype.setupGif = function() {
+    this.gif = new GIF({
+        workers: 2,
+       quality: 40,
+        workerScript: "../libraries/gif.worker.js",
+        background:"#ffffff",
+        width:540,
+        height:540
+    });
+
+    this.gif.on('finished', function(blob) {
+        window.open(URL.createObjectURL(blob));
+    });
+};

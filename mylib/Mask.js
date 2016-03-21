@@ -37,24 +37,29 @@ Mask.prototype.init = function() {
         this.image.resize(this.width, this.height);
         this.image.loadPixels();
         for (i = 0; i < this.image.pixels.length - 3; i += 4) {
-            if (this.image.pixels[i] == this.red) {
+            if (this.image.pixels[i] <= this.red + 50) {
                 this.data.push(i);
             }
         }
     }
 };
 Mask.prototype.add = function(newimage, x, y, acolor){
+    var d;
     if(app.is(acolor)){
         this.red = red(acolor);
     }
+    newimage.resize(this.width, this.height);
     newimage.loadPixels();
+    this.data = [];
     for(i = 0; i < newimage.pixels.length-3; i +=4){
-        if(this.newimage.pixels[i] < this.red){
-            this.data.push(i + (y * width * 4) + (x * 4));
+        if(newimage.pixels[i] == red(acolor) && newimage.pixels[i+1] == green(acolor) && newimage.pixels[i+2] == blue(acolor) &&newimage.pixels[i+3] == alpha(acolor)){
+            d = i + (y * width * 4) + (x * 4);
+            this.data.push(d);
         }
     }
+
 };
-Mask.prototype.createMask = function(x, y , isnew){
+Mask.prototype.createMask = function(){
     this.image = createImage(this.width, this.height);
     loadPixels();
     this.image.loadPixels();
@@ -62,10 +67,7 @@ Mask.prototype.createMask = function(x, y , isnew){
         this.image.pixels[i] = pixels[i];
     }
     this.image.updatePixels();
-    if(isnew) {
-        background(255);
 
-    }
-    app.mask.init();
+    this.init();
 
 };

@@ -35,10 +35,12 @@ Palette.prototype.init = function(nr){
    }
     else if(this.nr == 3){
       //MCCC palette march 2016
+      //springtime
       this.add(2, color('#FAEE5A'));
       this.add(3, color('#E4FCF9'));
       this.add(4, color('#ACE6F6'));
       this.add(5, color('#4B89AC'));
+      this.add(6, color('#99ccff')); // licht blauw
   }
     else if(this.nr == 4){
       //gray scale
@@ -124,9 +126,11 @@ Palette.prototype.frameCountColor = function(frames){
 
 };
 Palette.prototype.frameCountImgColor = function(frames){
-    var a = int((frameCount/frames)) % this.imgcolors.length;
-    return this.imgcolors[a];
-
+    if(this.imgcolors.length > 0) {
+        var a = int((frameCount / frames)) % this.imgcolors.length;
+        return this.imgcolors[a];
+    }
+    return undefined;
 }
 
 

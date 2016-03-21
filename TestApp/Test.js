@@ -767,7 +767,7 @@ Test.prototype.gridtest = function (testnr) {
 Test.prototype.buttontest = function (testnr) {
     //testing stopwatch functions
 
-    //TODO start stop isn't working yet
+
     var pos;
 
     this.name = "button test " + testnr;
@@ -831,7 +831,7 @@ Test.prototype.changeColor = function(){
 Test.prototype.stopwatchtest = function (testnr) {
     //testing stopwatch functions
 
-    //TODO start stop isn't working yet
+
     var x, y, index;
 
     this.name = "stopwatch test " + testnr;

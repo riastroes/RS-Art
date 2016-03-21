@@ -40,6 +40,19 @@ Palette.prototype.init = function(nr){
       this.add(4, color('#ACE6F6'));
       this.add(5, color('#4B89AC'));
   }
+    else if(this.nr == 4){
+      //gray scale
+      this.add(2,color(225));
+      this.add(3,color(200));
+      this.add(4,color(175));
+      this.add(5,color(150));
+      this.add(6,color(125));
+      this.add(7,color(100));
+      this.add(8,color(75));
+      this.add(9,color(50));
+      this.add(10,color(25));
+      this.add(11, color('#f47171')); //reds
+  }
   
 };
 
@@ -105,12 +118,16 @@ Palette.prototype.tint = function(acolor, percentage){
   var p = (255/100) * percentage;
   return color(red(acolor), green(acolor), blue(acolor), p );
 };
+Palette.prototype.frameCountColor = function(frames){
+    var a = int((frameCount/frames)) % this.colors.length;
+    return this.colors[a];
+
+};
 Palette.prototype.frameCountImgColor = function(frames){
     var a = int((frameCount/frames)) % this.imgcolors.length;
     return this.imgcolors[a];
 
 }
-
 
 
 function NamedPalette(name){

@@ -23,21 +23,35 @@ Flower.prototype.live = function(pos, flowerwidth, flowerheight, lobs){
         append(this.blobbers,new Blobber() );
 
     }
-    this.blobbers[0].init(this.center, random(5,this.lobs),this.width/2, this.width, this.height/2, this.height);
-    this.blobbers[1].init(this.center, random(5,this.lobs),this.width/3, this.width, this.height/3, this.height);
-    hart = 50;
+    this.blobbers[0].init(this.center, this.lobs,this.width/2, this.width, this.height/2, this.height);
+    this.blobbers[1].init(this.center, this.lobs +4,this.width/4, this.width, this.height/4, this.height);
+    hart = flowerwidth/5;
     this.blobbers[2].init(this.center, 5,hart/2, random(hart/2, hart),hart/2, random(hart/2, hart));
 };
-Flower.prototype.draw = function(){
+Flower.prototype.draw = function() {
 
 
-    for(b = 0; b < this.blobbers.length - 1; b++){
-        app.style.set(app.pal.frameCountImgColor(5), app.pal.tint(app.pal.frameCountImgColor(25),70),1);
+    for (b = 0; b < this.blobbers.length - 1; b++) {
+        app.style.set(app.pal.frameCountImgColor(5), app.pal.tint(app.pal.frameCountImgColor(25), 70), 1);
         this.blobbers[b].draw();
     }
-    app.style.set(app.pal.frameCountImgColor(10), app.pal.tint(app.pal.frameCountImgColor(25),70),1);
+    app.style.set(app.pal.frameCountImgColor(10), app.pal.tint(app.pal.frameCountImgColor(25), 70), 1);
     this.blobbers[b].draw();
+};
+Flower.prototype.drawBW = function(){
 
+        for(b = 0; b < this.blobbers.length - 1; b++){
+            app.style.set(app.pal.frameCountColor(5), app.pal.tint(app.pal.frameCountColor(25),70),1);
+            this.blobbers[b].draw();
+        }
+        app.style.set(app.pal.frameCountColor(10), app.pal.tint(app.pal.frameCountColor(25),70),1);
+        this.blobbers[b].draw();
+};
+Flower.prototype.drawB = function(){
+    //flower mask
+
+        app.style.set(false, app.pal.colors[0],1);
+        this.blobbers[0].draw();
 
 
 };

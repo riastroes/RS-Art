@@ -3,6 +3,8 @@
  */
 function keyPressed() {
     app.acanvas.elt.focus();
+    //println("key:" + key);
+    //println("keyCode:"+ keyCode);
 
     if (key == 'l' || key == 'L') {
         if (app.isrunning) {
@@ -39,9 +41,15 @@ function keyPressed() {
         }
     }
     if(key == 's' || key =='S'){
-        image(app.signature, width-120, height-120);
+        image(app.signature, width-160, height-120);
         save(app.name + app.savedimages + ".jpg");
         app.savedimages++;
+    }
+    if(keyCode == 123){
+        //F12
+        var fs = fullscreen();
+        fullscreen(!fs);
+        return false;
     }
 
 }

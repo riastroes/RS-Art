@@ -13,6 +13,7 @@ function App(name){
 
     //resources
     this.resourcepath = "../resources"; //default resource map
+    this.signatur = loadImage(this.resourcepath + "/signature.png" );
     this.images = [];
     this.sounds = [];
     this.maximages = 0;

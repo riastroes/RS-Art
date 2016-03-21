@@ -39,6 +39,7 @@ function keyPressed() {
         }
     }
     if(key == 's' || key =='S'){
+        image(app.signature, width-120, height-120);
         save(app.name + app.savedimages + ".jpg");
         app.savedimages++;
     }

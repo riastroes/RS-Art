@@ -8,6 +8,7 @@ function Info(){
     this.liney = this.topmarge;
     this.lineheight = 20;
     this.log = [];
+    this.doshow = false;
 
 
 }

@@ -40,6 +40,13 @@ function keyPressed() {
             frameRate(60);
         }
     }
+    if(key == 'i' || key =='I'){
+        app.info.doshow = !app.info.doshow;
+        if(app.info.doshow){
+            app.info.show();
+        }
+       
+    }
     if(key == 's' || key =='S'){
         image(app.signature, width-160, height-120);
         save(app.name + app.savedimages + ".jpg");

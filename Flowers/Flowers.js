@@ -8,13 +8,15 @@ function Flower(){
     this.height = 0;
     this.center = undefined;
     this.lobs = 0;
+    this.age = 0;
 
 }
 Flower.prototype.live = function(pos, flowerwidth, flowerheight, lobs){
     var b,hart;
+    this.age+=0.001;
     this.center = pos.copy();
-    this.width = flowerwidth;
-    this.height = flowerheight;
+    this.width = this.age * flowerwidth;
+    this.height = this.age * flowerheight;
     this.lobs = lobs;
     if(app.isnot(this.blobbers)){
         this.blobbers = [];
@@ -41,10 +43,10 @@ Flower.prototype.draw = function() {
 Flower.prototype.drawBW = function(){
 
         for(b = 0; b < this.blobbers.length - 1; b++){
-            app.style.set(app.pal.frameCountColor(5), app.pal.tint(app.pal.frameCountColor(25),70),1);
+            app.style.set(app.pal.colors[0], app.pal.tint(app.pal.frameCountColor(25),70),1);
             this.blobbers[b].draw();
         }
-        app.style.set(app.pal.frameCountColor(10), app.pal.tint(app.pal.frameCountColor(25),70),1);
+        app.style.set(app.pal.colors[1], app.pal.colors[0],3);
         this.blobbers[b].draw();
 };
 Flower.prototype.drawB = function(){

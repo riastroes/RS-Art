@@ -44,6 +44,8 @@ function draw() {
             app.style.set(false, app.pal.colors[1], 1);
             app.flextubes[t].blobbers[12].showMorePoints();
         }
+
+        app.gifmaker.check();
     }
     else{
         println("loading resources ...");

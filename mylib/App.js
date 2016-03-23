@@ -20,9 +20,12 @@ function App(name){
     this.maxsounds = 0;
     this.loaded = 0;
     this.isloaded = false;
+    this.iswaiting = false;
+    this.waitingcount =0;
+    this.scene = 0;
 
     //styles and colors
-    this.pal = new Palette(3);
+    this.pal = new Palette(0);
     this.namedpalettes = [];
     this.namedpalettes[0]= new NamedPalette("standard");
     this.currentpalettename = "standard";
@@ -33,12 +36,8 @@ function App(name){
 
     //images, movi and gif maker
     this.savedimages = 0;
-    this.setupGif();
-    this.makeGif = false;
-
-
-
-
+    this.gifmaker = new Gifmaker();
+    
     //statistics
     this.totframerate = 0;
     this.gemframerate = 0;
@@ -157,24 +156,39 @@ App.prototype.isnot = function(param){
 };
 App.prototype.randomInt = function(min, max){
     if(app.is(max)){
-        return int(random(min,max));
+        return int(random(min,max+1));
     }
     else{
         return int(random(min));
     }
 };
-
-App.prototype.setupGif = function() {
-    this.gif = new GIF({
-        workers: 2,
-       quality: 40,
-        workerScript: "../libraries/gif.worker.js",
-        background:"#ffffff",
-        width:540,
-        height:540
-    });
-
-    this.gif.on('finished', function(blob) {
-        window.open(URL.createObjectURL(blob));
-    });
+App.prototype.wait = function(framecounts){
+    if(!app.iswaiting){
+        app.waitingcount = framecounts;
+        app.iswaiting  = true;
+    }
+    else{
+        app.waitingcount -= 1;
+    }
+    if(app.waitingcount == 0){
+        this.scene++;
+        app.iswaiting = false;
+    }
 };
+// App.prototype.setupGif = function(gifwidth,gifheight,skip,maxframes) {
+//     this.gif = new GIF({
+//         workers: 2,
+//         quality: 40,
+//         workerScript: "../libraries/gif.worker.js",
+//         background:"#ffffff",
+//         width:gifwidth,
+//         height:gifheight
+//     });
+//     this.gif.skip = skip;
+//     this.gif.maxframes = maxframes;
+//
+//     this.gif.on('finished', function(blob) {
+//         window.open(URL.createObjectURL(blob));
+//     });
+// };
+

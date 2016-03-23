@@ -36,6 +36,7 @@ function draw() {
 
 
         app.info.show();
+        app.gifmaker.check(false);
     }
     else{
         println("loading resources ...");

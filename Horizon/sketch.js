@@ -22,6 +22,8 @@ function draw() {
 
         app.horizon.draw();
         app.info.show();
+
+        app.gifmaker.check();
     }
     else{
         println("loading resources ...");
@@ -29,26 +31,4 @@ function draw() {
 }
 
 
-function keyPressed() {
-    if (key == 'l' || key == 'L') {
-        if (app.isrunning) {
-            noLoop();
-        } else {
-            loop();
-            app.isrunning = false;
-        }
-    }
-    if (keyCode == RIGHT_ARROW) {
-        app.proces.nextScene(app.pal.colors[1]);
-
-    }
-    if (keyCode == LEFT_ARROW) {
-        app.proces.previousScene(app.pal.colors[1]);
-
-    }
-    if (key  == " ") {
-        app.menu.selected ="";
-
-    }
-}
 

@@ -31,12 +31,15 @@ function keyPressed() {
         }
    }
     if(key == 'g' || key =='G'){
-        app.makeGif = !app.makeGif;
-        if(app.makeGif){
-            frameRate(1);
+        
+        if(app.isnot(app.gifmaker) || !app.gifmaker.do){
+            app.gifmaker = new Gifmaker();
+            app.gifmaker.init(540,540,10,1,20,60);
+            frameRate(app.gifmaker.speed);
         }
         else{
-            app.gif.render();
+            //try to stop before maxframes = 0
+            app.gifmaker.render();
             frameRate(60);
         }
     }

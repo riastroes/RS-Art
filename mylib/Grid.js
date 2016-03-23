@@ -37,7 +37,7 @@ function Grid(cols, rows, lmarge, tmarge, rmarge, bmarge){
 
 }
 Grid.prototype.show = function(){
-  style.set(pal.colors[1], false, 4);
+  app.style.set(app.pal.colors[0], false, 1);
   for(var x = 0; x < this.cols; x++){
     for(var y = 0; y < this.rows; y++){
       point(this.pos[x][y].x, this.pos[x][y].y);
@@ -45,12 +45,12 @@ Grid.prototype.show = function(){
   }
 };
 Grid.prototype.shownr = function(){
-  style.set(pal.colors[1], false, 4);
+  app.style.set(app.colors[1], false, 4);
   var i = 0;
   for(var x = 0; x < this.cols; x++){
     for(var y = 0; y < this.rows; y++){
       
-      style.text(12, CENTER, pal.colors[1]);
+      app.style.text(12, CENTER, pal.colors[1]);
       text(i, this.pos[x][y].x, this.pos[x][y].y);
       i++;
     }

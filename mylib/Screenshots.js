@@ -23,3 +23,6 @@ Shot.prototype.click = function(){
   }
   this.img.updatePixels();
 };
+Shot.prototype.resize = function(width, height){
+  this.img.resize(width,height);
+}

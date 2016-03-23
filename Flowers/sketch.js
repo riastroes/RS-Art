@@ -26,8 +26,9 @@ function draw() {
         if (app.isnot(app.flower)){
             app.flower = new Flower();
         }
-
+        // TODO implement app.wait;
         switch(true) {
+
             case (frameCount == 10):{
                 //create a mask a select a palette
                 app.mask.add(app.images[2], 0, 0, app.pal.colors[0]);
@@ -168,9 +169,7 @@ function draw() {
         }
 
 
-        if(app.makeGif){
-            app.gif.addFrame(app.acanvas.elt, {delay:1000, copy: true, width:540, height:540});
-        }
+        app.gifmaker.check();
 
     }
     else{

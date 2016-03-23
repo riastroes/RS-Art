@@ -30,7 +30,7 @@ Flextube.prototype.init = function(){
         y = f * ((this.space.height) / this.floors) ;
 
         this.pos[f] = createVector(x,y);
-        this.blobbers[f].init(this.pos[f], this.corners, this.space.width,this.space.height / this.floors);
+        this.blobbers[f].init(this.pos[f], this.corners, this.space.width/2, this.space.width, (this.space.height / this.floors)/2, this.space.height / this.floors);
         this.blobbers[f].createMorePoints(6);
     }
 
@@ -47,8 +47,18 @@ Flextube.prototype.draw = function(){
         c = f % app.pal.imgcolors.length;
         app.style.set(app.pal.colors[1],false,1);
         strokeCap(SQUARE);
-        for(p = this.blobbers[f].morepos.length -1; p >= 0; p--){
+        for(p = (this.blobbers[f].morepos.length) -1; p >= 0; p--){
+            if((f == this.floors-2)){
 
+                var img = createImage(this.blobbers[f].wminradius *3, this.blobbers[f].center.y * 2);
+                
+                var ig = 2 + int(this.blobbers[f].center.x /300);
+                if(ig>7){ig = 7;}
+                img.copy(app.images[ig], 0,0,app.images[ig].width, app.images[ig].height, 0,0,img.width, img.height);
+
+                image(img,this.blobbers[f].center.x, this.blobbers[f].center.y );
+            }
+            app.style.image(CENTER, BLEND);
             line(this.blobbers[f].morepos[p].x,this.blobbers[f].morepos[p].y,this.blobbers[f+1].morepos[p].x,this.blobbers[f+1].morepos[p].y);
         }
         strokeCap(ROUND); // back to default

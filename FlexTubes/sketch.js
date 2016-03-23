@@ -4,7 +4,7 @@ var app;
 function setup() {
 
     app = new App();
-    app.loadResources("watercolors.jpg,sandcolors.jpg");
+    app.loadResources("watercolors.jpg,sandcolors.jpg,standingwoman.png,jumpingman.png,happywoman1.png,happywoman2.png,happywoman3.png,hangingman.png");
     frameRate(10);
 
 }
@@ -42,7 +42,7 @@ function draw() {
             app.flextubes[t].init();
             app.flextubes[t].draw();
             app.style.set(false, app.pal.colors[1], 1);
-            app.flextubes[t].blobbers[12].showMorePoints();
+            app.flextubes[t].blobbers[12].showMorePoints(12);
         }
 
         app.gifmaker.check();

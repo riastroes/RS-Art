@@ -77,12 +77,26 @@ Blobber.prototype.createMorePoints = function(count){
     }
   }
 };
-Blobber.prototype.showMorePoints = function(){
+Blobber.prototype.showMorePoints = function(max){
   var i,  t, x,y;
+  if(app.is(max)){
+    if(max <= this.morepos.length) {
+      app.max =(this.morepos.length/2) -5;
+    }
+    else{
+      app.max = this.morepos.length;
+    }
+  }
 
+  else{
+    app.max = this.morepos.length;
+  }
 
-  for(i = 0; i < this.morepos.length; i++){
+  for(i = 0; i < app.max; i++){
       ellipse(this.morepos[i].x, this.morepos[i].y, 5, 5);
+  }
+  for(i = this.morepos.length - 5; i < this.morepos.length; i++){
+    ellipse(this.morepos[i].x, this.morepos[i].y, 5, 5);
   }
 };
 //TODO use differential inheritants.

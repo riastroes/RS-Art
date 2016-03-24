@@ -85,15 +85,20 @@ App.prototype.loadResources = function(strimages, strsounds, path){
     var soundnames = [];
     if(typeof(strimages) === "string"){
         imagenames = strimages.split(",");
+        for(i = 0;  i < imagenames.length; i++){
+            imagenames[i] = imagenames[i].trim();
+        }
         this.maximages = imagenames.length;
 
     }
     else if(typeof(strimages) !== "undefined"){
         // array
+        var strwithspace;
         this.maximages = strimages.length;
         for(i = 0; i < this.maximages; i++){
-            imagenames[i] = strimages[i];
-        }
+            strwithspace = strimages[i];
+            imagenames[i] = strwithspace.trim();
+         }
      }
     else{
         // undefined

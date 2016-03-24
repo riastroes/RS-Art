@@ -50,7 +50,7 @@ Gifmaker.prototype.check = function(skip, maxframes, show){
             if(show){
                 image(shot.img,0,0);
                 this.gif.addFrame(app.acanvas.elt, {
-                    delay: 500,
+                    delay: 250,
                     copy: true,
                     width: this.width,
                     height: this.height
@@ -62,7 +62,7 @@ Gifmaker.prototype.check = function(skip, maxframes, show){
                 var pg = createGraphics(this.width,this.height);
                 pg.image(shot.img,0,0);
                 this.gif.addFrame(pg.elt, {
-                    delay: 500,
+                    delay: 250,
                     copy: true,
                     width: this.width,
                     height: this.height

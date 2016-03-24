@@ -3,8 +3,8 @@ var app;
 
 function setup() {
 
-    app = new App();
-    app.loadResources("watercolors.jpg,sandcolors.jpg,standingwoman.png,jumpingman.png,happywoman1.png,happywoman2.png,happywoman3.png,hangingman.png");
+    app = new App("Flextubes");
+    app.loadResources("watercolors.jpg,sandcolors.jpg,sky.jpg,happywoman3.png, jumpingman2.png,jumpinggirl.png,happywoman1.png, jumpingman.png");
     frameRate(10);
 
 }
@@ -16,33 +16,36 @@ function draw() {
     if(app.isloaded) {
         if(app.currentpalettename != "spring"){
             app.imgPalette(app.images[0],6,"spring");
-            app.bgcolor = app.pal.randomRGBColor("LIGHT");
-            app.noisex =0; // (w+1) * 30
+            app.bgcolor = app.pal.randomRGBColor("DARK");
+            app.noisex =0; //
+            app.images[2].resize(width,height);
+
+
         }
 
 
        // if(app.isnot(app.spaces)){
-        app.style.image(CENTER,BLEND);
-        background(app.bgcolor);
+        app.style.image(CORNER,BLEND);
+        image(app.images[2],0,0);
+
         app.noisex += 0.1;
         app.spaces = [];
         app.style.set(app.pal.colors[0], app.pal.colors[1],1);
-        for(w = 0; w < 8; w++) {
-            app.sw = map(noise(app.noisex),0,1, 10, width/6);
+        for(w = 0; w < 5; w++) {
+            app.sw = map(noise(app.noisex),0,1, 10, width/4);
             app.sh = map(noise(w + app.noisex),0,1, 0, height);
             app.spaces[w] = new Space(app.sw, app.sh);
-            app.spaces[w].set(createVector((w *(width/8)) +((width/8)/2) ,(app.sh / 2)));
+            app.spaces[w].set(createVector((w *(width/5)) +((width/5)/2) ,(app.sh / 2)-50));
 
             //app.spaces[w].draw();
         }
 
         app.flextubes = [];
-        for(t = 0; t < 8; t++) {
+        for(t = 0; t < 5; t++) {
             app.flextubes[t] = new Flextube(app.spaces[t], 13, 9);
             app.flextubes[t].init();
             app.flextubes[t].draw();
-            app.style.set(false, app.pal.colors[1], 1);
-            app.flextubes[t].blobbers[12].showMorePoints(12);
+
         }
 
         app.gifmaker.check();

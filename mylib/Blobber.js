@@ -77,37 +77,16 @@ Blobber.prototype.createMorePoints = function(count){
     }
   }
 };
-Blobber.prototype.showMorePoints = function(max){
+Blobber.prototype.showMorePoints = function(){
   var i,  t, x,y;
-  if(app.is(max)){
-    if(max <= this.morepos.length) {
-      app.max =(this.morepos.length/2) -5;
-    }
-    else{
-      app.max = this.morepos.length;
-    }
-  }
-
-  else{
-    app.max = this.morepos.length;
-  }
-
-  for(i = 0; i < app.max; i++){
-      ellipse(this.morepos[i].x, this.morepos[i].y, 5, 5);
-  }
-  for(i = this.morepos.length - 5; i < this.morepos.length; i++){
+  for(i = 0; i < this.morepos.length; i++){
     ellipse(this.morepos[i].x, this.morepos[i].y, 5, 5);
   }
 };
-//TODO use differential inheritants.
-
+//differential inheritants.
 function RegBlobber(){
-  this.pos = [];
-  this.thickness = 1;
-  this.center = undefined;
-  this.corners = 0;
-  this.size = 0;
-  this.morepos = [];
+  this.blobber = new Blobber;
+  return this.blobber;
 }
 
 
@@ -145,57 +124,6 @@ RegBlobber.prototype.init = function(center, corners, minwidth, maxwidth, minhei
   append(this.pos, this.pos[3]);
 };
 
-RegBlobber.prototype.draw = function(pg){
-  var i;
-  if(typeof(pg) == "undefined"){
-    beginShape();
-    for (i = 0; i < this.pos.length - 1; i += 1) {
-      curveVertex(this.pos[i].x, this.pos[i].y);
-    }
-    endShape();
-  }
-  else {
-    pg.beginShape();
-    for (i = 0; i < this.pos.length - 1; i += 1) {
-      pg.curveVertex(this.pos[i].x, this.pos[i].y);
-    }
-    pg.endShape();
-  }
-
-};
-RegBlobber.prototype.showPoints = function(pg){
-  var i;
-  for(i in this.pos){
-    if(typeof(pg) == "undefined") {
-      ellipse(this.pos[i].x, this.pos[i].y, 10, 10);
-    }
-    else{
-      pg.ellipse(this.pos[i].x, this.pos[i].y, 10, 10);
-    }
-  }
-};
-RegBlobber.prototype.createMorePoints = function(count){
-  var i, t, x,y;
-  this.morepos = [];
-  for(i = 0; i < this.corners; i++){
-
-    for (j = 0; j < count; j++) {
-      t = j / count;
-      x = curvePoint(this.pos[i].x, this.pos[i+1].x, this.pos[i+2].x, this.pos[i+3].x, t);
-      y = curvePoint(this.pos[i].y, this.pos[i+1].y, this.pos[i+2].y, this.pos[i+3].y, t);
-      append(this.morepos, createVector(x,y));
-    }
-  }
-};
-RegBlobber.prototype.showMorePoints = function(){
-  var i,  t, x,y;
-
-
-  for(i = 0; i < this.morepos.length; i++){
-    ellipse(this.morepos[i].x, this.morepos[i].y, 5, 5);
-  }
-};
-/*****************************************/
 
 
 

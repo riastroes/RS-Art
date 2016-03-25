@@ -3,6 +3,7 @@ var app;
 function setup() {
 
     app = new App("Horizon");
+    app.resourcepath = "resources";
     app.loadResources("greens.jpg,blues.jpg,church.png");
 
 

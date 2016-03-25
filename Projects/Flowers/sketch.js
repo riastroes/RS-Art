@@ -3,9 +3,9 @@ var app;
 function setup() {
 
     app = new App("Flowers");
+    app.resourcepath = "resources";
     app.loadResources("signature.png,flowers.jpg,lint.png,spring.jpg");
-    //frameRate(10);
-
+   
 }
 
 function draw() {

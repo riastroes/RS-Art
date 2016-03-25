@@ -108,7 +108,6 @@ function draw() {
                     
                         app.isometry.drawBox(app.x[i], app.y[i], 2, 2, 2);
                 }
-
                 app.wait(1);
             break;
         }

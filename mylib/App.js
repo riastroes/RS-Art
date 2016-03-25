@@ -140,6 +140,20 @@ App.prototype.callbackResources = function(){
     }
 
 };
+App.prototype.background = function(img, transparency) {
+    var i,t;
+    t = transparency * (255/100);
+    if(app.isnot(app.pgbg)){
+        app.pgbg = createGraphics(width,height);
+        img.loadPixels();
+        for(i=0; i < pixels.length; i+=4){
+            img.pixels[i+3] = t;
+        }
+        img.updatePixels();
+
+    }
+    image(img,0,0);
+}
 //SMART FUNCTIONS
 App.prototype.is = function(param){
     var ok = false;

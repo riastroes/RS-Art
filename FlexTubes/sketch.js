@@ -19,6 +19,7 @@ function draw() {
             app.bgcolor = app.pal.randomRGBColor("DARK");
             app.noisex =0; //
             app.images[2].resize(width,height);
+            image(app.images[2],0,0);
 
 
         }
@@ -26,7 +27,7 @@ function draw() {
 
        // if(app.isnot(app.spaces)){
         app.style.image(CORNER,BLEND);
-        image(app.images[2],0,0);
+        app.background(app.images[2],10);
 
         app.noisex += 0.1;
         app.spaces = [];

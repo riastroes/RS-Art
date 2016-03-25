@@ -24,7 +24,8 @@ Flextube.prototype.init = function(){
     for(f = 0 ; f < this.floors; f++ ){
         append(this.blobbers, new Blobber() );
         x = this.space.center.x;
-        y = f * ((this.space.height) / this.floors) ;
+        //y = f * ((this.space.height) / this.floors) ;
+        y = f * (height/this.floors);
         y -=50;
         this.pos[f] = createVector(x,y);
         this.blobbers[f].init(this.pos[f], this.corners, this.space.width/2, this.space.width, (this.space.height / this.floors)/2, this.space.height / this.floors);
@@ -67,8 +68,6 @@ Flextube.prototype.draw = function(){
         for(p =0; p <(this.blobbers[f].morepos.length); p++){
             if((f == 5)){
 
-                //var img = createImage(this.blobbers[f].wminradius *3, this.blobbers[f].center.y * 2);
-                
                 ig = 3 + int(this.blobbers[f].center.x /(width/5));
                 w = this.space.lefttop.x;
                 h = this.space.center.y;

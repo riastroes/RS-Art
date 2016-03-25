@@ -40,7 +40,13 @@ function keyPressed() {
         else{
             //try to stop before maxframes = 0
             app.gifmaker.render();
-            frameRate(60);
+            if(app.gifmaker.oldframerate > 0){
+                frameRate(app.gifmaker.oldframerate);
+            }
+            else{
+                frameRate(60);
+            }
+
         }
     }
     if(key == 'i' || key =='I'){

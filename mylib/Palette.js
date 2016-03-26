@@ -72,7 +72,7 @@ Palette.prototype.fromImage = function(img, count){
       var r = random(img.pixels.length - 4);
       var i = int(r - (r % 4));
       acolor = color(img.pixels[i], img.pixels[i+1], img.pixels[i+2], img.pixels[i+3]);
-      if(!contains(this.imgcolors, acolor) || attempt > 100){
+      if(!app.contains(this.imgcolors, acolor) || attempt > 100){
         append(this.imgcolors, acolor);
         c++;
       }

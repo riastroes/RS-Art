@@ -76,14 +76,7 @@ function vectorTo(pos, center) {
     return v;
 }
 //array functions
-function contains(array, obj) {
-    for (var i = 0; i < array.length; i++) {
-        if (array[i] === obj) {
-            return true;
-        }
-    }
-    return false;
-}
+
 function equals(array1, array2) {
     var ok = true;
     if (array1.length == array2.length) {
@@ -99,7 +92,7 @@ function equals(array1, array2) {
     }
     return ok;
 }
-function sortArray(array) {
+function sortVectors(array) {
     var index;
     var p = [];
     var x = [];

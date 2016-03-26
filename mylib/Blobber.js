@@ -29,29 +29,37 @@ Blobber.prototype.init = function(center, corners, minwidth, maxwidth, minheight
     p = posOnEllipse(center,wradius, hradius, corners, i + r);
     append(this.pos, p);
   }
-  append(this.pos, this.pos[0]);
-  append(this.pos, this.pos[1]);
-  append(this.pos, this.pos[2]);
-  append(this.pos, this.pos[3]);
+  append(this.pos, this.pos[0].copy());
+  append(this.pos, this.pos[1].copy());
+append(this.pos, this.pos[2].copy());
+append(this.pos, this.pos[3].copy());
 };
 
 Blobber.prototype.draw = function(pg){
   var i;
-  if(typeof(pg) == "undefined"){
+  if(app.isnot(pg)){
     beginShape();
-    for (i = 0; i < this.pos.length - 1; i += 1) {
+    for (i = 0; i < this.pos.length-1; i += 1) {
       curveVertex(this.pos[i].x, this.pos[i].y);
     }
    endShape();
   }
   else {
     pg.beginShape();
-    for (i = 0; i < this.pos.length - 1; i += 1) {
+    for (i = 0; i < this.pos.length-1; i += 1) {
       pg.curveVertex(this.pos[i].x, this.pos[i].y);
     }
     pg.endShape();
   }
-  
+
+};
+Blobber.prototype.scale = function(factor){
+  var i,v;
+  for(i = 0; i < this.pos.length; i++){
+
+    this.pos[i].mult(factor);
+
+  }
 };
 Blobber.prototype.showPoints = function(pg){
   var i;
@@ -83,13 +91,15 @@ Blobber.prototype.showMorePoints = function(){
     ellipse(this.morepos[i].x, this.morepos[i].y, 5, 5);
   }
 };
+Blobber.prototype.set = function() {
+
+};
 //differential inheritants.
 function RegBlobber(){
-  this.blobber = new Blobber;
+  this.blobber = new Blobber();
+  this.blobber.init = this.init;
   return this.blobber;
 }
-
-
 RegBlobber.prototype.init = function(center, corners, minwidth, maxwidth, minheight, maxheight){
   //the flexibility of the blopper is dependend of the difference in minwidth and maxwidth and minheight and maxheight.
   this.pos = [];
@@ -118,14 +128,22 @@ RegBlobber.prototype.init = function(center, corners, minwidth, maxwidth, minhei
     p = posOnEllipse(center,wradius, hradius, corners, i + r);
     append(this.pos, p);
   }
-  append(this.pos, this.pos[0]);
-  append(this.pos, this.pos[1]);
-  append(this.pos, this.pos[2]);
-  append(this.pos, this.pos[3]);
+  append(this.pos, this.pos[0].copy());
+  append(this.pos, this.pos[1].copy());
+  append(this.pos, this.pos[2].copy());
+  append(this.pos, this.pos[3].copy());
 };
 
+function ArrayBlobber(){
+  this.blobber = new Blobber;
+  this.blobber.set = this.set;
+  return this.blobber;
+}
 
-
+ArrayBlobber.prototype.set = function(pos, factor){
+  arrayCopy(pos, this.pos);
+  this.factor = factor;
+};
 
 
 

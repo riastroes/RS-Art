@@ -3,6 +3,7 @@ var app;
 function setup() {
 
     app = new App("Study Isometry");
+    app.resourcepath ="resources";
     app.loadResources("signature.png,spring.jpg");
     //frameRate(10);
 
@@ -88,42 +89,60 @@ function draw() {
                 app.wait(30);
                 break;
             }
+
             case (app.scene == 8):{
-                background(app.pal.colors[1]);
-                app.x = app.isometry.moveX(app.x);
-                app.y = app.isometry.moveY(app.y);
-                app.isometry.drawBox(app.x, app.y, 2, 2, 2);
-                app.wait(100);
-                break;
-            }
-            case (app.scene == 9):{
 
                 background(app.pal.colors[1]);
-                app.x = [];
-                app.y = [];
-                for (i = 0; i < 100; i++){
 
-                        app.x[i] = app.randomInt(10,90);
-                        app.y[i] = app.randomInt(10,90);
+                app.x = 1;
+                app.y = 1;
                     
-                        app.isometry.drawBox(app.x[i], app.y[i], 2, 2, 2);
-                }
-                app.wait(1);
-            break;
-        }
-            case (app.scene ==10):{
+                app.isometry.drawBox(2, 2,app.x, app.y,2);
 
-                background(app.pal.colors[1]);
-                for (i = 0; i < 100; i++) {
-
-                    app.x[i] = app.isometry.moveX(app.x[i]);
-                    app.y[i] = app.isometry.moveY(app.y[i]);
-                    app.isometry.drawBox(app.x[i], app.y[i], 2, 2, 2);
-                }
-                app.wait(2000);
+                app.wait(30);
                 break;
             }
+            case (app.scene == 9):
+            {
+               if(frameCount % 2 == 0){
+                    app.x += 1;
+                }
+                else{
+                    app.y +=1;
+                }
+                app.isometry.drawBox(2, 2,app.x, app.y,2);
 
+                app.wait(50);
+                break;
+           }
+            case (app.scene == 10):
+            {
+                if(frameCount % 2 == 0){
+                    app.x -= 1;
+                }
+                else{
+                    app.y -=1;
+                }
+                app.isometry.drawBox(2, 2,app.x, app.y,2);
+                app.isometry.drawBox(2, 2,app.x + 2, app.y + 2,2);
+
+                app.wait(50);
+                break;
+            }
+            case (app.scene == 11):
+            {
+                if(frameCount % 2 == 0){
+                    app.x -= 1;
+                }
+                else{
+                    app.y -=1;
+                }
+                app.isometry.drawBox(2 -app.x, 2,app.x, app.y,2);
+                app.isometry.drawBox(2, 2,app.x + 2, app.y + 2,2);
+
+                app.wait(50);
+                break;
+            }
 
         }
 

@@ -12,7 +12,7 @@ function App(name){
     this.name = name;
 
     //resources
-    this.resourcepath = "../resources"; //default resource map
+    this.resourcepath = "resources"; //default resource map
     this.signature = loadImage(this.resourcepath + "/signature.png" );
     this.images = [];
     this.sounds = [];
@@ -175,7 +175,7 @@ App.prototype.isnot = function(param){
 };
 App.prototype.randomInt = function(min, max){
     if(app.is(max)){
-        return int(random(min,max+1));
+        return int(random(min-1,max+1));
     }
     else{
         return int(random(min));
@@ -194,20 +194,40 @@ App.prototype.wait = function(framecounts){
         app.iswaiting = false;
     }
 };
-// App.prototype.setupGif = function(gifwidth,gifheight,skip,maxframes) {
-//     this.gif = new GIF({
-//         workers: 2,
-//         quality: 40,
-//         workerScript: "../libraries/gif.worker.js",
-//         background:"#ffffff",
-//         width:gifwidth,
-//         height:gifheight
-//     });
-//     this.gif.skip = skip;
-//     this.gif.maxframes = maxframes;
-//
-//     this.gif.on('finished', function(blob) {
-//         window.open(URL.createObjectURL(blob));
-//     });
-// };
+//VECTOR FUNCTIONS
 
+App.prototype.inRange = function(pos, minx, maxx, miny, maxy) {
+  if(pos.x >= minx && pos.x <= maxx){
+      if(pos.y >= miny && pos.y <= maxy){
+          return true;
+      }
+  }
+    return false;
+};
+App.prototype.contains = function(array, obj) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i]== obj) {
+            return true;
+        }
+    }
+    return false;
+}
+App.prototype.containsVector = function(array, avector) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i].x == avector.x && array[i].y == avector.y) {
+            return true;
+        }
+    }
+    return false;
+}
+App.prototype.counter = function(start, stop){
+    if(this.isnot(this.c)){
+        this.c = start;
+    }
+    else{
+        if(this.c < stop){
+            this.c++;
+        }
+    }
+    return this.c;
+}

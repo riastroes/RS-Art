@@ -175,10 +175,11 @@ App.prototype.isnot = function(param){
 };
 App.prototype.randomInt = function(min, max){
     if(app.is(max)){
-        return int(random(min-1,max+1));
+        return floor(random(min,max+1));
+        
     }
     else{
-        return int(random(min));
+        return floor(random(min+1));
     }
 };
 App.prototype.wait = function(framecounts){

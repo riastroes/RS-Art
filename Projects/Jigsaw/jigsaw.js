@@ -3,34 +3,55 @@
  * trying to make a jigsaw with blobbers and a grid
  */
 function Jigsaw(){
-    this.grid = new Grid(10,10,(width-540)/2, (height-540)/2, (width-540)/2, (height-540)/2);
-    this.factor = this.grid.cellwidth;
+    //this.grid = new Grid(10,10,(width-540)/2, (height-540)/2, (width-540)/2, (height-540)/2);
+    this.grid  = undefined;
+    this.factor = 0;
     this.pieces = [];
 
 }
-Jigsaw.prototype.init = function(dimension){
+Jigsaw.prototype.init = function(dimension,cols, rows,lmarge, tmarge,rmarge, bmarge){
   var i, p;
-    for(i = 0; i< 100; i++){
+    this.pieces = [];
+    this.grid = new Grid(cols, rows,lmarge, tmarge,rmarge, bmarge);
+    this.factor = this.grid.cellwidth;
+    for(i = 0; i< (cols*rows); i++){
 
         append(this.pieces, new Piece(this.grid.get(i),dimension,this.grid.cellwidth));
 
     }
 };
-Jigsaw.prototype.draw = function(){
+Jigsaw.prototype.init2 = function(dimension,cols, rows,lmarge, tmarge,rmarge, bmarge, version){
+    var i, p;
+    this.pieces = [];
+    this.grid = new Grid(cols, rows,lmarge, tmarge,rmarge, bmarge);
+    this.factor = this.grid.cellwidth;
+    for(i = 0; i< (cols*rows); i++){
+
+        append(this.pieces, new Piece(this.grid.get(i),dimension,this.grid.cellwidth, version));
+
+    }
+};
+Jigsaw.prototype.draw = function(scolor, fcolor){
     var i;
-    for(i = 0; i< 100; i++){
-        this.pieces[i].draw();
+    for(i = 0; i< (this.grid.cols*this.grid.rows); i++){
+        this.pieces[i].draw(scolor, fcolor);
 
     }
 }
 
 //class Piece
-function Piece(center, dimension, factor){
+function Piece(center, dimension, factor, version){
     this.center = center.copy();
     this.dimension = dimension;
     this.factor=factor/2;
     this.pos = [] ;
-    this.init();
+    if(app.isnot(version) ){
+        this.init();
+    }
+    else{
+        this.init2(version);
+    }
+    
 }
 Piece.prototype.init = function(){
     var d, p, attempts;
@@ -59,8 +80,37 @@ Piece.prototype.init = function(){
     this.blobber.scale(this.factor);
     
 }
-Piece.prototype.draw = function(){
-    app.style.set(app.pal.colors[0], app.pal.colors[2], 1);
+Piece.prototype.init2 = function(v){
+    if(v == 1) {
+        this.pos[0] = createVector(0, 0);
+        this.pos[1] = createVector(2, 0);
+        this.pos[2] = createVector(2, 1);
+        this.pos[3] = createVector(1, 2);
+        this.pos[3] = createVector(0, 1);
+        
+
+    }
+    if(v == 2) {
+        this.pos[0] = createVector(2, 0);
+        this.pos[1] = createVector(3, 0);
+        this.pos[2] = createVector(3, 3);
+        this.pos[3] = createVector(4, 4);
+        this.pos[4] = createVector(4, 5);
+        this.pos[5] = createVector(0, 5);
+
+    }
+    append(this.pos, this.pos[0].copy());
+    append(this.pos, this.pos[1].copy());
+    append(this.pos, this.pos[2].copy());
+    append(this.pos, this.pos[3].copy());
+
+    this.blobber = new ArrayBlobber();
+    this.blobber.set(this.pos, this.factor);
+    this.blobber.scale(this.factor);
+
+}
+Piece.prototype.draw = function(scolor, fcolor){
+    app.style.set(scolor, fcolor, 1);
     push();
     translate(this.center.x, this.center.y);
 

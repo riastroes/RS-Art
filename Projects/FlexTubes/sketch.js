@@ -6,8 +6,7 @@ function setup() {
     app = new App("Flextubes");
     app.resourcepath = "resources";
     app.loadResources("watercolors.jpg,sandcolors.jpg,sky.jpg,happywoman3.png, jumpingman2.png,jumpinggirl.png,happywoman1.png, jumpingman.png");
-    frameRate(10);
-
+    
 }
 
 function draw() {
@@ -21,7 +20,6 @@ function draw() {
             app.noisex =0; //
             app.images[2].resize(width,height);
             image(app.images[2],0,0);
-
 
         }
 

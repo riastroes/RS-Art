@@ -354,7 +354,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_cf76fc1621ac41ad4fe86c420ab5ff403f1808b9/cmd/git.exe" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -476,7 +476,7 @@
       <workItem from="1458893266439" duration="19326000" />
       <workItem from="1458923203376" duration="32576000" />
       <workItem from="1459150174126" duration="3483000" />
-      <workItem from="1459154155882" duration="681000" />
+      <workItem from="1459154155882" duration="757000" />
     </task>
     <task id="LOCAL-00001" summary="Flextubes version1">
       <created>1458898753968</created>
@@ -541,11 +541,18 @@
       <option name="project" value="LOCAL" />
       <updated>1459154748725</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Projects">
+      <created>1459154851810</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1459154851810</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56155000" />
+    <option name="totallyTimeSpent" value="56231000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />

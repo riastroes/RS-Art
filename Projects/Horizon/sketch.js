@@ -4,7 +4,7 @@ function setup() {
 
     app = new App("Horizon");
     app.resourcepath = "resources";
-    app.loadResources("greens.jpg,blues.jpg,church.png");
+    app.loadResources("signature.png,greens.jpg,blues.jpg,bg.jpg,church.png");
 
 
 }
@@ -13,18 +13,21 @@ function draw() {
     if(app.isloaded) {
 
         if(app.isnot(app.horizon)){
-            app.horizon = new Horizon();
+            app.horizon = new Horizon(app.images[3]);
+       //     app.scene = 0;
         }
-        if(typeof(app.horizon.planets[0]) == "undefined"){
-            app.horizon.init();
-            background(app.horizon.bgcolor);
+        // if(app.currentpalettename != "greens"){
+        //     app.imgPalette(app.images[3],10,"greens");
+        // }
+        
+        switch(app.scene){
+            case 0:{
+                app.horizon.drawBackground();
+                break;
+            }
         }
-
-
-        app.horizon.draw();
-        app.info.show();
-
-        app.gifmaker.check();
+       // app.info.show();
+       // app.gifmaker.check();
     }
     else{
         println("loading resources ...");

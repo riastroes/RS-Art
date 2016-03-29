@@ -162,7 +162,7 @@ function draw() {
                     app.flower.live(createVector(x,y), size,size, 13);
                     app.flower.draw();
                 }
-                app.runscene(1000);
+                app.runscene(100);
                 break;
             }
             case(app.scene == 10):{

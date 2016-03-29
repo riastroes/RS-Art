@@ -153,7 +153,7 @@ App.prototype.background = function(img, transparency) {
 
     }
     image(img,0,0);
-}
+};
 //SMART FUNCTIONS
 App.prototype.is = function(param){
     var ok = false;
@@ -183,16 +183,31 @@ App.prototype.randomInt = function(min, max){
     }
 };
 App.prototype.runscene = function(framecounts){
-    if(!app.isrunning){
-        app.runcount = framecounts;
-        app.isrunning  = true;
+    if(!this.isrunning){
+        this.runcount = framecounts;
+        this.isrunning  = true;
     }
     else{
-        app.runcount -= 1;
+        this.runcount -= 1;
     }
     if(app.runcount == 0){
         this.scene++;
-        app.isrunning = false;
+        this.isrunning = false;
+    }
+};
+App.prototype.wait = function(framecounts){
+    if(framecounts > 0) {
+        this.lastscene = this.scene;
+        this.scene = 99999;
+        this.runcount =framecounts;
+        this.isrunning  = true;
+    }
+    else{
+        this.runscene();
+        if(this.scene >99999){
+            this.scene = this.lastscene + 1;
+        }
+        
     }
 };
 App.prototype.counter = function(start, stop){
@@ -253,7 +268,7 @@ App.prototype.posOnEllipse = function(center, wradius, hradius, maxsteps, step) 
     v.x = v.x + (wradius * cos(angle));
     v.y = v.y + (hradius * sin(angle));
     return v;
-}
+};
 App.prototype.posOnLine = function(begin, end, maxsteps, step) {
     var d = dist(begin.x, begin.y, end.x, end.y);
     var stepsize = d / maxsteps;
@@ -264,4 +279,4 @@ App.prototype.posOnLine = function(begin, end, maxsteps, step) {
     s.add(aline);
     return s;
 
-}
+};

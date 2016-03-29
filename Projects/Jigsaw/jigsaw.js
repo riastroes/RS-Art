@@ -37,7 +37,7 @@ Jigsaw.prototype.draw = function(scolor, fcolor){
         this.pieces[i].draw(scolor, fcolor);
 
     }
-}
+};
 
 //class Piece
 function Piece(center, dimension, factor, version){
@@ -70,16 +70,12 @@ Piece.prototype.init = function(){
             println("100 attempts!");
         }
     }
-    append(this.pos, this.pos[0].copy());
-    append(this.pos, this.pos[1].copy());
-    append(this.pos, this.pos[2].copy());
-    append(this.pos, this.pos[3].copy());
-
+    
     this.blobber = new ArrayBlobber();
     this.blobber.set(this.pos, this.factor);
     this.blobber.scale(this.factor);
     
-}
+};
 Piece.prototype.init2 = function(v){
     if(v == 1) {
         this.pos[0] = createVector(0, 0);
@@ -108,7 +104,7 @@ Piece.prototype.init2 = function(v){
     this.blobber.set(this.pos, this.factor);
     this.blobber.scale(this.factor);
 
-}
+};
 Piece.prototype.draw = function(scolor, fcolor){
     app.style.set(scolor, fcolor, 1);
     push();
@@ -116,4 +112,4 @@ Piece.prototype.draw = function(scolor, fcolor){
 
     this.blobber.draw();
     pop();
-}
+};

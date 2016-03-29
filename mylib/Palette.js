@@ -55,7 +55,11 @@ Palette.prototype.init = function(nr){
       this.add(10,color(25));
       this.add(11, color('#f47171')); //reds
   }
-  
+  else if(this.nr == 5){
+      //gray scale
+      this.add(2,color(255,0,0));
+      this.add(3,color(225,0,0));
+  }
 };
 
 

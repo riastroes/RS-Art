@@ -149,7 +149,7 @@ Horizon.prototype.drawFace = function(){
     }
     w = app.images[7].width;
     image(app.images[7],0,0,w, this.facey, (width/2)-(w/2),this.horizony - this.facey,w, this.facey );
-    this.facey  +=1 * this.dir;
+    this.facey  += this.dir;
     if(this.facey > app.images[7].height/4*3 || this.facey == 0){
         this.dir = 0;
      }
@@ -182,4 +182,4 @@ Tree.prototype.draw = function(){
         app.style.set(false,app.pal.tint(app.pal.imgcolors[4],40), t/2);
         ellipse(tos.x, tos.y, this.size,this.size);
     }
-}
+};

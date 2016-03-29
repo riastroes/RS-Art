@@ -31,8 +31,8 @@ Blobber.prototype.init = function(center, corners, minwidth, maxwidth, minheight
   }
   append(this.pos, this.pos[0].copy());
   append(this.pos, this.pos[1].copy());
-append(this.pos, this.pos[2].copy());
-append(this.pos, this.pos[3].copy());
+  append(this.pos, this.pos[2].copy());
+  append(this.pos, this.pos[3].copy());
 };
 
 Blobber.prototype.draw = function(pg){
@@ -91,8 +91,53 @@ Blobber.prototype.showMorePoints = function(){
     ellipse(this.morepos[i].x, this.morepos[i].y, 5, 5);
   }
 };
-Blobber.prototype.set = function() {
+Blobber.prototype.grow = function(){
+  //var i;
+  //for(i = 0; i < count; i++){
+    ///TODO definition grow: add a point to the blob
+    this.createMorePoints(2);
+    this.set(this.morepos, this.size);
+    
+  //}
+}
+Blobber.prototype.split = function(){
+  var p,i,o, newpos, oldpos, newblobber;
 
+  p = floor((this.pos.length-4)/2);
+  newpos = [];
+  oldpos = [];
+  o=0;
+  if(p < this.pos.length - 4 && p >=3){
+    
+    for(i = 0; i < p; i++){
+      newpos[i] = this.pos[i].copy();
+    }
+    for(i = p; i <this.pos.length-4; i++ ){
+      oldpos[o] = this.pos[i];
+      o += 1;
+    }
+    this.pos =[];
+    arrayCopy(oldpos, this.pos);
+
+    append(newpos, oldpos[0]);
+    append(oldpos, newpos[0]);
+    newblobber = new Blobber();
+    newblobber.set(newpos,this.size);
+
+
+    this.set(oldpos,this.size);
+
+  }
+  return newblobber;
+};
+Blobber.prototype.set = function(pos, factor){
+  arrayCopy(pos, this.pos);
+  this.corners = this.pos.length;
+  append(this.pos, this.pos[0].copy());
+  append(this.pos, this.pos[1].copy());
+  append(this.pos, this.pos[2].copy());
+  append(this.pos, this.pos[3].copy());
+  this.factor = factor;
 };
 //differential inheritants.
 function RegBlobber(){
@@ -140,10 +185,7 @@ function ArrayBlobber(){
   return this.blobber;
 }
 
-ArrayBlobber.prototype.set = function(pos, factor){
-  arrayCopy(pos, this.pos);
-  this.factor = factor;
-};
+
 
 
 

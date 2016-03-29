@@ -7,7 +7,7 @@ function App(name){
 
 
     pixelDensity(1);
-    this.acanvas = createCanvas(displayWidth, displayHeight);
+    this.acanvas = createCanvas(window.innerWidth, window.innerHeight);
     background(255);
     this.name = name;
 
@@ -20,8 +20,8 @@ function App(name){
     this.maxsounds = 0;
     this.loaded = 0;
     this.isloaded = false;
-    this.iswaiting = false;
-    this.waitingcount =0;
+    this.isrunning = false;
+    this.runcount =0;
     this.scene = 0;
 
     //styles and colors
@@ -182,19 +182,31 @@ App.prototype.randomInt = function(min, max){
         return floor(random(min+1));
     }
 };
-App.prototype.wait = function(framecounts){
-    if(!app.iswaiting){
-        app.waitingcount = framecounts;
-        app.iswaiting  = true;
+App.prototype.runscene = function(framecounts){
+    if(!app.isrunning){
+        app.runcount = framecounts;
+        app.isrunning  = true;
     }
     else{
-        app.waitingcount -= 1;
+        app.runcount -= 1;
     }
-    if(app.waitingcount == 0){
+    if(app.runcount == 0){
         this.scene++;
-        app.iswaiting = false;
+        app.isrunning = false;
     }
 };
+App.prototype.counter = function(start, stop){
+    if(this.isnot(this.c)){
+        this.c = start;
+    }
+    else{
+        if(this.c < stop){
+            this.c++;
+        }
+    }
+    return this.c;
+};
+
 //VECTOR FUNCTIONS
 
 App.prototype.inRange = function(pos, minx, maxx, miny, maxy) {
@@ -212,7 +224,7 @@ App.prototype.contains = function(array, obj) {
         }
     }
     return false;
-}
+};
 App.prototype.containsVector = function(array, avector) {
     for (var i = 0; i < array.length; i++) {
         if (array[i].x == avector.x && array[i].y == avector.y) {
@@ -220,15 +232,36 @@ App.prototype.containsVector = function(array, avector) {
         }
     }
     return false;
+};
+App.prototype.posOnCircle = function(center, radius, maxsteps, step) {
+    var v = center.copy();
+    var angle = ( TWO_PI / maxsteps ) * step;
+    v.x = v.x + (radius * cos(angle));
+    v.y = v.y + (radius * sin(angle));
+    return v;
+};
+App.prototype.posOnPie = function(center, radius, startangle, stopangle, maxsteps, step) {
+    var v = center.copy();
+    var angle = startangle + ( (stopangle-startangle) / maxsteps ) * step;
+    v.x = v.x + (radius * cos(angle));
+    v.y = v.y + (radius * sin(angle));
+    return v;
+};
+App.prototype.posOnEllipse = function(center, wradius, hradius, maxsteps, step) {
+    var v = center.copy();
+    var angle = ( TWO_PI / maxsteps ) * step;
+    v.x = v.x + (wradius * cos(angle));
+    v.y = v.y + (hradius * sin(angle));
+    return v;
 }
-App.prototype.counter = function(start, stop){
-    if(this.isnot(this.c)){
-        this.c = start;
-    }
-    else{
-        if(this.c < stop){
-            this.c++;
-        }
-    }
-    return this.c;
+App.prototype.posOnLine = function(begin, end, maxsteps, step) {
+    var d = dist(begin.x, begin.y, end.x, end.y);
+    var stepsize = d / maxsteps;
+    var aline = p5.Vector.sub(end, begin);
+    aline.normalize();
+    aline.mult(stepsize * step);
+    var s = begin.copy();
+    s.add(aline);
+    return s;
+
 }

@@ -14,32 +14,34 @@ function Info(){
 }
 
 Info.prototype.show = function(){
-    this.pg.background(app.pal.colors[1]);
+    if(this.doshow) {
+        this.pg.background(app.pal.colors[1]);
 
-    if (frameCount % 100 == 0) {
-        app.totframerate = frameRate();  // reset
-    }
-    else if (frameCount % 100 < 99) {
-        app.totframerate += frameRate(); //add
-    }
-    else if (frameCount % 100 == 99) {
-        app.gemframerate = app.totframerate / 100;
-
-    }
-    app.style.pg(this.pg, false,app.pal.colors[0] ,1);
-
-    this.pg.text("frameRate: " + int(frameRate()), this.leftmarge, this.liney);
-    this.pg.text("gem. frameRate: " + int(app.gemframerate), this.leftmarge, this.liney += this.lineheight);
-
-    for(var index in this.log){
-        if (this.log.hasOwnProperty(index)) {
-            this.pg.text(this.log[index], this.leftmarge, this.liney += this.lineheight);
+        if (frameCount % 100 == 0) {
+            app.totframerate = frameRate();  // reset
         }
+        else if (frameCount % 100 < 99) {
+            app.totframerate += frameRate(); //add
+        }
+        else if (frameCount % 100 == 99) {
+            app.gemframerate = app.totframerate / 100;
+
+        }
+        app.style.pg(this.pg, false, app.pal.colors[0], 1);
+
+        this.pg.text("frameRate: " + int(frameRate()), this.leftmarge, this.liney);
+        this.pg.text("gem. frameRate: " + int(app.gemframerate), this.leftmarge, this.liney += this.lineheight);
+
+        for (var index in this.log) {
+            if (this.log.hasOwnProperty(index)) {
+                this.pg.text(this.log[index], this.leftmarge, this.liney += this.lineheight);
+            }
+        }
+        this.log = [];
+        this.liney = this.topmarge;
+        app.style.image(CORNER, BLEND);
+        image(this.pg, 0, 0);
     }
-    this.log =[];
-    this.liney = this.topmarge;
-    app.style.image(CORNER, BLEND);
-    image(this.pg, 0,0);
 };
 Info.prototype.add = function (msg){
     append(this.log, msg);

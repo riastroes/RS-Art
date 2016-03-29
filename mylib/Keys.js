@@ -15,13 +15,13 @@ function keyPressed() {
         }
     }
     if (keyCode == RIGHT_ARROW) {
-        if(app.is(app.proces)){
-            app.proces.nextScene(app.pal.colors[1]);
+        if(app.is(app.scene)){
+            app.scene +=1;
         }
     }
     if (keyCode == LEFT_ARROW) {
-        if(app.is(app.proces)) {
-            app.proces.previousScene(app.pal.colors[1]);
+        if(app.is(app.scene)) {
+            app.scene -=1;
         }
     }
     if (key  == " ") {

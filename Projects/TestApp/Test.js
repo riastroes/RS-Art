@@ -56,6 +56,11 @@ Test.prototype.testrun = function (subject, scene) {
             this.blobtest(this.testnr);
             break;
         }
+        case "posOn...":
+        {
+            this.posOntest(this.testnr);
+            break;
+        }
     }
 };
 Test.prototype.start = function () {
@@ -1079,6 +1084,148 @@ Test.prototype.blobtest = function (testnr) {
             app.info.add("hradius: " + this.blobber2.hminradius + "-" + this.blobber2.hmaxradius);
 
                 break;
+        }
+        default:
+        {
+            this.end();
+            frameRate(60);
+        }
+    }
+};
+Test.prototype.posOntest = function (testnr) {
+    //testing blobber functions
+
+
+    var pos, center, start, stop;
+
+    this.name = "posOn test " + testnr;
+
+    switch (testnr) {
+        case 0:
+        {
+
+            this.start();
+            break;
+        }
+        case 1:
+        {
+
+            background(app.pal.colors[1]);
+
+            this.showDescription("Test posOn...");
+            if(frameRate()> 2){
+                frameRate(2);
+            }
+
+            if(typeof(this.grid) == "undefined"){
+                this.grid = new Grid(3,4,200 + 100,100,100,200);
+
+            }
+            if(app.currentpalettename != "spring"){
+                app.imgPalette(app.images[0],6,"spring");
+
+            }
+            //draw Circle
+            app.style.set(app.pal.imgcolors[0], false,1);
+            center = this.grid.get(0);
+            ellipse(center.x, center.y, 100,100);
+
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 2:
+        {
+            this.showDescription("Test posOnCircle: app.posOnCircle(center,radius, maxsteps, step)");
+            //draw Circle
+            app.style.set(app.pal.imgcolors[0], false,1);
+            center = this.grid.get(0);
+            ellipse(center.x, center.y, 100,100);
+
+            //draw Pie
+            app.style.set(app.pal.imgcolors[1], false,1);
+            center = this.grid.get(1);
+            ellipse(center.x, center.y, 200,200);
+            pos = app.posOnCircle(center,100,6,5);
+            ellipse(pos.x, pos.y, 10,10);
+            pos = app.posOnCircle(center,100,6,4);
+            ellipse(pos.x, pos.y, 10,10);
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 3:
+        {
+            this.showDescription("Test posOnPie: app.posOnPie(center,radius,startangle, stopangle, maxsteps, step)");
+            //draw Circle
+            app.style.set(app.pal.imgcolors[0], false,1);
+            center = this.grid.get(0);
+            ellipse(center.x, center.y, 100,100);
+
+            //draw Pie
+            app.style.set(app.pal.imgcolors[1], false,1);
+            center = this.grid.get(1);
+            ellipse(center.x, center.y, 200,200);
+            pos = app.posOnCircle(center,100,6,5);
+            ellipse(pos.x, pos.y, 10,10);
+            pos = app.posOnCircle(center,100,6,4);
+            ellipse(pos.x, pos.y, 10,10);
+
+            //posOnPie
+            app.style.set(app.pal.imgcolors[2], false,1);
+            center = this.grid.get(2);
+            ellipse(center.x, center.y, 200,200);
+            pos = app.posOnCircle(center,100,6,5);
+            ellipse(pos.x, pos.y, 10,10);
+            pos = app.posOnCircle(center,100,6,4);
+            ellipse(pos.x, pos.y, 10,10);
+            for(i = 0 ; i <= 10; i++) {
+                pos = app.posOnPie(center, 100, TWO_PI / 6 * 5, TWO_PI / 6 * 4, 10, i);
+                app.style.set(app.pal.imgcolors[3], false,4);
+                point(pos.x, pos.y);
+            }
+
+            //testresult
+            app.info.add(this.name + " visible");
+            break;
+        }
+        case 4:
+        {
+            this.showDescription("Test posOnLine: app.posOnLine(start, stop, maxsteps, step)");
+            this.grid.show();
+            
+            start = this.grid.get(3);
+            stop = this.grid.get(5);
+            app.style.set(app.pal.imgcolors[4], false,4);
+            line(start.x, start.y, stop.x, stop.y);
+            app.style.set(app.pal.imgcolors[5], false,8);
+            for(i=0; i < 10;i++){
+                pos = app.posOnLine(start, stop, 10, i);
+                point(pos.x, pos.y)
+            }
+            //testresult
+            app.info.add(this.name + " visible");
+            break;
+        }
+        case 5:
+        {
+            this.showDescription("Test posOnEllipse: app.posOnEllipse(center,wradius,hradius, maxsteps, step)");
+            this.grid.show();
+
+            center = this.grid.get(6);
+
+            app.style.set(app.pal.imgcolors[5], false,1);
+            ellipse(center.x, center.y, 10,10);
+            app.style.set(app.pal.imgcolors[3], false,8);
+            for(i=0; i < 10;i++){
+                pos = app.posOnEllipse(center,400,200, 10, i);
+                point(pos.x, pos.y)
+            }
+            //testresult
+            app.info.add(this.name + " visible");
+            break;
         }
         default:
         {

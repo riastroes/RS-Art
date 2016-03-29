@@ -27,7 +27,7 @@ function draw() {
 
                 app.style.set(app.pal.colors[0], app.pal.colors[1],1);
                 //app.jigsaw.grid.show();
-                app.wait(0);
+                app.runscene(0);
                 break;
             }
             case (app.scene == 1):{
@@ -39,7 +39,7 @@ function draw() {
                 app.jigsaw.grid.show();
 
 
-                app.wait(50);
+                app.runscene(50);
                 break;
             }
             case (app.scene == 2):{
@@ -51,7 +51,7 @@ function draw() {
                 app.jigsaw.grid.show();
 
 
-                app.wait(50);
+                app.runscene(50);
                 break;
             }
             case (app.scene == 3):{
@@ -64,7 +64,7 @@ function draw() {
 
 
 
-                app.wait(50);
+                app.runscene(50);
                 break;
             }
             case (app.scene == 4):{
@@ -85,7 +85,7 @@ function draw() {
                 }
 
 
-                app.wait(50);
+                app.runscene(50);
                 break;
             }
             case (app.scene == 5):{
@@ -106,7 +106,7 @@ function draw() {
                 }
 
 
-                app.wait(50);
+                app.runscene(50);
                 break;
             }
             case (app.scene ==6):{
@@ -128,7 +128,7 @@ function draw() {
                 }
 
 
-                app.wait(50);
+                app.runscene(50);
                 break;
             }
 

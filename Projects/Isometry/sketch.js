@@ -35,7 +35,7 @@ function draw() {
                     app.style.set(app.pal.colors[0],false,2);
                     app.isometry.drawLine(5,10, 5, 15);
                     app.isometry.drawLine(6,10, 6, 15);
-                    app.wait(20);
+                    app.runscene(20);
                     break;
                 }
             case (app.scene == 2):{
@@ -43,7 +43,7 @@ function draw() {
                 app.style.set(app.pal.colors[0],false,2);
                 app.isometry.drawLine(7,9, 7, 14);
                 app.isometry.drawLine(8,9, 8, 14);
-                app.wait(20);
+                app.runscene(20);
                 break;
             }
             case (app.scene == 3):{
@@ -53,7 +53,7 @@ function draw() {
                 app.isometry.drawLine(6,10, 8, 9);
                 app.isometry.drawLine(5,15, 7, 14);
                 app.isometry.drawLine(6,15, 8, 14);
-                app.wait(20);
+                app.runscene(20);
                 break;
             }
             case (app.scene == 4):{
@@ -61,12 +61,12 @@ function draw() {
                 app.isometry.drawLine(5,15,6,15);
                 app.isometry.drawLine(7,9,8,9);
                 app.isometry.drawLine(7,14,8,14);
-                app.wait(20);
+                app.runscene(20);
                 break;
             }
             case (app.scene == 5):{
                 app.isometry.drawBox(10, 10, 2,2,2);
-                app.wait(50);
+                app.runscene(50);
                 break;
             }
             case (app.scene == 6):{
@@ -76,7 +76,7 @@ function draw() {
                 }
                 app.isometry.drawBox(app.x, 10, 2,2,2);
                 app.x +=1;
-                app.wait(50);
+                app.runscene(50);
                 break;
             }
             case (app.scene == 7):{
@@ -86,7 +86,7 @@ function draw() {
                 }
                 app.isometry.drawBox(app.x, app.y, 2,2,2);
                 app.y +=1;
-                app.wait(30);
+                app.runscene(30);
                 break;
             }
 
@@ -99,7 +99,7 @@ function draw() {
                     
                 app.isometry.drawBox(2, 2,app.x, app.y,2);
 
-                app.wait(30);
+                app.runscene(30);
                 break;
             }
             case (app.scene == 9):
@@ -112,7 +112,7 @@ function draw() {
                 }
                 app.isometry.drawBox(2, 2,app.x, app.y,2);
 
-                app.wait(50);
+                app.runscene(50);
                 break;
            }
             case (app.scene == 10):
@@ -126,7 +126,7 @@ function draw() {
                 app.isometry.drawBox(2, 2,app.x, app.y,2);
                 app.isometry.drawBox(2, 2,app.x + 2, app.y + 2,2);
 
-                app.wait(50);
+                app.runscene(50);
                 break;
             }
             case (app.scene == 11):
@@ -140,7 +140,7 @@ function draw() {
                 app.isometry.drawBox(2 -app.x, 2,app.x, app.y,2);
                 app.isometry.drawBox(2, 2,app.x + 2, app.y + 2,2);
 
-                app.wait(50);
+                app.runscene(50);
                 break;
             }
 

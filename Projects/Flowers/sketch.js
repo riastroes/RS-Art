@@ -41,7 +41,7 @@ function draw() {
                 size = random(30,80);
                 app.flower.live(createVector(x,y), size, size,18);
                 app.flower.draw();
-                app.wait(1500);
+                app.runscene(1500);
                 break;
             }
             case (app.scene ==2):
@@ -51,7 +51,7 @@ function draw() {
                 app.imgPalette(app.images[1], 4, "flowers2");
                 app.mask.add(app.images[2], 0, 0, app.pal.colors[1]);
                 app.flower.age = 10;
-                app.wait(0);
+                app.runscene(0);
                 break;
             }
             case (app.scene == 3):{
@@ -63,7 +63,7 @@ function draw() {
                 app.flower.live(createVector(x,y), size, size,18);
                 app.flower.draw();
 
-                app.wait(500);
+                app.runscene(500);
                 break;
             }
             case (app.scene == 4):
@@ -81,7 +81,7 @@ function draw() {
                 //create mask from blackcolors in background
                 app.mask.createMask(app.pal.colors[0]);
                 app.flower.age = 0;
-                app.wait(0);
+                app.runscene(0);
                 break;
             }
 
@@ -92,7 +92,7 @@ function draw() {
                 size = random(10,100);
                 app.flower.live(createVector(x,y), size, size,int(random(13,18)));
                 app.flower.drawBW();
-                app.wait(2000);
+                app.runscene(2000);
                 break;
             }
             case (app.scene == 6):
@@ -112,7 +112,7 @@ function draw() {
                 app.mask.createMask(app.pal.colors[0]);
                 background(app.pal.colors[1]);
                 app.acanvas.elt.style.visibility = "visible";
-                app.wait(0);
+                app.runscene(0);
                 break;
             }
 
@@ -123,7 +123,7 @@ function draw() {
                 size = random(10,200);
                 app.flower.live(createVector(x,y), size, size,int(random(13,18)));
                 app.flower.draw();
-                app.wait(1000);
+                app.runscene(1000);
                 break;
             }
 
@@ -134,7 +134,7 @@ function draw() {
                 app.mask.add(app.images[0],0,0,app.pal.colors[0]);
                 app.imgPalette(app.images[3], 4, "spring");
                 app.flower.age = 0;
-                app.wait(0);
+                app.runscene(0);
                 break;
             }
             case(app.scene == 9):{
@@ -145,7 +145,7 @@ function draw() {
                 size = random(80,120);
                 app.flower.live(createVector(x,y), size,size, 13);
                 app.flower.draw();
-                app.wait(1000);
+                app.runscene(1000);
                 break;
             }
             case(app.scene == 10):{
@@ -162,7 +162,7 @@ function draw() {
                     app.flower.live(createVector(x,y), size,size, 13);
                     app.flower.draw();
                 }
-                app.wait(1000);
+                app.runscene(1000);
                 break;
             }
             case(app.scene == 10):{

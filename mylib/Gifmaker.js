@@ -12,9 +12,9 @@ function Gifmaker(){
     this.gif = undefined;
     this.do = false;
 }
-Gifmaker.prototype.init = function(width, height, speed, skip, maxframes, currentframerate){
-    this.width = width;
-    this.height = height;
+Gifmaker.prototype.init = function(gifwidth, gifheight, speed, skip, maxframes, currentframerate){
+    this.width = gifwidth;
+    this.height = gifheight;
     this.speed = speed;
     this.skip = skip;
     this.frame = 0;
@@ -23,13 +23,20 @@ Gifmaker.prototype.init = function(width, height, speed, skip, maxframes, curren
     this.gif = new GIF({
         workers: 2,
         quality: 40,
-        workerScript: "../libraries/gif.worker.js",
+        workerScript: "../../libraries/gif.worker.js",
         background:"#ffffff",
         width:this.width,
-        height:this.height
+        height:this.height,
+        transparent:0xffffff
     });
     this.gif.on('finished', function(blob) {
         window.open(URL.createObjectURL(blob));
+        if(this.oldframerate > 0){
+            frameRate(this.oldframerate);
+        }
+        else{
+            frameRate(60);
+        }
     });
     this.do = true;
 };
@@ -49,7 +56,7 @@ Gifmaker.prototype.check = function(skip, maxframes, show){
 
             if(show){
                 image(shot.img,0,0);
-                this.gif.addFrame(app.acanvas.elt, {
+                this.gif.addFrame(shot.img.elt, {
                     delay: 250,
                     copy: true,
                     width: this.width,
@@ -61,24 +68,26 @@ Gifmaker.prototype.check = function(skip, maxframes, show){
             else{
                 var pg = createGraphics(this.width,this.height);
                 pg.image(shot.img,0,0);
-                this.gif.addFrame(pg.elt, {
+                try{
+               this.gif.addFrame(pg.elt, {
+
                     delay: 250,
                     copy: true,
                     width: this.width,
                     height: this.height
                 });
+                }
+                catch(err){
+                    println(err);
+                }
             }
 
             this.frame++;
         }
         else if(this.frame ==  this.maxframes){
-            try{
+
                 this.render();
                 this.do = false;
-            }
-            catch(err){
-                println(err);
-            }
 
         }
     }

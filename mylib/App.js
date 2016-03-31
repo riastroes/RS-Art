@@ -7,7 +7,7 @@ function App(name, appwidth, appheight){
 
 
     pixelDensity(1);
-    if(appwidth != "undefined" && appheight != "undefined"){
+    if(appwidth != undefined && appheight != undefined){
         this.acanvas = createCanvas(appwidth, appheight);
     }
     else {

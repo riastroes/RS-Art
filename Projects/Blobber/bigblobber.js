@@ -13,7 +13,7 @@ function BigBlobber(mask){
     this.blobbers = [];
     for(i =0; i < this.mask.length; i++){
         this.blobbers[i] = new Blobber();
-        this.blobbers[i].init(this.mask[i],30,100,600,100,600);
+        this.blobbers[i].init(this.mask[i],30,100,300,100,300);
         
     }
 

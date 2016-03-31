@@ -13,7 +13,7 @@ Jigsaw.prototype.init = function(dimension,cols, rows,lmarge, tmarge,rmarge, bma
   var i, p;
     this.pieces = [];
     this.grid = new Grid(cols, rows,lmarge, tmarge,rmarge, bmarge);
-    this.factor = this.grid.cellwidth;
+    this.factor = 1;
     for(i = 0; i< (cols*rows); i++){
 
         append(this.pieces, new Piece(this.grid.get(i),dimension,this.grid.cellwidth));
@@ -27,7 +27,9 @@ Jigsaw.prototype.init2 = function(dimension,cols, rows,lmarge, tmarge,rmarge, bm
     this.factor = this.grid.cellwidth;
     for(i = 0; i< (cols*rows); i++){
 
+        //append(this.pieces, new Piece(this.grid.get(i),dimension,this.grid.cellwidth, version));
         append(this.pieces, new Piece(this.grid.get(i),dimension,this.grid.cellwidth, version));
+
 
     }
 };
@@ -59,7 +61,7 @@ Piece.prototype.init = function(){
     attempts = 0;
     d = 0;
     while( d < this.dimension && attempts < 100){
-       p = createVector(app.randomInt(-1,1), app.randomInt(-1,1));
+       p = createVector(app.randomInt(-1,1), app.randomInt(-1,1)).mult(this.factor);
 
         if(!app.containsVector(this.pos, p) && !(p.x == 0 && p.y == 0)){
             append(this.pos, p);
@@ -71,45 +73,41 @@ Piece.prototype.init = function(){
         }
     }
     
-    this.blobber = new ArrayBlobber();
-    this.blobber.set(this.pos, this.factor);
-    this.blobber.scale(this.factor);
+    this.blobber = new Blobber();
+    this.blobber.set(this.center, this.pos,1);
+    //this.blobber.grow(this.factor);
     
 };
 Piece.prototype.init2 = function(v){
     if(v == 1) {
-        this.pos[0] = createVector(0, 0);
-        this.pos[1] = createVector(2, 0);
-        this.pos[2] = createVector(2, 1);
-        this.pos[3] = createVector(1, 2);
-        this.pos[3] = createVector(0, 1);
+        this.pos[0] = createVector(0, 0).mult(this.factor);
+        this.pos[1] = createVector(2, 0).mult(this.factor);
+        this.pos[2] = createVector(2, 1).mult(this.factor);
+        this.pos[3] = createVector(1, 2).mult(this.factor);
+        this.pos[4] = createVector(0, 1).mult(this.factor);
         
 
     }
     if(v == 2) {
-        this.pos[0] = createVector(2, 0);
-        this.pos[1] = createVector(3, 0);
-        this.pos[2] = createVector(3, 3);
-        this.pos[3] = createVector(4, 4);
-        this.pos[4] = createVector(4, 5);
-        this.pos[5] = createVector(0, 5);
+        this.pos[0] = createVector(2, 0).mult(this.factor);
+        this.pos[1] = createVector(3, 0).mult(this.factor);
+        this.pos[2] = createVector(3, 3).mult(this.factor);
+        this.pos[3] = createVector(4, 4).mult(this.factor);
+        this.pos[4] = createVector(4, 5).mult(this.factor);
+        this.pos[5] = createVector(0, 5).mult(this.factor);
 
     }
-    append(this.pos, this.pos[0].copy());
-    append(this.pos, this.pos[1].copy());
-    append(this.pos, this.pos[2].copy());
-    append(this.pos, this.pos[3].copy());
 
-    this.blobber = new ArrayBlobber();
-    this.blobber.set(this.pos, this.factor);
-    this.blobber.scale(this.factor);
+    this.blobber = new Blobber();
+    this.blobber.set(this.center,this.pos, 1);
+
+    //this.blobber.grow(this.factor);
 
 };
 Piece.prototype.draw = function(scolor, fcolor){
-    app.style.set(scolor, fcolor, 1);
-    push();
-    translate(this.center.x, this.center.y);
+
+    this.blobber.style(scolor, fcolor, 1);
 
     this.blobber.draw();
-    pop();
+    //pop();
 };

@@ -5,15 +5,18 @@ function Blobber(){
   this.corners = 0;
   this.size = 0;
   this.morepos = [];
+  this.rot = random(TWO_PI);
 }
 
 
-Blobber.prototype.init = function(center, corners, minwidth, maxwidth, minheight, maxheight){
+Blobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight, maxheight){
   //the flexibility of the blopper is dependend of the difference in minwidth and maxwidth and minheight and maxheight.
   this.pos = [];
-  this.center = center.copy();
+  this.position = pos.copy();
+  this.center = createVector(0,0);
   this.corners = corners;
   this.size = size;
+  this.factor = 1;
 
   this.wminradius = minwidth/2;
   this.wmaxradius = maxwidth/2;
@@ -26,118 +29,260 @@ Blobber.prototype.init = function(center, corners, minwidth, maxwidth, minheight
   for (var i = 0; i < corners; i += 1) {
     var wradius = random(this.wminradius, this.wmaxradius);
     var hradius = random(this.hminradius, this.hmaxradius);
-    p = posOnEllipse(center,wradius, hradius, corners, i + r);
+    p = posOnEllipse(this.center,wradius, hradius, this.corners, i + r);
     append(this.pos, p);
   }
-  append(this.pos, this.pos[0].copy());
-  append(this.pos, this.pos[1].copy());
-  append(this.pos, this.pos[2].copy());
-  append(this.pos, this.pos[3].copy());
+
+};
+Blobber.prototype.style = function(strokecolor, fillcolor,thickness){
+  this.strokecolor = strokecolor;
+  this.fillcolor = fillcolor;
+  this.thickness = thickness;
 };
 
 Blobber.prototype.draw = function(pg){
-  var i;
-  if(app.isnot(pg)){
-    beginShape();
-    for (i = 0; i < this.pos.length-1; i += 1) {
-      curveVertex(this.pos[i].x, this.pos[i].y);
-    }
-   endShape();
-  }
-  else {
-    pg.beginShape();
-    for (i = 0; i < this.pos.length-1; i += 1) {
-      pg.curveVertex(this.pos[i].x, this.pos[i].y);
-    }
-    pg.endShape();
-  }
+  var i,s;
 
+  push();
+    translate(this.position.x, this.position.y);
+    scale(this.factor);
+    if(app.is(this.rot)){
+      rotate(this.rot);
+    }
+
+    s = this.pos.length;
+    if(app.isnot(pg)){
+      if(app.is(this.strokecolor)){
+        stroke(this.strokecolor);
+        fill(this.fillcolor);
+        strokeWeight(this.thickness);
+      }
+      beginShape();
+      for (i = 0; i < s+3; i += 1) {
+        curveVertex(this.pos[i%s].x, this.pos[i%s].y);
+      }
+
+     endShape();
+    }
+    else {
+      if(app.is(this.strokecolor)){
+        pg.stroke(this.strokecolor);
+        pg.fill(this.fillcolor);
+        pg.strokeWeight(this.thickness);
+      }
+      pg.beginShape();
+      for (i = 0; i < s+3; i += 1) {
+        pg.curveVertex(this.pos[i%s].x, this.pos[i%s].y);
+      }
+      pg.endShape();
+    }
+    
+  pop();
 };
-Blobber.prototype.scale = function(factor){
-  var i,v;
-  for(i = 0; i < this.pos.length; i++){
+// Blobber.prototype.scale = function(factor){
+//   var i,v;
+//   for(i = 0; i < this.pos.length; i++){
+//
+//     this.pos[i].mult(factor);
+//
+//   }
+// };
+Blobber.prototype.showCenter = function(){
+  var newposition = this.recalcPosition(this.position);
+  ellipse(newposition.x, newposition.y, 10, 10);
 
-    this.pos[i].mult(factor);
-
+  push();
+  translate(this.position.x, this.position.y);
+  scale(this.factor);
+  if(app.is(this.rot)){
+    rotate(this.rot);
   }
+    ellipse(this.center.x, this.center.y, 10, 10);
+  pop();
 };
 Blobber.prototype.showPoints = function(pg){
   var i;
-  for(i in this.pos){
-    if(typeof(pg) == "undefined") {
-      ellipse(this.pos[i].x, this.pos[i].y, 10, 10);
-    }
-    else{
-      pg.ellipse(this.pos[i].x, this.pos[i].y, 10, 10);
-    }
+  push();
+  translate(this.position.x, this.position.y);
+  scale(this.factor);
+  if(app.is(this.rot)){
+    rotate(this.rot);
   }
+    for(i in this.pos){
+      if(typeof(pg) == "undefined") {
+        ellipse(this.pos[i].x, this.pos[i].y, 10, 10);
+      }
+      else{
+        pg.ellipse(this.pos[i].x, this.pos[i].y, 10, 10);
+      }
+    }
+  pop();
 };
 Blobber.prototype.createMorePoints = function(count){
-  var i, t, x,y;
+  var i,s, t, x,y;
   this.morepos = [];
-  for(i = 0; i < this.corners; i++){
+  s = this.pos.length;
+  for(i = 0; i < s; i++){
 
     for (j = 0; j < count; j++) {
       t = j / count;
-      x = curvePoint(this.pos[i].x, this.pos[i+1].x, this.pos[i+2].x, this.pos[i+3].x, t);
-      y = curvePoint(this.pos[i].y, this.pos[i+1].y, this.pos[i+2].y, this.pos[i+3].y, t);
+      x = curvePoint(this.pos[i].x, this.pos[(i+1)%s].x, this.pos[(i+2)%s].x, this.pos[(i+3)%s].x, t);
+      y = curvePoint(this.pos[i].y, this.pos[(i+1)%s].y, this.pos[(i+2)%s].y, this.pos[(i+3)%s].y, t);
       append(this.morepos, createVector(x,y));
     }
   }
 };
 Blobber.prototype.showMorePoints = function(){
   var i,  t, x,y;
-  for(i = 0; i < this.morepos.length; i++){
-    ellipse(this.morepos[i].x, this.morepos[i].y, 5, 5);
+  push();
+    translate(this.position.x, this.position.y);
+    scale(this.factor);
+  if(app.is(this.rot)){
+    rotate(this.rot);
   }
+    for(i = 0; i < this.morepos.length; i++){
+      ellipse(this.morepos[i].x, this.morepos[i].y, 5, 5);
+    }
+  pop();
 };
-Blobber.prototype.grow = function(){
-  //var i;
-  //for(i = 0; i < count; i++){
-    ///TODO definition grow: add a point to the blob
-    this.createMorePoints(2);
-    this.set(this.morepos, this.size);
-    
-  //}
-}
-Blobber.prototype.split = function(){
-  var p,i,o, newpos, oldpos, newblobber;
+Blobber.prototype.grow = function(grown){
 
-  p = floor((this.pos.length-4)/2);
+    this.factor += grown;
+  // this.createMorePoints(2);
+  // this.set(this.position, this.morepos, this.factor + grown);
+
+};
+Blobber.prototype.multiply = function(){
+  var i,o, newpos, oldpos, newblobber;
   newpos = [];
   oldpos = [];
   o=0;
-  if(p < this.pos.length - 4 && p >=3){
-    
-    for(i = 0; i < p; i++){
-      newpos[i] = this.pos[i].copy();
-    }
-    for(i = p; i <this.pos.length-4; i++ ){
-      oldpos[o] = this.pos[i];
-      o += 1;
-    }
-    this.pos =[];
-    arrayCopy(oldpos, this.pos);
+  if(this.pos.length >=6){
 
-    append(newpos, oldpos[0]);
-    append(oldpos, newpos[0]);
+    for(i = 0; i < this.pos.length; i++){
+      if(i%2 == 0) {
+        append(newpos, this.pos[i]);
+      }
+      else{
+        append(oldpos, this.pos[i]);
+      }
+    }
+
     newblobber = new Blobber();
-    newblobber.set(newpos,this.size);
+    newblobber.set(this.position, newpos,this.factor);
 
-
-    this.set(oldpos,this.size);
+    this.set(this.position,oldpos,this.factor);
 
   }
   return newblobber;
 };
-Blobber.prototype.set = function(pos, factor){
+Blobber.prototype.split = function(newblobbers){
+  var p,i,o, newpos, oldpos, newblobber, blobberpos;
+
+
+  p = floor(this.pos.length/2);
+  newpos = [];
+  oldpos = [];
+  o=0;
+  if(p >3){
+
+    oldpos = subset(this.pos, 0,p);
+    newpos = subset(this.pos, p,this.pos.length - p);
+    
+    //append(newpos, oldpos[0]);
+    //append(oldpos, newpos[0]);
+    blobberpos = this.position.copy();
+
+    newblobber = new Blobber();
+    newblobber.set(blobberpos, newpos,this.factor);
+
+    append( newblobbers, newblobber);
+
+    this.set(this.position,oldpos,this.factor);
+    this.style(app.pal.randomImgColor(),app.pal.tint(app.pal.randomImgColor()),1 );
+    this.init(blobberpos,30,200,300,200,300);
+
+  }
+
+  return newblobber;
+};
+Blobber.prototype.splitting = function() {
+  //two dots will grow to each other, if they connect the cell will split
+  //this function should be called until the blobber is spit.
+  var p, first, half;
+
+  p = floor(this.pos.length / 2);
+
+  first = this.pos[0];
+  half = this.pos[p];
+  
+  if (dist(first.x, first.y, half.x, half.y) > 10){
+
+    first.mult(0.9);
+    half.mult(0.9);
+  }
+  else{
+    //split blobber
+    return true;
+    
+  }
+  return false;
+};
+Blobber.prototype.recalcPosition = function(position){
+  var i, totx =0, avx, toty = 0, avy;
+  for(i= 0; i < this.pos.length; i++){
+    totx += this.pos[i].x;
+    toty += this.pos[i].y;
+  }
+  avx = totx / this.pos.length / 2;
+  avy = toty / this.pos.length / 2;
+
+  return createVector(position.x +avx, position.y +avy);
+}
+Blobber.prototype.set = function(position, pos, factor){
+  this.pos = [];
   arrayCopy(pos, this.pos);
+  this.position = position;
+  var newposition = this.recalcPosition(position);
+  var change = p5.Vector.sub(this.position, newposition);
+  for(i = 0; i < this.pos.length; i++){
+    this.pos[i].add(change);
+  }
+  this.position = newposition;
+  this.center = createVector(0,0);
   this.corners = this.pos.length;
-  append(this.pos, this.pos[0].copy());
-  append(this.pos, this.pos[1].copy());
-  append(this.pos, this.pos[2].copy());
-  append(this.pos, this.pos[3].copy());
   this.factor = factor;
+
+};
+Blobber.prototype.crossLines = function(){
+  var pos1, pos2;
+  push();
+    translate(this.position.x,this.position.y);
+    scale(this.factor);
+  if(app.is(this.rot)){
+    rotate(this.rot);
+  }
+    for (i = 0; i < half; i++) {
+      pos1 = this.morepos[i];
+      pos2 = this.morepos[i + half];
+  
+      line(pos1.x, pos1.y, pos2.x, pos2.y);
+    }
+  pop();
+};
+Blobber.prototype.linesToCenter = function(){
+  var pos;
+  push();
+    translate(this.position.x,this.position.y);
+    scale(this.factor);
+  if(app.is(this.rot)){
+    rotate(this.rot);
+  }
+    for (i = 0; i < this.morepos.length; i++) {
+      pos = this.morepos[i];
+      line(pos.x, pos.y, this.center.x, this.center.y);
+    }
+  pop();
 };
 //differential inheritants.
 function RegBlobber(){
@@ -145,10 +290,11 @@ function RegBlobber(){
   this.blobber.init = this.init;
   return this.blobber;
 }
-RegBlobber.prototype.init = function(center, corners, minwidth, maxwidth, minheight, maxheight){
+RegBlobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight, maxheight){
   //the flexibility of the blopper is dependend of the difference in minwidth and maxwidth and minheight and maxheight.
   this.pos = [];
-  this.center = center.copy();
+  this.position = pos.copy();
+  this.center = createVector(0,0);
   this.corners = corners;
   this.size = size;
 
@@ -170,13 +316,10 @@ RegBlobber.prototype.init = function(center, corners, minwidth, maxwidth, minhei
       hradius = this.hmaxradius;
     }
 
-    p = posOnEllipse(center,wradius, hradius, corners, i + r);
+    p = posOnEllipse(this.center,wradius, hradius, this.corners, i + r);
     append(this.pos, p);
   }
-  append(this.pos, this.pos[0].copy());
-  append(this.pos, this.pos[1].copy());
-  append(this.pos, this.pos[2].copy());
-  append(this.pos, this.pos[3].copy());
+
 };
 
 function ArrayBlobber(){

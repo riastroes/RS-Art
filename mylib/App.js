@@ -3,11 +3,16 @@
  * App is the main object to store the global variables
  * en general settings for the project(s)
  */
-function App(name){
+function App(name, appwidth, appheight){
 
 
     pixelDensity(1);
-    this.acanvas = createCanvas(window.innerWidth, window.innerHeight);
+    if(appwidth != "undefined" && appheight != "undefined"){
+        this.acanvas = createCanvas(appwidth, appheight);
+    }
+    else {
+        this.acanvas = createCanvas(window.innerWidth, window.innerHeight);
+    }
     background(255);
     this.name = name;
 
@@ -143,16 +148,21 @@ App.prototype.callbackResources = function(){
 App.prototype.background = function(img, transparency) {
     var i,t;
     t = transparency * (255/100);
-    if(app.isnot(app.pgbg)){
-        app.pgbg = createGraphics(width,height);
+    if(this.isnot(this.pgbg)){
+        this.pgbg = createGraphics(width,height);
         img.loadPixels();
-        for(i=0; i < pixels.length; i+=4){
+        for(i=0; i < img.pixels.length; i+=4){
             img.pixels[i+3] = t;
         }
         img.updatePixels();
 
+        this.pgbg.image(img,0,0);
     }
-    image(img,0,0);
+    else{
+        image(this.pgbg,0,0);
+    }
+    
+    
 };
 //SMART FUNCTIONS
 App.prototype.is = function(param){
@@ -280,3 +290,10 @@ App.prototype.posOnLine = function(begin, end, maxsteps, step) {
     return s;
 
 };
+App.prototype.posInCircle = function(pos, center, radius) {
+    var incircle = false;
+    if (dist(pos.x, pos.y, center.x, center.y) < radius) {
+        incircle = true;
+    }
+    return incircle;
+}

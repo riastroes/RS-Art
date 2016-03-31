@@ -15,7 +15,7 @@ function draw() {
             app.imgPalette(app.images[0], 8, "menu");
         }
         if(app.isnot(app.menu)){
-            app.menu = new Menu("Palette,Styles,Grid,Button,Stopwatch,Blobber,posOn...");
+            app.menu = new Menu("Palette,Styles,Grid,Button,Stopwatch,Blobber,posOn...,Curves");
         }
         if(app.isnot(app.proces)) {
             app.proces = new Proces(0, 30);
@@ -25,6 +25,7 @@ function draw() {
         }
 
         else if(app.menu.selected == ""){
+            background(app.pal.colors[1]);
             app.menu.draw();
             app.menu.isclicked();
 

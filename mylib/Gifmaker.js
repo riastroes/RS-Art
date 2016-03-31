@@ -72,8 +72,14 @@ Gifmaker.prototype.check = function(skip, maxframes, show){
             this.frame++;
         }
         else if(this.frame ==  this.maxframes){
-            this.render();
-            this.do = false;
+            try{
+                this.render();
+                this.do = false;
+            }
+            catch(err){
+                println(err);
+            }
+
         }
     }
 };

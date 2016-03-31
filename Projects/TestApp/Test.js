@@ -61,6 +61,11 @@ Test.prototype.testrun = function (subject, scene) {
             this.posOntest(this.testnr);
             break;
         }
+        case "Curves":
+        {
+            this.curvestest(this.testnr);
+            break;
+        }
     }
 };
 Test.prototype.start = function () {
@@ -1085,6 +1090,18 @@ Test.prototype.blobtest = function (testnr) {
 
                 break;
         }
+        case 5:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test Blobber grow.");
+            app.style.set(app.pal.colors[1], app.pal.imgcolors[2],1);
+            this.blobber1.grow(0.1);
+            this.blobber1.draw();
+            this.blobber1.showPoints();
+            
+            break;
+
+        }
         default:
         {
             this.end();
@@ -1234,10 +1251,240 @@ Test.prototype.posOntest = function (testnr) {
         }
     }
 };
-Test.prototype.showDescription = function (description) {
+Test.prototype.curvestest = function (testnr) {
+    //testing blobber functions
+
+
+    var pos, center, a, b, c, d, i,s;
+
+    this.name = "Curves test " + testnr;
+
+    switch (testnr) {
+        case 0:
+        {
+
+            this.start();
+            break;
+        }
+        case 1:
+        {
+
+            background(app.pal.colors[1]);
+
+            this.showDescription("Test Curves: a a - b b","curve(a.x, a.y, a.x, a.y, b.x, b.y, b.x, b.y);");
+            if(frameRate()> 2){
+                frameRate(2);
+            }
+
+            if(typeof(this.grid) == "undefined"){
+                this.grid = new Grid(3,4,200 + 100,100,100,200);
+
+            }
+            if(app.currentpalettename != "spring"){
+                app.imgPalette(app.images[0],6,"spring");
+
+            }
+            app.style.set(app.pal.colors[0], app.pal.colors[1], 1);
+            a = this.grid.get(0);
+            b = this.grid.get(2);
+
+            curve(a.x, a.y, a.x, a.y, b.x, b.y, b.x, b.y);
+
+            ellipse(a.x,a.y, 5,5);
+            ellipse(b.x,b.y, 5,5);
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 2:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test Curves: c a - b d","curve(c.x, c.y, a.x, a.y, b.x, b.y, d.x, d.y)");
+
+
+            app.style.text(12, CENTER, app.pal.colors[0]);
+            a = this.grid.get(0);
+            text("a",a.x, a.y-10);
+            b = this.grid.get(2);
+            text("b",b.x, b.y-10);
+            c = this.grid.get(3);
+            text("c",c.x, c.y-10);
+            d = this.grid.get(5);
+            text("d",d.x, d.y-10);
+            app.style.set(app.pal.colors[0], false, 1);
+
+            curve(c.x, c.y, a.x, a.y, b.x, b.y, d.x, d.y);
+
+            ellipse(c.x,c.y, 5,5);
+            ellipse(d.x,d.y, 5,5);
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+
+        case 3:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test Curves: c a - b c","curve(c.x, c.y, a.x, a.y, b.x, b.y, c.x, c.y)");
+
+
+            app.style.text(12, CENTER, app.pal.colors[0]);
+            a = this.grid.get(0);
+            text("a",a.x, a.y-10);
+            b = this.grid.get(2);
+            text("b",b.x, b.y-10);
+
+            c = this.grid.get(app.runcount);
+            text("c",c.x, c.y-10);
+
+            app.style.set(app.pal.colors[0], false, 1);
+
+            curve(c.x, c.y, a.x, a.y, b.x, b.y, c.x, c.y);
+
+            ellipse(c.x,c.y, 5,5);
+
+            //testresult
+            app.info.add(this.name + " visible");
+            app.runscene(11);
+
+            break;
+        }
+        case 4:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test Curves on rect","a-b-c-d, b-c-d-a, c-d-a-b, d-a-b-c");
+
+
+            app.style.text(12, CENTER, app.pal.colors[0]);
+            a = this.grid.get(0);
+            text("a",a.x, a.y-10);
+            b = this.grid.get(1);
+            text("b",b.x, b.y-10);
+            c = this.grid.get(4);
+            text("c",c.x, c.y+10);
+            d = this.grid.get(3);
+            text("d",d.x, d.y+10);
+
+            app.style.set(app.pal.colors[0], false, 1);
+
+            curve(a.x, a.y, b.x, b.y, c.x, c.y, d.x, d.y);
+            curve(b.x, b.y, c.x, c.y, d.x, d.y, a.x, a.y);
+            curve(c.x, c.y, d.x, d.y, a.x, a.y, b.x, b.y);
+            curve(d.x, d.y, a.x, a.y, b.x, b.y, c.x, c.y);
+
+
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 5:
+        {
+            background(app.pal.colors[1]);
+            this.showDescription("Test Curves on triangle","a-b-c-a, b-c-a-b, c-a-b-c");
+
+
+            app.style.text(12, CENTER, app.pal.colors[0]);
+            a = this.grid.get(0);
+            text("a",a.x, a.y-10);
+            b = this.grid.get(2);
+            text("b",b.x, b.y-10);
+            c = this.grid.get(7);
+            text("c",c.x, c.y+10);
+
+
+            app.style.set(app.pal.colors[0], false, 1);
+
+            curve(a.x, a.y, b.x, b.y, c.x, c.y, a.x, a.y);
+            curve(b.x, b.y, c.x, c.y, a.x, a.y, b.x, b.y);
+            curve(c.x, c.y, a.x, a.y, b.x, b.y, c.x, c.y);
+
+
+
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 6:
+        {
+            this.grid = new Grid(4,3,200 + 100,100,200,200);
+            background(app.pal.colors[1]);
+            this.showDescription("Test Curves on 6-corners","a-b-c-d, b-c-d-e, c-d-e-f, d-e-f-a, e-f-a-b, f-a-b-c");
+
+            p = [];
+            app.style.text(12, CENTER, app.pal.colors[0]);
+            p[0] = this.grid.get(1);
+            p[1] = this.grid.get(2);
+            p[2] = this.grid.get(7);
+            p[3] = this.grid.get(10);
+            p[4] = this.grid.get(9);
+            p[5] = this.grid.get(4);
+            s = p.length;
+
+            app.style.set(app.pal.colors[0], false, 1);
+
+            for(i = 0; i < s;i++){
+                text(i,p[i].x, p[i].y -10);
+                ellipse(p[i].x, p[i].y,5,5);
+                curve(p[i].x, p[i].y,p[(i+1)%s].x, p[(i+1)%s].y,p[(i+2)%s].x, p[(i+2)%s].y,p[(i+3)%s].x, p[(i+3)%s].y);
+            }
+
+
+
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 7:
+        {
+            this.grid = new Grid(4,3,200 + 100,100,200,200);
+            background(app.pal.colors[1]);
+            this.showDescription("Test Curves on 6-corners","You can not fill a curve, use beginShape - curveVertex - endShape");
+
+            p = [];
+            app.style.text(12, CENTER, app.pal.colors[0]);
+            p[0] = this.grid.get(1);
+            p[1] = this.grid.get(2);
+            p[2] = this.grid.get(7);
+            p[3] = this.grid.get(10);
+            p[4] = this.grid.get(9);
+            p[5] = this.grid.get(4);
+            s = p.length;
+
+            app.style.set(app.pal.colors[0], app.pal.tint(app.pal.colors[0],20), 1);
+            beginShape();
+
+            for(i = 0; i < s+app.runcount;i++){
+                text(i,p[i%s].x, p[i%s].y -10);
+                ellipse(p[i%s].x, p[i%s].y,5,5);
+                curveVertex(p[i%s].x, p[i%s].y);
+            }
+            endShape();
+            app.runscene(3);
+
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        default:
+        {
+            this.end();
+            frameRate(60);
+        }
+    }
+};
+Test.prototype.showDescription = function (description1, description2) {
     app.style.set(false, app.pal.colors[1], 0);
     rect(200, 0, width, 100);
     app.style.text(12, CENTER, app.pal.colors[0]);
     text(this.name, width / 2, 30);
-    text(description, width / 2, 50);
+    text(description1, width / 2, 50);
+    if(app.is(description2)) {
+        text(description2, width / 2, 75);
+    }
 };

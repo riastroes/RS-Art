@@ -34,7 +34,7 @@ function keyPressed() {
         
         if(app.isnot(app.gifmaker) || !app.gifmaker.do){
             app.gifmaker = new Gifmaker();
-            app.gifmaker.init(540,540,10,1,20,60);
+            app.gifmaker.init(540,540,5,1,20,60);
             frameRate(app.gifmaker.speed);
         }
         else{

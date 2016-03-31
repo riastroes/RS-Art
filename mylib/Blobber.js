@@ -79,14 +79,7 @@ Blobber.prototype.draw = function(pg){
     
   pop();
 };
-// Blobber.prototype.scale = function(factor){
-//   var i,v;
-//   for(i = 0; i < this.pos.length; i++){
-//
-//     this.pos[i].mult(factor);
-//
-//   }
-// };
+
 Blobber.prototype.showCenter = function(){
   var newposition = this.recalcPosition(this.position);
   ellipse(newposition.x, newposition.y, 10, 10);
@@ -322,11 +315,11 @@ RegBlobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight
 
 };
 
-function ArrayBlobber(){
-  this.blobber = new Blobber;
-  this.blobber.set = this.set;
-  return this.blobber;
-}
+// function ArrayBlobber(){
+//   this.blobber = new Blobber;
+//   this.blobber.set = this.set;
+//   return this.blobber;
+// }
 
 
 

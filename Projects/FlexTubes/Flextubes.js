@@ -35,8 +35,10 @@ Flextube.prototype.init = function(){
 
 };
 Flextube.prototype.showMorePoints = function(blobber, max){
+    var  mp;
     var i,  t, x,y;
     if(app.is(max)){
+
         if(max <= blobber.morepos.length) {
             app.max =(blobber.morepos.length/2) -5;
         }
@@ -50,15 +52,17 @@ Flextube.prototype.showMorePoints = function(blobber, max){
     }
 
     for(i = 0; i < app.max; i++){
-        ellipse(blobber.morepos[i].x, blobber.morepos[i].y, 5, 5);
+        mp = p5.Vector.add(blobber.position, blobber.morepos[i]);
+        ellipse( mp.x,  mp.y, 5, 5);
     }
     app.style.set(app.pal.colors[1], app.pal.colors[1],1);
     for(i = blobber.morepos.length - 5; i < blobber.morepos.length; i++){
-        ellipse(blobber.morepos[i].x, blobber.morepos[i].y, 5, 5);
+        mp = p5.Vector.add(blobber.position, blobber.morepos[i]);
+        ellipse( mp.x, mp.y, 5, 5);
     }
 };
 Flextube.prototype.draw = function(){
-    var f,c, ig, w, h;
+    var f,c, ig, w, h, mp1, mp2, mp;
     //draw lines between the floors
 
     for(f=0; f<this.floors-1;f++){
@@ -67,8 +71,8 @@ Flextube.prototype.draw = function(){
         strokeCap(SQUARE);
         for(p =0; p <(this.blobbers[f].morepos.length); p++){
             if((f == 5)){
-
-                ig = 3 + int(this.blobbers[f].center.x /(width/5));
+                mp = p5.Vector.add(this.blobbers[f].position, this.blobbers[f].center);
+                ig = 3 + int(mp.x /(width/5));
                 w = this.space.lefttop.x;
                 h = this.space.center.y;
 
@@ -78,11 +82,13 @@ Flextube.prototype.draw = function(){
                 push();
                 translate(w,h);
                 scale((this.space.width - 20)/app.images[ig].width);
-                image(app.images[ig],0,this.blobbers[f].center.y/3);
+                image(app.images[ig],0,p.y/3);
                 pop();
             }
             app.style.image(CENTER, BLEND);
-            line(this.blobbers[f].morepos[p].x,this.blobbers[f].morepos[p].y,this.blobbers[f+1].morepos[p].x,this.blobbers[f+1].morepos[p].y);
+            mp1 = p5.Vector.add(this.blobbers[f].position, this.blobbers[f].morepos[p]);
+            mp2 = p5.Vector.add(this.blobbers[f+1].position, this.blobbers[f+1].morepos[p]);
+            line(mp1.x,mp1.y,mp2.x,mp2.y);
             
         }
         strokeCap(ROUND); // back to default

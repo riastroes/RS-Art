@@ -111,7 +111,7 @@ function draw() {
         }
         app.info.add("Blobbers:" +  app.big.blobbers.length);
         app.info.show();
-        app.gifmaker.check(0,20,false);
+        app.gifmaker.check(1, 50, false);
        
 
     }

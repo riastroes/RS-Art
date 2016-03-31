@@ -3,15 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9f198393-781e-45eb-9e2a-071bd42e97df" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/Blobber/bigblobber.js" afterPath="$PROJECT_DIR$/Projects/Blobber/bigblobber.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/Blobber/sketch.js" afterPath="$PROJECT_DIR$/Projects/Blobber/sketch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/FlexTubes/Flextubes.js" afterPath="$PROJECT_DIR$/Projects/FlexTubes/Flextubes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/FlexTubes/sketch.js" afterPath="$PROJECT_DIR$/Projects/FlexTubes/sketch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/Jigsaw/jigsaw.js" afterPath="$PROJECT_DIR$/Projects/Jigsaw/jigsaw.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/App.js" afterPath="$PROJECT_DIR$/mylib/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Blobber.js" afterPath="$PROJECT_DIR$/mylib/Blobber.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Gifmaker.js" afterPath="$PROJECT_DIR$/mylib/Gifmaker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Keys.js" afterPath="$PROJECT_DIR$/mylib/Keys.js" />
     </list>
     <ignored path="RS-Art.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -534,7 +525,7 @@
       <workItem from="1459154155882" duration="56102000" />
       <workItem from="1459323279644" duration="45258000" />
       <workItem from="1459437497665" duration="112000" />
-      <workItem from="1459437619718" duration="10221000" />
+      <workItem from="1459437619718" duration="10270000" />
     </task>
     <task id="LOCAL-00001" summary="Flextubes version1">
       <created>1458898753968</created>
@@ -648,11 +639,18 @@
       <option name="project" value="LOCAL" />
       <updated>1459437388601</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Projects">
+      <created>1459454194915</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1459454194915</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167167000" />
+    <option name="totallyTimeSpent" value="167216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />

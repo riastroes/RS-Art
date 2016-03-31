@@ -3,6 +3,7 @@ function Grid(cols, rows, lmarge, tmarge, rmarge, bmarge){
   this.rows = rows;
   this.maxi = this.cols * this.rows;
   this.pos = []; //the center positions of the grid;
+  this.mask = [];
 
   if(typeof(rmarge) == "undefined"){
     this.rmarge = lmarge/2;
@@ -68,4 +69,15 @@ Grid.prototype.x = function(index){
 };
 Grid.prototype.y = function(index){
   return int(index / this.cols);
+};
+Grid.prototype.maskCircle = function(x,y, maskradius){
+  var i;
+  var center = createVector(x,y);
+  this.mask = [];
+  for(i =  0; i < this.cols * this.rows; i++ ){
+    if(app.posInCircle(this.get(i), center, maskradius)){
+      append(this.mask , this.get(i));
+    }
+  }
+  
 };

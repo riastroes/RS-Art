@@ -18,7 +18,7 @@ function draw() {
             app.imgPalette(app.images[0],6,"spring");
             app.bgcolor = app.pal.randomRGBColor("DARK");
             app.noisex =0; //
-            app.images[2].resize(width,height);
+            //app.images[2].resize(width,height);
             image(app.images[2],0,0);
 
         }

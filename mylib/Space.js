@@ -20,7 +20,31 @@ Space.prototype.set = function (pos) {
     this.leftbottom = p5.Vector.add(this.center, createVector(-this.width/2, this.height/2));
     this.rightbottom = p5.Vector.add(this.center, createVector(this.width/2, this.height/2));
 };
+Space.prototype.data = function(){
+    //return an index collection of all the point in the space;
+    var indexes = [];
+    var pg = createGraphics(this.width, this.height);
+    var found = false;
+    var r, cr,pos,i;
+    app.style.set(false, app.pal.transparent,0);
+    this.draw(pg);
+    pg.loadPixels();
+    for(r = 0; r < height; r++){
+        found = false;
+        for(cr = 0; cr < Math.pow(2,r); cr++) {
+            pos = posOnCircle(this.center, r, Math.pow(2, r), cr);
+            i = (pos.y * width * 4) + (pos.x * 4);
+            if(pg.pixels[i+3] == 0){
+                append(indexes,i);
+                found = true;
+            }
+        }
+        if(!found){
+            break;
+        }
+    }
 
+}
 Space.prototype.draw = function (pg) {
     var rectmodechanged = false;
     if (app.is(this.center)){

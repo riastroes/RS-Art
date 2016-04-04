@@ -193,7 +193,7 @@ Blobber.prototype.split = function(newblobbers){
 
     this.set(this.position,oldpos,this.factor);
     this.style(app.pal.randomImgColor(),app.pal.tint(app.pal.randomImgColor()),1 );
-    this.init(blobberpos,30,200,300,200,300);
+    this.init(blobberpos,30,this.wminradius*2,this.wmaxradius*2,this.hminradius*2,this.hmaxradius*2);
 
   }
 

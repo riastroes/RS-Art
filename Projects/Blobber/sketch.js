@@ -2,7 +2,7 @@ var app;
 
 function setup() {
 
-    app = new App("Blobber",displayWidth,displayHeight);
+    app = new App("Blobber",windowWidth, windowHeight);
     app.resourcepath ="resources";
     app.loadResources("signature.png,spring.jpg");
     //frameRate(5);
@@ -98,6 +98,7 @@ function draw() {
             case 8:{
                // frameRate(1);
                 //app.big.grow(2);
+                background(255);
                 app.name = "one flower";
                 app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,30));
                 app.big.split();

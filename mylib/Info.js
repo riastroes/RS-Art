@@ -35,6 +35,8 @@ Info.prototype.show = function(){
         this.pg.text("scene: " + app.name, this.leftmarge, this.liney += this.lineheight);
         this.pg.text("scene: " + app.scene, this.leftmarge, this.liney += this.lineheight);
         this.pg.text("run: " + app.runcount, this.leftmarge, this.liney += this.lineheight);
+        this.pg.text("width: " + width, this.leftmarge, this.liney += this.lineheight);
+        this.pg.text("height: " + height, this.leftmarge, this.liney += this.lineheight);
 
         for (var index in this.log) {
             if (this.log.hasOwnProperty(index)) {

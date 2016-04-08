@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f198393-781e-45eb-9e2a-071bd42e97df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Gifmaker.js" afterPath="$PROJECT_DIR$/mylib/Gifmaker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/Blobber/sketch.js" afterPath="$PROJECT_DIR$/Projects/Blobber/sketch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/gif.js" afterPath="$PROJECT_DIR$/libraries/gif.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Info.js" afterPath="$PROJECT_DIR$/mylib/Info.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Keys.js" afterPath="$PROJECT_DIR$/mylib/Keys.js" />
     </list>
     <ignored path="RS-Art.iws" />
@@ -25,21 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sketch.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sketch.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="113" column="28" selection-start-line="113" selection-start-column="28" selection-end-line="113" selection-end-column="28" />
+            <state relative-caret-position="272">
+              <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bigblobber.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Projects/Blobber/bigblobber.js">
+      <file leaf-file-name="Info.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mylib/Info.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+            <state relative-caret-position="33">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -78,7 +81,7 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mylib/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4097">
+            <state relative-caret-position="153">
               <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
               <folding />
             </state>
@@ -88,8 +91,8 @@
       <file leaf-file-name="gif.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libraries/gif.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="5210" selection-start-line="0" selection-start-column="5210" selection-end-line="0" selection-end-column="5210" />
+            <state relative-caret-position="34">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -115,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Keys.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Keys.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mylib/Keys.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+            <state relative-caret-position="424">
+              <caret line="67" column="42" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -158,7 +161,6 @@
         <option value="$PROJECT_DIR$/Projects/Flowers/sketch.js" />
         <option value="$PROJECT_DIR$/Projects/Horizon/Horizon.js" />
         <option value="$PROJECT_DIR$/mylib/Palette.js" />
-        <option value="$PROJECT_DIR$/mylib/Info.js" />
         <option value="$PROJECT_DIR$/Projects/TestApp/index.html" />
         <option value="$PROJECT_DIR$/Projects/TestApp/sketch.js" />
         <option value="$PROJECT_DIR$/Projects/TestApp/Test.js" />
@@ -169,9 +171,11 @@
         <option value="$PROJECT_DIR$/mylib/Blobber.js" />
         <option value="$PROJECT_DIR$/Projects/Jigsaw/jigsaw.js" />
         <option value="$PROJECT_DIR$/Projects/Blobber/bigblobber.js" />
-        <option value="$PROJECT_DIR$/Projects/Blobber/sketch.js" />
         <option value="$PROJECT_DIR$/mylib/Gifmaker.js" />
+        <option value="$PROJECT_DIR$/libraries/gif.js" />
+        <option value="$PROJECT_DIR$/mylib/Info.js" />
         <option value="$PROJECT_DIR$/mylib/Keys.js" />
+        <option value="$PROJECT_DIR$/Projects/Blobber/sketch.js" />
       </list>
     </option>
   </component>
@@ -240,6 +244,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Projects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RS-Art" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RS-Art" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Blobber" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -405,7 +427,7 @@
       <workItem from="1459323279644" duration="45258000" />
       <workItem from="1459437497665" duration="112000" />
       <workItem from="1459437619718" duration="10845000" />
-      <workItem from="1460101472478" duration="1653000" />
+      <workItem from="1460101472478" duration="4110000" />
     </task>
     <task id="LOCAL-00001" summary="Flextubes version1">
       <created>1458898753968</created>
@@ -530,13 +552,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169444000" />
+    <option name="totallyTimeSpent" value="171901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17484343" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17484343" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39761648" sideWeight="0.5147835" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.49577615" order="2" side_tool="false" content_ui="tabs" />
@@ -544,7 +566,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3964059" sideWeight="0.48521647" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3964059" sideWeight="0.48521647" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -606,8 +628,14 @@
           <line>99</line>
           <option name="timeStamp" value="139" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/mylib/Keys.js</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="140" />
+      <option name="time" value="141" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -763,13 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mylib/Info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="91" selection-start-line="33" selection-start-column="91" selection-end-line="33" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mylib/Palette.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -856,14 +877,14 @@
             <element signature="e#2809#3220#0" expanded="false" />
             <element signature="e#3267#3541#0" expanded="false" />
             <element signature="e#3583#3710#0" expanded="false" />
-            <element signature="e#4241#4911#0" expanded="false" />
-            <element signature="e#4954#5367#0" expanded="false" />
-            <element signature="e#5422#5690#0" expanded="false" />
-            <element signature="e#5746#6129#0" expanded="false" />
-            <element signature="e#6172#6487#0" expanded="false" />
-            <element signature="e#6533#6827#0" expanded="false" />
+            <element signature="e#4241#4967#0" expanded="false" />
+            <element signature="e#5010#5423#0" expanded="false" />
+            <element signature="e#5478#5746#0" expanded="false" />
+            <element signature="e#5802#6185#0" expanded="false" />
+            <element signature="e#6228#6543#0" expanded="false" />
+            <element signature="e#6589#6883#0" expanded="false" />
             <element signature="n#!!block;n#RegBlobber#0" expanded="false" />
-            <element signature="e#7062#7825#0" expanded="false" />
+            <element signature="e#7118#7881#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -903,7 +924,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
-          <folding />
+          <folding>
+            <marker date="1460103198335" expanded="true" signature="0:45" placeholder="/** Created by Ria Stroes on 30-3-2016. ...*/" />
+            <marker date="1460103198335" expanded="true" signature="2663:2678" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -911,14 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="113" column="28" selection-start-line="113" selection-start-column="28" selection-end-line="113" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -939,14 +955,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libraries/gif.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5210" selection-start-line="0" selection-start-column="5210" selection-end-line="0" selection-end-column="5210" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libraries/gif.worker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -963,18 +971,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/gif.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mylib/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4097">
+        <state relative-caret-position="153">
           <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/Info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mylib/Keys.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+        <state relative-caret-position="424">
+          <caret line="67" column="42" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
           <folding />
         </state>
       </provider>

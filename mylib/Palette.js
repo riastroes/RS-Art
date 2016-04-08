@@ -14,6 +14,7 @@ Palette.prototype.init = function(nr){
   this.nr = nr;
 
     //these colors are always available
+    this.transparent = color(0,0,0,0);
     this.add(0, color('#000000')); // black
     this.add(1, color('#ffffff')); // white
 

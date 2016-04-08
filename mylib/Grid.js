@@ -79,5 +79,15 @@ Grid.prototype.maskCircle = function(x,y, maskradius){
       append(this.mask , this.get(i));
     }
   }
-  
+  return this.mask;
+};
+Grid.prototype.maskAll = function(){
+  var i;
+  this.mask = [];
+  for(i =  0; i < this.cols * this.rows; i++ ){
+
+      append(this.mask , this.get(i));
+
+  }
+  return this.mask;
 };

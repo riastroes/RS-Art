@@ -31,7 +31,10 @@ Info.prototype.show = function(){
 
         this.pg.text("frameRate: " + int(frameRate()), this.leftmarge, this.liney);
         this.pg.text("gem. frameRate: " + int(app.gemframerate), this.leftmarge, this.liney += this.lineheight);
+        this.pg.text("frameCount: " + frameCount, this.leftmarge, this.liney += this.lineheight);
+        this.pg.text("scene: " + app.name, this.leftmarge, this.liney += this.lineheight);
         this.pg.text("scene: " + app.scene, this.leftmarge, this.liney += this.lineheight);
+        this.pg.text("run: " + app.runcount, this.leftmarge, this.liney += this.lineheight);
 
         for (var index in this.log) {
             if (this.log.hasOwnProperty(index)) {

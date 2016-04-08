@@ -1,6 +1,5 @@
 /**
  * Created by Ria Stroes on 30-3-2016.
- * trying to make textures in a blob
  */
 
 
@@ -13,11 +12,19 @@ function BigBlobber(mask){
     this.blobbers = [];
     for(i =0; i < this.mask.length; i++){
         this.blobbers[i] = new Blobber();
-        this.blobbers[i].init(this.mask[i],30,100,300,100,300);
+        this.blobbers[i].style(app.pal.colors[2], app.pal.tint(app.pal.colors[2],10),1);
+        this.blobbers[i].init(this.mask[i],30,300,height/2,300,height/2);
         
     }
 
 }
+BigBlobber.prototype.style = function(){
+    var i, ok = false ;
+
+    for(i=0; i < this.blobbers.length; i++) {
+        this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
+    }
+};
 BigBlobber.prototype.live = function() {
     var i, ok = false ;
 
@@ -25,41 +32,43 @@ BigBlobber.prototype.live = function() {
 
         ok =this.blobbers[i].splitting();
         if(ok){
-            try {
             this.blobbers[i].split(this.newblobbers);
-            }
-            catch(err){
-                println ("live" + i );
-                println(this.blobbers[i]);
-            }
         }
     }
     if(this.newblobbers.length > 0){
+
         for(i = 0 ; i < this.newblobbers.length; i++) {
-         //   append(this.blobbers, this.newblobbers[i]);
+           // this.blobbers = subset(this.blobbers,1,this.blobbers.length);
+            //append(this.blobbers, this.newblobbers[i]);
         }
         this.newblobbers = [];
     }
 
 };
-BigBlobber.prototype.draw = function(){
+BigBlobber.prototype.rotate = function(rot){
     var i;
 
     for(i=0; i < this.blobbers.length; i++) {
-        //this.blobbers[0].createMorePoints(7);
-        app.style.set( app.pal.colors[3],app.pal.tint(app.pal.colors[3],10),1);
-       // this.blobbers[i].showPoints();
-        try {
-            this.blobbers[i].draw();
-        }
-        catch(err){
-            println ("draw "+ i );
-            println(this.blobbers[i]);
-        }
-       // app.style.text(12, CENTER, app.pal.colors[0]);
-       // text(i +":"+ this.blobbers[i].pos.length, this.blobbers[i].position.x, this.blobbers[i].position.y-10);
+       this.blobbers[i].rot += rot;
     }
 };
+BigBlobber.prototype.draw = function(){
+    var i;
+    app.style.set( app.pal.colors[3],app.pal.tint(app.pal.colors[3],10),1);
+    for(i=0; i < this.blobbers.length; i++) {
+        this.blobbers[i].draw();
+
+    }
+};
+BigBlobber.prototype.draw1 = function(){
+    var i;
+
+    for(i=0; i < this.blobbers.length; i++) {
+       this.blobbers[i].draw();
+
+    }
+};
+
 BigBlobber.prototype.lines = function(morepoints) {
     var i,max, half;
     app.style.set(app.pal.colors[2], app.pal.colors[3],1);
@@ -87,10 +96,10 @@ BigBlobber.prototype.split = function(){
 
 
 };
-BigBlobber.prototype.grow = function(){
+BigBlobber.prototype.grow = function(g){
    var i;
    for(i=0; i < this.blobbers.length; i++) {
-       this.blobbers[i].grow(0.1);
+       this.blobbers[i].grow(g);
 
    }
     

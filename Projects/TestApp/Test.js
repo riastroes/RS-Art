@@ -1482,10 +1482,14 @@ Test.prototype.curvestest = function (testnr) {
         }
     }
 };
+<<<<<<< HEAD
 Test.prototype.beziertest = function (testnr) {
     //testing blobber functions
 
 
+=======
+Test.prototype.beziertest = function(){
+>>>>>>> origin/master
     var pos, center, a, b, c, d, i,s;
 
     this.name = "Bezier test " + testnr;
@@ -1502,20 +1506,28 @@ Test.prototype.beziertest = function (testnr) {
 
             background(app.pal.colors[1]);
 
+<<<<<<< HEAD
             this.showDescription("Test Beziers");
+=======
+            this.showDescription("Test Bezier: a a - b b","curve(a.x, a.y, a.x, a.y, b.x, b.y, b.x, b.y);");
+>>>>>>> origin/master
             if(frameRate()> 2){
                 frameRate(2);
             }
 
             if(typeof(this.grid) == "undefined"){
                 this.grid = new Grid(3,4,200 + 100,100,100,200);
+<<<<<<< HEAD
                 this.grid.show();
+=======
+>>>>>>> origin/master
 
             }
             if(app.currentpalettename != "spring"){
                 app.imgPalette(app.images[0],6,"spring");
 
             }
+<<<<<<< HEAD
 
             break;
         }
@@ -1561,11 +1573,27 @@ Test.prototype.beziertest = function (testnr) {
             endShape();
             app.runscene(3);
 
+=======
+            app.style.set(app.pal.colors[0], app.pal.colors[1], 1);
+
+
+            a = this.grid.get(0);
+            b = this.grid.get(3);
+            beginShape();
+                vertex(a.x, a.y);
+                bezierVertex(b.x, b.y, c.x, c.y, d.x, d.y);
+            endShape();
+            curve(a.x, a.y, a.x, a.y, b.x, b.y, b.x, b.y);
+
+            ellipse(a.x,a.y, 5,5);
+            ellipse(b.x,b.y, 5,5);
+>>>>>>> origin/master
             //testresult
             app.info.add(this.name + " visible");
 
             break;
         }
+<<<<<<< HEAD
         default:
         {
             this.end();
@@ -1574,6 +1602,9 @@ Test.prototype.beziertest = function (testnr) {
     }
 };
 
+=======
+}
+>>>>>>> origin/master
 Test.prototype.showDescription = function (description1, description2) {
     app.style.set(false, app.pal.colors[1], 0);
     rect(200, 0, width, 100);

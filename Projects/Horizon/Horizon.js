@@ -10,7 +10,7 @@
  * http://www.freesound.org/people/klankbeeld/
  */
 function Horizon(bg){
-   
+
     this.center = createVector(width/2, ((height*3) + 400));
     this.bgcolor = 0;
     this.bg = bg;
@@ -155,6 +155,21 @@ Horizon.prototype.drawFace = function(){
      }
 
 };
+Horizon.prototype.drawSky = function(){
+    if(app.images[10].height != this.horizony) {
+        app.images[10].resize(0, this.horizony);
+        this.dir = 1;
+    }
+    blendMode(SOFT_LIGHT);
+    this.skyx +=1;
+    image(app.images[10],0,0,this.skyx, this.horizony, this.skyx,0,app.images[10].width, app.images[10].height );
+    blendMode(BLEND);
+    if(this.skyx == width){
+      this.skyx = 0;
+    }
+
+}
+
 //tree
 function Tree(pos, thickness, size){
     this.pos = pos;

@@ -25,8 +25,8 @@ function Grid(cols, rows, lmarge, tmarge, rmarge, bmarge){
 
   this.cellwidth = (width -  (this.lmarge + this.rmarge))/ cols;
   this.cellheight = (height - (this.tmarge + this.bmarge))/ rows;
-  
-  
+
+
   for (var x = 0; x < this.cols; x++) {
     this.pos[x] = []; // create nested array
     for (var y = 0; y < this.rows; y++) {
@@ -50,7 +50,7 @@ Grid.prototype.shownr = function(){
   var i = 0;
   for(var x = 0; x < this.cols; x++){
     for(var y = 0; y < this.rows; y++){
-      
+
       app.style.text(12, CENTER, pal.colors[1]);
       text(i, this.pos[x][y].x, this.pos[x][y].y);
       i++;
@@ -61,7 +61,7 @@ Grid.prototype.get = function(index){
   var i = constrain(index, 0, this.maxi);
   var x = i % this.cols;
   var y = int(i / this.cols);
-  
+
   return this.pos[x][y];
 };
 Grid.prototype.x = function(index){
@@ -90,4 +90,13 @@ Grid.prototype.maskAll = function(){
 
   }
   return this.mask;
+};
+Grid.prototype.showMask = function(){
+    var i;
+  app.style.set(app.pal.colors[0], false, 1);
+  for(i = 0; i < this.mask.length; i++){
+
+      point(this.mask[i].x, this.mask[i].y);
+
+  }
 };

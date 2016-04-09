@@ -18,11 +18,18 @@ function BigBlobber(mask){
     }
 
 }
-BigBlobber.prototype.style = function(){
+BigBlobber.prototype.style = function(nr){
     var i, ok = false ;
-
-    for(i=0; i < this.blobbers.length; i++) {
-        this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
+    if(app.isnot(nr)) {
+        
+        for (i = 0; i < this.blobbers.length; i++) {
+            this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
+        }
+    }
+    else if(nr == 3){
+        for (i = 0; i < this.blobbers.length; i++) {
+            this.blobbers[i].style(app.pal.randomColor(), false,  3);
+        } 
     }
 };
 BigBlobber.prototype.live = function() {
@@ -54,7 +61,7 @@ BigBlobber.prototype.rotate = function(rot){
 };
 BigBlobber.prototype.draw = function(){
     var i;
-    app.style.set( app.pal.colors[3],app.pal.tint(app.pal.colors[3],10),1);
+    //app.style.set( app.pal.colors[3],app.pal.tint(app.pal.colors[3],10),1);
     for(i=0; i < this.blobbers.length; i++) {
         this.blobbers[i].draw();
 

@@ -66,6 +66,11 @@ Test.prototype.testrun = function (subject, scene) {
             this.curvestest(this.testnr);
             break;
         }
+        case "Beziers":
+        {
+            this.beziertest(this.testnr);
+            break;
+        }
     }
 };
 Test.prototype.start = function () {
@@ -363,7 +368,6 @@ Test.prototype.stylestest = function (testnr) {
             text("BLEND-BURN-BURN", 1150, 130);
             text("BURN : " + BURN, 1150, 270);
 
-//second row
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(300, 400, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1, undefined, DARKEST);
@@ -515,7 +519,7 @@ Test.prototype.stylestest = function (testnr) {
             text("BLEND-BURN-BURN", 1150, 130);
             text("BURN : " + BURN, 1150, 270);
 
-//second row
+
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[1], 1);
             ellipse(300, 400, 100, 100);
             app.style.set(app.pal.imgcolors[0], app.pal.imgcolors[2], 1, undefined, DARKEST);
@@ -1098,7 +1102,7 @@ Test.prototype.blobtest = function (testnr) {
             this.blobber1.grow(0.1);
             this.blobber1.draw();
             this.blobber1.showPoints();
-            
+
             break;
 
         }
@@ -1212,7 +1216,7 @@ Test.prototype.posOntest = function (testnr) {
         {
             this.showDescription("Test posOnLine: app.posOnLine(start, stop, maxsteps, step)");
             this.grid.show();
-            
+
             start = this.grid.get(3);
             stop = this.grid.get(5);
             app.style.set(app.pal.imgcolors[4], false,4);
@@ -1478,6 +1482,98 @@ Test.prototype.curvestest = function (testnr) {
         }
     }
 };
+Test.prototype.beziertest = function (testnr) {
+    //testing blobber functions
+
+
+    var pos, center, a, b, c, d, i,s;
+
+    this.name = "Bezier test " + testnr;
+
+    switch (testnr) {
+        case 0:
+        {
+
+            this.start();
+            break;
+        }
+        case 1:
+        {
+
+            background(app.pal.colors[1]);
+
+            this.showDescription("Test Beziers");
+            if(frameRate()> 2){
+                frameRate(2);
+            }
+
+            if(typeof(this.grid) == "undefined"){
+                this.grid = new Grid(3,4,200 + 100,100,100,200);
+                this.grid.show();
+
+            }
+            if(app.currentpalettename != "spring"){
+                app.imgPalette(app.images[0],6,"spring");
+
+            }
+
+            break;
+        }
+        case 2:
+        {
+            background(app.pal.colors[1]);
+
+
+            break;
+        }
+
+
+
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        case 7:
+        {
+            this.grid = new Grid(4,3,200 + 100,100,200,200);
+            background(app.pal.colors[1]);
+            this.showDescription("Test Curves on 6-corners","You can not fill a curve, use beginShape - curveVertex - endShape");
+
+            p = [];
+            app.style.text(12, CENTER, app.pal.colors[0]);
+            p[0] = this.grid.get(1);
+            p[1] = this.grid.get(2);
+            p[2] = this.grid.get(7);
+            p[3] = this.grid.get(10);
+            p[4] = this.grid.get(9);
+            p[5] = this.grid.get(4);
+            s = p.length;
+
+            app.style.set(app.pal.colors[0], app.pal.tint(app.pal.colors[0],20), 1);
+            beginShape();
+
+            for(i = 0; i < s+app.runcount;i++){
+                text(i,p[i%s].x, p[i%s].y -10);
+                ellipse(p[i%s].x, p[i%s].y,5,5);
+                curveVertex(p[i%s].x, p[i%s].y);
+            }
+            endShape();
+            app.runscene(3);
+
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+        default:
+        {
+            this.end();
+            frameRate(60);
+        }
+    }
+};
+
 Test.prototype.showDescription = function (description1, description2) {
     app.style.set(false, app.pal.colors[1], 0);
     rect(200, 0, width, 100);

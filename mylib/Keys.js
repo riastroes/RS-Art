@@ -31,16 +31,16 @@ function keyPressed() {
         }
    }
     if(key == 'g' || key =='G'){
-        
+
         if(app.isnot(app.gifmaker) || !app.gifmaker.do){
             app.gifmaker = new Gifmaker();
-            app.gifmaker.init(540,540,1,1,100,60);
+            app.gifmaker.init(540,540,10,1,20,60);
             frameRate(app.gifmaker.speed);
         }
         else{
             //try to stop before maxframes = 0
             app.gifmaker.render();
-            
+
 
         }
     }
@@ -49,10 +49,15 @@ function keyPressed() {
         if(app.info.doshow){
             app.info.show();
         }
-       
+
     }
     if(key == 's' || key =='S'){
         image(app.signature, width-160, height-120);
+        save(app.name + app.savedimages + ".jpg");
+        app.savedimages++;
+    }
+    if(key == 'z' || key =='Z'){
+        //image(app.signature, width-160, height-120);
         save(app.name + app.savedimages + ".jpg");
         app.savedimages++;
     }

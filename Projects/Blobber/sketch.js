@@ -20,7 +20,7 @@ function draw() {
             app.grid = new Grid(9,9,0,0,0,0);
             app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,300));
             
-            app.scene = 0;
+            app.scene = 13;
         }
 
         if(app.isnot(app.l)){
@@ -58,7 +58,7 @@ function draw() {
                 //app.big.live();
                 app.big.rotate(0.1);
                 app.big.draw1();
-                app.runscene(200);
+                app.runscene(50);
                 break;
             }
             case 4:{
@@ -141,7 +141,26 @@ function draw() {
                
                 break;
             }
-           
+            case 13:{
+
+                background(app.pal.colors[1]);
+
+                app.big.style(3);
+               
+                app.runscene(0);
+                break;
+            }
+            case 14:{
+            if(frameCount % 5 == 0) {
+                background(app.pal.tint(app.pal.colors[1],10));
+            }
+                app.big.live();
+                app.big.rotate(0.01);
+                app.big.draw();
+
+                app.runscene(500);
+                break;
+            }
             
             default:{
                 //wait

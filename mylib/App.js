@@ -169,7 +169,9 @@ App.prototype.is = function(param){
     var ok = false;
     if(typeof(param) !== "undefined"){
         if(param !== null){
-            ok = true;
+            if(param !== false) {
+                ok = true;
+            }
         }
     }
     return ok;
@@ -178,7 +180,9 @@ App.prototype.isnot = function(param){
     var ok = true;
     if(typeof(param) !== "undefined"){
         if(param !== null){
-            ok = false;
+            if(param !== true) {
+                ok = false;
+            }
         }
     }
     return ok;

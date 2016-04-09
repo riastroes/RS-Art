@@ -1,5 +1,5 @@
 function Palette(nr){
- 
+
   this.colors =[];
   this.imgcolors = [];
   this.nr = nr;
@@ -24,7 +24,7 @@ Palette.prototype.init = function(nr){
     this.add(4, color('#888888')); // gray
     this.add(8, color('#f47171')); //reds
     this.add(5, color('#99ccff')); // licht blauw
-    
+
   }
   else if(this.nr == 2){
     this.add(2, color('#cc0000')); // dark red
@@ -59,19 +59,23 @@ Palette.prototype.init = function(nr){
   else if(this.nr == 5){
       //gray scale
       this.add(2,color(255,0,0));
-      this.add(3,color(225,0,0));
+      this.add(3,color(25,65,80));
+      this.add(4,color(80,180,200));
+      this.add(5,color(4, 65, 23));
+      this.add(6,color(77, 175, 107));
+
   }
 };
 
 
 
 Palette.prototype.fromImage = function(img, count){
- 
+
     var acolor;
     var c = 0;
     var attempt = 0;
     this.imgcolors = [];
-    
+
     img.loadPixels();
     while( c  < count){
       var r = random(img.pixels.length - 4);
@@ -84,7 +88,7 @@ Palette.prototype.fromImage = function(img, count){
         attempt++;
     }
 
-  
+
 };
 Palette.prototype.randomColor = function(){
     if(this.colors.length > 0) {

@@ -26,8 +26,9 @@ Gifmaker.prototype.init = function(gifwidth, gifheight, speed, skip, maxframes, 
         workerScript: "../../libraries/gif.worker.js",
         background:"#ffffff",
         width:this.width,
-        height:this.height,
-        transparent:0xffffff
+        height:this.height
+        //,
+        //transparent:0xffffff
     });
     this.gif.on('finished', function(blob) {
         window.open(URL.createObjectURL(blob));
@@ -57,7 +58,7 @@ Gifmaker.prototype.check = function(skip, maxframes, show){
             if(show){
                 image(shot.img,0,0);
                 this.gif.addFrame(shot.img.elt, {
-                    delay: 50,
+                    delay: 500,
                     copy: true,
                     width: this.width,
                     height: this.height

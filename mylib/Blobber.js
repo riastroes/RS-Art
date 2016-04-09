@@ -6,6 +6,7 @@ function Blobber(){
   this.size = 0;
   this.morepos = [];
   this.rot = random(TWO_PI);
+  this.sign = 1;
 }
 
 
@@ -45,6 +46,7 @@ Blobber.prototype.draw = function(pg){
 
   push();
     translate(this.position.x, this.position.y);
+    
     scale(this.factor);
     if(app.is(this.rot)){
       rotate(this.rot);
@@ -52,10 +54,21 @@ Blobber.prototype.draw = function(pg){
 
     s = this.pos.length;
     if(app.isnot(pg)){
-      if(app.is(this.strokecolor)){
+      if(app.is(this.strokecolor)) {
         stroke(this.strokecolor);
+      }
+      if(app.is(this.fillcolor)){
         fill(this.fillcolor);
+
+      }
+      else{
+        noFill();
+      }
+      if(app.is(this.thickness)){
         strokeWeight(this.thickness);
+      }
+      else{
+        strokeWeight = 1;
       }
       beginShape();
       for (i = 0; i < s+3; i += 1) {
@@ -76,7 +89,7 @@ Blobber.prototype.draw = function(pg){
       }
       pg.endShape();
     }
-    
+
   pop();
 };
 
@@ -181,7 +194,7 @@ Blobber.prototype.split = function(newblobbers){
 
     oldpos = subset(this.pos, 0,p);
     newpos = subset(this.pos, p,this.pos.length - p);
-    
+
     //append(newpos, oldpos[0]);
     //append(oldpos, newpos[0]);
     blobberpos = this.position.copy();
@@ -202,13 +215,13 @@ Blobber.prototype.split = function(newblobbers){
 Blobber.prototype.splitting = function() {
   //two dots will grow to each other, if they connect the cell will split
   //this function should be called until the blobber is spit.
-  var p, first, half;
+  var p, f, first, half;
+  f = app.randomInt(0, this.pos.length -1);
+  p = floor((f + (this.pos.length / 2)) % (this.pos.length -1));
 
-  p = floor(this.pos.length / 2);
-
-  first = this.pos[0];
+  first = this.pos[f];
   half = this.pos[p];
-  
+
   if (dist(first.x, first.y, half.x, half.y) > 10){
 
     first.mult(0.9);
@@ -217,7 +230,7 @@ Blobber.prototype.splitting = function() {
   else{
     //split blobber
     return true;
-    
+
   }
   return false;
 };
@@ -258,7 +271,7 @@ Blobber.prototype.crossLines = function(){
     for (i = 0; i < half; i++) {
       pos1 = this.morepos[i];
       pos2 = this.morepos[i + half];
-  
+
       line(pos1.x, pos1.y, pos2.x, pos2.y);
     }
   pop();
@@ -320,9 +333,3 @@ RegBlobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight
 //   this.blobber.set = this.set;
 //   return this.blobber;
 // }
-
-
-
-
-
-

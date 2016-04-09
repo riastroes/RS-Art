@@ -57,7 +57,7 @@ Gifmaker.prototype.check = function(skip, maxframes, show){
             if(show){
                 image(shot.img,0,0);
                 this.gif.addFrame(shot.img.elt, {
-                    delay: 250,
+                    delay: 50,
                     copy: true,
                     width: this.width,
                     height: this.height
@@ -71,7 +71,7 @@ Gifmaker.prototype.check = function(skip, maxframes, show){
                 try{
                this.gif.addFrame(pg.elt, {
 
-                    delay: 250,
+                    delay: 50,
                     copy: true,
                     width: this.width,
                     height: this.height

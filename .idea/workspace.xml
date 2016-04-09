@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f198393-781e-45eb-9e2a-071bd42e97df" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/Blobber/bigblobber.js" afterPath="$PROJECT_DIR$/Projects/Blobber/bigblobber.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/Blobber/sketch.js" afterPath="$PROJECT_DIR$/Projects/Blobber/sketch.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/TestApp/Test.js" afterPath="$PROJECT_DIR$/Projects/TestApp/Test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/TestApp/sketch.js" afterPath="$PROJECT_DIR$/Projects/TestApp/sketch.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/gif.js" afterPath="$PROJECT_DIR$/libraries/gif.js" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Gifmaker.js" afterPath="$PROJECT_DIR$/mylib/Gifmaker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mylib/Keys.js" afterPath="$PROJECT_DIR$/mylib/Keys.js" />
+>>>>>>> origin/master
     </list>
     <ignored path="RS-Art.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,6 +34,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="bigblobber.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Projects/Blobber/bigblobber.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -44,6 +50,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+=======
+      <file leaf-file-name="sketch.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="113" column="28" selection-start-line="113" selection-start-column="28" selection-end-line="113" selection-end-column="28" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -62,6 +75,7 @@
       <file leaf-file-name="Blobber.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mylib/Blobber.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0">
               <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding>
@@ -87,31 +101,62 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="17" column="101" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
+=======
+            <state relative-caret-position="1241">
+              <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Projects/TestApp/Test.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.6511628">
               <caret line="1522" column="16" selection-start-line="1522" selection-start-column="16" selection-end-line="1522" selection-end-column="16" />
+=======
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projects/FlexTubes/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="sketch.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
+        <entry file="file://$PROJECT_DIR$/Projects/FlexTubes/sketch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+            <state relative-caret-position="527">
+              <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="sketch.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+=======
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mylib/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4097">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+>>>>>>> origin/master
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mylib/App.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -137,6 +182,43 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="35" column="91" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
+=======
+      <file leaf-file-name="gif.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libraries/gif.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="5210" selection-start-line="0" selection-start-column="5210" selection-end-line="0" selection-end-column="5210" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gif.worker.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libraries/gif.worker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="60" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Screenshots.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mylib/Screenshots.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Keys.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mylib/Keys.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -180,6 +262,7 @@
         <option value="$PROJECT_DIR$/Projects/FlexTubes/sketch.js" />
         <option value="$PROJECT_DIR$/Projects/FlexTubes/Flextubes.js" />
         <option value="$PROJECT_DIR$/Projects/Jigsaw/jigsaw.js" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/mylib/Keys.js" />
         <option value="$PROJECT_DIR$/mylib/Gifmaker.js" />
         <option value="$PROJECT_DIR$/mylib/Blobber.js" />
@@ -190,6 +273,12 @@
         <option value="$PROJECT_DIR$/Projects/Blobber/sketch.js" />
         <option value="$PROJECT_DIR$/Projects/TestApp/sketch.js" />
         <option value="$PROJECT_DIR$/Projects/TestApp/Test.js" />
+=======
+        <option value="$PROJECT_DIR$/Projects/Blobber/bigblobber.js" />
+        <option value="$PROJECT_DIR$/Projects/Blobber/sketch.js" />
+        <option value="$PROJECT_DIR$/mylib/Gifmaker.js" />
+        <option value="$PROJECT_DIR$/mylib/Keys.js" />
+>>>>>>> origin/master
       </list>
     </option>
   </component>
@@ -229,8 +318,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="Scope" />
+=======
+>>>>>>> origin/master
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,6 +354,7 @@
               <option name="myItemId" value="Projects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
             <PATH_ELEMENT>
               <option name="myItemId" value="TestApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -306,6 +399,8 @@
               <option name="myItemId" value="Jigsaw" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+=======
+>>>>>>> origin/master
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -314,6 +409,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="RS-Art" />
+<<<<<<< HEAD
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -412,6 +508,8 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FlexTubes" />
+=======
+>>>>>>> origin/master
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -439,13 +537,22 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> origin/master
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_25d850739bc178b2eb13c3e2a9faafea2f9143c0/cmd/git.exe" />
+>>>>>>> origin/master
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
@@ -560,7 +667,8 @@
       <workItem from="1459154155882" duration="56102000" />
       <workItem from="1459323279644" duration="45258000" />
       <workItem from="1459437497665" duration="112000" />
-      <workItem from="1459437619718" duration="10270000" />
+      <workItem from="1459437619718" duration="10845000" />
+      <workItem from="1460101472478" duration="1653000" />
     </task>
     <task id="LOCAL-00001" summary="Flextubes version1">
       <created>1458898753968</created>
@@ -674,13 +782,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167216000" />
+    <option name="totallyTimeSpent" value="169444000" />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="7" y="23" width="1433" height="873" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17422096" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+=======
+    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17484343" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+>>>>>>> origin/master
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39761648" sideWeight="0.5147835" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.49577615" order="2" side_tool="false" content_ui="tabs" />
@@ -688,7 +803,11 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3949802" sideWeight="0.48521647" order="7" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3964059" sideWeight="0.48521647" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> origin/master
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -764,6 +883,7 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/mylib/Keys.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -778,6 +898,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> origin/master
     <entry file="file://$PROJECT_DIR$/mylib/Blobber.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -806,6 +928,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Projects/FlexTubes/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -813,6 +936,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> origin/master
     <entry file="file://$PROJECT_DIR$/result/Flowers0 (18).jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -893,6 +1018,16 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/Projects/Horizon/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> origin/master
     <entry file="file://$PROJECT_DIR$/Projects/Horizon/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -969,9 +1104,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Jigsaw/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
           <folding />
+=======
+        <state relative-caret-position="306">
+          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -997,6 +1137,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/mylib/Gifmaker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.020576132">
@@ -1013,6 +1154,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libraries/gif options.txt">
+=======
+    <entry file="file://$PROJECT_DIR$/Projects/Jigsaw/sketch.js">
+>>>>>>> origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23868313">
           <caret line="12" column="12" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="12" />
@@ -1033,6 +1177,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/mylib/Grid.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1046,6 +1191,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/Projects/FlexTubes/Flextubes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -1065,6 +1216,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/mylib/Palette.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1073,6 +1225,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> origin/master
     <entry file="file://$PROJECT_DIR$/Projects/Blobber/bigblobber.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1083,12 +1237,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/mylib/Blobber.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1114,14 +1274,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="101" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
+=======
+    <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="113" column="28" selection-start-line="113" selection-start-column="28" selection-end-line="113" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/FlexTubes/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/FlexTubes/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/gif.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5210" selection-start-line="0" selection-start-column="5210" selection-end-line="0" selection-end-column="5210" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/gif.worker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="60" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/Gifmaker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+>>>>>>> origin/master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Projects/TestApp/Test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6511628">
           <caret line="1522" column="16" selection-start-line="1522" selection-start-column="16" selection-end-line="1522" selection-end-column="16" />
+=======
+    <entry file="file://$PROJECT_DIR$/mylib/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4097">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/Keys.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>

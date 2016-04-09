@@ -12,14 +12,26 @@ function Logo(mask){
     this.blobbers = [];
     for(i =0; i < this.mask.length; i++){
         this.blobbers[i] = new Blobber();
-        this.blobbers[i].init(this.mask[i],4,random(10),random(200),10,50);
+        this.blobbers[i].init(this.mask[i],8,random(100),random(300),10,50);
 
     }
 
 }
+Logo.prototype.drop = function(){
+  var i;
+    i =app.randomInt(this.blobbers.length-1);
+    this.blobbers[i].position.y +=10;
+    this.blobbers[i].position.x +=random(-10,10);
+};
 Logo.prototype.style = function(strokecolor, fillcolor, thickness){
-    var i;
+    var i, oldfillcolor;
         for (i = 0; i < this.blobbers.length; i++) {
+          if(i == 47){
+            fillcolor = app.pal.colors[2];
+          }
+          if(i == 48){
+            fillcolor = app.pal.colors[0];
+          }
             this.blobbers[i].style(strokecolor, fillcolor,thickness);
         }
 
@@ -56,7 +68,7 @@ Logo.prototype.scale = function(factor){
       if(this.blobbers[i].factor < 0.1 || this.blobbers[i].factor > 0.9 ){
         this.blobbers[i].sign = -this.blobbers[i].sign;
        }
-       this.blobbers[i].factor += (factor * this.blobbers[i].sign);
+       this.blobbers[i].factor += (factor * this.blobbers[i].sign * this.blobbers[i].rscale);
     }
 };
 Logo.prototype.draw = function(){

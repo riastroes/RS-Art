@@ -20,7 +20,7 @@ function draw() {
             app.grid = new Grid(20,20,0,0,0,0);
             app.logo = new Logo(app.grid.maskCircle(width/2, height/2,150));
 
-            app.scene = 5;
+            app.scene = 0;
         }
 
         if(app.isnot(app.l)){
@@ -129,7 +129,6 @@ function draw() {
                 app.logo.styleRandom(app.pal.colors[5], app.pal.colors[6],1, app.pal.colors[6], app.pal.colors[5],1);
                 app.logo.rotate(0.02);
                 app.logo.scale(0.02);
-                //app.logo.scale(0.02);
                 app.logo.draw();
 
                 app.runscene(8000);

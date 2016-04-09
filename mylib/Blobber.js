@@ -7,6 +7,7 @@ function Blobber(){
   this.morepos = [];
   this.rot = random(TWO_PI);
   this.sign = 1;
+  this.rscale = random(-4,4);
 }
 
 
@@ -46,7 +47,7 @@ Blobber.prototype.draw = function(pg){
 
   push();
     translate(this.position.x, this.position.y);
-    
+
     scale(this.factor);
     if(app.is(this.rot)){
       rotate(this.rot);

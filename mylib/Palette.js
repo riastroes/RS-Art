@@ -31,7 +31,7 @@ Palette.prototype.init = function(nr){
     this.add(3, color('#ff9900')); // gold
     this.add(5, color('#804d00'));
     this.add(4, color('#ffcc80'));
-    this.add(6, color('#0f3761')); // dark blue
+    this.add(6, color('#0f3761')); // green
     this.add(7, color('#368026')); // frog green
    }
     else if(this.nr == 3){
@@ -61,8 +61,8 @@ Palette.prototype.init = function(nr){
       this.add(2,color(255,0,0));
       this.add(3,color(25,65,80));
       this.add(4,color(80,180,200));
-      this.add(5,color(4, 65, 23));
-      this.add(6,color(77, 175, 107));
+      this.add(5,color(4, 65, 23));     //green
+      this.add(6,color(77, 175, 107));  //light green
 
   }
 };

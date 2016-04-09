@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9f198393-781e-45eb-9e2a-071bd42e97df" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/Blobber/bigblobber.js" afterPath="$PROJECT_DIR$/Projects/Blobber/bigblobber.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/Blobber/sketch.js" afterPath="$PROJECT_DIR$/Projects/Blobber/sketch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/TestApp/Test.js" afterPath="$PROJECT_DIR$/Projects/TestApp/Test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/TestApp/sketch.js" afterPath="$PROJECT_DIR$/Projects/TestApp/sketch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/gif.js" afterPath="$PROJECT_DIR$/libraries/gif.js" />
     </list>
     <ignored path="RS-Art.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,72 +28,115 @@
     <favorites_list name="RS-Art" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Projects/Blobber/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sketch.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="113" column="28" selection-start-line="113" selection-start-column="28" selection-end-line="113" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="bigblobber.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Projects/Blobber/bigblobber.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="95" selection-start-line="24" selection-start-column="95" selection-end-line="24" selection-end-column="95" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gifmaker.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mylib/Gifmaker.js">
+      <file leaf-file-name="Palette.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mylib/Palette.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="42" column="57" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Screenshots.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mylib/Screenshots.js">
+      <file leaf-file-name="Grid.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mylib/Grid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gif options.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libraries/gif options.txt">
+      <file leaf-file-name="Blobber.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mylib/Blobber.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="12" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+              <folding>
+                <element signature="e#2053#2351#0" expanded="false" />
+                <element signature="e#2396#2755#0" expanded="false" />
+                <element signature="e#2809#3220#0" expanded="false" />
+                <element signature="e#3267#3541#0" expanded="false" />
+                <element signature="e#3583#3710#0" expanded="false" />
+                <element signature="e#5010#5423#0" expanded="false" />
+                <element signature="e#5478#5746#0" expanded="false" />
+                <element signature="e#5802#6185#0" expanded="false" />
+                <element signature="e#6228#6543#0" expanded="false" />
+                <element signature="e#6589#6883#0" expanded="false" />
+                <element signature="n#!!block;n#RegBlobber#0" expanded="false" />
+                <element signature="e#7118#7881#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sketch.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projects/TestApp/sketch.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="101" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Keys.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mylib/Keys.js">
+      <file leaf-file-name="Test.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Projects/TestApp/Test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.6511628">
+              <caret line="1522" column="16" selection-start-line="1522" selection-start-column="16" selection-end-line="1522" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sketch.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mylib/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gif.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libraries/gif.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Info.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mylib/Info.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="91" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -127,20 +175,21 @@
         <option value="$PROJECT_DIR$/Projects/Flowers/sketch.js" />
         <option value="$PROJECT_DIR$/Projects/Horizon/Horizon.js" />
         <option value="$PROJECT_DIR$/mylib/Palette.js" />
-        <option value="$PROJECT_DIR$/mylib/Info.js" />
         <option value="$PROJECT_DIR$/Projects/TestApp/index.html" />
-        <option value="$PROJECT_DIR$/Projects/TestApp/sketch.js" />
-        <option value="$PROJECT_DIR$/Projects/TestApp/Test.js" />
-        <option value="$PROJECT_DIR$/mylib/Grid.js" />
         <option value="$PROJECT_DIR$/mylib/App.js" />
         <option value="$PROJECT_DIR$/Projects/FlexTubes/sketch.js" />
         <option value="$PROJECT_DIR$/Projects/FlexTubes/Flextubes.js" />
-        <option value="$PROJECT_DIR$/mylib/Blobber.js" />
         <option value="$PROJECT_DIR$/Projects/Jigsaw/jigsaw.js" />
         <option value="$PROJECT_DIR$/mylib/Keys.js" />
-        <option value="$PROJECT_DIR$/Projects/Blobber/bigblobber.js" />
         <option value="$PROJECT_DIR$/mylib/Gifmaker.js" />
+        <option value="$PROJECT_DIR$/mylib/Blobber.js" />
+        <option value="$PROJECT_DIR$/mylib/Grid.js" />
+        <option value="$PROJECT_DIR$/libraries/gif.js" />
+        <option value="$PROJECT_DIR$/mylib/Info.js" />
+        <option value="$PROJECT_DIR$/Projects/Blobber/bigblobber.js" />
         <option value="$PROJECT_DIR$/Projects/Blobber/sketch.js" />
+        <option value="$PROJECT_DIR$/Projects/TestApp/sketch.js" />
+        <option value="$PROJECT_DIR$/Projects/TestApp/Test.js" />
       </list>
     </option>
   </component>
@@ -150,10 +199,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1932" />
-    <option name="height" value="1056" />
+    <option name="x" value="7" />
+    <option name="y" value="23" />
+    <option name="width" value="1433" />
+    <option name="height" value="873" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -181,6 +230,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,6 +353,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Horizon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RS-Art" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RS-Art" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Flowers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -365,44 +437,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RS-Art" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RS-Art" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mylib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RS-Art" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RS-Art" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_cf76fc1621ac41ad4fe86c420ab5ff403f1808b9/cmd/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
@@ -419,7 +462,7 @@
       <recent name="C:\Users\RIia\RS-Art\Projects\FlexTubes\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration default="false" name="index.html (4)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/RS-Art/Projects/Flowers/index.html">
       <method />
     </configuration>
@@ -429,10 +472,10 @@
     <configuration default="false" name="index.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/RS-Art/Projects/Blobber/index.html">
       <method />
     </configuration>
-    <configuration default="false" name="index.html (2)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/RS-Art/Projects/FlexTubes/index.html">
+    <configuration default="false" name="index.html (3)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/RS-Art/Projects/Jigsaw/index.html">
       <method />
     </configuration>
-    <configuration default="false" name="index.html (3)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/RS-Art/Projects/Jigsaw/index.html">
+    <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/RS-Art/Projects/TestApp/index.html">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -441,9 +484,7 @@
     <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
-      <config-file value="" />
-      <node-interpreter value="project" />
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
       <envs />
       <method />
     </configuration>
@@ -460,7 +501,6 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
@@ -471,12 +511,10 @@
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run-script" />
       <scripts />
-      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
     <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
@@ -492,22 +530,20 @@
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html (4)" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (5)" />
       <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
-      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
-      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html (3)" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html (3)" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (3)" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html (5)" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html (4)" />
-        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (4)" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html (5)" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html (3)" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -516,7 +552,6 @@
       <changelist id="9f198393-781e-45eb-9e2a-071bd42e97df" name="Default" comment="" />
       <created>1458893098538</created>
       <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
       <updated>1458893098538</updated>
       <workItem from="1458893100091" duration="89000" />
       <workItem from="1458893266439" duration="19326000" />
@@ -530,133 +565,122 @@
     <task id="LOCAL-00001" summary="Flextubes version1">
       <created>1458898753968</created>
       <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1458898753968</updated>
     </task>
     <task id="LOCAL-00002" summary="workspace">
       <created>1458898900667</created>
       <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1458898900667</updated>
     </task>
     <task id="LOCAL-00003" summary="Projects">
       <created>1458900131528</created>
       <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1458900131528</updated>
     </task>
     <task id="LOCAL-00004" summary="Projects">
       <created>1458900684519</created>
       <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
       <updated>1458900684519</updated>
     </task>
     <task id="LOCAL-00005" summary="Projects">
       <created>1458900836084</created>
       <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1458900836084</updated>
     </task>
     <task id="LOCAL-00006" summary="Projects">
       <created>1458902573135</created>
       <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
       <updated>1458902573135</updated>
     </task>
     <task id="LOCAL-00007" summary="Projects">
       <created>1459004763108</created>
       <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
       <updated>1459004763108</updated>
     </task>
     <task id="LOCAL-00008" summary="Projects">
       <created>1459105639917</created>
       <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
       <updated>1459105639917</updated>
     </task>
     <task id="LOCAL-00009" summary="Projects">
       <created>1459154748725</created>
       <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
       <updated>1459154748725</updated>
     </task>
     <task id="LOCAL-00010" summary="Projects">
       <created>1459154851810</created>
       <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
       <updated>1459154851810</updated>
     </task>
     <task id="LOCAL-00011" summary="Projects">
       <created>1459154927354</created>
       <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
       <updated>1459154927354</updated>
     </task>
     <task id="LOCAL-00012" summary="Project Horizon">
       <created>1459262293992</created>
       <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1459262293992</updated>
     </task>
     <task id="LOCAL-00013" summary="Project">
       <created>1459262337190</created>
       <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
       <updated>1459262337190</updated>
     </task>
     <task id="LOCAL-00014" summary="Project">
       <created>1459284821398</created>
       <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1459284821398</updated>
     </task>
     <task id="LOCAL-00015" summary="Project">
       <created>1459284864472</created>
       <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
       <updated>1459284864472</updated>
     </task>
     <task id="LOCAL-00016" summary="Projects">
       <created>1459437388601</created>
       <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
       <updated>1459437388601</updated>
     </task>
     <task id="LOCAL-00017" summary="Projects">
       <created>1459454194915</created>
       <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
       <updated>1459454194915</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Projects">
+      <created>1459796647104</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1459796647104</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="167216000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
-    <editor active="true" />
+    <frame x="7" y="23" width="1433" height="873" extended-state="1" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17484343" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17422096" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39761648" sideWeight="0.5147835" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.49577615" order="2" side_tool="false" content_ui="tabs" />
@@ -664,7 +688,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3964059" sideWeight="0.48521647" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3949802" sideWeight="0.48521647" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -719,17 +743,15 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/mylib/Gifmaker.js</url>
           <line>80</line>
-          <properties />
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/mylib/Gifmaker.js</url>
           <line>99</line>
-          <properties />
           <option name="timeStamp" value="139" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="140" />
+      <option name="time" value="151" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -742,48 +764,52 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mylib/Keys.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Jigsaw/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state vertical-scroll-proportion="0.0">
           <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mylib/Blobber.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
+        <state vertical-scroll-proportion="0.0">
           <caret line="133" column="2" selection-start-line="133" selection-start-column="2" selection-end-line="133" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mylib/Functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
+        <state vertical-scroll-proportion="0.0">
           <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mylib/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3349">
+        <state vertical-scroll-proportion="0.0">
           <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/result/flextubes.gif" />
     <entry file="file://$PROJECT_DIR$/Projects/Flowers/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state vertical-scroll-proportion="0.0">
           <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/FlexTubes/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state vertical-scroll-proportion="0.0">
           <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -824,7 +850,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Isometry/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state vertical-scroll-proportion="0.0">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
         </state>
       </provider>
@@ -836,28 +862,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Isometry/Isometry.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libraries/p5.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state vertical-scroll-proportion="0.0">
           <caret line="4" column="18457" selection-start-line="4" selection-start-column="18457" selection-end-line="4" selection-end-column="18457" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Jigsaw/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state vertical-scroll-proportion="0.0">
           <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Isometry/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
+        <state vertical-scroll-proportion="0.0">
           <caret line="17" column="26" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="26" />
         </state>
       </provider>
@@ -867,17 +893,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/Horizon/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Horizon/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state vertical-scroll-proportion="0.0">
           <caret line="6" column="101" selection-start-line="6" selection-start-column="101" selection-end-line="6" selection-end-column="101" />
         </state>
       </provider>
@@ -889,86 +907,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Flowers/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
+        <state vertical-scroll-proportion="0.0">
           <caret line="164" column="34" selection-start-line="164" selection-start-column="34" selection-end-line="164" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Horizon/Horizon.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2567">
+        <state vertical-scroll-proportion="0.0">
           <caret line="151" column="18" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mylib/Info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="91" selection-start-line="33" selection-start-column="91" selection-end-line="33" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mylib/Palette.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="59" column="25" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/TestApp/Menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
+        <state vertical-scroll-proportion="0.0">
           <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/TestApp/Proces.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/TestApp/sketch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="70" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/TestApp/Test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="1098" column="12" selection-start-line="1098" selection-start-column="12" selection-end-line="1098" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Flowers/Flowers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state vertical-scroll-proportion="0.0">
           <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/TestApp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state vertical-scroll-proportion="0.0">
           <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mylib/Functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state vertical-scroll-proportion="0.0">
           <caret line="71" column="1" selection-start-line="65" selection-start-column="0" selection-end-line="71" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mylib/Grid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -977,17 +959,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mylib/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Projects/FlexTubes/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state vertical-scroll-proportion="0.0">
           <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
           <folding />
         </state>
@@ -995,110 +969,159 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Jigsaw/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
+        <state vertical-scroll-proportion="0.0">
           <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mylib/Blobber.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1354">
-          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-          <folding>
-            <element signature="e#2053#2351#0" expanded="false" />
-            <element signature="e#2396#2755#0" expanded="false" />
-            <element signature="e#2809#3220#0" expanded="false" />
-            <element signature="e#3267#3541#0" expanded="false" />
-            <element signature="e#3583#3710#0" expanded="false" />
-            <element signature="e#4241#4911#0" expanded="false" />
-            <element signature="e#4954#5367#0" expanded="false" />
-            <element signature="e#5422#5690#0" expanded="false" />
-            <element signature="e#5746#6129#0" expanded="false" />
-            <element signature="e#6172#6487#0" expanded="false" />
-            <element signature="e#6533#6827#0" expanded="false" />
-            <element signature="n#!!block;n#RegBlobber#0" expanded="false" />
-            <element signature="e#7062#7825#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Jigsaw/jigsaw.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
+        <state vertical-scroll-proportion="0.0">
           <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libraries/gif.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5210" selection-start-line="0" selection-start-column="5210" selection-end-line="0" selection-end-column="5210" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/FlexTubes/Flextubes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
+        <state vertical-scroll-proportion="0.0">
           <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Blobber/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state vertical-scroll-proportion="0.0">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libraries/gif options.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mylib/Keys.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/Blobber/bigblobber.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mylib/Screenshots.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mylib/Gifmaker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state vertical-scroll-proportion="0.020576132">
           <caret line="42" column="57" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/Screenshots.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/gif options.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23868313">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/Keys.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25925925">
+          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/Horizon/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34042552">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/Grid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/gif.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/Info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="91" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/Palette.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/Blobber/bigblobber.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="95" selection-start-line="24" selection-start-column="95" selection-end-line="24" selection-end-column="95" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/Blobber/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="113" column="28" selection-start-line="113" selection-start-column="28" selection-end-line="113" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mylib/Blobber.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <element signature="e#2053#2351#0" expanded="false" />
+            <element signature="e#2396#2755#0" expanded="false" />
+            <element signature="e#2809#3220#0" expanded="false" />
+            <element signature="e#3267#3541#0" expanded="false" />
+            <element signature="e#3583#3710#0" expanded="false" />
+            <element signature="e#5010#5423#0" expanded="false" />
+            <element signature="e#5478#5746#0" expanded="false" />
+            <element signature="e#5802#6185#0" expanded="false" />
+            <element signature="e#6228#6543#0" expanded="false" />
+            <element signature="e#6589#6883#0" expanded="false" />
+            <element signature="n#!!block;n#RegBlobber#0" expanded="false" />
+            <element signature="e#7118#7881#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/TestApp/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="101" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/TestApp/Test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6511628">
+          <caret line="1522" column="16" selection-start-line="1522" selection-start-column="16" selection-end-line="1522" selection-end-column="16" />
           <folding />
         </state>
       </provider>

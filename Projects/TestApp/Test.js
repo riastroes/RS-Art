@@ -66,6 +66,11 @@ Test.prototype.testrun = function (subject, scene) {
             this.curvestest(this.testnr);
             break;
         }
+        case "Beziers":
+        {
+            this.beziertest(this.testnr);
+            break;
+        }
     }
 };
 Test.prototype.start = function () {
@@ -1478,6 +1483,55 @@ Test.prototype.curvestest = function (testnr) {
         }
     }
 };
+Test.prototype.beziertest = function(){
+    var pos, center, a, b, c, d, i,s;
+
+    this.name = "Bezier test " + testnr;
+
+    switch (testnr) {
+        case 0:
+        {
+
+            this.start();
+            break;
+        }
+        case 1:
+        {
+
+            background(app.pal.colors[1]);
+
+            this.showDescription("Test Bezier: a a - b b","curve(a.x, a.y, a.x, a.y, b.x, b.y, b.x, b.y);");
+            if(frameRate()> 2){
+                frameRate(2);
+            }
+
+            if(typeof(this.grid) == "undefined"){
+                this.grid = new Grid(3,4,200 + 100,100,100,200);
+
+            }
+            if(app.currentpalettename != "spring"){
+                app.imgPalette(app.images[0],6,"spring");
+
+            }
+            app.style.set(app.pal.colors[0], app.pal.colors[1], 1);
+
+
+            a = this.grid.get(0);
+            b = this.grid.get(3);
+            beginShape();
+                vertex(a.x, a.y);
+                bezierVertex(b.x, b.y, c.x, c.y, d.x, d.y);
+            endShape();
+            curve(a.x, a.y, a.x, a.y, b.x, b.y, b.x, b.y);
+
+            ellipse(a.x,a.y, 5,5);
+            ellipse(b.x,b.y, 5,5);
+            //testresult
+            app.info.add(this.name + " visible");
+
+            break;
+        }
+}
 Test.prototype.showDescription = function (description1, description2) {
     app.style.set(false, app.pal.colors[1], 0);
     rect(200, 0, width, 100);

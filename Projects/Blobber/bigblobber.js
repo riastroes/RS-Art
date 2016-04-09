@@ -18,11 +18,17 @@ function BigBlobber(mask){
     }
 
 }
-BigBlobber.prototype.style = function(){
-    var i, ok = false ;
-
-    for(i=0; i < this.blobbers.length; i++) {
-        this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
+BigBlobber.prototype.style = function(nr) {
+    var i, ok = false;
+    if (nr == 2){
+        for (i = 0; i < this.blobbers.length; i++) {
+            this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 10), 3);
+        }
+}
+    else{
+        for (i = 0; i < this.blobbers.length; i++) {
+            this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
+        }
     }
 };
 BigBlobber.prototype.live = function() {

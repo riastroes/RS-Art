@@ -5,6 +5,7 @@ function setup() {
     app = new App("Blobber",displayWidth,displayHeight);
     app.resourcepath ="resources";
     app.loadResources("signature.png,spring.jpg");
+
     //frameRate(5);
 
 }
@@ -140,8 +141,54 @@ function draw() {
                
                 break;
             }
-           
-            
+            case 13:{
+                background(app.pal.colors[1]);
+                app.name = "grid flower";
+                app.grid = new Grid(6,4,0,0,0,0);
+                app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,200));
+                app.big.style();
+                app.runscene(0);
+                break;
+            }
+            case 14:{
+
+                app.big.live();
+                app.big.grow(0.1);
+                app.big.rotate(0.1);
+                app.big.draw();
+                app.runscene(600);
+                break;
+            }
+            case 15:{
+                background(app.pal.colors[1]);
+                //app.name = "grid flower";
+                //app.grid = new Grid(6,4,0,0,0,0);
+                //app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,200));
+
+                app.runscene(0);
+                break;
+            }
+            case 16:{
+                app.big.style(2);
+                app.big.live();
+                app.big.grow(0.1);
+                app.big.split();
+                app.big.rotate(0.1);
+                app.big.draw();
+                app.runscene(6);
+                break;
+            }
+            case 17:{
+                app.big.style(2);
+                app.big.live();
+                app.big.grow(0.1);
+                app.big.split();
+                app.big.rotate(0.1);
+                app.big.draw();
+                app.runscene(6);
+                break;
+            }
+
             default:{
                 //wait
                 app.wait();

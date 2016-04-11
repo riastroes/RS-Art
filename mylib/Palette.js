@@ -1,9 +1,11 @@
-function Palette(nr){
+function Palette(nr, name){
 
   this.colors =[];
   this.imgcolors = [];
   this.nr = nr;
+  this.name = name;
   this.init(this.nr);
+
 
 }
 Palette.prototype.add = function(i, acolor){
@@ -142,6 +144,19 @@ Palette.prototype.frameCountImgColor = function(frames){
     return undefined;
 }
 
+Palette.prototype.show = function(){
+  var i,x,y,w;
+  noStroke();
+  for(i = 0; i< this.colors.length; i++){
+    w = width/this.colors.length;
+    x = i * w;
+    y = 0;
+    fill(this.colors[i]);
+    ellipse(x + (w/2), y + (w/2), w,w);
+    fill(this.colors[0]);
+    text(i,x + (w/2), y + (w/2));
+  }
+}
 
 function NamedPalette(name){
   this.name = name;

@@ -52,7 +52,9 @@ function keyPressed() {
 
     }
     if(key == 's' || key =='S'){
-        image(app.signature, width-160, height-120);
+
+        app.style.text(12,RIGHT,app.pal.colors[0]);
+        text("www.riastroes.nl", width-40, height-40);
         save(app.name + app.savedimages + ".jpg");
         app.savedimages++;
     }

@@ -67,6 +67,15 @@ Palette.prototype.init = function(nr){
       this.add(6,color(77, 175, 107));  //light green
 
   }
+  else if(this.nr == 6){
+      //marine
+      this.add(2,color(208,231,246));
+      this.add(3,color(126,167,193));
+      this.add(4,color(48,97,129));
+      this.add(5,color(8,41,62));     //green
+
+
+  }
 };
 
 

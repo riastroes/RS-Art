@@ -33,7 +33,22 @@ function draw() {
                 background(app.pal.colors[11]);
                 app.project.move();
                 app.project.draw();
-                app.runscene(300);
+                app.runscene(0);
+                break;
+            }
+
+            case 2:{
+                background(app.pal.colors[11]);
+                app.project.implotionCenter();
+                app.project.draw();
+                app.runscene(0);
+                break;
+            }
+            case 3:{
+                background(app.pal.colors[2]);
+                app.project.attackBiggest();
+                app.project.draw();
+                app.runscene(1000);
                 break;
             }
 
@@ -47,7 +62,7 @@ function draw() {
         }
 
         app.info.show();
-        app.gifmaker.check(1, 80, false);
+        app.gifmaker.check(10, 80, false);
 
 
     }

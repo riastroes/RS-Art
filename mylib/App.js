@@ -42,7 +42,7 @@ function App(name, appwidth, appheight){
     //images, movi and gif maker
     this.savedimages = 0;
     this.gifmaker = new Gifmaker();
-    
+
     //statistics
     this.totframerate = 0;
     this.gemframerate = 0;
@@ -161,8 +161,8 @@ App.prototype.background = function(img, transparency) {
     else{
         image(this.pgbg,0,0);
     }
-    
-    
+
+
 };
 //SMART FUNCTIONS
 App.prototype.is = function(param){
@@ -190,7 +190,7 @@ App.prototype.isnot = function(param){
 App.prototype.randomInt = function(min, max){
     if(app.is(max)){
         return floor(random(min,max+1));
-        
+
     }
     else{
         return floor(random(min+1));
@@ -198,13 +198,13 @@ App.prototype.randomInt = function(min, max){
 };
 App.prototype.runscene = function(framecounts){
     if(!this.isrunning){
-        this.runcount = framecounts;
+        this.runcount = int(framecounts);
         this.isrunning  = true;
     }
     else{
         this.runcount -= 1;
     }
-    if(app.runcount == 0){
+    if(this.runcount == 0){
         this.scene++;
         this.isrunning = false;
     }
@@ -221,7 +221,7 @@ App.prototype.wait = function(framecounts){
         if(this.scene >99999){
             this.scene = this.lastscene + 1;
         }
-        
+
     }
 };
 App.prototype.counter = function(start, stop){

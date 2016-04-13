@@ -14,18 +14,18 @@ function Project(){
   this.crossing = 0;
   this.wave = new Wave();
   this.peoples = [];
-  this.createPeople(5);
 
+ this.createPeople(5);
 
 };
 Project.prototype.createPeople = function(count){
-  for(i =0; i < count; i++){
+  for(i =0; i < count ; i++){
     append(this.peoples, new People());
   }
 }
 Project.prototype.loadPeople = function(count){
   var i;
-  for(i =0; i < count; i++){
+  for(i =0; i < this.peoples.length; i++){
     this.peoples[i].move(app.randomInt(3));
     this.peoples[i].draw();
   }
@@ -382,13 +382,13 @@ Smoke.prototype.draw = function(){
 function People(){
   this.track = new Track();
   this.t = 0; //trackposition;
-  this.pos =this.track[0].copy();
+
 }
 People.prototype.move = function(speed){
 
   if(this.t < this.track.length - speed){
     this.t += speed;
-    this.pos = this.track[this.t].copy();
+
   }
 
 
@@ -403,7 +403,7 @@ People.prototype.style = function(nr){
 
 People.prototype.draw = function(){
   this.style(1);
-  ellipse(this.pos.x, this.pos.y, 10,10);
+  ellipse(this.track[this.t].x, this.track[this.t].y, 10,10);
 }
 
 /*********************Track***************************/

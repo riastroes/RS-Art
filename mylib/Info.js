@@ -14,8 +14,8 @@ function Info(){
 }
 
 Info.prototype.show = function(){
-    if(this.doshow) {
-        this.pg.background(app.pal.colors[1]);
+   if(this.doshow) {
+       this.pg.background(app.pal.colors[1]);
 
         if (frameCount % 100 == 0) {
             app.totframerate = frameRate();  // reset

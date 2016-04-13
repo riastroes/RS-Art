@@ -23,71 +23,96 @@ function draw() {
         }
 
         switch(app.scene) {
-            case 0:{
+            case -1:{
                 background(app.pal.colors[1]);
-
                 app.pal.show();
                 app.wait(50);
                 break;
             }
-
-
+            case 0:{
+              app.project.createPeople(20);
+              app.runscene(0);
+              app.info.add(app.scene + ": createpeople");
+              break;
+            }
             case 1:{
               //load people
+              app.project.drawbg();
+
+              app.project.loadPeopleLeft();
               app.project.draw();
-              app.project.loadPeople(5);
               app.runscene(150);
+              app.info.add(app.scene + ": loadpeopleleft");
               break;
             }
             case 2:{
-
-                //init scene
                 app.project.startLeft();
                 app.runscene(0);
+                app.info.add(app.scene + ": startleft");
                 break;
             }
             case 3:{
 
                 //take ferry
                 app.project.goRight();
+                app.project.drawbg();
+                app.project.ferryPeopleLeftToRight(app.project.ferry.speed);
                 app.project.draw();
-                app.project.ferryPeople(app.project.ferry.speed);
                 app.runscene(width/app.project.ferry.speed);
+
+
                 break;
             }
             case 4:{
 
                 //take ferry
-                app.project.draw();
-                app.project.stop();
+                app.project.drawbg();
+
+                app.project.stopRight();
+                  app.project.draw();
                 app.runscene(0);
                 break;
             }
             case 5:{
-                //init scene
+              //load people
+              app.project.drawbg();
+
+              app.project.loadPeopleRight();
+              app.project.draw();
+              app.runscene(150);
+
+              break;
+            }
+            case 6:{
+
                 app.project.startRight();
                 app.runscene(0);
+
                 break;
             }
 
-            case 6:{
+            case 7:{
 
                 //take ferry
                 app.project.goLeft();
+                app.project.drawbg();
+                app.project.ferryPeopleRightToLeft(app.project.ferry.speed);
                 app.project.draw();
                 app.runscene(width/app.project.ferry.speed);
+
                 break;
             }
-            case 7:{
-
+            case 8:{
+              app.project.drawbg();
               app.project.draw();
-              app.project.stop();
+              app.project.stopLeft();
 
               app.runscene(0);
               break;
             }
-            case 8:{
-              app.scene = 1;
+            case 9:{
+              app.scene = 0;
+
               break;
             }
             default:{

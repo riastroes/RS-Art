@@ -30,6 +30,19 @@ Project.prototype.loadPeople = function(count){
     this.peoples[i].draw();
   }
 }
+Project.prototype.ferryPeople = function(){
+  var i, x,y;
+  for(i =0; i < this.peoples.length; i++){
+    if(this.peoples[i].t == this.peoples[i].track.length-1 ){
+      x = this.peoples[i].track[this.peoples[i].t].x + (this.ferry.speed * this.ferry.dir);
+      y = this.peoples[i].track[this.peoples[i].t].y;
+      append(this.peoples[i].track,createVector(x,y))
+
+    }
+    this.peoples[i].move(1);
+    this.peoples[i].draw();
+  }
+}
 Project.prototype.startLeft = function(){
   this.ferry.startEngine(this.dokL, this.dokR,1);
 
@@ -369,13 +382,15 @@ Smoke.prototype.draw = function(){
 function People(){
   this.track = new Track();
   this.t = 0; //trackposition;
-  this.pos =this.track.pos[0].copy();
+  this.pos =this.track[0].copy();
 }
 People.prototype.move = function(speed){
-  this.t += speed;
-  if(this.t < this.track.length){
-    this.pos = this.track.pos[this.t].copy();
+
+  if(this.t < this.track.length - speed){
+    this.t += speed;
+    this.pos = this.track[this.t].copy();
   }
+
 
 }
 People.prototype.style = function(nr){
@@ -395,6 +410,7 @@ People.prototype.draw = function(){
 function Track(){
   this.pos = [];
   this.createTrack();
+  return this.pos;
 }
 Track.prototype.createTrack = function(){
   var x, y;
@@ -407,5 +423,11 @@ Track.prototype.createTrack = function(){
     x -= 1;
     append(this.pos, createVector(x, y));
   }
+  while(x < app.randomInt(160)){
+    y = (height/3*2)-5;
+    x +=10;
+    append(this.pos, createVector(x, y));
+  }
+
 
 }

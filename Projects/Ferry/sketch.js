@@ -36,7 +36,7 @@ function draw() {
               //load people
               app.project.draw();
               app.project.loadPeople(5);
-              app.runscene(100);
+              app.runscene(150);
               break;
             }
             case 2:{
@@ -51,6 +51,7 @@ function draw() {
                 //take ferry
                 app.project.goRight();
                 app.project.draw();
+                app.project.ferryPeople(app.project.ferry.speed);
                 app.runscene(width/app.project.ferry.speed);
                 break;
             }

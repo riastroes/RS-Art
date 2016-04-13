@@ -18,7 +18,7 @@ function App(name, appwidth, appheight){
 
     //resources
     this.resourcepath = "resources"; //default resource map
-    this.signature = loadImage(this.resourcepath + "/signature.png" );
+    //this.signature = loadImage(this.resourcepath + "/signature.png" );
     this.images = [];
     this.sounds = [];
     this.maximages = 0;

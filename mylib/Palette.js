@@ -166,7 +166,19 @@ Palette.prototype.show = function(){
     text(i,x + (w/2), y + (w/2));
   }
 }
-
+Palette.prototype.showImgColors = function(){
+  var i,x,y,w;
+  noStroke();
+  for(i = 0; i< this.imgcolors.length; i++){
+    w = width/this.imgcolors.length;
+    x = i * w;
+    y = 0;
+    fill(this.imgcolors[i]);
+    ellipse(x + (w/2), y + (w/2), w,w);
+    fill(this.imgcolors[0]);
+    text(i,x + (w/2), y + (w/2));
+  }
+}
 function NamedPalette(name){
   this.name = name;
   this.pal = new Palette();

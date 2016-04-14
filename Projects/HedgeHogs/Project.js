@@ -9,7 +9,7 @@ function Project(){
   this.pg = createGraphics(this.grid.cellwidth, this.grid.cellheight);
   this.img = new RImage(app.images[0]);
   this.img.resize(this.grid.cellwidth, this.grid.cellheight);
-  this.img.setTransparency(50);
+
 
   this.pg.background(this.img.get());
 
@@ -25,24 +25,18 @@ Project.prototype.bg = function(){
 };
 Project.prototype.change = function(){
   var i;
-  app.images[0].loadPixels();
-    this.centerPixels(app.images[0].pixels);
-  app.images[0].updatePixels();
-  //change buffer;
-  image(app.images[0],0,0);
+  var v = createVector(0,-this.pg.height/2);
+  this.img.shiftPixels(v);
+  this.pg.background(this.img.get());
 
 }
-Project.prototype.centerPixels = function(pixels){
-  var x, y, center;
-  center = createVector(this.pg.width/2, this.pg.height/2);
-  for(i=0; i< pixels.length; i+=1){
-    x = i % (this.pg.width);
-    y = int(i/(this.pg.width*4));
-
-
-    m = (y * this.pg.width*4) + (x*4);
-    pixels[m] += 100;
-    ellipse( x,y, 10,10);
-  }
-
+Project.prototype.showHedgeHog = function(){
+  var i;
+  var v = createVector(0,44);
+  this.pg.background(this.img.get());
+  this.bg();
+  this.pg.background(this.img.source);
+  var pos =  this.grid.get(app.randomInt(this.grid.maxi-1));
+  imageMode(CENTER);
+  image(this.pg, pos.x, pos.y);
 }

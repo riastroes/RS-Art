@@ -23,8 +23,8 @@ function Grid(cols, rows, lmarge, tmarge, rmarge, bmarge){
     this.tmarge = tmarge;
   }
 
-  this.cellwidth = (width -  (this.lmarge + this.rmarge))/ cols;
-  this.cellheight = (height - (this.tmarge + this.bmarge))/ rows;
+  this.cellwidth = int((width -  (this.lmarge + this.rmarge))/ cols);
+  this.cellheight = int((height - (this.tmarge + this.bmarge))/ rows);
 
 
   for (var x = 0; x < this.cols; x++) {

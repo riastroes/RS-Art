@@ -2,7 +2,7 @@ var app;
 
 function setup() {
 
-    app = new App("Hedgehogs",windowWidth, windowHeight);
+    app = new App("Hedgehogs",540,540);
     app.resourcepath = "resources";
     app.loadResources("hedgehog.jpg");
 
@@ -34,15 +34,23 @@ function draw() {
             break;
           }
             case 1:{
+              frameRate(5);
                 app.project.bg();
                 app.project.change();
-                //app.project.bg();
-                app.runscene(0);
+                app.runscene(2);
 
                 break;
             }
-
             case 2:{
+                if(random(5)<1){
+                app.project.showHedgeHog();
+              }
+                //app.project.bg();
+                app.runscene(60);
+
+                break;
+            }
+            case 3:{
 
                 //app.project.centerPixels();
                 //app.project.bg();
@@ -54,7 +62,8 @@ function draw() {
             }
         }
        app.info.show();
-       app.gifmaker.check();
+       //skip, maxframes, show
+       app.gifmaker.check(1,30);
     }
     else{
         println("loading resources ...");

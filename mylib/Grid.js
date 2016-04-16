@@ -38,7 +38,7 @@ function Grid(cols, rows, lmarge, tmarge, rmarge, bmarge){
 
 }
 Grid.prototype.show = function(){
-  app.style.set(app.pal.colors[0], false, 1);
+  app.style.set(app.pal.colors[0], false, 3);
   for(var x = 0; x < this.cols; x++){
     for(var y = 0; y < this.rows; y++){
       point(this.pos[x][y].x, this.pos[x][y].y);

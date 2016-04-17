@@ -4,7 +4,7 @@ function setup() {
 
     app = new App("Blobber",windowWidth, windowHeight);
     app.resourcepath ="resources";
-    app.loadResources("signature.png,spring.jpg");
+    app.loadResources("signature.png,spring.jpg,flowers.jpg");
 
     //frameRate(5);
 
@@ -15,12 +15,12 @@ function draw() {
     if(app.isloaded) {
         if(app.currentpalettename != "spring"){
             app.pal = new Palette(5);
-            app.imgPalette(app.images[1],6,"spring");
+            app.imgPalette(app.images[2],6,"spring");
         }
         if (app.isnot(app.big)){
             app.grid = new Grid(9,9,0,0,0,0);
             app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,300));
-            
+
             app.scene = 13;
         }
 
@@ -33,7 +33,7 @@ function draw() {
 
                 app.big.live();
                 app.big.draw();
-                
+
                 app.runscene(200);
                 break;
             }
@@ -112,7 +112,7 @@ function draw() {
                 app.big.grow(0.1);
                 app.big.draw();
                 app.runscene(5);
-               
+
                 break;
             }
             case 10:{
@@ -139,16 +139,16 @@ function draw() {
                 app.big.live();
                 app.big.draw();
                 app.runscene(200);
-               
+
                 break;
             }
             case 13:{
-<<<<<<< HEAD
+
 
                 background(app.pal.colors[1]);
 
                 app.big.style(3);
-               
+
                 app.runscene(0);
                 break;
             }
@@ -163,8 +163,9 @@ function draw() {
                 app.runscene(500);
                 break;
             }
-            
-=======
+
+          case 15:{
+
                 background(app.pal.colors[1]);
                 app.name = "grid flower";
                 app.grid = new Grid(6,4,0,0,0,0);
@@ -173,7 +174,7 @@ function draw() {
                 app.runscene(0);
                 break;
             }
-            case 14:{
+            case 16:{
 
                 app.big.live();
                 app.big.grow(0.1);
@@ -182,7 +183,7 @@ function draw() {
                 app.runscene(600);
                 break;
             }
-            case 15:{
+            case 17:{
                 background(app.pal.colors[1]);
                 //app.name = "grid flower";
                 //app.grid = new Grid(6,4,0,0,0,0);
@@ -191,7 +192,7 @@ function draw() {
                 app.runscene(0);
                 break;
             }
-            case 16:{
+            case 18:{
                 app.big.style(2);
                 app.big.live();
                 app.big.grow(0.1);
@@ -201,7 +202,7 @@ function draw() {
                 app.runscene(6);
                 break;
             }
-            case 17:{
+            case 19:{
                 app.big.style(2);
                 app.big.live();
                 app.big.grow(0.1);
@@ -212,7 +213,7 @@ function draw() {
                 break;
             }
 
->>>>>>> origin/master
+
             default:{
                 //wait
                 app.wait();
@@ -224,7 +225,7 @@ function draw() {
         app.info.add("Blobbers:" +  app.big.blobbers.length);
         app.info.show();
         app.gifmaker.check(1, 50, false);
-       
+
 
     }
     else{
@@ -232,6 +233,3 @@ function draw() {
     }
 
 }
-
-
-

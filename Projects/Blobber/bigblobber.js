@@ -14,15 +14,15 @@ function BigBlobber(mask){
         this.blobbers[i] = new Blobber();
         this.blobbers[i].style(app.pal.colors[2], app.pal.tint(app.pal.colors[2],10),1);
         this.blobbers[i].init(this.mask[i],30,300,height/2,300,height/2);
-        
+
     }
 
 }
-<<<<<<< HEAD
+
 BigBlobber.prototype.style = function(nr){
     var i, ok = false ;
     if(app.isnot(nr)) {
-        
+
         for (i = 0; i < this.blobbers.length; i++) {
             this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
         }
@@ -30,8 +30,10 @@ BigBlobber.prototype.style = function(nr){
     else if(nr == 3){
         for (i = 0; i < this.blobbers.length; i++) {
             this.blobbers[i].style(app.pal.randomColor(), false,  3);
-        } 
-=======
+        }
+      }
+
+}
 BigBlobber.prototype.style = function(nr) {
     var i, ok = false;
     if (nr == 2){
@@ -43,7 +45,7 @@ BigBlobber.prototype.style = function(nr) {
         for (i = 0; i < this.blobbers.length; i++) {
             this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
         }
->>>>>>> origin/master
+
     }
 };
 BigBlobber.prototype.live = function() {
@@ -123,5 +125,5 @@ BigBlobber.prototype.grow = function(g){
        this.blobbers[i].grow(g);
 
    }
-    
+
 };

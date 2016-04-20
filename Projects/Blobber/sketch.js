@@ -33,7 +33,6 @@ function draw() {
 
                 app.big.live();
                 app.big.draw();
-
                 app.runscene(200);
                 break;
             }

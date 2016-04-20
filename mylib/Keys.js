@@ -54,7 +54,7 @@ function keyPressed() {
     if(key == 's' || key =='S'){
 
         app.style.text(12,CENTER,app.pal.colors[0]);
-        text("www.riastroes.nl", width/2, height-40);
+        text("www.riastroes.nl", app.acanvas.width/2, app.acanvas.height-40);
         save(app.name + app.savedimages + ".jpg");
         app.savedimages++;
     }

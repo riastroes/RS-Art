@@ -12,7 +12,7 @@ function Polygon(pos, maxcorners, size, rot){
     this.init();
 }
 Polygon.prototype.init = function(){
-  
+
   for(var c = 0; c < this.maxcorners; c++){
     var pgcenter =createVector((this.size/2),(this.size/2));
     var pos = posOnCircle(pgcenter, this.size, this.maxcorners, c);
@@ -28,7 +28,7 @@ Polygon.prototype.style = function(strokecolor, fillcolor, strokeweight){
     this.strokecolor = strokecolor;
     this.fillcolor = fillcolor;
     this.strokeweight = strokeweight;
-    style.pg(this.pg, strokecolor, fillcolor, strokeweight);
+    app.style.pg(this.pg, strokecolor, fillcolor, strokeweight);
     this.drawpg();
   }
 };
@@ -38,13 +38,13 @@ Polygon.prototype.drawpg = function(){
         this.pg.vertex(this.corners[i].x, this.corners[i].y);
       }
   this.pg.endShape(CLOSE);
-  
+
 };
 Polygon.prototype.draw = function(){
    push();
     translate(this.pos.x, this.pos.y);
     rotate(this.rot);
-    style.image(CENTER);
+    imageMode(CENTER);
     image(this.pg, 0,0);
   pop();
 };

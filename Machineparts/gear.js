@@ -35,6 +35,7 @@ Gear.prototype.create = function(){
       this.pg.vertex(this.outer[i].x, this.outer[i].y);
       this.pg.vertex(this.inner[i].x, this.inner[i].y);
     }
+
   this.pg.endShape(CLOSE);
   app.style.pg(this.pg, color(0,0,0), app.project.pal.imgcolors[0],1);
   this.pg.line(this.inner[0].x, this.inner[0].y, this.center.x, this.center.y);
@@ -52,6 +53,8 @@ Gear.prototype.create = function(){
   else{
     this.angle = 0;
   }
+
+
 }
 Gear.prototype.rotate = function(speed){
   this.speed = speed;

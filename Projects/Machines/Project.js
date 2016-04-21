@@ -3,6 +3,8 @@
  */
 function Project(){
 
+  this.rods =[];
+  this.connectors =[];
   this.gears = [];
   this.grid = new Grid(5,5,20,20,20,20);
   this.center = createVector(width/2, height/2);
@@ -22,12 +24,20 @@ function Project(){
 
 Project.prototype.construct = function(){
 
-  this.gears[0] = new Gear(this.grid.cellwidth,16,12,0,this.colors[4]);
-  this.gears[0].pos = createVector(200,200);
-  this.gears[1] = new Gear(this.grid.cellwidth,16,12,1,this.colors[4]);
+  this.rods[0] = new Rod(height-100,15,this.pal.imgcolors[1], this.pal.imgcolors[3], PI/2);
+  this.rods[0].connectTo(createVector(50,100),1,false,1,25,0);
+  this.rods[1] = new Rod(200,15,this.pal.imgcolors[1], this.pal.imgcolors[3], 0);
+  this.rods[1].connectTo(createVector(50,100),1,false,1,50,0);
+  //this.connectors[0] = new Connector(createVector(50,100), 20, 2, true);
+
+
+
+  this.gears[0] = new Gear(this.grid.cellwidth/2,8,12,0,this.colors[4]);
+  this.gears[0].pos = createVector(200,100);
+  this.gears[1] = new Gear(this.grid.cellwidth,16,12,0,this.colors[4]);
   this.gears[2] = new Gear(this.grid.cellwidth,16,12,1,this.colors[1]);
-  this.gears[3] = new Gear(this.grid.cellwidth/2,8,12,2,this.colors[2]);
-  this.gears[4] = new Gear(this.grid.cellwidth/4,4,12,3,this.colors[2]);
+  //this.gears[3] = new Gear(this.grid.cellwidth/2,8,12,2,this.colors[2]);
+  //this.gears[4] = new Gear(this.grid.cellwidth/4,4,12,3,this.colors[2]);
 
  this.end.x += (this.grid.cellwidth/2) * TWO_PI;
  this.aline = new Assemblyline(this.begin, this.end, 16, 12,this.colors[4]);
@@ -42,10 +52,10 @@ Project.prototype.change = function(nr){
 
   this.gears[0].rotate(0.05);
   this.gears[1].connectTo(this.gears[0],2);
-  this.gears[2].connectTo(this.gears[0],6);
-  this.gears[3].connectTo(this.gears[0],11);
-  this.gears[4].connectTo(this.gears[0],14);
-  
+  this.gears[2].connectTo(this.gears[1],6);
+//  this.gears[3].connectTo(this.gears[0],11);
+//  this.gears[4].connectTo(this.gears[0],14);
+
 
   //this.gears[3].connectTo(this.gears[2],0);
   //this.gears[4].connectTo(this.gears[3],0);
@@ -57,11 +67,20 @@ Project.prototype.change = function(nr){
 
 Project.prototype.draw = function(){
   var i=0;
+  for(i=0; i < this.rods.length; i++){
+    this.rods[i].draw();
+  }
 //  for(i=0;i<this.gears.length;i++){
-for(i=0;i<6;i++){
+for(i=0;i<3;i++){
     this.gears[i].draw();
   }
   this.aline.draw();
+  for(i=0; i < this.connectors.length; i++){
+    this.connectors[i].draw();
+  }
 
-  line(this.gears[4].pos.x, this.gears[4].pos.y, this.gears[0].pos.x, this.gears[0].pos.y);
+//  line(this.gears[4].pos.x, this.gears[4].pos.y, this.gears[0].pos.x, this.gears[0].pos.y);
+  fill(255);
+
+
 }

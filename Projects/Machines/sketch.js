@@ -18,7 +18,7 @@ function draw() {
         if(app.isnot(app.project)){
           app.grid = new Grid(5,5,20,20,20,20);
           app.project = new Project();
-          app.scene = 1;
+          app.scene = -1;
           frameRate(10);
         }
 
@@ -44,7 +44,7 @@ function draw() {
             }
             case 2:{
                 background(app.project.pal.imgcolors[0]);
-                app.project.change();
+                app.project.change(1);
                 app.project.draw();
                 app.runscene(8000);
                 break;

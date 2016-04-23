@@ -16,7 +16,7 @@ function draw() {
     if(app.isloaded) {
         if(app.pal.name != "black_white"){
             app.pal = new Palette(4, "black_white");
-            app.scene = 22;
+            app.scene = 2;
         }
         if(app.isnot(app.project)){
           app.project = new Project();
@@ -162,29 +162,8 @@ function draw() {
               app.runscene(376);
               break;
             }
-            case 22:{
-              app.project.construct();
-              app.runscene(0);
-              break;
-            }
-            case 23:{
-              app.project.change(11);
-              app.project.draw(10,(height/3 *2)-10);
-              app.runscene(376);
-              break;
-            }
-            case 24:{
-            //  app.project.showControls(10,(height/3 *2)-10);
-              app.runscene(0);
-              break;
-            }
-            case 25:{
-              app.project.change(12);
-              app.project.draw((width/4),(height/3 *2)-10);
-            //  app.project.showControls((width/4),(height/3 *2)-10);
-              app.runscene(876);
-              break;
-            }
+
+            
             case 26:{
 
               app.runscene(0);

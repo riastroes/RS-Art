@@ -7,7 +7,7 @@ function setup() {
     app = new App("tulips",2000,1000);
     app.resourcepath ="resources";
     app.loadResources("spring.jpg");
-    //frameRate(5);
+    
 
 }
 
@@ -16,7 +16,7 @@ function draw() {
     if(app.isloaded) {
         if(app.pal.name != "black_white"){
             app.pal = new Palette(4, "black_white");
-            app.scene =24;
+            app.scene =0;
         }
         if(app.isnot(app.project)){
           app.project = new Project();
@@ -37,7 +37,7 @@ function draw() {
               break;
             }
            case 2:{
-              background(app.pal.colors[3]);
+              background(app.pal.colors[1]);
               app.project.construct();
               app.runscene(0);
               break;
@@ -49,7 +49,7 @@ function draw() {
               break;
             }
             case 4:{
-               background(app.pal.colors[3]);
+               background(app.pal.colors[1]);
                app.project.construct();
                app.runscene(0);
                break;
@@ -61,7 +61,7 @@ function draw() {
                break;
              }
              case 6:{
-                background(app.pal.colors[3]);
+                background(app.pal.colors[1]);
                 app.project.construct();
                 app.runscene(0);
                 break;
@@ -73,7 +73,7 @@ function draw() {
                 break;
               }
               case 8:{
-                 background(app.pal.colors[3]);
+                 background(app.pal.colors[1]);
                  app.project.construct();
                  app.runscene(0);
                  break;
@@ -85,7 +85,7 @@ function draw() {
                  break;
                }
                case 10:{
-                  background(app.pal.colors[3]);
+                  background(app.pal.colors[1]);
                   app.project.construct();
                   app.runscene(0);
                   break;

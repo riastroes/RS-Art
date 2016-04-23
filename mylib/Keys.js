@@ -51,6 +51,10 @@ function keyPressed() {
         }
 
     }
+    if(key == 'V' || key =='v'){
+        app.exportSVG = true;
+
+    }
     if(key == 's' || key =='S'){
 
         app.style.text(12,CENTER,app.pal.colors[0]);

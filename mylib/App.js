@@ -7,12 +7,14 @@ function App(name, appwidth, appheight){
 
 
     pixelDensity(1);
-    if(appwidth != undefined && appheight != undefined){
-        this.acanvas = createCanvas(appwidth, appheight);
-    }
-    else {
-        this.acanvas = createCanvas(window.innerWidth, window.innerHeight);
-    }
+
+      if(appwidth != undefined && appheight != undefined){
+          this.acanvas = createCanvas(appwidth, appheight);
+      }
+      else {
+          this.acanvas = createCanvas(window.innerWidth, window.innerHeight);
+      }
+
     background(255);
     this.name = name;
 
@@ -39,7 +41,8 @@ function App(name, appwidth, appheight){
     this.style = new Style();
     this.info = new Info();
 
-    //images, movi and gif maker
+    //images, movi, SVG and gif maker
+    this.exportSVG = false;
     this.savedimages = 0;
     this.gifmaker = new Gifmaker();
 
@@ -300,4 +303,10 @@ App.prototype.posInCircle = function(pos, center, radius) {
         incircle = true;
     }
     return incircle;
+}
+App.prototype.startSVG = function(){
+  beginRecord();
+}
+App.prototype.saveSVG = function(){
+  endRecord();
 }

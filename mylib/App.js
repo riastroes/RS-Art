@@ -3,17 +3,27 @@
  * App is the main object to store the global variables
  * en general settings for the project(s)
  */
-function App(name, appwidth, appheight){
+function App(name, appwidth, appheight, canvastype){
 
 
     pixelDensity(1);
-
+    if(canvastype == SVG){
+      if(appwidth != undefined && appheight != undefined){
+          this.acanvas = createCanvas(appwidth, appheight, SVG);
+      }
+      else {
+          this.acanvas = createCanvas(window.innerWidth, window.innerHeight, SVG);
+      }
+    }
+    else{
       if(appwidth != undefined && appheight != undefined){
           this.acanvas = createCanvas(appwidth, appheight);
       }
       else {
           this.acanvas = createCanvas(window.innerWidth, window.innerHeight);
       }
+    }
+
 
     background(255);
     this.name = name;
@@ -304,9 +314,7 @@ App.prototype.posInCircle = function(pos, center, radius) {
     }
     return incircle;
 }
-App.prototype.startSVG = function(){
-  beginRecord();
-}
+
 App.prototype.saveSVG = function(){
-  endRecord();
+  save();
 }

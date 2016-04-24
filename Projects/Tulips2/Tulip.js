@@ -22,6 +22,9 @@ Tulip.prototype.style = function(nr){
   if(nr == 3){
     app.style.set(app.pal.colors[0],false,1);
   }
+  if(nr == 4){
+    app.style.set(app.pal.colors[0],app.pal.tint(app.pal.colors[4],50),4);
+  }
 
 };
 
@@ -45,29 +48,106 @@ Tulip.prototype.init = function(){
 Tulip.prototype.change = function(nr){
 
   switch(nr){
-    case 1:{
+    case 0:{
       //Basis Tulip
 
-      this.control[1].x += -this.rect.width;
-      this.control[2].x += +this.rect.width;
+      this.control[1].x -= this.rect.width;
+      this.control[6].x += this.rect.width;
 
-      this.control[5].x += -this.rect.width/2;
-      this.control[6].x += +this.rect.width/2;
+      this.control[2].x -= this.rect.width/2;
+      this.control[5].x += this.rect.width/2;
+
+      break;
+    }
+    case 1:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x -= this.rect.width/2;
+      this.control[6].x += this.rect.width/2;
       break;
     }
     case 2:{
       //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
 
-      this.control[1].x += -this.rect.width;
-      this.control[2].x += +this.rect.width;
-
-      this.control[5].x += -this.rect.width/2;
-      this.control[6].x += +this.rect.width/2;
-
-      this.control[4].x += -this.rect.width/2;
-      this.control[7].x += +this.rect.width/2;
+      this.control[5].x -= this.rect.width/2;
+      this.control[6].x -= this.rect.width;
       break;
     }
+    case 3:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x += this.rect.width/2;
+      this.control[6].x += this.rect.width;
+      break;
+    }
+
+    case 4:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x = this.rect.width;
+      this.control[6].x = this.rect.width + this.rect.width/3;
+      this.control[4].x -= this.rect.width/2;
+      this.control[4].y += this.rect.height/4;
+      this.control[7].x -= this.rect.width/2;
+      this.control[7].y += this.rect.height/4;
+      //this.showControls(200,220, this.control[5], this.control[6]);
+      break;
+    }
+
+    case 5:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x = 0;
+      this.control[6].x = 0 - this.rect.width/3;
+      this.control[4].x += this.rect.width/2;
+      this.control[4].y += this.rect.height/4;
+      this.control[7].x += this.rect.width/2;
+      this.control[7].y += this.rect.height/4;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+
+      break;
+    }
+    case 6:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x = 0;
+      this.control[6].x += this.rect.width/3;
+      this.control[4].x += this.rect.width/2;
+      this.control[4].y += this.rect.height/4;
+      this.control[7].x += this.rect.width/2;
+      this.control[7].y += this.rect.height/4;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+
+      break;
+    }
+    case 7:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x = this.rect.width;
+      this.control[4].x = 0;
+      this.control[4].y += this.rect.height/4;
+      this.control[6].x -= this.rect.width/3;
+      this.control[7].x = 0;
+      this.control[7].y += this.rect.height/4;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+      break;
+    }
+
+
 
   }
 
@@ -80,14 +160,14 @@ Tulip.prototype.showBeginEnd = function(x,y){
     ellipse(this.begin.x, this.begin.y,5,5);
   pop();
 }
-Tulip.prototype.showControls = function(x,y){
+Tulip.prototype.showControls = function(x,y, control1, control2){
   this.style(3);
   push();
-    translate(this.offset.x + x, this.offset.y + y);
-    ellipse(this.control[0].x, this.control[0].y,10,10);
-    ellipse(this.control[1].x, this.control[1].y,10,10);
-    line(this.control[0].x,this.control[0].y, this.begin.x, this.begin.y);
-    line(this.control[1].x,this.control[1].y, this.end.x, this.end.y);
+    translate(x,y);
+    ellipse(control1.x, control1.y,10,10);
+    ellipse(control2.x, control2.y,10,10);
+    line(control1.x,control1.y, this.begin.x, this.begin.y);
+    line(control2.x,control2.y, this.end.x, this.end.y);
 
   pop();
 
@@ -105,21 +185,21 @@ Tulip.prototype.showRect = function(x,y){
 Tulip.prototype.draw = function(x,y){
   push();
     translate(x,y);
-    this.style(2);
+    this.style(4);
     beginShape();
 
       vertex(this.begin.x, this.begin.y);
       bezierVertex(this.control[0].x, this.control[0].y, this.control[1].x, this.control[1].y, this.end.x, this.end.y);
       bezierVertex(this.control[2].x, this.control[2].y, this.control[3].x, this.control[3].y,  this.begin.x, this.begin.y);
 
-    endShape(CLOSE);
-    this.style(2);
+    endShape();
+    this.style(4);
     beginShape();
 
       vertex(this.begin.x, this.begin.y);
       bezierVertex(this.control[4].x, this.control[4].y, this.control[5].x, this.control[5].y,  this.end.x, this.end.y);
       bezierVertex(this.control[6].x, this.control[6].y, this.control[7].x, this.control[7].y,  this.begin.x, this.begin.y);
 
-    endShape(CLOSE);
+    endShape();
   pop();
 }

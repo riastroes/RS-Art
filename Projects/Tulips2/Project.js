@@ -19,31 +19,74 @@ Project.prototype.style = function(nr){
 
 };
 Project.prototype.construct = function(nr){
-  append(this.tulips, new Tulip(100));
+  var i;
+  for(i = 0; i < 10; i++){
+    append(this.tulips, new Tulip(100));
+  }
 }
 Project.prototype.change = function(nr){
   var i;
 
   switch(nr){
 
+    case 0:{
+      //Tulip
+      this.style(1);
+      this.tulips[0].change(0);
+      break;
+    }
     case 1:{
       //Tulip
       this.style(1);
-      for(i=0; i<this.tulips.length; i++){
-        this.tulips[i].change(2);
-      }
-
+      this.tulips[1].change(1);
       break;
     }
+    case 2:{
+      //Tulip
+      this.style(1);
+      this.tulips[2].change(2);
+      break;
+    }
+    case 3:{
+      //Tulip
+      this.style(1);
+      this.tulips[3].change(3);
+      break;
+    }
+    case 4:{
+      //Tulip
+      this.style(1);
+      this.tulips[4].change(4);
+      break;
+    }
+    case 5:{
+      //Tulip
+      this.style(1);
+      this.tulips[5].change(5);
+      break;
+    }
+    case 6:{
+      //Tulip
+      this.style(1);
+      this.tulips[6].change(6);
+      break;
+    }
+    case 7:{
+      //Tulip
+      this.style(1);
+      this.tulips[7].change(7);
+      break;
+    }
+
 
   }
 
 
 }
 
-Project.prototype.draw = function(x,y){
+Project.prototype.draw = function(nr, x,y){
   var i;
-  for(i = 0; i< this.tulips.length; i++){
-    this.tulips[i].draw(100,100);
-  }
+  this.tulips[nr].draw(x,y);
+  //this.tulips[1].draw(x,y);
+
 }

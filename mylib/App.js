@@ -7,7 +7,8 @@ function App(name, appwidth, appheight, canvastype){
 
 
     pixelDensity(1);
-    if(canvastype == SVG){
+    this.canvastype = canvastype;
+    if(this.canvastype == SVG){
       if(appwidth != undefined && appheight != undefined){
           this.acanvas = createCanvas(appwidth, appheight, SVG);
       }

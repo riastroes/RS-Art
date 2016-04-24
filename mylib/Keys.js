@@ -2,7 +2,9 @@
  * Created by Ria Stroes on 16-3-2016.
  */
 function keyPressed() {
+  if(app.canvastype != SVG){
     app.acanvas.elt.focus();
+  }
     //println("key:" + key);
     //println("keyCode:"+ keyCode);
 
@@ -52,8 +54,9 @@ function keyPressed() {
 
     }
     if(key == 'V' || key =='v'){
-        app.exportSVG = true;
-
+        if(app.canvastype == SVG){
+          app.saveSVG();
+        }
     }
     if(key == 's' || key =='S'){
 

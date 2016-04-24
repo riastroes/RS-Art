@@ -3,6 +3,7 @@
  */
 function Project(){
   this.tulips = [];
+  this.stem = [];
 
 };
 
@@ -19,64 +20,51 @@ Project.prototype.style = function(nr){
 
 };
 Project.prototype.construct = function(nr){
-  var i;
-  for(i = 0; i < 10; i++){
+  var i,j;
+  for(i = 0; i < 20; i++){
     append(this.tulips, new Tulip(100));
+  }
+  for(j = 0; j < 5; j++){
+    append(this.stem, new Stem(100));
   }
 }
 Project.prototype.change = function(nr){
-  var i;
 
-  switch(nr){
 
-    case 0:{
+  switch(true){
+
+
+    case (nr < 20):{
       //Tulip
       this.style(1);
-      this.tulips[0].change(0);
+      this.tulips[nr].change(nr);
       break;
     }
-    case 1:{
-      //Tulip
+    case (nr ==20):{
       this.style(1);
-      this.tulips[1].change(1);
+      this.stem[0].change(0);
       break;
     }
-    case 2:{
-      //Tulip
+    case (nr ==21):{
       this.style(1);
-      this.tulips[2].change(2);
+      this.stem[1].change(1);
       break;
     }
-    case 3:{
-      //Tulip
+    case (nr ==22):{
       this.style(1);
-      this.tulips[3].change(3);
+      this.stem[2].change(2);
       break;
     }
-    case 4:{
-      //Tulip
+    case (nr ==23):{
       this.style(1);
-      this.tulips[4].change(4);
+      this.stem[3].change(3);
       break;
-    }
-    case 5:{
-      //Tulip
+    }case (nr ==24):{
       this.style(1);
-      this.tulips[5].change(5);
+      this.stem[4].change(4);
       break;
     }
-    case 6:{
-      //Tulip
-      this.style(1);
-      this.tulips[6].change(6);
-      break;
-    }
-    case 7:{
-      //Tulip
-      this.style(1);
-      this.tulips[7].change(7);
-      break;
-    }
+
 
 
   }
@@ -86,7 +74,12 @@ Project.prototype.change = function(nr){
 
 Project.prototype.draw = function(nr, x,y){
   var i;
-  this.tulips[nr].draw(x,y);
-  //this.tulips[1].draw(x,y);
+  if(nr<20){
+    this.tulips[nr].draw(x,y);
+  }
+  else{
+    this.stem[0].draw(x,y);
+  }
+
 
 }

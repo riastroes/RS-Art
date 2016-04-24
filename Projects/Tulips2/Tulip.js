@@ -146,6 +146,172 @@ Tulip.prototype.change = function(nr){
       //this.showControls(300,220, this.control[5], this.control[6]);
       break;
     }
+    case 8:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[6].x += this.rect.width;
+
+      this.control[2].x -= this.rect.width/2;
+      this.control[5].x += this.rect.width/2;
+
+      this.control[0].y = this.rect.height/2;
+      this.control[7].y = this.rect.height/2;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+      break;
+    }
+    case 9:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[6].x += this.rect.width;
+
+      this.control[2].x -= this.rect.width/2;
+      this.control[5].x += this.rect.width/2;
+
+      this.control[3].y = this.rect.height/2;
+      this.control[4].y = this.rect.height/2;
+
+      break;
+    }
+    case 10:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[6].x += this.rect.width;
+
+      this.control[2].x -= this.rect.width/2;
+      this.control[5].x += this.rect.width/2;
+
+      this.control[3].y = this.rect.height/2;
+      this.control[4].y = this.rect.height/2;
+
+      this.control[0].y = this.rect.height/2;
+      this.control[7].y = this.rect.height/2;
+
+      break;
+    }
+    case 11:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[6].x += this.rect.width;
+
+      this.control[2].x += this.rect.width/2;
+      this.control[5].x -= this.rect.width/2;
+
+      this.control[3].y = this.rect.height/2;
+      this.control[4].y = this.rect.height/2;
+
+      this.control[0].y = this.rect.height/2;
+      this.control[7].y = this.rect.height/2;
+
+      break;
+    }
+    case 12:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x -= this.rect.width;
+      this.control[6].x += this.rect.width/3;
+      this.control[7].x = 0;
+      this.control[7].y += this.rect.height/4;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+      break;
+    }
+    case 13:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x -= this.rect.width;
+      this.control[6].x += this.rect.width/2;
+      this.control[7].x = 0;
+      this.control[7].y += this.rect.height/4;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+      break;
+    }
+
+    case 14:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x -= this.rect.width;
+      this.control[6].x += this.rect.width;
+      this.control[7].x = 0;
+      this.control[7].y += this.rect.height/4;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+      break;
+    }
+
+    case 15:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      // this.control[5].x -= this.rect.width/2;
+      // this.control[6].x -= this.rect.width;
+      // this.control[7].x = 0;
+      // this.control[7].y += this.rect.height/4;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+      break;
+    }
+    case 16:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x -= this.rect.width/4;
+      this.control[4].x += this.rect.width/2;
+      this.control[4].y += this.rect.height/4;
+      this.control[6].x += this.rect.width/4;
+      this.control[7].x -= this.rect.width/2;
+      this.control[7].y += this.rect.height/2
+      //this.showControls(300,220, this.control[5], this.control[6]);
+      break;
+    }
+    case 17:{
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x -= this.rect.width/2;
+      this.control[4].x += this.rect.width/2;
+      this.control[4].y += this.rect.height/4;
+      this.control[6].x += this.rect.width/2;
+      this.control[7].x -= this.rect.width/2;
+      this.control[7].y += this.rect.height/4;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+      break;
+    }
+    case 18:{
+      //
+
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x -= this.rect.width;
+      this.control[4].x += this.rect.width;
+      this.control[4].y += this.rect.height/4;
+      this.control[6].x += this.rect.width;
+      this.control[7].x -= this.rect.width;
+      this.control[7].y += this.rect.height/4;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+      break;
+    }
+    case 19:{
+      //
+      this.control[1].x -= this.rect.width;
+      this.control[2].x += this.rect.width;
+
+      this.control[5].x -= this.rect.width;
+      this.control[4].x += this.rect.width/2;
+      this.control[4].y += this.rect.height/4;
+      this.control[6].x += this.rect.width;
+      this.control[7].x -= this.rect.width/2;
+      this.control[7].y += this.rect.height/4;
+      //this.showControls(300,220, this.control[5], this.control[6]);
+      break;
+    }
+
+
 
 
 

@@ -79,7 +79,11 @@ Palette.prototype.init = function(nr){
   else if(this.nr == 7){  //tulips
     this.add(2, color('#c30808')); //reds
     this.add(3, color('#f47171')); //orange
-    this.add(4, color('#ae20c6')); //purple
+    this.add(4, color('#dcf421')); //purple
+    this.add(5, color('#365d09')); //green
+    this.add(6, color('#113d04')); //green
+    this.add(7, color('#b8ec76')); //green
+    this.add(8, color('#304de6')); //blue
   }
 };
 

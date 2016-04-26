@@ -16,7 +16,7 @@ function draw() {
     if(app.isloaded) {
         if(app.pal.name != "black_red"){
             app.pal = new Palette(7, "black_red");
-            app.scene =1;
+            app.scene = 1;
         }
         if(app.isnot(app.project)){
           app.project = new Project();
@@ -179,32 +179,89 @@ function draw() {
               }
               //Stem
               case 22:{
+                app.project.construct();
+                app.runscene(0);
+              }
+              case 23:{
                 app.project.change(20);
                 app.project.draw(20,100, 700);
                 app.runscene(0);
                 break;
               }
-              case 23:{
+              case 24:{
                 app.project.change(21);
                 app.project.draw(21,200, 700);
                 app.runscene(0);
                 break;
               }
-              case 24:{
+              case 25:{
                 app.project.change(22);
                 app.project.draw(22,300, 700);
                 app.runscene(0);
                 break;
               }
-              case 25:{
+              case 26:{
                 app.project.change(23);
                 app.project.draw(23,400, 700);
                 app.runscene(0);
                 break;
               }
-              case 26:{
-                //app.saveSVG();
+              //Leaves
+              case 27:{
+                app.project.construct();
                 app.runscene(0);
+              }
+              case 28:{
+                app.project.change(24);
+                app.project.draw(24,100, 1020);
+                app.runscene(0);
+                break;
+              }
+              case 29:{
+                app.project.change(25);
+                app.project.draw(25,200, 1020);
+                app.runscene(0);
+                break;
+              }
+              case 30:{
+                app.project.change(26);
+                app.project.draw(26,300, 1020);
+                app.runscene(0);
+                break;
+              }
+              case 31:{
+                app.project.change(27);
+                app.project.draw(27,400, 1020);
+                app.runscene(0);
+                break;
+              }
+              case 32:{
+                //together
+                app.project.draw(28,100, 1340);
+                app.runscene(0);
+
+              }
+              case 33:{
+                //together
+                app.project.draw(29,200, 1340);
+                app.runscene(0);
+
+              }
+              case 34:{
+                //together
+                app.project.draw(30,300, 1340);
+                app.runscene(0);
+
+              }
+              case 35:{
+                //together
+                app.project.draw(31,400, 1340);
+                app.runscene(0);
+
+              }
+              case 33:{
+                //app.saveSVG();
+                app.runscene(50);
                 break;
               }
 

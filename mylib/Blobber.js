@@ -8,6 +8,7 @@ function Blobber(){
   this.rot = random(TWO_PI);
   this.sign = 1;
   this.rscale = random(-4,4);
+  this.factor =1;
 }
 
 
@@ -17,7 +18,19 @@ Blobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight, m
   this.position = pos.copy();
   this.center = createVector(0,0);
   this.corners = corners;
-  this.size = size;
+  if(maxheight >= minheight && maxheight >= maxwidth && maxheight >= minwidth){
+        this.size = maxheight;
+  }
+  else if(minheight >= maxheight && minheight >= maxwidth && minheight >= minwidth){
+    this.size = minheight;
+  }
+  else if(maxwidth >= maxheight && maxwidth >= minheight && maxwidth >= minwidth){
+    this.size = maxwidth;
+      }
+  else{
+    this.size = minwidth;
+  }
+
   this.factor = 1;
 
   this.wminradius = minwidth/2;
@@ -303,7 +316,7 @@ RegBlobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight
   this.position = pos.copy();
   this.center = createVector(0,0);
   this.corners = corners;
-  this.size = size;
+  this.size = maxheight;
 
   this.wminradius = minwidth/2;
   this.wmaxradius = maxwidth/2;
@@ -329,8 +342,46 @@ RegBlobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight
 
 };
 
-// function ArrayBlobber(){
-//   this.blobber = new Blobber;
-//   this.blobber.set = this.set;
-//   return this.blobber;
-// }
+function TulipBlobber(){
+  this.blobber = new Blobber();
+  this.blobber.init = this.init;
+  return this.blobber;
+}
+TulipBlobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight, maxheight){
+  //the flexibility of the blopper is dependend of the difference in minwidth and maxwidth and minheight and maxheight.
+  this.pos = [];
+  this.position = pos.copy();
+  this.center = createVector(0,0);
+  this.corners = corners;
+  this.size = maxheight;
+
+  this.wminradius = minwidth/2;
+  this.wmaxradius = maxwidth/2;
+  this.hminradius = minheight/2;
+  this.hmaxradius = maxheight/2;
+
+  var p, wradius, hradius, r;
+
+
+  for (var i = 0; i < corners; i += 1) {
+    if(i%3 == 0){
+      wradius = this.wminradius;
+      hradius = this.hminradius;
+      r = 0;
+    }
+    if(i%3 == 1){
+      wradius = this.wmaxradius;
+      hradius = this.hmaxradius;
+      r = (PI/corners)/4;
+    }
+    if(i%3 == 2){
+      wradius = this.wmaxradius;
+      hradius = this.hmaxradius;
+      r = (PI/corners)*7;
+    }
+
+    p = posOnEllipse(this.center,wradius, hradius, this.corners, i + r);
+    append(this.pos, p);
+  }
+
+};

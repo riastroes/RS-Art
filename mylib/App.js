@@ -8,7 +8,7 @@ function App(name, appwidth, appheight, canvastype){
 
     pixelDensity(1);
     this.canvastype = canvastype;
-    if(this.canvastype == SVG){
+    if(this.canvastype == "svg"){
       if(appwidth != undefined && appheight != undefined){
           this.acanvas = createCanvas(appwidth, appheight, SVG);
       }
@@ -34,8 +34,10 @@ function App(name, appwidth, appheight, canvastype){
     //this.signature = loadImage(this.resourcepath + "/signature.png" );
     this.images = [];
     this.sounds = [];
+    this.svgs = [];
     this.maximages = 0;
     this.maxsounds = 0;
+    this.maxsvgs = 0;
     this.loaded = 0;
     this.isloaded = false;
     this.isrunning = false;
@@ -95,13 +97,14 @@ App.prototype.imgPalette = function(img, count, name, more){
     }
 
 };
-App.prototype.loadResources = function(strimages, strsounds, path){
+App.prototype.loadResources = function(strimages, strsounds, strsvgs, path){
     // the images and sound should be stored in the map path
-    var i,s;
+    var i,s,v;
     this.isloaded = false;
     this.loaded = 0;
     var imagenames = [];
     var soundnames = [];
+    var svgnames = [];
     if(typeof(strimages) === "string"){
         imagenames = strimages.split(",");
         for(i = 0;  i < imagenames.length; i++){
@@ -138,9 +141,32 @@ App.prototype.loadResources = function(strimages, strsounds, path){
         // undefined
         this.maxsounds = 0;
     }
+    if(typeof(strimages) === "string"){
+        imagenames = strimages.split(",");
+        for(i = 0;  i < imagenames.length; i++){
+            imagenames[i] = imagenames[i].trim();
+        }
+        this.maximages = imagenames.length;
 
+    }
+    else if(typeof(strsvgs) !== "undefined"){
+        // array
+
+        svgnames = strsvgs.split(",");
+        this.maxsvgs = svgnames.length;
+        for(i = 0; i < this.maxsvgs; i++){
+            svgnames[i] = svgnames[i].trim();
+         }
+     }
+    else{
+        // undefined
+        this.maxsvgs = 0;
+    }
     if(typeof(path) !== "undefined"){
         this.resourcepath = path;
+    }
+    for(i = 0; i < this.maxsvgs; i++){
+       this.svgs[i]=loadSVG(this.resourcepath + "/" + svgnames[i], this.callbackResources);
     }
     for(i = 0; i < this.maximages; i++){
         this.images[i] =loadImage(this.resourcepath + "/" + imagenames[i], this.callbackResources);
@@ -153,7 +179,7 @@ App.prototype.loadResources = function(strimages, strsounds, path){
 App.prototype.callbackResources = function(){
     //you cann't use this in a callback function
     app.loaded++;
-    if(app.loaded == (app.maximages + app.maxsounds)){
+    if(app.loaded == (app.maximages + app.maxsounds + app.maxsvgs)){
         // after all the resources are loaded you can use them.
         app.isloaded = true;
     }

@@ -69,6 +69,25 @@ function draw() {
                app.wait(200);
                 break;
               }
+        case 7:{
+        //
+        background(app.pal.colors[1]);
+        app.project.update(6);
+        app.runscene(0);
+        break;
+        }
+        case 8:{
+        //
+        app.project.update(7);
+        app.wait(200);
+        break;
+        }
+        case 9:{
+        //
+        app.project.update(8);
+        app.wait(200);
+        break;
+        }
             default:{
                 //wait
                 app.wait();

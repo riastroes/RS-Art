@@ -83,14 +83,15 @@ Project.prototype.update = function(nr){
     case 6:{
       //once
       this.pattern.details = [];
+      break;
     }
     case 7:{
-
-      for(var i = 0; i < 1; i++){
+      for(var i = 0; i < 10; i++){
         this.pattern.details[i] = new Tulip2Blobber();
         detail = this.pattern.details[i];
+
         pos = createVector(random(this.pattern.width),random(this.pattern.height));
-        detail.init(pos, 15, 0,100, 70,150);
+        detail.init(pos, 31, 0,100, 100,150);
         detail.style(app.pal.colors[8],app.pal.tint(app.pal.colors[i%8],50),1);
         detail.draw();
 
@@ -98,6 +99,32 @@ Project.prototype.update = function(nr){
       break;
     }
     case 8:{
+      this.pattern.checkDetails();
+      this.pattern.drawOverlappingDetails();
+      break;
+    }
+    case 9:{
+      //once
+//Ik kan nu verschil maken in de definitie van Tulip3Blobber*
+*************************************************************
+
+      this.pattern.details = [];
+      break;
+    }
+    case 10:{
+      for(var i = 0; i < 10; i++){
+        this.pattern.details[i] = new Tulip3Blobber();
+        detail = this.pattern.details[i];
+
+        pos = createVector(random(this.pattern.width),random(this.pattern.height));
+        detail.init(pos, 31, 0,100, 100,150);
+        detail.style(app.pal.colors[8],app.pal.tint(app.pal.colors[i%8],50),1);
+        detail.draw();
+
+      }
+      break;
+    }
+    case 11:{
       this.pattern.checkDetails();
       this.pattern.drawOverlappingDetails();
       break;

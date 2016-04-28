@@ -18,7 +18,7 @@ function draw() {
         }
         if(app.isnot(app.project)){
           app.project = new Project();
-          app.scene = 0;
+          app.scene = 7;
         }
 
         switch(app.scene) {
@@ -70,32 +70,49 @@ function draw() {
                 break;
               }
         case 7:{
-        //
-        background(app.pal.colors[1]);
-        app.project.update(6);
-        app.runscene(0);
-        break;
-        }
-        case 8:{
-        //
-        app.project.update(7);
-        app.wait(200);
-        break;
-        }
-        case 9:{
-        //
-        app.project.update(8);
-        app.wait(200);
-        break;
-        }
-            default:{
-                //wait
-                app.wait();
+            //
+            background(app.pal.colors[1]);
+            app.project.update(6);
+            app.runscene(0);
+            break;
             }
-
-
-
-        }
+          case 8:{
+          //
+            app.project.update(7);
+            app.runscene(0);
+            break;
+          }
+          case 9:{
+          //
+            app.project.update(8);
+            app.wait(200);
+          break;
+          }
+          
+          case 10:{
+              //
+              background(app.pal.colors[1]);
+              app.project.update(9);
+              app.runscene(0);
+              break;
+              }
+            case 11:{
+            //
+              app.project.update(10);
+              app.runscene(0);
+              break;
+            }
+            case 12:{
+            //
+              app.project.update(11);
+              app.wait(200);
+            break;
+            }
+      default:{
+          //wait
+          app.wait();
+      }
+    }
 
         app.info.show();
         //function(skip, maxframes, show)

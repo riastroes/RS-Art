@@ -3,7 +3,7 @@
  */
 function Project(){
   this.blobbers = [];
-  this.pattern = new Pattern(400,400);
+  this.pattern = new Pattern(400,700);
   this.init()
 };
 
@@ -68,7 +68,7 @@ Project.prototype.update = function(nr){
         detail = this.pattern.details[i];
         pos = createVector(random(this.pattern.width),random(this.pattern.height));
         detail.init(pos, 15, 0,100, 70,150);
-        detail.style(app.pal.colors[8],app.pal.tint(app.pal.colors[i%8],50),1);
+        detail.style(app.pal.colors[1],app.pal.tint(app.pal.colors[i%8],50),1);
         detail.draw();
 
       }
@@ -105,28 +105,45 @@ Project.prototype.update = function(nr){
     }
     case 9:{
       //once
-//Ik kan nu verschil maken in de definitie van Tulip3Blobber*
-*************************************************************
-
+      var newtulip;
       this.pattern.details = [];
+      for(var i = 0; i < 5; i++){
+        newtulip = new Tulip3Blobber();
+        pos = createVector(random(this.pattern.width),random(this.pattern.height));
+
+        newtulip.init(pos, 30, 240,240, 50,60);
+        if(this.pattern.inFreeSpace(newtulip))
+        {
+          append(this.pattern.details, newtulip);
+          newtulip = this.pattern.details[i];
+          newtulip.rot = random(TWO_PI);
+          newtulip.style(app.pal.tint(app.pal.colors[2],50),app.pal.tint(app.pal.colors[2],10),1);
+
+        }
+
+      }
+      this.a = 0;
       break;
     }
     case 10:{
-      for(var i = 0; i < 10; i++){
-        this.pattern.details[i] = new Tulip3Blobber();
-        detail = this.pattern.details[i];
+      for(var i = 0; i < this.pattern.details.length; i++){
+        //this.pattern.details[i] = new Tulip3Blobber();
 
-        pos = createVector(random(this.pattern.width),random(this.pattern.height));
-        detail.init(pos, 31, 0,100, 100,150);
-        detail.style(app.pal.colors[8],app.pal.tint(app.pal.colors[i%8],50),1);
-        detail.draw();
+        newtulip = this.pattern.details[i];
+        newtulip.grow(0.1);
+        newtulip.style(app.pal.tint(app.pal.colors[2],50),app.pal.tint(app.pal.colors[2],10),1);
+
+        newtulip.draw();
+        this.pattern.checkDetails();
+        this.pattern.drawOverlappingDetails();
+      //  newtulip.drawStructure(newtulip.position.x, newtulip.position.y);
+
 
       }
       break;
     }
     case 11:{
-      this.pattern.checkDetails();
-      this.pattern.drawOverlappingDetails();
+
       break;
     }
 

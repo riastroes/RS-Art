@@ -71,6 +71,9 @@ Blobber.prototype.draw = function(pg){
       if(app.is(this.strokecolor)) {
         stroke(this.strokecolor);
       }
+      else{
+        noStroke();
+      }
       if(app.is(this.fillcolor)){
         fill(this.fillcolor);
 
@@ -82,12 +85,12 @@ Blobber.prototype.draw = function(pg){
         strokeWeight(this.thickness);
       }
       else{
-        strokeWeight = 1;
+        strokeWeight = 0;
       }
       beginShape();
-      for (i = 0; i < s+3; i += 1) {
-        curveVertex(this.pos[i%s].x, this.pos[i%s].y);
-      }
+        for (i = 0; i < s+3; i += 1) {
+          curveVertex(this.pos[i%s].x, this.pos[i%s].y);
+        }
 
      endShape();
     }
@@ -118,6 +121,7 @@ Blobber.prototype.showCenter = function(){
     rotate(this.rot);
   }
     ellipse(this.center.x, this.center.y, 10, 10);
+
   pop();
 };
 Blobber.prototype.showPoints = function(pg){
@@ -136,6 +140,28 @@ Blobber.prototype.showPoints = function(pg){
         pg.ellipse(this.pos[i].x, this.pos[i].y, 10, 10);
       }
     }
+
+  pop();
+};
+Blobber.prototype.showEllipse = function(pg){
+  var i;
+  push();
+  translate(this.position.x, this.position.y);
+  scale(this.factor);
+  if(app.is(this.rot)){
+    rotate(this.rot);
+  }
+
+      if(typeof(pg) == "undefined") {
+        noFill();
+        ellipse(this.center.x, this.center.y, this.wmaxradius*2, this.hmaxradius*2);
+      }
+      else{
+        noFill();
+        pg.ellipse(this.center.x, this.center.y, this.wmaxradius*2, this.hmaxradius*2);
+      }
+
+
   pop();
 };
 Blobber.prototype.createMorePoints = function(count){
@@ -428,7 +454,7 @@ Tulip2Blobber.prototype.init = function(pos, corners, minwidth, maxwidth, minhei
       wradius = this.wmaxradius;
       hradius = this.hmaxradius;
       r = (PI/(corners/2))*7;
-      
+
     }
 
     p = posOnEllipse(this.center,wradius, hradius, this.corners, i);

@@ -27,6 +27,18 @@ Pattern.prototype.checkDetails = function(){
         if(dist(pos.x,pos.y,  pos.x, this.height) < size/2){
           this.details[i].overlappedH = true;
         }
+        if(this.details[i].overlappedX && this.details[i].overlappedY){
+          this.details[i].overlappedXY = true;
+        }
+        if(this.details[i].overlappedW && this.details[i].overlappedY){
+          this.details[i].overlappedWY = true;
+        }
+        if(this.details[i].overlappedX && this.details[i].overlappedH){
+          this.details[i].overlappedXH = true;
+        }
+        if(this.details[i].overlappedW && this.details[i].overlappedH){
+          this.details[i].overlappedWH = true;
+        }
       }
 
     }
@@ -34,6 +46,8 @@ Pattern.prototype.checkDetails = function(){
 }
 Pattern.prototype.drawOverlappingDetails = function(){
   for(var i =0; i < this.details.length; i++){
+    app.style.set(app.pal.tint(app.pal.colors[2],50),app.pal.tint(app.pal.colors[2],10),1);
+
     if(this.details[i].overlappedX){
        this.draw(this.width, 0, this.details[i]);
        delete this.details[i].overlappedX;
@@ -50,12 +64,37 @@ Pattern.prototype.drawOverlappingDetails = function(){
        this.draw(0, -this.height, this.details[i]);
        delete this.details[i].overlappedH;
     }
+    if(this.details[i].overlappedXY){
+       this.draw(this.width, this.height, this.details[i]);
+       delete this.details[i].overlappedXY;
+    }
+    if(this.details[i].overlappedWY){
+       this.draw(-this.width, this.height, this.details[i]);
+       delete this.details[i].overlappedWY;
+    }
+    if(this.details[i].overlappedXH){
+       this.draw(this.width, -this.height, this.details[i]);
+       delete this.details[i].overlappedXH;
+    }
+    if(this.details[i].overlappedWH){
+       this.draw(-this.width, -this.height, this.details[i]);
+       delete this.details[i].overlappedWH;
+    }
   }
+}
+Pattern.prototype.inFreeSpace = function(detail){
+  var free = true;
+  for(var i = 0; i < this.details.length; i++){
+    if(dist(detail.position.x, detail.position.y, this.details[i].x, this.details[i].y) < (detail.size/2) + (this.details[i].size/2)){
+      free = false;
+      break;
+    }
+  }
+  return free;
 }
 Pattern.prototype.draw = function(x,y, detail){
   push();
     translate(x,y);
-    app.style.set(detail.strokecolor, detail.fillcolor, detail.thickness);
     detail.draw();
   pop();
 }

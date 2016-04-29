@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("tulips",400,400,SVG);
+    app = new App("tulips",400,700,SVG);
     app.resourcepath ="resources";
     app.loadResources("signature.png");
 
@@ -88,7 +88,7 @@ function draw() {
             app.wait(200);
           break;
           }
-          
+
           case 10:{
               //
               background(app.pal.colors[1]);
@@ -99,13 +99,13 @@ function draw() {
             case 11:{
             //
               app.project.update(10);
-              app.runscene(0);
+              app.runscene(3);
               break;
             }
             case 12:{
             //
-              app.project.update(11);
-              app.wait(200);
+            //  app.project.update(11);
+            //  app.runscene(20);
             break;
             }
       default:{

@@ -14,16 +14,16 @@ function Tulip(size){
 
 Tulip.prototype.style = function(nr){
   if(nr == 1){
-    app.style.set(app.pal.colors[0],app.pal.colors[2],1);
+    app.style.set(app.pal.colors[0],app.pal.colors[3],1);
   }
   if(nr == 2){
-    app.style.set(app.pal.colors[0],app.pal.colors[3],4);
+    app.style.set(app.pal.colors[0],app.pal.colors[4],4);
   }
   if(nr == 3){
     app.style.set(app.pal.colors[0],false,1);
   }
   if(nr == 4){
-    app.style.set(app.pal.colors[0],app.pal.tint(app.pal.colors[4],50),4);
+    app.style.set(app.pal.colors[0],app.pal.tint(app.pal.colors[2],50),4);
   }
 
 };

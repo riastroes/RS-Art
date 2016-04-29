@@ -3,7 +3,7 @@
  */
 function Project(){
   this.blobbers = [];
-  this.pattern = new Pattern(400,700);
+  this.pattern = new Pattern(width,height);
   this.init()
 };
 
@@ -12,7 +12,7 @@ Project.prototype.style = function(nr){
     app.style.set(app.pal.colors[0],false,1);
   }
   if(nr == 2){
-    app.style.set(app.pal.colors[0],app.pal.colors[3],1);
+    app.style.set(app.pal.colors[0],app.pal.colors[4],1);
   }
   if(nr == 3){
     app.style.set(app.pal.colors[0],false,1);
@@ -36,7 +36,7 @@ Project.prototype.update = function(nr){
     case 0:{
       for(var i = 0; i < this.pattern.details.length; i++){
         detail = this.pattern.details[i];
-        detail.style(app.pal.colors[0],app.pal.colors[2],1);
+        detail.style(app.pal.colors[0],app.pal.colors[3],1);
         detail.draw();
       }
 

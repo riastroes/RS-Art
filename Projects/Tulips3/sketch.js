@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("tulips",400,700,SVG);
+    app = new App("tulips",600,900,SVG);
     app.resourcepath ="resources";
     app.loadResources("signature.png");
 
@@ -99,7 +99,7 @@ function draw() {
             case 11:{
             //
               app.project.update(10);
-              app.runscene(3);
+              app.runscene(0);
               break;
             }
             case 12:{

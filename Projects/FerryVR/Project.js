@@ -403,14 +403,14 @@ Ferry.prototype.construct = function(){
   }
 
   beginShape();
-  vertex(-80,0);vertex(80,0);
-  vertex(60,20);vertex(-60,20);
+  vertex(-90,0);vertex(90,0);
+  vertex(60,25);vertex(-60,25);
   endShape(CLOSE);
   //kabin
   this.style(2);
   beginShape();
-    vertex(-20,0);vertex(20,0);
-    vertex(20,-20);vertex(-20,-20);
+    vertex(-25,0);vertex(25,0);
+    vertex(25,-25);vertex(-25,-25);
   endShape(CLOSE);
   //window
   this.style(3);

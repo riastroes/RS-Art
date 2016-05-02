@@ -4,32 +4,40 @@
  * en general settings for the project(s)
  */
 function App(name, appwidth, appheight, canvastype){
-
-
     pixelDensity(1);
-    this.canvastype = canvastype;
-    if(this.canvastype == "svg"){
-      if(appwidth != undefined && appheight != undefined){
-          this.acanvas = createCanvas(appwidth, appheight, SVG);
-      }
-      else {
-          this.acanvas = createCanvas(appwidth, appheight, SVG);
-      }
-    }
-    else if(this.canvastype == "webgl"){
-      this.acanvas = createCanvas(appwidth, appheight, WEBGL);
-    }
-    else{
-      if(appwidth != undefined && appheight != undefined){
-          this.acanvas = createCanvas(appwidth, appheight);
-      }
-      else {
-          this.acanvas = createCanvas(appwidth, appheight);
-      }
-    }
-
-
     this.name = name;
+    this.canvastype = canvastype;
+
+
+    switch(this.canvastype){
+      case "svg":{
+        if(appwidth != undefined && appheight != undefined){
+            this.acanvas = createCanvas(appwidth, appheight, SVG);
+        }
+        else {
+            this.acanvas = createCanvas(displayWidth, displayHeight, SVG);
+        }
+        break;
+      }
+      case "webgl":{
+        if(appwidth != undefined && appheight != undefined){
+            this.acanvas = createCanvas(appwidth, appheight);
+        }
+        else {
+            this.acanvas = createCanvas(displayWidth, displayHeight);
+        }
+        break;
+      }
+      case undefined:{
+        if(appwidth != undefined && appheight != undefined){
+            this.acanvas = createCanvas(appwidth, appheight);
+        }
+        else {
+            this.acanvas = createCanvas(displayWidth, displayHeight);
+        }
+        break;
+      }
+    }
 
     //resources
     this.resourcepath = "resources"; //default resource map

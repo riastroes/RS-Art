@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("Ferry",windowWidth,windowHeight);
+    app = new App("Ferry");
     app.resourcepath ="resources";
     app.loadResources("signature.png", "toet.wav,plons.wav");
     //frameRate(5);

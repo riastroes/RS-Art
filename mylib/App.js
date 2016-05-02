@@ -13,20 +13,22 @@ function App(name, appwidth, appheight, canvastype){
           this.acanvas = createCanvas(appwidth, appheight, SVG);
       }
       else {
-          this.acanvas = createCanvas(window.innerWidth, window.innerHeight, SVG);
+          this.acanvas = createCanvas(appwidth, appheight, SVG);
       }
+    }
+    else if(this.canvastype == "webgl"){
+      this.acanvas = createCanvas(appwidth, appheight, WEBGL);
     }
     else{
       if(appwidth != undefined && appheight != undefined){
           this.acanvas = createCanvas(appwidth, appheight);
       }
       else {
-          this.acanvas = createCanvas(window.innerWidth, window.innerHeight);
+          this.acanvas = createCanvas(appwidth, appheight);
       }
     }
 
 
-    background(255);
     this.name = name;
 
     //resources
@@ -127,7 +129,7 @@ App.prototype.loadResources = function(strimages, strsounds, strsvgs, path){
         this.maximages = 0;
     }
     if(typeof(strsounds) === "string"){
-        soundnames = strimages.split(",");
+        soundnames = strsounds.split(",");
         this.maxsounds = soundnames.length;
     }
     else if(typeof(strsounds) !== "undefined"){

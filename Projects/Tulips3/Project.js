@@ -143,8 +143,23 @@ Project.prototype.update = function(nr){
       break;
     }
     case 11:{
+      //once
+      //circles around a bezier
+      var begin = createVector(100,100);
+      var end = createVector(200,400);
+      this.path = new Bezier(begin, end);
+      this.angle = 0;
+      this.path.showStructure();
 
       break;
+    }
+    case 12:{
+      //
+      this.path.style(0);
+      this.path.curve(200, this.angle);
+      this.path.showStructure();
+      this.path.draw();
+      this.angle += 0.1;
     }
 
   }

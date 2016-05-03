@@ -6,8 +6,8 @@ function Pattern(patternwidth, patternheight){
 Pattern.prototype.checkDetails = function(){
   var pos, size, radius, detail;
   for(var i =0; i < this.details.length; i++){
-    if(this.details[i].hasOwnProperty("position")){
-      pos = this.details[i].position.copy();
+    if(this.details[i].hasOwnProperty("center")){
+      pos = this.details[i].center.copy();
       if(this.details[i].hasOwnProperty("size")){
         size = this.details[i].size;
       }
@@ -46,7 +46,7 @@ Pattern.prototype.checkDetails = function(){
 }
 Pattern.prototype.drawOverlappingDetails = function(){
   for(var i =0; i < this.details.length; i++){
-    app.style.set(app.pal.tint(app.pal.colors[2],50),app.pal.tint(app.pal.colors[2],10),1);
+    //app.style.set(app.pal.tint(app.pal.colors[2],50),app.pal.tint(app.pal.colors[2],10),1);
 
     if(this.details[i].overlappedX){
        this.draw(this.width, 0, this.details[i]);

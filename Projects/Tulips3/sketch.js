@@ -4,9 +4,9 @@ var app;
 
 function setup() {
 
-    app = new App("tulips",600,900,SVG);
+    app = new App("tulips",600,600,SVG);
     app.resourcepath ="resources";
-    app.loadResources("signature.png");
+    app.loadResources("signature.png, blauw-paars.jpg");
 
 }
 
@@ -15,10 +15,11 @@ function draw() {
     if(app.isloaded) {
         if(app.pal.name != "beautiful"){
             app.pal = new Palette(7, "beautiful");
+            app.pal.fromImage(app.images[1],10);
         }
         if(app.isnot(app.project)){
           app.project = new Project();
-          app.scene = 7;
+          app.scene = 15;
         }
 
         switch(app.scene) {
@@ -104,6 +105,7 @@ function draw() {
             }
             case 12:{
             //
+            background(app.pal.colors[1]);
             app.project.update(11);
             app.runscene(0);
             app.project.path.center.x + 100;
@@ -112,7 +114,23 @@ function draw() {
             case 13:{
             //
             app.project.update(12);
-            app.runscene(30);
+            app.runscene(0);
+            break;
+            }
+             case 14:{
+               app.wait(200);
+               break;
+             }
+            case 15:{
+              //purple tulips
+              background(255,255,255);
+              app.runscene(0);
+              break;
+            }
+            case 16:{
+            //
+            app.project.update(13);
+            app.runscene(1);
             break;
             }
       default:{

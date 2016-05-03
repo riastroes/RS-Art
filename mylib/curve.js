@@ -1,12 +1,15 @@
-function Bezier(begin, end){
+function Curve(begin, end){
   this.begin = begin.copy();
   this.end = end.copy();
   this.control1 = this.begin.copy();
   this.control2 = this.end.copy();
   this.center = this.getCenter();
   this.controlradius =0;
+  this.size = dist(this.begin.x, this.begin.y, this.end.x, this.end.y);
+  this.angle = 0;
+  this.controlradius = 0;
 }
-Bezier.prototype.style = function(nr){
+Curve.prototype.style = function(nr){
   if(nr == 0){
     stroke(app.pal.colors[0]);
     noFill();
@@ -18,22 +21,22 @@ Bezier.prototype.style = function(nr){
     strokeWeight(1);
   }
   if(nr == 2){
-      stroke(app.pal.randomColor());
-      fill(app.pal.colors[1]);
-      strokeWeight(3);
+      stroke(app.pal.randomImgColor());
+      fill(app.pal.tint(app.pal.randomImgColor(),10));
+      strokeWeight(1);
   }
 }
-Bezier.prototype.curve = function(radius, angle){
-  this.controlradius = radius;
-  this.control1 = app.posOnCircle(this.center, radius, TWO_PI, angle);
-  this.control2 = app.posOnCircle(this.center, radius, TWO_PI, PI+angle);
+Curve.prototype.curve = function(factor){
+  this.controlradius = this.size * factor;
+  this.control1 = app.posOnCircle(this.center, this.controlradius, TWO_PI, this.angle);
+  this.control2 = app.posOnCircle(this.center, this.controlradius, TWO_PI, this.angle);
 }
-Bezier.prototype.getCenter = function(){
+Curve.prototype.getCenter = function(){
   var center;
   center = createVector((this.begin.x + this.end.x)/2, (this.begin.y + this.end.y)/2);
   return center;
 }
-Bezier.prototype.showStructure = function(){
+Curve.prototype.showStructure = function(){
   this.style(0);
   ellipse(this.begin.x,this.begin.y, 5,5);
   ellipse(this.center.x, this.center.y, 10,10);
@@ -42,9 +45,11 @@ Bezier.prototype.showStructure = function(){
   ellipse(this.control1.x,this.control1.y, 3,3);
   ellipse(this.control2.x,this.control2.y, 3,3);
 }
-Bezier.prototype.draw = function(){
+Curve.prototype.draw = function(){
   beginShape();
-    vertex(this.begin.x, this.begin.y);
-    bezierVertex(this.control1.x, this.control1.y,this.control2.x, this.control2.y,this.end.x, this.end.y);
+    curveVertex(this.control1.x, this.control1.y);
+    curveVertex(this.begin.x, this.begin.y);
+    curveVertex(this.end.x, this.end.y);
+    curveVertex(this.control2.x, this.control2.y);
   endShape();
 }

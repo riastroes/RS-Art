@@ -145,23 +145,60 @@ Project.prototype.update = function(nr){
     case 11:{
       //once
       //circles around a bezier
-      var begin = createVector(100,100);
-      var end = createVector(200,400);
-      this.path = new Bezier(begin, end);
-      this.angle = 0;
+      var begin = createVector(200,100);
+      var end = createVector(200,300);
+      this.len = dist(begin.x, begin.y, end.x, end.y);
+      this.path = new Curve(begin, end);
+      this.angle = atan2(end.y - begin.y, end.x - begin.x);
+      this.angle += PI/4;
       this.path.showStructure();
 
       break;
     }
     case 12:{
       //
-      this.path.style(0);
-      this.path.curve(200, this.angle);
-      this.path.showStructure();
-      this.path.draw();
-      this.angle += 0.1;
+      for(var k = 0; k< 3; k++){
+        //this.angle = atan2(this.path.end.y - this.path.begin.y, this.path.end.x - this.path.begin.x);
+        this.path.style(2);
+
+      for(var i = 0; i < 10; i++){
+
+        this.path.curve(this.len*5, this.angle);
+      //  this.path.showStructure();
+        this.path.draw();
+        this.angle += 0.1;
+      }
+      this.angle += PI/3;
     }
 
+    }
+    case 13:{
+      //
+      this.pattern.details = [];
+      for(var k = 0; k< 3; k++){
+        //this.angle = atan2(this.path.end.y - this.path.begin.y, this.path.end.x - this.path.begin.x);
+        var begin = createVector(random(width), random(height));
+        var end = createVector(begin.x + random(-200,200), begin.y + random(-200,200) );
+        this.path = new Curve(begin, end);
+        this.path.angle = atan2(end.y - begin.y, end.x - begin.x);
+        this.path.angle += PI/4;
+        append(this.pattern.details, this.path);
+
+        for(var m = 0; m< 3; m++){
+          this.path.style(2);
+          this.path.angle += PI/4;
+          for(var i = 0; i < 9; i++){
+            this.path.curve(5);
+            //  this.path.showStructure();
+            this.path.draw();
+            this.pattern.checkDetails();
+            this.pattern.drawOverlappingDetails();
+            this.path.angle += 0.1;
+          }
+
+        }
+      }
+    }
   }
 }
 

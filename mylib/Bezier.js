@@ -13,14 +13,27 @@ Bezier.prototype.style = function(nr){
     strokeWeight(1);
   }
   if(nr == 1){
-    stroke(app.pal.colors[0]);
-    fill(app.pal.colors[1]);
+    this.strokecolor = app.pal.colors[0];
+    this.fillcolor = app.pal.colors[1];
+    stroke(this.strokecolor);
+    fill(this.fillcolor);
     strokeWeight(1);
   }
   if(nr == 2){
-      stroke(app.pal.randomColor());
-      fill(app.pal.colors[1]);
+      this.strokecolor = app.pal.randomColor();
+      this.fillcolor = app.pal.colors[1];
+      stroke(this.strokecolor);
+      fill(this.fillcolor);
       strokeWeight(3);
+  }
+  if(nr == 3){
+    this.strokecolor = app.pal.randomImgColor();
+    this.fillcolor = false;
+    this.thickness = 3;
+    
+    stroke(this.strokecolor);
+    noFill();
+    strokeWeight(this.thickness);
   }
 }
 Bezier.prototype.curve = function(radius, angle){

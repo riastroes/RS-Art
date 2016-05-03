@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("tulips",600,600,SVG);
+    app = new App("tulips",1000,1000,SVG);
     app.resourcepath ="resources";
     app.loadResources("signature.png, blauw-paars.jpg");
 
@@ -19,7 +19,7 @@ function draw() {
         }
         if(app.isnot(app.project)){
           app.project = new Project();
-          app.scene = 15;
+          app.scene = 21;
         }
 
         switch(app.scene) {
@@ -122,6 +122,7 @@ function draw() {
                break;
              }
             case 15:{
+              // dress design 2
               //purple tulips
               background(255,255,255);
               app.runscene(0);
@@ -133,6 +134,45 @@ function draw() {
             app.runscene(1);
             break;
             }
+
+            case 17:{
+              app.wait(200);
+              break;
+            }
+           case 18:{
+             //dress design 3
+             background(255,255,255);
+             app.runscene(0);
+             break;
+           }
+           case 19:{
+           //
+           app.project.update(14);
+           app.runscene(1);
+           break;
+           }
+           case 20:{
+             app.wait(200);
+             break;
+           }
+           case 21:{
+             //dress design 3
+             background(255,255,255);
+             app.runscene(0);
+             break;
+           }
+           case 22:{
+           //
+           app.project.update(15);
+           
+           app.runscene(1);
+           break;
+           }
+           case 23:{
+             app.project.draw();
+             app.wait(200);
+             break;
+           }
       default:{
           //wait
           app.wait();

@@ -3,6 +3,47 @@ function Pattern(patternwidth, patternheight){
   this.width = patternwidth;
   this.height = patternheight;
 }
+Pattern.prototype.checkDetail = function(detail){
+  var pos, size, radius;
+
+    if(detail.hasOwnProperty("center")){
+      pos = detail.center.copy();
+      if(detail.hasOwnProperty("size")){
+        size = detail.size;
+      }
+      else if(detail.hasOwnProperty("radius")){
+        size = detail.radius * 2;
+      }
+      if(size > 0){
+        if(dist(pos.x,pos.y,  0, pos.y) < size/2){
+          detail.overlappedX = true;
+        }
+        if(dist(pos.x,pos.y,  this.width, pos.y) < size/2){
+          detail.overlappedW = true;
+        }
+        if(dist(pos.x,pos.y,  pos.x, 0) < size/2){
+          detail.overlappedY = true;
+        }
+        if(dist(pos.x,pos.y,  pos.x, this.height) < size/2){
+          detail.overlappedH = true;
+        }
+        if(detail.overlappedX && detail.overlappedY){
+          detail.overlappedXY = true;
+        }
+        if(detail.overlappedW && detail.overlappedY){
+          detail.overlappedWY = true;
+        }
+        if(detail.overlappedX && detail.overlappedH){
+          detail.overlappedXH = true;
+        }
+        if(detail.overlappedW && detail.overlappedH){
+          detail.overlappedWH = true;
+        }
+      }
+
+
+  }
+}
 Pattern.prototype.checkDetails = function(){
   var pos, size, radius, detail;
   for(var i =0; i < this.details.length; i++){
@@ -95,6 +136,7 @@ Pattern.prototype.inFreeSpace = function(detail){
 Pattern.prototype.draw = function(x,y, detail){
   push();
     translate(x,y);
+
     detail.draw();
   pop();
 }

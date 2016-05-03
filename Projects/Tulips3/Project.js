@@ -173,7 +173,7 @@ Project.prototype.update = function(nr){
 
     }
     case 13:{
-      //
+      //dress design 2
       this.pattern.details = [];
       for(var k = 0; k< 3; k++){
         //this.angle = atan2(this.path.end.y - this.path.begin.y, this.path.end.x - this.path.begin.x);
@@ -198,10 +198,85 @@ Project.prototype.update = function(nr){
 
         }
       }
+      break;
     }
+
+    case 14:{
+      //dress design 3
+      this.pattern.details = [];
+      for(var k = 0; k< 3; k++){
+        //this.angle = atan2(this.path.end.y - this.path.begin.y, this.path.end.x - this.path.begin.x);
+        var begin = createVector(random(width), random(height));
+        var end = createVector(begin.x + random(-200,200), begin.y + random(-200,200) );
+        this.path = new Curve(begin, end);
+        this.path.angle = atan2(end.y - begin.y, end.x - begin.x);
+        this.path.angle += TWO_PI/4;
+        append(this.pattern.details, this.path);
+
+        for(var m = 0; m< 8; m++){
+          this.path.style(2);
+          this.path.angle += TWO_PI/4;
+          for(var i = 0; i < 35; i++){
+            this.path.curve(5);
+            this.path.draw();
+            this.pattern.checkDetails();
+            this.pattern.drawOverlappingDetails();
+            this.path.angle += 0.05;
+          }
+          this.path.begin = createVector(this.path.end.x + random(-200,200), this.path.end.y + random(-200,200) );
+
+        }
+      }
+      break;
+    }
+    case 15:{
+      //dress design 4
+      this.pattern.details = [];
+      for(var k = 0; k< 3; k++){
+        //this.angle = atan2(this.path.end.y - this.path.begin.y, this.path.end.x - this.path.begin.x);
+        var begin = createVector(random(width), random(height));
+        var end = createVector(begin.x, begin.y -100 );
+        this.path = new Curve(begin, end);
+        this.path.angle = atan2(end.y - begin.y, end.x - begin.x);
+        this.path.angle += TWO_PI/4;
+        append(this.pattern.details, this.path);
+
+        for(var m = 0; m< 6; m++){
+          this.path.style(2);
+          this.path.angle += TWO_PI/4;
+          for(var i = 0; i < 9; i++){
+            this.path.curve(5);
+            this.path.draw();
+            this.path.angle += 0.05;
+            this.pattern.checkDetails();
+            this.pattern.drawOverlappingDetails();
+          }
+          this.path.end = createVector(this.path.end.x + random(-50,50), this.path.end.y - random(50) );
+
+        }
+        var end = createVector(this.path.begin.x, this.path.begin.y  +200)
+        var bezier = new Bezier(this.path.begin, end);
+        bezier.curve(200, random(PI/2,PI));
+        bezier.style(3);
+        bezier.draw();
+        this.pattern.checkDetail(bezier);
+        append(this.pattern.details, bezier);
+        app.style.set(bezier.strokecolor, bezier.fillcolor, bezier.tickness);
+        this.pattern.drawOverlappingDetails();
+
+      }
+
+      break;
+    }
+
   }
 }
 
 Project.prototype.draw = function(){
-
+    for(var i = 0; i < this.pattern.details.length; i++){
+      this.pattern.details[i].style(1);
+      //this.pattern.details[i].draw();
+      this.pattern.checkDetails();
+      this.pattern.drawOverlappingDetails();
+  }
 }

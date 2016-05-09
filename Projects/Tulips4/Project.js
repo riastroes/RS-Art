@@ -44,8 +44,8 @@ Project.prototype.draw = function(nr){
       for(var i = 0; i < this.pattern.details.length; i++){
           for(angle = 0; angle < TWO_PI; angle +=0.2){
           detail = this.pattern.details[i];
-          detail.begin = app.posOnCircle(detail.center, 40,8,4+i);
-          detail.end = app.posOnCircle(detail.center, 40,8,i);
+          detail.begin = app.posOnCircle(createVector(0,0), 40,8,4+i);
+          detail.end = app.posOnCircle(createVector(0,0), 40,8,i);
 
           detail.style(2);
           detail.curve(i * 80, angle);
@@ -81,7 +81,7 @@ Project.prototype.draw = function(nr){
           detail.style(1);
 
           for(var t = 0; t<10; t++){
-            detail.end.x = detail.center.x-100+(t*20);
+            detail.end.x = detail.begin.x-100+(t*20);
             detail.control2 = detail.end.copy();
             detail.draw3();
 
@@ -101,7 +101,7 @@ Project.prototype.draw = function(nr){
         detail.angle = PI;
 
         for(var t = 0; t<10; t++){
-              detail.end.x = detail.center.x-100+(t*20);
+              detail.end.x = detail.begin.x-100+(t*20);
               detail.control2 = detail.begin.copy();
               detail.draw3();
         }
@@ -114,14 +114,14 @@ Project.prototype.draw = function(nr){
       this.init();
       for(var i = 0; i < this.pattern.details.length; i++){
         detail = this.pattern.details[i];
-        detail.begin.x = detail.center.x;
+        //detail.begin.x = detail.center.x;
         detail.begin2 = detail.begin.copy();
-        detail.control1 = detail.center.copy();
+        detail.control1 = detail.end.copy();
         detail.control2 = detail.begin.copy();
         detail.style(1);
 
         for(var t = 0; t<10; t++){
-          detail.end.x = detail.center.x-100+(t*20);
+          detail.end.x = detail.begin.x-100+(t*20);
 
             detail.angle = t * 0.1;
             detail.angle += PI * 0.85;
@@ -136,14 +136,14 @@ Project.prototype.draw = function(nr){
       this.init();
       for(var i = 0; i < this.pattern.details.length; i++){
         detail = this.pattern.details[i];
-        detail.begin.x = detail.center.x;
+        //detail.begin.x = detail.end.x;
         detail.begin2 = detail.begin.copy();
-        detail.control1 = detail.center.copy();
+        detail.control1 = detail.begin.copy();
         detail.control2 = detail.begin.copy();
         detail.style(1);
 
         for(var t = 0; t<10; t++){
-          detail.end.x = detail.center.x-50+(t*10);
+          detail.end.x = detail.begin.x-50+(t*10);
 
             detail.angle = t * 0.01;
             detail.angle += PI * 0.98;
@@ -300,34 +300,67 @@ Project.prototype.draw = function(nr){
       this.pattern.details = [];
       for(var i = 0; i < 20; i++){
         var pos = createVector(random(width), random(height));
-        var tulip = new Tulip4(pos, 100);
-        tulip.grow3(pos, 100,2, random(TWO_PI));
+        var tulip = new Tulip4(pos, 100,2, random(TWO_PI));
+        tulip.grow2();
       }
       break;
     }
     case 14:{
+      //tulip glitch
       this.init();
       this.pattern.details = [];
       for(var i = 0; i < 20; i++){
         var pos = createVector(random(width), random(height));
-        var tulip = new Tulip4(pos, 50);
-        tulip.grow4(i, random(TWO_PI));
-        append(this.pattern.details, tulip);
+        var tulip = new Tulip4(pos, 100,i/4, random(TWO_PI));
+        tulip.grow3();
       }
       break;
     }
     case 15:{
+
+      var tulips = [];
       this.init();
       this.pattern.details = [];
-      for(var i = 0; i < 20; i++){
+      for(var i = 0; i < 5; i++){
         var pos = createVector(random(width), random(height));
-        var tulip = new Tulip4(pos, 50);
-        tulip.grow5(i, random(TWO_PI));
-        append(this.pattern.details, tulip);
+        tulips[i] = new Tulip4(pos, 100,i, random(TWO_PI));
+        tulips[i].draw();
+        append(this.pattern.details, tulips[i]);
       }
+      for(var i = 0; i < this.pattern.details.length; i++){
+        fill(255,0,0,10);
+          this.pattern.details[i].size *= 5;
+          //ellipse(this.pattern.details[i].center.x, this.pattern.details[i].center.y, this.pattern.details[i].size,this.pattern.details[i].size);
+          this.pattern.checkDetails();
+          this.pattern.details[i].size /= 5;
+      }
+      this.pattern.drawOverlappingDetails();
       break;
     }
     case 16:{
+      this.init();
+      var tulips = [];
+      this.pattern.details = [];
+      for(var i = 0; i < 10; i++){
+        var pos = createVector(random(width), random(height));
+        tulips[i] = new Tulip4(pos, 50, i, random(TWO_PI));
+        
+        tulips[i].draw();
+        append(this.pattern.details, tulips[i]);
+      }
+      for(var i = 0; i < this.pattern.details.length; i++){
+        fill(255,0,0,10);
+          this.pattern.details[i].size *= 5;
+          ellipse(this.pattern.details[i].center.x, this.pattern.details[i].center.y, this.pattern.details[i].size,this.pattern.details[i].size);
+          this.pattern.checkDetails();
+          this.pattern.details[i].size /= 5;
+      }
+      this.pattern.drawOverlappingDetails();
+
+
+      break;
+    }
+    case 17:{
       this.init();
       var max = 1;
       var p =[];

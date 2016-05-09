@@ -5,7 +5,10 @@ function Tulip4(pos, size, stage, angle){
   this.stage =stage;
   this.angle = angle;
   this.end = createVector(0,0);
+
   this.center = createVector(0, -this.size/2);
+  this.center.rotate(this.angle);
+  this.center.add(this.pos);
   this.begin = createVector(0, -this.size);
   this.begin2 = createVector(0, -this.size);
   this.control1 = this.begin.copy();
@@ -59,13 +62,14 @@ Tulip4.prototype.curve = function(size, angle){
 Tulip4.prototype.showStructure = function(nr){
   push();
   translate(this.pos.x, this.pos.y);
+  rotate(this.angle);
   switch(nr){
     case 1:{
       ellipse(this.end.x, this.end.y, 55,15);
       break;
     }
     case 2:{
-      ellipse(this.center.x, this.center.y, 55,55);
+      ellipse(this.begin.x, this.begin.y, 55,55);
       break;
     }
     case 3:{
@@ -77,7 +81,7 @@ Tulip4.prototype.showStructure = function(nr){
     case 4:{
       ellipse(this.begin.x, this.begin.y, 5,5);
       ellipse(this.begin2.x, this.begin2.y, 5,5);
-      ellipse(this.end.x, this.end.y, 5,5);
+      ellipse(this.end.x, this.end.y, 15,15);
       //ellipse(this.control1.x, this.control1.y, 55,55);
       //ellipse(this.control2.x, this.control2.y, 5,5);
       break;
@@ -142,101 +146,76 @@ Tulip4.prototype.grow = function(){
 
     }
 }
-Tulip4.prototype.grow2 = function(center, size, stage, angle){
-    this.size = size;
-    this.stage = stage;
-    this.angle = angle;
-    this.center = center.copy();
-    this.end = createVector(0, this.size/2);
-    this.control1 = createVector(0, -this.size/2);
 
-
-      for(var t = 0; t<20; t++){
+Tulip4.prototype.grow2 = function(){
+      for(var t = 0; t<10; t++){
 
         this.begin = app.posOnEllipse(this.control1, this.size - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, t);
         this.begin2 = app.posOnEllipse(this.control1, this.size - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, 10 + t);
         this.control2 = this.begin.copy();
         this.control2.y = this.control2.y + this.size;
+      //  this.control1.y = this.control1.y + this.size;
 
         this.style(1);
 
-        this.draw();
+        this.draw4();
 
       }
-    }
-Tulip4.prototype.grow3 = function(center, size, stage, angle){
-    this.size = size;
-    this.stage = stage;
-    this.angle = angle;
-    this.center = center.copy();
-    this.end = createVector(0, this.size/2);
-    this.control1 = createVector(0, -this.size/2);
+}
+Tulip4.prototype.grow3 = function(){
+      for(var t = 0; t<10; t++){
 
-
-      for(var t = 0; t<20; t++){
-
-        this.begin = app.posOnEllipse(this.control1, this.size - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, t);
-        this.begin2 = app.posOnEllipse(this.control1, this.size - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, 10 + t);
+        this.begin = app.posOnEllipse(this.control1, this.size + (this.stage*t), (this.size+ (this.stage*t))/2, 20, t);
+        this.begin2 = app.posOnEllipse(this.control1, this.size + (this.stage*t), (this.size+ (this.stage*t))/2, 20, 10 + t);
         this.control2 = this.begin.copy();
         this.control2.y = this.control2.y + this.size;
         this.control1.y = this.control1.y + this.size;
 
         this.style(1);
 
-        this.draw();
+        this.draw4();
 
       }
 }
-Tulip4.prototype.grow4 = function(stage, angle){
 
-  this.stage = stage;
-  this.angle = angle;
-  this.end = createVector(0, this.size/2);
-  this.control1 = createVector(0, -this.size*2);
-  this.control2 = this.control1.copy();
-
-
-    for(var t = 0; t<20; t++){
-
-      this.begin = app.posOnEllipse(this.control1, this.size - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, t);
-      this.begin2 = app.posOnEllipse(this.control1, this.size - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, 10 + t);
-
-
-      this.style(1);
-
-      this.draw();
-
-    }
-}
 Tulip4.prototype.drawShape = function(){
+
+  this.style(1);
+  app.style.set(this.strokecolor, this.fillcolor, this.tickness);
+
 
   push();
   translate(this.pos.x, this.pos.y);
-  rotate(this.angle - PI/2);
-    this.style(1);
-    app.style.set(this.strokecolor, this.fillcolor, this.tickness);
-    this.showStructure(3);
+  rotate(this.angle);
+
     beginShape();
-      vertex(0,0);
+      vertex(this.begin.x, this.begin.y);
       bezierVertex(this.control1.x, this.control1.y,this.control2.x, this.control2.y,this.end.x, this.end.y);
       bezierVertex(this.control2.x, this.control2.y,this.control1.x, this.control1.y,this.begin2.x, this.begin2.y);
 
     endShape();
     fill(255,0,0);
-    ellipse(0,0, 10,10);
+    //ellipse(0,0, 100,100);
     text(this.angle, 10, 0);
   pop();
 }
 Tulip4.prototype.draw = function(){
 
 
-    for(var t = 0; t<20; t++){
+  for(var t = 0; t<20; t++){
+    this.control1 = this.end.copy();
+    this.control1.y -= this.size;
+    this.control2 = this.end.copy();
 
-      this.begin = app.posOnEllipse(this.control1, this.size - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, t);
-      this.begin2 = app.posOnEllipse(this.control1, this.size - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, 10 + t);
-      this.drawShape();
+    this.begin = app.posOnEllipse(this.control1, (this.size) + (this.stage*t), (this.size+ (this.stage*t))/2, 20, 10 + t);
+    this.begin2 = app.posOnEllipse(this.control1, (this.size) + (this.stage*t), (this.size+ (this.stage*t))/2, 20, t);
+    //this.end = this.end.copy();
 
-    }
+    this.style(2);
+
+    this.drawShape();
+
+  }
 
 
 }

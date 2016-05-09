@@ -5,6 +5,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
@@ -48,6 +49,11 @@
      inkscape:current-layer="svg12604" />
   <defs
      id="defs12606">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern24646"
+       id="pattern25855"
+       patternTransform="matrix(0.25957441,0,0,0.33617023,2.5423705,9.1525425e-6)" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath24642">
@@ -2679,6 +2685,13 @@
        id="rect12616"
        style="fill:#ffffff;fill-opacity:1;stroke:none" />
   </g>
+  <rect
+     style="fill:url(#pattern25855);stroke:none"
+     width="597.45758"
+     height="597.45764"
+     x="2.5424185"
+     y="-1.8620894e-05"
+     id="rect25137" />
   <g
      id="g13594" />
   <g
@@ -4749,11 +4762,4 @@
      id="g15660" />
   <g
      id="g15662" />
-  <rect
-     style="fill:url(#pattern24646);fill-opacity:1.0"
-     id="rect25888"
-     width="600"
-     height="600"
-     x="0"
-     y="0" />
 </svg>

@@ -19,7 +19,7 @@ function draw() {
         }
         if(app.isnot(app.project)){
           app.project = new Project();
-          app.scene = 21;
+          app.scene = 0;
         }
 
         switch(app.scene) {
@@ -164,7 +164,7 @@ function draw() {
            case 22:{
            //
            app.project.update(15);
-           
+
            app.runscene(1);
            break;
            }

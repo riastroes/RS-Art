@@ -183,9 +183,9 @@ Palette.prototype.showImgColors = function(){
     x = i * w;
     y = 0;
     fill(this.imgcolors[i]);
-    ellipse(x + (w/2), y + (w/2), w,w);
+    ellipse(x + (w/2), y + (w/2)+w, w,w);
     fill(this.imgcolors[0]);
-    text(i,x + (w/2), y + (w/2));
+    text(i,x + (w/2), y + (w/2)+w);
   }
 }
 function NamedPalette(name){

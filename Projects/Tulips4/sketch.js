@@ -19,7 +19,7 @@ function draw() {
         }
         if(app.isnot(app.project)){
           app.project = new Project();
-          app.scene = 15;
+          app.scene = 17;
         }
 
         switch(app.scene) {
@@ -148,15 +148,15 @@ function draw() {
             case 16:{
                //growing tulip structure
                background(app.pal.colors[1]);
-               app.project.update(16);
-               app.project.draw();
+               app.project.draw(16);
+
                app.wait(1200);
                 break;
             }
             case 17:{
                //growing tulip structure
                background(app.pal.colors[1]);
-               app.project.update(17);
+               app.project.draw(17);
                app.project.draw();
                app.wait(200);
                 break;

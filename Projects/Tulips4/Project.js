@@ -344,16 +344,16 @@ Project.prototype.draw = function(nr){
       for(var i = 0; i < 10; i++){
         var pos = createVector(random(width), random(height));
         tulips[i] = new Tulip4(pos, 50, i, random(TWO_PI));
-        
+
         tulips[i].draw();
         append(this.pattern.details, tulips[i]);
       }
       for(var i = 0; i < this.pattern.details.length; i++){
         fill(255,0,0,10);
-          this.pattern.details[i].size *= 5;
+          this.pattern.details[i].size *= 2.5;
           ellipse(this.pattern.details[i].center.x, this.pattern.details[i].center.y, this.pattern.details[i].size,this.pattern.details[i].size);
           this.pattern.checkDetails();
-          this.pattern.details[i].size /= 5;
+          this.pattern.details[i].size /= 2.5;
       }
       this.pattern.drawOverlappingDetails();
 
@@ -362,13 +362,12 @@ Project.prototype.draw = function(nr){
     }
     case 17:{
       this.init();
-      var max = 1;
+      var max = 7;
       var p =[];
       this.pattern.details = [];
       for(var i = 0; i <max; i++ ){
         p[i] = createVector(random(width), random(height));
-        fill(255,0,0);
-        //ellipse(p[i].x, p[i].y, 10,10);
+
       }
       for(var i = 0; i < max; i++){
         var end = p[i].copy();
@@ -377,7 +376,7 @@ Project.prototype.draw = function(nr){
         append(this.pattern.details, stem);
         stem.style(2);
         stem.draw();
-        stem.showStructure();
+
       }
       for(var i = 0; i < this.pattern.details.length; i++){
 
@@ -385,13 +384,17 @@ Project.prototype.draw = function(nr){
       }
       this.pattern.drawOverlappingDetails();
       for(var i = 0; i < max; i++){
-        var tulip = new Tulip4(p[i], 100, i+5, this.pattern.details[i].angle);
+        var tulip = new Tulip4(p[i], 100, i+5, this.pattern.details[i].angle + (PI/2));
         tulip.draw();
         append(this.pattern.details, tulip);
       }
       for(var i = 0; i < this.pattern.details.length; i++){
 
+        fill(255,0,0,10);
+          this.pattern.details[i].size = 250;
+          //ellipse(this.pattern.details[i].center.x, this.pattern.details[i].center.y, this.pattern.details[i].size,this.pattern.details[i].size);
           this.pattern.checkDetails();
+          this.pattern.details[i].size = 100;
       }
       this.pattern.drawOverlappingDetails();
 

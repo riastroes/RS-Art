@@ -201,17 +201,18 @@ Tulip4.prototype.drawShape = function(){
 }
 Tulip4.prototype.draw = function(){
 
-
+this.style(2);
   for(var t = 0; t<20; t++){
     this.control1 = this.end.copy();
     this.control1.y -= this.size;
     this.control2 = this.end.copy();
+    this.control2.x = (-10 + t) *10;
 
     this.begin = app.posOnEllipse(this.control1, (this.size) + (this.stage*t), (this.size+ (this.stage*t))/2, 20, 10 + t);
     this.begin2 = app.posOnEllipse(this.control1, (this.size) + (this.stage*t), (this.size+ (this.stage*t))/2, 20, t);
     //this.end = this.end.copy();
 
-    this.style(2);
+
 
     this.drawShape();
 

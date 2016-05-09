@@ -17,10 +17,11 @@ function Tulip4(pos, size, stage, angle){
 
 }
 Tulip4.prototype.style = function(nr){
+  app.pal.fromImage(app.images[1],10);
   switch(nr){
     case 1:{
       this.strokecolor = app.pal.randomImgColor();
-      this.fillcolor = app.pal.tint(app.pal.randomImgColor(),10);
+      this.fillcolor = app.pal.tint(app.pal.randomImgColor(),30);
       this.tickness = 1;
       break;
     }
@@ -48,6 +49,13 @@ Tulip4.prototype.style = function(nr){
       this.tickness = 1;
       break;
     }
+    case 6:{
+      this.strokecolor = app.pal.randomImgColor();
+      this.fillcolor = app.pal.tint(app.pal.randomImgColor(),20);
+      this.tickness = 1;
+      break;
+    }
+
 
   }
 }
@@ -82,6 +90,14 @@ Tulip4.prototype.showStructure = function(nr){
       ellipse(this.begin.x, this.begin.y, 5,5);
       ellipse(this.begin2.x, this.begin2.y, 5,5);
       ellipse(this.end.x, this.end.y, 15,15);
+      //ellipse(this.control1.x, this.control1.y, 55,55);
+      //ellipse(this.control2.x, this.control2.y, 5,5);
+      break;
+    }
+    case 5:{
+      ellipse(this.begin.x, this.begin.y, 5,5);
+      ellipse(this.begin2.x, this.begin2.y, 5,5);
+      //ellipse(this.end.x, this.end.y, 30,15);
       //ellipse(this.control1.x, this.control1.y, 55,55);
       //ellipse(this.control2.x, this.control2.y, 5,5);
       break;
@@ -133,18 +149,18 @@ Tulip4.prototype.draw4 = function(){
 
 Tulip4.prototype.grow = function(){
 
-    for(var t = 0; t<20; t++){
+  for(var t = 0; t<20; t++){
 
-      this.begin = app.posOnEllipse(this.control1, this.size/2 - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, t);
-      this.begin2 = app.posOnEllipse(this.control1, this.size/2 - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, 10 + t);
-      this.control2 = this.begin.copy();
-      this.control2.y = this.control2.y + this.size/2;
-      this.showStructure(4);
-      this.style(1);
+    this.begin = app.posOnEllipse(this.control1, this.size/2 - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, t);
+    this.begin2 = app.posOnEllipse(this.control1, this.size/2 - (this.stage * 20), (this.size- (this.stage * 20))/2, 20, 10 + t);
+    this.control2 = this.begin.copy();
+    this.control2.y = this.control2.y + this.size/2;
+    this.showStructure(4);
+    this.style(1);
 
-      this.draw4();
+    this.draw4();
 
-    }
+  }
 }
 
 Tulip4.prototype.grow2 = function(){
@@ -180,7 +196,7 @@ Tulip4.prototype.grow3 = function(){
 
 Tulip4.prototype.drawShape = function(){
 
-  this.style(1);
+
   app.style.set(this.strokecolor, this.fillcolor, this.tickness);
 
 
@@ -194,14 +210,14 @@ Tulip4.prototype.drawShape = function(){
       bezierVertex(this.control2.x, this.control2.y,this.control1.x, this.control1.y,this.begin2.x, this.begin2.y);
 
     endShape();
-    fill(255,0,0);
+    //fill(255,0,0);
     //ellipse(0,0, 100,100);
-    text(this.angle, 10, 0);
+    //text(this.angle, 10, 0);
   pop();
 }
 Tulip4.prototype.draw = function(){
 
-this.style(2);
+
   for(var t = 0; t<20; t++){
     this.control1 = this.end.copy();
     this.control1.y -= this.size;

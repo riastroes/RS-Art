@@ -4,9 +4,9 @@ var app;
 
 function setup() {
 
-    app = new App("tulips 4",800,800,SVG);
+    app = new App("tulips 4",1600,1600,SVG);
     app.resourcepath ="resources";
-    app.loadResources("signature.png, blauw-paars.jpg");
+    app.loadResources("signature.png, blauw-paars.jpg, groene-bladeren.jpg");
 
 }
 
@@ -15,7 +15,7 @@ function draw() {
     if(app.isloaded) {
         if(app.pal.name != "beautiful"){
             app.pal = new Palette(7, "beautiful");
-            app.pal.fromImage(app.images[1],10);
+            
         }
         if(app.isnot(app.project)){
           app.project = new Project();
@@ -153,11 +153,12 @@ function draw() {
                app.wait(1200);
                 break;
             }
+            ///
+
             case 17:{
                //growing tulip structure
-               background(app.pal.colors[1]);
+               //background(app.pal.colors[1]);
                app.project.draw(17);
-               app.project.draw();
                app.wait(200);
                 break;
             }

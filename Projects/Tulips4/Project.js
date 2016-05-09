@@ -361,8 +361,10 @@ Project.prototype.draw = function(nr){
       break;
     }
     case 17:{
+      background(107, 186, 237);
+      background(255);
       this.init();
-      var max = 7;
+      var max = 15;
       var p =[];
       this.pattern.details = [];
       for(var i = 0; i <max; i++ ){
@@ -371,10 +373,10 @@ Project.prototype.draw = function(nr){
       }
       for(var i = 0; i < max; i++){
         var end = p[i].copy();
-        end.add(random(-width/2,width/2), random(-height/2,height/2));
+        end.add(random(-100,100), random(0,height));
         var stem = new Stem(p[i] , end, 10);
         append(this.pattern.details, stem);
-        stem.style(2);
+        stem.style(1);
         stem.draw();
 
       }
@@ -384,17 +386,63 @@ Project.prototype.draw = function(nr){
       }
       this.pattern.drawOverlappingDetails();
       for(var i = 0; i < max; i++){
-        var tulip = new Tulip4(p[i], 100, i+5, this.pattern.details[i].angle + (PI/2));
-        tulip.draw();
-        append(this.pattern.details, tulip);
+        var leaves = new Leaves(this.pattern.details[i].begin[0] ,this.pattern.details[i].end[0], 10);
+        append(this.pattern.details, leaves);
+        leaves.style(2);
+        leaves.draw();
+
       }
       for(var i = 0; i < this.pattern.details.length; i++){
 
+          this.pattern.checkDetails();
+      }
+      this.pattern.drawOverlappingDetails();
+
+      for(var i = 0; i < max; i++){
+        var tulip = new Tulip4(p[i], random(100,250), i+5, this.pattern.details[i].angle + (PI/2));
+tulip.style(1);
+        tulip.draw();
+        append(this.pattern.details, tulip);
+      }
+      for(var i = this.pattern.details.length - 10; i < this.pattern.details.length; i++){
+
         fill(255,0,0,10);
-          this.pattern.details[i].size = 250;
+        var oldsize = this.pattern.details[i].size
+          this.pattern.details[i].size = oldsize*2;
           //ellipse(this.pattern.details[i].center.x, this.pattern.details[i].center.y, this.pattern.details[i].size,this.pattern.details[i].size);
           this.pattern.checkDetails();
-          this.pattern.details[i].size = 100;
+          this.pattern.details[i].size =  oldsize;
+      }
+      this.pattern.drawOverlappingDetails();
+//seeds
+      this.init();
+      this.pattern.details = [];
+      for(var i = 0; i < 10; i++){
+        var pos = createVector(random(width), random(height));
+        var tulip = new Tulip4(pos, 100,app.randomInt(5), random(TWO_PI));
+        tulip.style(6);
+        tulip.showStructure(5);
+        tulip.draw();
+        // for(var t = 0; t<20; t++){
+        //
+        //   tulip.begin = app.posOnEllipse(tulip.control1, tulip.size/2 - (tulip.stage * 20), (tulip.size- (tulip.stage * 20))/2, 20, t);
+        //   tulip.begin2 = app.posOnEllipse(tulip.control1, tulip.size/2 - (tulip.stage * 20), (tulip.size- (tulip.stage * 20))/2, 20, 10 + t);
+        //   tulip.control2 = tulip.begin.copy();
+        //   tulip.control2.y = tulip.control2.y + tulip.size/2;
+        //
+        //
+        //   tulip.showStructure(5);
+        //   tulip.draw();
+        //
+        //
+        //
+        // }
+      }
+      for(var i = this.pattern.details.length - 10; i < this.pattern.details.length; i++){
+        var oldsize = this.pattern.details[i].size
+          this.pattern.details[i].size = oldsize*2;
+          this.pattern.checkDetails();
+          this.pattern.details[i].size =  oldsize;
       }
       this.pattern.drawOverlappingDetails();
 

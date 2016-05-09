@@ -2,7 +2,9 @@ function Stem(begin,end, radius){
   this.center = begin.copy();
   this.center.add((end.x - begin.x) /2, (end.y - begin.y)/2);
   this.size = dist(begin.x, begin.y, end.x, end.y) + 10;
-  this.angle = atan2((end.y - begin.y),(end.x - begin.x));
+  this.control1 = createVector(random(width), random(height));
+  this.control2 = createVector(random(width), random(height));
+  this.angle = createVector((this.control1.x - begin.x),(this.control1.y - begin.y)).heading();
   this.begin =[];
   this.end = [];
   this.radius = radius;
@@ -10,8 +12,7 @@ function Stem(begin,end, radius){
     this.begin[i] = posOnEllipse(begin, this.radius/2, this.radius/2, 10, i);
     this.end[i] = posOnEllipse(end, this.radius, this.radius/2, 10, i);
   }
-  this.control1 = createVector(random(width), random(height));
-  this.control2 = this.control1.copy();
+
 }
 Stem.prototype.style = function(nr){
   switch(nr){
@@ -29,6 +30,12 @@ Stem.prototype.style = function(nr){
     }
   }
 }
+Stem.prototype.showStructure = function(){
+  this.style(1);
+  app.style.set(this.strokecolor, this.fillcolor, this.tickness);
+  ellipse(this.control1.x, this.control1.y, 10,10);
+  ellipse(this.control2.x, this.control2.y, 10,10);
+}
 Stem.prototype.draw = function(){
   app.style.set(this.strokecolor, this.fillcolor, this.tickness);
   for(var i = 0; i< this.begin.length; i++){
@@ -39,5 +46,5 @@ Stem.prototype.draw = function(){
     curveVertex(this.control2.x, this.control2.y);
     endShape();
   }
-  text(this.angle, this.center.x, this.center.y);
+  text(this.angle, this.begin[0].x, this.begin[0].y);
 }

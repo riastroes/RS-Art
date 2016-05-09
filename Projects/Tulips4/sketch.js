@@ -19,7 +19,7 @@ function draw() {
         }
         if(app.isnot(app.project)){
           app.project = new Project();
-          app.scene = 17;
+          app.scene = 0;
         }
 
         switch(app.scene) {
@@ -32,102 +32,96 @@ function draw() {
               break;
             }
             case 1:{
-               //
+               //half shelfs
                background(app.pal.colors[1]);
-               app.project.update(0);
-               app.project.draw();
-               app.wait(200);
+               app.project.draw(0);
+
+               app.wait(100);
                 break;
             }
             case 2:{
-               //
+               // small shelf to round form
                background(app.pal.colors[1]);
-               app.project.update(1);
-               app.project.draw();
-               app.wait(200);
-                break;
+               app.project.draw(1);
+               app.wait(100);
+               break;
             }
             case 3:{
-               //
+               // small shelf to round form, different style
                background(app.pal.colors[1]);
-               app.project.update(2);
-               app.project.draw();
-               app.wait(200);
+               app.project.draw(2);
+               app.wait(100);
                 break;
             }
             case 4:{
-               //dress 4
+               //symmetrical  tulip
                background(app.pal.colors[1]);
-               app.project.update(3);
-               app.project.draw();
-               app.wait(200);
+               app.project.draw(3);
+               app.wait(100);
                 break;
             }
             case 5:{
-               //tulip up side down
+               //tulips
                background(app.pal.colors[1]);
-               app.project.update(4);
-               app.project.draw();
-               app.wait(200);
+               app.project.draw(4);
+               app.wait(100);
                 break;
             }
             case 6:{
-               //tulip up side down reshaped
+               //little tulips
                background(app.pal.colors[1]);
-               app.project.update(5);
-               app.project.draw();
-               app.wait(200);
+               app.project.draw(5);
+               app.wait(100);
                 break;
             }
             case 7:{
                //growing tulip structure
                background(app.pal.colors[1]);
-               app.project.update(6);
-               app.project.draw();
-               app.wait(200);
-                break;
+               app.project.draw(6);
+               app.wait(100);
+               break;
             }
             case 8:{
                //growing tulip structure
                background(app.pal.colors[1]);
-               app.project.update(7);
-               app.project.draw();
-               app.wait(200);
+               app.project.draw(7);
+
+               app.wait(100);
                 break;
             }
             case 9:{
                //growing tulip structure
                background(app.pal.colors[1]);
-               app.project.update(8);
-               app.wait(200);
+               app.project.draw(8);
+               app.wait(100);
                 break;
             }
             case 10:{
                //growing tulip structure
                background(app.pal.colors[1]);
-               app.project.update(9);
-               app.wait(200);
+               app.project.draw(9);
+               app.wait(100);
                 break;
             }
             case 11:{
-               //growing tulip structure
+               //growing tulip structure more leaves
                background(app.pal.colors[1]);
-               app.project.update(10);
-               app.wait(200);
+               app.project.draw(10);
+               app.wait(100);
                 break;
             }
             case 12:{
-               //growing tulip glitch
+               //growing tulip
                background(app.pal.colors[1]);
-               app.project.update(11);
-               app.wait(200);
+               app.project.draw(11);
+               app.wait(100);
                 break;
             }
             case 13:{
                //growing tulip structure
                background(app.pal.colors[1]);
-               app.project.update(12);
-               app.wait(200);
+               app.project.draw(12);
+               app.wait(1200);
                 break;
             }
             case 14:{

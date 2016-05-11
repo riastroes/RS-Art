@@ -85,6 +85,28 @@ Pattern.prototype.checkDetails = function(){
     }
   }
 }
+Pattern.prototype.checkWidthDetails = function(){
+  var pos, size, radius, detail;
+  for(var i =0; i < this.details.length; i++){
+    if(this.details[i].hasOwnProperty("center")){
+      pos = this.details[i].center.copy();
+      if(this.details[i].hasOwnProperty("width")){
+        size = this.details[i].width;
+      }
+
+      if(size > 0){
+        if(dist(pos.x,pos.y,  0, pos.y) < size/2){
+          this.details[i].overlappedX = true;
+        }
+        if(dist(pos.x,pos.y,  this.width, pos.y) < size/2){
+          this.details[i].overlappedW = true;
+        }
+
+      }
+
+    }
+  }
+}
 Pattern.prototype.drawOverlappingDetails = function(){
   for(var i =0; i < this.details.length; i++){
     //app.style.set(app.pal.tint(app.pal.colors[2],50),app.pal.tint(app.pal.colors[2],10),1);

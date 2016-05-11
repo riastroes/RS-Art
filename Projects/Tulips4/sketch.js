@@ -15,11 +15,11 @@ function draw() {
     if(app.isloaded) {
         if(app.pal.name != "beautiful"){
             app.pal = new Palette(7, "beautiful");
-            
+
         }
         if(app.isnot(app.project)){
           app.project = new Project();
-          app.scene = 17;
+          app.scene = 0;
         }
 
         switch(app.scene) {

@@ -13,21 +13,24 @@ function Project(){
 
 Project.prototype.init = function(max){
   var pos;
-  for(var i = 0; i < 3; i++){
+  for(var i = 0; i < 4; i++){
     this.etage[0] = [];
     this.etage[1] = [];
     this.etage[2] = [];
+    this.etage[3] = [];
   }
   for(var p = 0; p < max; p++){
-    pos = createVector( random(width), random( 0, height/3));
+    pos = createVector( random(width), random( 0, height));
     append( this.etage[0], pos);
     pos = createVector( random(width), random( height/3,height/3*2 ));
     append( this.etage[1], pos);
     pos = createVector( random(width), random( height/2 , height));
     append( this.etage[2], pos);
+    pos = createVector( random(width), random( height/3*2 , height));
+    append( this.etage[3], pos);
 
   }
-
+  this.pattern.details = [];
 }
 Project.prototype.drawLeaves = function(nr){
   var detail, angle, pos, h;
@@ -70,8 +73,9 @@ Project.prototype.drawFlowers = function(nr){
           append(this.pattern.details, stem);
         }
         tulip = new Tulip(pos, 200,100, 230, 10, random(TWO_PI));
+        tulip.style();
         tulip.draw();
-        tulip.showStructure(0);
+        //tulip.showStructure(0);
         append(this.pattern.details, tulip);
 
 
@@ -90,6 +94,7 @@ Project.prototype.drawFlowers = function(nr){
       for(var i = 0; i < this.etage[0].length; i++){
         pos = this.etage[0][i];
         tulip2 = new Tulip2(pos, 50, 75, 230, 10, random(TWO_PI));
+        tulip2.style();
         tulip2.draw();
         append(this.pattern.details, tulip2);
       }
@@ -105,10 +110,11 @@ Project.prototype.drawFlowers = function(nr){
       this.init(50);
       for(var i = 0; i < this.etage[0].length; i++){
         pos = this.etage[0][i];
-        w = random(50, 300);
-        h = w * 2;
+        w = random(400, 900);
+        h = w;
         z = h* 3;
         tulip3 = new Tulip3(pos, w, h, z, 10, random(TWO_PI));
+        tulip3.style();
         tulip3.draw();
         append(this.pattern.details, tulip3);
       }
@@ -118,7 +124,68 @@ Project.prototype.drawFlowers = function(nr){
       this.pattern.drawOverlappingDetails();
       break;
     }
-    case 2:{
+    case 3:{
+      var tulip4, w, h, z;
+      this.init(20);
+      for(var i = 0; i <  this.etage[2].length; i++){
+        pos = this.etage[2][i];
+        w = random(100, 200);
+        h = w *2;
+        z = h * 1.5;
+        tulip4 = new Tulip4(pos, w, h, z, 10, random(TWO_PI));
+        tulip4.style();
+        tulip4.draw();
+        //tulip4.showStructure(0);
+        append(this.pattern.details, tulip4);
+      }
+      for(var i = 0; i < this.pattern.details.length; i++){
+          this.pattern.checkWidthDetails();
+      }
+      this.pattern.drawOverlappingDetails();
+      break;
+    }
+
+    case 4:{
+      var tulip5, w, h, z;
+      this.init(20);
+      for(var i = 0; i <  this.etage[3].length; i++){
+        pos = this.etage[3][i];
+        w = random(100, 200);
+        h = w ;
+        z = h * 1.7;
+        tulip5 = new Tulip5(pos, w, h, z, 10, random(TWO_PI));
+          tulip5.style();
+        tulip5.draw();
+        //tulip5.showStructure(0);
+        append(this.pattern.details, tulip5);
+      }
+      for(var i = 0; i < this.pattern.details.length; i++){
+          this.pattern.checkWidthDetails();
+      }
+      this.pattern.drawOverlappingDetails();
+      break;
+    }
+    case 5:{
+      var tulip6, w, h, z;
+      this.init(50);
+      for(var i = 0; i <  this.etage[0].length; i++){
+        pos = this.etage[0][i];
+        w = random(50, 100);
+        h = w ;
+        z = h * 1.5;
+        tulip6 = new Tulip6(pos, w, h, z, 10, random(TWO_PI));
+          tulip6.style();
+        tulip6.draw();
+        //tulip6.showStructure(0);
+        append(this.pattern.details, tulip6);
+      }
+      for(var i = 0; i < this.pattern.details.length; i++){
+          this.pattern.checkWidthDetails();
+      }
+      this.pattern.drawOverlappingDetails();
+      break;
+    }
+    case 4:{
         //egg fases, different style
         this.init();
         for(var i = 0; i < this.pattern.details.length; i++){
@@ -132,7 +199,7 @@ Project.prototype.drawFlowers = function(nr){
       }
       break;
     }
-    case 3:{
+    case 5:{
       //this.grid.show();
       //dress 4 symmetrical tulip
       this.init();
@@ -151,7 +218,7 @@ Project.prototype.drawFlowers = function(nr){
       }
       break;
     }
-    case 4:{
+    case 6:{
       //this.grid.show();
       //dress 5 tulip
       this.init();
@@ -170,7 +237,7 @@ Project.prototype.drawFlowers = function(nr){
       }
       break;
     }
-    case 5:{
+    case 7:{
       //this.grid.show();
       //dress 5
       this.init();

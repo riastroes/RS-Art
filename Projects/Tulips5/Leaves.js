@@ -45,8 +45,8 @@ Leaves.prototype.draw = function(){
 
     beginShape();
     vertex(this.end.x, this.end.y);
-    bezierVertex(this.control1.x+(this.width/10), this.control1.y, this.control2.x, this.control2.y, this.begin.x, this.begin.y);
-    bezierVertex(this.control2.x-(this.width/10), this.control2.y, this.control1.x, this.control1.y, this.end.x+this.width/10, this.end.y);
+    bezierVertex(this.control1.x+(this.width/10), this.control1.y, this.control2.x+50, this.control2.y, this.begin.x, this.begin.y);
+    bezierVertex(this.control2.x-(this.width/10), this.control2.y, this.control1.x-50, this.control1.y, this.end.x+this.width/10, this.end.y);
 
 
     endShape(CLOSE);

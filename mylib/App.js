@@ -3,6 +3,7 @@
  * App is the main object to store the global variables
  * en general settings for the project(s)
  */
+"use strict";
 function App(name, appwidth, appheight, canvastype){
     pixelDensity(1);
     this.name = name;
@@ -214,6 +215,13 @@ App.prototype.background = function(img, transparency) {
 
 
 };
+App.prototype.bg = function() {
+  blendMode(SUBSTRACT);
+  fill(1);
+  rect(0,0,width,height);
+  blendMode(BLEND);
+
+}
 //SMART FUNCTIONS
 App.prototype.is = function(param){
     var ok = false;

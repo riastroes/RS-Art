@@ -1,12 +1,12 @@
 
-
+ "use strict";
 var app;
 
 function setup() {
 
     app = new App("tulips 5",1600,4800,SVG);
     app.resourcepath ="resources";
-    app.loadResources("signature.png, blauw-paars.jpg, groene-bladeren.jpg");
+    app.loadResources("signature.png, blauw-paars.jpg, groene-bladeren.jpg, lichtblauw.jpg");
 
 }
 
@@ -34,10 +34,16 @@ function draw() {
             case 0:{
 
                background(app.pal.colors[1]);
+               app.project.drawFlowers(2);
+               app.project.drawFlowers(3);
                app.project.drawLeaves(0);
                app.project.drawFlowers(0);
+
                app.project.drawFlowers(1);
-               app.project.drawFlowers(2);
+               app.project.drawFlowers(4);
+               app.project.drawFlowers(5);
+
+
                //app.project.drawSeads(0);
                app.wait(1000);
                 break;

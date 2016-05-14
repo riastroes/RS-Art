@@ -110,6 +110,24 @@ Palette.prototype.fromImage = function(img, count){
 
 
 };
+Palette.prototype.addImageColors = function(img, count){
+  var acolor;
+  var c = 0;
+  var attempt = 0;
+
+  img.loadPixels();
+  while( c  < count){
+    var r = random(img.pixels.length - 4);
+    var i = int(r - (r % 4));
+    acolor = color(img.pixels[i], img.pixels[i+1], img.pixels[i+2], img.pixels[i+3]);
+    if(!app.contains(this.imgcolors, acolor) || attempt > 100){
+      append(this.imgcolors, acolor);
+      c++;
+    }
+      attempt++;
+  }
+
+}
 Palette.prototype.randomColor = function(){
     if(this.colors.length > 0) {
         return this.colors[randomInt(0, this.colors.length)];

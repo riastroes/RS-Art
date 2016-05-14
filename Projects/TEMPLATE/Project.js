@@ -1,6 +1,7 @@
 /**
  * Created by Ria Stroes on 10-4-2016.
  */
+ "use strict";
 function Project(){
 
   this.init()

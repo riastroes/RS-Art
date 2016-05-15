@@ -42,7 +42,7 @@ function App(name, appwidth, appheight, canvastype){
 
     //resources
     this.resourcepath = "resources"; //default resource map
-    //this.signature = loadImage(this.resourcepath + "/signature.png" );
+    //this.signature = loadImage(this.resourcepath + "/" + "signature.png" );
     this.images = [];
     this.sounds = [];
     this.svgs = [];
@@ -60,10 +60,8 @@ function App(name, appwidth, appheight, canvastype){
     this.namedpalettes = [];
     this.namedpalettes[0]= new NamedPalette("standard");
     this.currentpalettename = "standard";
-
     arrayCopy(this.namedpalettes[0].pal.colors, this.pal.colors);
     this.style = new Style();
-    this.info = new Info();
 
     //images, movi, SVG and gif maker
     this.exportSVG = false;
@@ -71,12 +69,13 @@ function App(name, appwidth, appheight, canvastype){
     this.gifmaker = new Gifmaker();
 
     //statistics
+    this.info = new Info();
     this.totframerate = 0;
     this.gemframerate = 0;
 }
 App.prototype.imgPalette = function(img, count, name, more){
     //extract a color collection from an image
-    var i;
+
     var haspalette = false;
     for(var index in this.namedpalettes){
         if (this.namedpalettes.hasOwnProperty(index)) {
@@ -88,7 +87,7 @@ App.prototype.imgPalette = function(img, count, name, more){
                 else {
                     this.currentpalettename += "," + name;
                 }
-                for (i = 0; i < this.namedpalettes[index].pal.imgcolors.length; i++) {
+                for (var i = 0; i < this.namedpalettes[index].pal.imgcolors.length; i++) {
                     append(this.pal.imgcolors, this.namedpalettes[index].pal.imgcolors[i]);
                 }
                 haspalette = true;
@@ -102,7 +101,7 @@ App.prototype.imgPalette = function(img, count, name, more){
         }
         var last =  this.namedpalettes.length -1;
         this.namedpalettes[last].pal.fromImage(img, count);
-        for(i = 0 ; i <this.namedpalettes[last].pal.imgcolors.length; i++ ){
+        for(var i = 0 ; i <this.namedpalettes[last].pal.imgcolors.length; i++ ){
             append(this.pal.imgcolors, this.namedpalettes[last].pal.imgcolors[i]);
         }
     }
@@ -215,9 +214,9 @@ App.prototype.background = function(img, transparency) {
 
 
 };
-App.prototype.bg = function() {
-  blendMode(SUBSTRACT);
-  fill(1);
+App.prototype.bg = function(acolor) {
+  blendMode(DIFFERENCE);
+  fill(acolor);
   rect(0,0,width,height);
   blendMode(BLEND);
 

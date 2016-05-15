@@ -34,7 +34,7 @@ Flower.prototype.draw = function() {
 
 
     for (b = 0; b < this.blobbers.length - 1; b++) {
-        app.style.set(app.pal.frameCountImgColor(5), app.pal.tint(app.pal.frameCountImgColor(25), 70), 1);
+        this.blobbers[b].style(app.pal.frameCountImgColor(5), app.pal.tint(app.pal.frameCountImgColor(25), 70), 1);
         this.blobbers[b].draw();
     }
     app.style.set(app.pal.frameCountImgColor(10), app.pal.tint(app.pal.frameCountImgColor(25), 70), 1);
@@ -43,7 +43,7 @@ Flower.prototype.draw = function() {
 Flower.prototype.drawBW = function(){
 
         for(b = 0; b < this.blobbers.length - 1; b++){
-            app.style.set(app.pal.colors[0], app.pal.tint(app.pal.frameCountColor(25),70),1);
+            this.blobbers[b].style(app.pal.colors[0], app.pal.tint(app.pal.frameCountColor(25),70),1);
             this.blobbers[b].draw();
         }
         app.style.set(app.pal.colors[1], app.pal.colors[0],3);
@@ -52,7 +52,7 @@ Flower.prototype.drawBW = function(){
 Flower.prototype.drawB = function(){
     //flower mask
 
-        app.style.set(false, app.pal.colors[0],1);
+        this.blobbers[0].style(false, app.pal.colors[0],1);
         this.blobbers[0].draw();
 
 

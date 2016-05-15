@@ -69,7 +69,7 @@ Palette.prototype.init = function(nr){
   }
   else if(this.nr == 6){
       //marine
-      this.add(2,color(208,231,246));
+      this.add(2,color(88,102,115));
       this.add(3,color(126,167,193));
       this.add(4,color(48,97,129));
       this.add(5,color(8,41,62));     //green

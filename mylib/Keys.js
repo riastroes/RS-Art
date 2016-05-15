@@ -2,7 +2,7 @@
  * Created by Ria Stroes on 16-3-2016.
  */
 function keyPressed() {
-  if(app.canvastype != SVG){
+  if(app.canvastype != "svg"){
     app.acanvas.elt.focus();
   }
     //println("key:" + key);
@@ -70,14 +70,10 @@ function keyPressed() {
         save(app.name + app.savedimages + ".jpg");
         app.savedimages++;
     }
-    if(keyCode == 123){
-        //F12
-        var fs = fullscreen();
-        fullscreen(!fs);
-        return false;
-    }
+
 
 }
+
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }

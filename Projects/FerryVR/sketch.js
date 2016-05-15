@@ -4,10 +4,10 @@ var app;
 
 function setup() {
 
-    app = new App("Ferry");
-    app.resourcepath ="resources";
-    app.loadResources("signature.png", "toet.wav,plons.wav");
-    //frameRate(5);
+    app = new App("Ferry VR", windowWidth, windowHeight);
+    app.loadResources("signature.png, ij.jpeg", "toet.wav,explosion.wav");
+
+    //
 
 }
 
@@ -17,11 +17,14 @@ function draw() {
         if(app.pal.name != "marine"){
             app.pal = new Palette(6, "marine");
             app.scene = 0;
-        }
-        if(app.isnot(app.project)){
-          app.project = new Project();
+
         }
 
+        if(app.isnot(app.project)){
+          app.project = new Project();
+
+        }
+        else{
         switch(app.scene) {
             case -1:{
                 background(app.pal.colors[1]);
@@ -31,6 +34,7 @@ function draw() {
             }
             case 0:{
               app.project.createPeople(20);
+
               app.runscene(0);
               app.info.add(app.scene + ": createpeople");
               break;
@@ -38,15 +42,16 @@ function draw() {
             case 1:{
               //load people
               app.project.drawbg();
-
               app.project.loadPeopleLeft();
               app.project.draw();
+
               app.runscene(150);
               app.info.add(app.scene + ": loadpeopleleft");
               break;
             }
             case 2:{
                 app.project.startLeft();
+
                 app.runscene(0);
                 app.info.add(app.scene + ": startleft");
                 break;
@@ -58,7 +63,8 @@ function draw() {
                 app.project.drawbg();
                 app.project.ferryPeopleLeftToRight(app.project.ferry.speed);
                 app.project.draw();
-                app.runscene(width/app.project.ferry.speed);
+
+                app.runscene(app.project.width/app.project.ferry.speed);
 
 
                 break;
@@ -98,7 +104,7 @@ function draw() {
                 app.project.drawbg();
                 app.project.ferryPeopleRightToLeft(app.project.ferry.speed);
                 app.project.draw();
-                app.runscene(width/app.project.ferry.speed);
+                app.runscene(app.project.width/app.project.ferry.speed);
 
                 break;
             }
@@ -122,6 +128,7 @@ function draw() {
 
 
 
+}
         }
 
         app.info.show();

@@ -13,13 +13,13 @@ function draw() {
     var d,fc, x,y, rmarge, tmarge, lmarge, bmarge;
     if(app.isloaded) {
 
-        if (app.isnot(app.jigsaw)){
-            app.jigsaw = new Jigsaw();
+        if (app.isnot(app.project)){
+            app.project = new Project();
             app.scene = 0;
         }
         if(app.currentpalettename != "spring"){
             app.pal = new Palette(3);
-            
+
         }
 
         switch(true) {
@@ -34,9 +34,9 @@ function draw() {
 
                 fc = (int(frameCount/10) % 5) + 3;
 
-                app.jigsaw.init(fc, 10,10, (width-540)/2, (height-540)/2, (width-540)/2, (height-540)/2);
-                app.jigsaw.draw(app.pal.colors[3], app.pal.colors[4]);
-                app.jigsaw.grid.show();
+                app.project.init(fc, 10,10, (width-540)/2, (height-540)/2, (width-540)/2, (height-540)/2);
+                app.project.draw(app.pal.colors[3], app.pal.colors[4]);
+                app.project.grid.show();
 
 
                 app.runscene(50);
@@ -46,9 +46,9 @@ function draw() {
 
                 fc = (int(frameCount/10) % 5) + 3;
 
-                app.jigsaw.init(fc, 10,10, (width-540)/2, (height-540)/2, (width-540)/2, (height-540)/2);
-                app.jigsaw.draw(app.pal.colors[4], app.pal.colors[3]);
-                app.jigsaw.grid.show();
+                app.project.init(fc, 10,10, (width-540)/2, (height-540)/2, (width-540)/2, (height-540)/2);
+                app.project.draw(app.pal.colors[4], app.pal.colors[3]);
+                app.project.grid.show();
 
 
                 app.runscene(50);
@@ -58,9 +58,9 @@ function draw() {
 
                 fc = (int(frameCount/10) % 5) + 3;
 
-                app.jigsaw.init(fc, 10,10, (width-540)/2, (height-540)/2, (width-540)/2, (height-540)/2);
-                app.jigsaw.draw(app.pal.colors[0], app.pal.colors[app.randomInt(3,4)]);
-                app.jigsaw.grid.show();
+                app.project.init(fc, 10,10, (width-540)/2, (height-540)/2, (width-540)/2, (height-540)/2);
+                app.project.draw(app.pal.colors[0], app.pal.colors[app.randomInt(3,4)]);
+                app.project.grid.show();
 
 
 
@@ -78,8 +78,8 @@ function draw() {
                         tmarge = (y*100)+((y+1)*10);
                         rmarge = (width - 100) - lmarge;
                         bmarge = (height - 100) - tmarge;
-                        app.jigsaw.init(x, 5,5,lmarge,tmarge,rmarge,bmarge);
-                        app.jigsaw.draw(app.pal.colors[0], app.pal.colors[app.randomInt(3,4)]);
+                        app.project.init(x, 5,5,lmarge,tmarge,rmarge,bmarge);
+                        app.project.draw(app.pal.colors[0], app.pal.colors[app.randomInt(3,4)]);
                         //app.jigsaw.grid.show();
                     }
                 }
@@ -99,8 +99,8 @@ function draw() {
                         tmarge = (y*100)+((y+1)*10);
                         rmarge = (width - 100) - lmarge;
                         bmarge = (height - 100) - tmarge;
-                        app.jigsaw.init2(x, 5,5,lmarge,tmarge,rmarge,bmarge,1);
-                        app.jigsaw.draw(app.pal.colors[0], app.pal.colors[app.randomInt(3,4)]);
+                        app.project.init2(x, 5,5,lmarge,tmarge,rmarge,bmarge,1);
+                        app.project.draw(app.pal.colors[0], app.pal.colors[app.randomInt(3,4)]);
                         //app.jigsaw.grid.show();
                     }
                 }
@@ -120,9 +120,9 @@ function draw() {
                         tmarge = (y*100)+((y+1)*10);
                         rmarge = (width - 100) - lmarge;
                         bmarge = (height - 100) - tmarge;
-                        app.jigsaw.init2(x, 5,5,lmarge,tmarge,rmarge,bmarge,2);
-                        app.jigsaw.draw(app.pal.colors[0], app.pal.colors[app.randomInt(5,6)]);
-                       
+                        app.project.init2(x, 5,5,lmarge,tmarge,rmarge,bmarge,2);
+                        app.project.draw(app.pal.colors[0], app.pal.colors[app.randomInt(5,6)]);
+
                         //app.jigsaw.grid.show();
                     }
                 }
@@ -136,7 +136,7 @@ function draw() {
 
         app.info.show();
         app.gifmaker.check();
-       
+
 
     }
     else{
@@ -144,6 +144,3 @@ function draw() {
     }
 
 }
-
-
-

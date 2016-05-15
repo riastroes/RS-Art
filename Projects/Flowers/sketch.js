@@ -5,7 +5,7 @@ function setup() {
     app = new App("Flowers");
     app.resourcepath = "resources";
     app.loadResources("signature.png,flowers.jpg,lint.png,spring.jpg");
-   
+
 }
 
 function draw() {
@@ -19,20 +19,18 @@ function draw() {
         }
         if (app.isnot(app.flower)){
             app.flower = new Flower();
+            app.scene = 1;
+            app.mask.add(app.images[2], 0, 0, app.pal.colors[0]);
+            app.pal = new Palette(1);
+            app.imgPalette(app.images[1], 12, "flowers");
+            background(app.pal.randomImgColor());
         }
-        
-        switch(true) {
+        else{
 
-            case (frameCount == 10):{
-                //create a mask a select a palette
-                app.scene = 1;
-                app.mask.add(app.images[2], 0, 0, app.pal.colors[0]);
-                app.pal = new Palette(1);
-                app.imgPalette(app.images[1], 12, "flowers");
-                background(app.pal.randomImgColor());
-                break;
-            }
-            case ( app.scene == 1):{
+        switch(app.scene) {
+
+
+            case 1:{
                 //draw flowers on a lint
                 //black mask
                 i = app.mask.data[int(random(app.mask.data.length - 1))];
@@ -44,7 +42,7 @@ function draw() {
                 app.runscene(1500);
                 break;
             }
-            case (app.scene ==2):
+            case 2:
             {
                 //white mask
                 app.pal = new Palette(1);
@@ -54,7 +52,7 @@ function draw() {
                 app.runscene(0);
                 break;
             }
-            case (app.scene == 3):{
+            case 3:{
                 //draw small flowers on a lint
                 i = app.mask.data[int(random(app.mask.data.length - 1))];
                 x = i/4 % (this.width);
@@ -66,7 +64,7 @@ function draw() {
                 app.runscene(500);
                 break;
             }
-            case (app.scene == 4):
+            case 4:
             {
                 //create a black and white palette
 
@@ -85,7 +83,7 @@ function draw() {
                 break;
             }
 
-            case (app.scene == 5):{
+            case 5:{
                 i = app.mask.data[int(random(app.mask.data.length - 1))];
                 x = i/4 % (this.width);
                 y = int((i/4) / this.width);
@@ -95,7 +93,7 @@ function draw() {
                 app.runscene(2000);
                 break;
             }
-            case (app.scene == 6):
+            case 6:
             {
                 //create a black and white mask
 
@@ -116,7 +114,7 @@ function draw() {
                 break;
             }
 
-            case (app.scene == 7):{
+            case 7:{
                 i = app.mask.data[int(random(app.mask.data.length - 1))];
                 x = i/4 % (this.width);
                 y = int((i/4) / this.width);
@@ -127,7 +125,7 @@ function draw() {
                 break;
             }
 
-            case(app.scene == 8):{
+            case 8:{
                 //add a new image to the mask and select a palette
                 //mask is my signature
                 background(app.pal.colors[0]);
@@ -137,7 +135,7 @@ function draw() {
                 app.runscene(0);
                 break;
             }
-            case(app.scene == 9):{
+            case 9:{
                 //draw flowers on the mask
                 i = app.mask.data[int(random(app.mask.data.length - 1))];
                 x = i/4 % (this.width);
@@ -148,7 +146,7 @@ function draw() {
                 app.runscene(1000);
                 break;
             }
-            case(app.scene == 10):{
+            case 10:{
                 //create a mask, select a palette and draw flowers at every 400e position
                 background(255);
                 app.mask.add(app.images[0],0,0,app.pal.colors[0]);
@@ -165,12 +163,13 @@ function draw() {
                 app.runscene(100);
                 break;
             }
-            case(app.scene == 10):{
+            case 11:{
                 app.style.text(36,CENTER,app.pal.colors[0]);
                 text("Ready", width/2, height/2);
                 break;
             }
         }
+      }
 
 
         app.gifmaker.check();
@@ -181,6 +180,3 @@ function draw() {
     }
 
 }
-
-
-

@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("tulips",1000,1000,SVG);
+    app = new App("tulips",800,800,SVG);
     app.resourcepath ="resources";
     app.loadResources("signature.png, blauw-paars.jpg");
 

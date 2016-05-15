@@ -1,11 +1,10 @@
 
- "use strict";
+"use strict";
 var app;
 
 function setup() {
 
     app = new App("TEMPLATE",540,540);
-    app.resourcepath ="resources";
     //app.loadResources("first.jpg, second.jpg, third.jpg", "sound1.mp4, sound2.mp3");
 
 

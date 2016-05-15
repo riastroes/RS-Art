@@ -12,7 +12,7 @@ function draw() {
     if(app.isloaded) {
         if(app.pal.name != "black_white"){
             app.pal = new Palette(4, "black_white");
-            app.scene = 27;
+            app.scene = 4;
 
         }
         if(app.isnot(app.project)){

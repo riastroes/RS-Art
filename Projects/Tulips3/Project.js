@@ -36,7 +36,7 @@ Project.prototype.update = function(nr){
     case 0:{
       for(var i = 0; i < this.pattern.details.length; i++){
         detail = this.pattern.details[i];
-        detail.style(app.pal.colors[0],app.pal.colors[3],1);
+        detail.style(app.pal.colors[0],app.pal.colors[2],1);
         detail.draw();
       }
 

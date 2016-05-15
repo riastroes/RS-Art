@@ -2,14 +2,14 @@
  * Created by Ria Stroes on 25-3-2016.
  * trying to make a jigsaw with blobbers and a grid
  */
-function Jigsaw(){
+function Project(){
     //this.grid = new Grid(10,10,(width-540)/2, (height-540)/2, (width-540)/2, (height-540)/2);
     this.grid  = undefined;
     this.factor = 0;
     this.pieces = [];
 
 }
-Jigsaw.prototype.init = function(dimension,cols, rows,lmarge, tmarge,rmarge, bmarge){
+Project.prototype.init = function(dimension,cols, rows,lmarge, tmarge,rmarge, bmarge){
   var i, p;
     this.pieces = [];
     this.grid = new Grid(cols, rows,lmarge, tmarge,rmarge, bmarge);
@@ -20,7 +20,7 @@ Jigsaw.prototype.init = function(dimension,cols, rows,lmarge, tmarge,rmarge, bma
 
     }
 };
-Jigsaw.prototype.init2 = function(dimension,cols, rows,lmarge, tmarge,rmarge, bmarge, version){
+Project.prototype.init2 = function(dimension,cols, rows,lmarge, tmarge,rmarge, bmarge, version){
     var i, p;
     this.pieces = [];
     this.grid = new Grid(cols, rows,lmarge, tmarge,rmarge, bmarge);
@@ -33,7 +33,7 @@ Jigsaw.prototype.init2 = function(dimension,cols, rows,lmarge, tmarge,rmarge, bm
 
     }
 };
-Jigsaw.prototype.draw = function(scolor, fcolor){
+Project.prototype.draw = function(scolor, fcolor){
     var i;
     for(i = 0; i< (this.grid.cols*this.grid.rows); i++){
         this.pieces[i].draw(scolor, fcolor);
@@ -41,7 +41,7 @@ Jigsaw.prototype.draw = function(scolor, fcolor){
     }
 };
 
-//class Piece
+
 function Piece(center, dimension, factor, version){
     this.center = center.copy();
     this.dimension = dimension;
@@ -53,11 +53,11 @@ function Piece(center, dimension, factor, version){
     else{
         this.init2(version);
     }
-    
+
 }
 Piece.prototype.init = function(){
     var d, p, attempts;
-    
+
     attempts = 0;
     d = 0;
     while( d < this.dimension && attempts < 100){
@@ -72,11 +72,11 @@ Piece.prototype.init = function(){
             println("100 attempts!");
         }
     }
-    
+
     this.blobber = new Blobber();
     this.blobber.set(this.center, this.pos,1);
     //this.blobber.grow(this.factor);
-    
+
 };
 Piece.prototype.init2 = function(v){
     if(v == 1) {
@@ -85,7 +85,7 @@ Piece.prototype.init2 = function(v){
         this.pos[2] = createVector(2, 1).mult(this.factor);
         this.pos[3] = createVector(1, 2).mult(this.factor);
         this.pos[4] = createVector(0, 1).mult(this.factor);
-        
+
 
     }
     if(v == 2) {

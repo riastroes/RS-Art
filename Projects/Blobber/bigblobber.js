@@ -19,34 +19,70 @@ function BigBlobber(mask){
 
 }
 
-BigBlobber.prototype.style = function(nr){
-    var i, ok = false ;
-    if(app.isnot(nr)) {
-
-        for (i = 0; i < this.blobbers.length; i++) {
-            this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
-        }
-    }
-    else if(nr == 3){
-        for (i = 0; i < this.blobbers.length; i++) {
-            this.blobbers[i].style(app.pal.randomColor(), false,  3);
-        }
-      }
-
-}
+// BigBlobber.prototype.style = function(nr){
+//     var i, ok = false ;
+//     if(app.isnot(nr)) {
+//
+//         for (i = 0; i < this.blobbers.length; i++) {
+//             this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
+//         }
+//     }
+//     else if(nr == 3){
+//         for (i = 0; i < this.blobbers.length; i++) {
+//             this.blobbers[i].style(app.pal.randomColor(), false,  3);
+//         }
+//       }
+//
+// }
 BigBlobber.prototype.style = function(nr) {
-    var i, ok = false;
-    if (nr == 2){
-        for (i = 0; i < this.blobbers.length; i++) {
-            this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 10), 3);
-        }
-}
-    else{
-        for (i = 0; i < this.blobbers.length; i++) {
-            this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
-        }
+       switch(nr){
 
-    }
+         case 0:{
+           for (i = 0; i < this.blobbers.length; i++) {
+              this.blobbers[i].style(false,app.pal.tint(app.pal.randomImgColor(), 50), 1);
+          }
+           break;
+         }
+         case 1:{
+
+           for (i = 0; i < this.blobbers.length; i++) {
+              this.blobbers[i].style(app.pal.tint(app.pal.randomImgColor(), 50), false, 1);
+          }
+           break;
+         }
+         case 2:{
+           for (i = 0; i < this.blobbers.length; i++) {
+              this.blobbers[i].style(app.pal.randomImgColor(), app.pal.randomImgColor(), 1);
+          }
+
+           break;
+         }
+         case 3:{
+           for (i = 0; i < this.blobbers.length; i++) {
+              this.blobbers[i].style(app.pal.colors[1], app.pal.randomImgColor(), 1);
+          }
+           break;
+         }
+         case 4:{
+           for (i = 0; i < this.blobbers.length; i++) {
+              this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
+          }
+           break;
+         }
+
+       }
+//     var i, ok = false;
+//     if (nr == 2){
+//         for (i = 0; i < this.blobbers.length; i++) {
+//             this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 10), 3);
+//         }
+// }
+//     else{
+//         for (i = 0; i < this.blobbers.length; i++) {
+//             this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
+//         }
+//
+//     }
 };
 BigBlobber.prototype.live = function() {
     var i, ok = false ;
@@ -94,7 +130,7 @@ BigBlobber.prototype.draw1 = function(){
 
 BigBlobber.prototype.lines = function(morepoints) {
     var i,max, half;
-    app.style.set(app.pal.colors[2], app.pal.colors[3],1);
+    //app.style.set(app.pal.colors[2], app.pal.colors[3],1);
     for(i=0; i < this.blobbers.length; i++) {
         this.blobbers[i].createMorePoints(morepoints);
         max = this.blobbers[i].morepos.length;

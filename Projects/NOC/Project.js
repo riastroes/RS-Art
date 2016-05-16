@@ -20,12 +20,20 @@ Project.prototype.style = function(nr){
 
 };
 Project.prototype.init = function(){
-
+  this.creature = new Creature();
 }
 Project.prototype.draw = function(nr){
   switch(nr){
     case 0:{
 
+      this.creature.update(0.1);
+      this.creature.draw();
+      break;
+    }
+    case 1:{
+
+      this.creature.update(1);
+      this.creature.draw();
       break;
     }
   }

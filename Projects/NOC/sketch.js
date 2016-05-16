@@ -8,6 +8,8 @@ function setup() {
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("signature.png");
+
+
 }
 
 function draw() {
@@ -20,7 +22,7 @@ function draw() {
         app.project = new Project();
         app.scene = 0;
       }
-      else{
+
         switch(app.scene) {
 
             case 0:{
@@ -33,14 +35,26 @@ function draw() {
             case 1:{
                //
 
-                app.runscene(50);
-                break;
+               background(0);
+               app.project.draw(0);
+               app.runscene(50);
+               break;
+              }
+            case 2:{
+               //
+
+               background(0);
+               app.project.draw(1);
+               app.runscene(50);
+               break;
               }
             default:{
                 //wait
                 app.wait();
             }
-          }
+
+
+
         }
 
         app.info.show();

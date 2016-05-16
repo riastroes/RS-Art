@@ -18,19 +18,19 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 0;
+        app.scene = -1;
       }
       else{
         switch(app.scene) {
 
-            case 0:{
+            case -1:{
               background(app.pal.colors[1]);
               app.pal.show();
               app.pal.showImgColors();
               app.wait(50);
               break;
             }
-            case 1:{
+            case 0:{
                //
 
                 app.runscene(50);

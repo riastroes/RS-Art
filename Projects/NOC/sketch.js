@@ -4,11 +4,10 @@ var app;
 
 function setup() {
 
-    app = new App("TEMPLATE",540,540);
+    app = new App("TEMPLATE",800,800);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("signature.png");
-
 
 }
 
@@ -20,34 +19,59 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 0;
+        app.scene = -1;
       }
 
         switch(app.scene) {
 
-            case 0:{
-              background(app.pal.colors[1]);
+            case -1:{
+              background(app.pal.colors[0]);
               app.pal.show();
               app.pal.showImgColors();
               app.wait(50);
               break;
             }
+            case 0:{
+               //
+               app.bg(10);
+               app.project.draw(0);
+               app.wait(50);
+               break;
+              }
             case 1:{
                //
-
-               background(0);
-               app.project.draw(0);
-               app.runscene(50);
+               app.bg(10);
+               app.project.draw(1);
+               app.runscene(100);
                break;
               }
             case 2:{
                //
-
-               background(0);
-               app.project.draw(1);
-               app.runscene(50);
+               app.bg(10);
+               app.project.draw(2);
+               app.runscene(100);
                break;
               }
+            case 3:{
+                 //
+                 app.project.draw(3);
+                 app.runscene(3);
+                 break;
+                }
+            case 4:{
+                 //
+                 app.bg(10);
+                 app.project.draw(4);
+                 app.runscene(100);
+                 break;
+                }
+            case 5:{
+                 //
+                 app.bg(20);
+                 app.project.draw(5);
+                 app.runscene(2000);
+                 break;
+                }
             default:{
                 //wait
                 app.wait();

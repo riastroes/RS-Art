@@ -358,6 +358,38 @@ App.prototype.posInCircle = function(pos, center, radius) {
     }
     return incircle;
 }
+App.prototype.posInRect = function(pos, x, y, rectwidth, rectheight) {
+    var inrect = false;
+    if (pos.x >= x && pos.x <= rectwidth + x && pos.y >=y && pos.y <= rectheight + y) {
+        inrect = true;
+    }
+    return inrect;
+}
+App.prototype.sortVectors= function(vectors, newvectors) {
+
+    newvectors = [];
+    var ps = [];
+    var angles = [];
+    var index = [];
+
+
+    for (var i = 0; i < vectors.length; i++) {
+      angles[i] = vectors[i].heading();
+      index[i] = angles[i];
+    }
+    ps = sort(angles);
+    var m =0;
+    for (var i = 0; i < ps.length; i++) {
+      for(var ix = 0 ; ix < index.length; ix++){
+        if(index[ix] == ps[i]){
+          append(newvectors,vectors[ix].copy());
+        }
+      }
+    }
+    return newvectors;
+
+}
+
 
 App.prototype.saveSVG = function(){
   save();

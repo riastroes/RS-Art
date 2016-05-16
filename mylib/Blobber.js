@@ -49,6 +49,35 @@ Blobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight, m
   }
 
 };
+Blobber.prototype.initWithVectors  = function(center, vectors){
+
+  this.pos = [];
+  var ps = [];
+  var angles = [];
+  var index = [];
+  append(vectors,createVector(0,0));
+
+
+  for (var i = 0; i < vectors.length; i++) {
+    angles[i] = vectors[i].heading();
+    index[i] = angles[i];
+  }
+  ps = sort(angles);
+  var m =0;
+  for (var i = 0; i < ps.length; i++) {
+    for(var ix = 0 ; ix < index.length; ix++){
+      if(index[ix] == ps[i]){
+        append(this.pos,vectors[ix].copy());
+
+      }
+    }
+  }
+
+  this.position = center.copy();
+  this.rot = 0;
+  this.factor = 1;
+
+}
 Blobber.prototype.style = function(strokecolor, fillcolor,thickness){
   this.strokecolor = strokecolor;
   this.fillcolor = fillcolor;

@@ -130,14 +130,14 @@ Palette.prototype.addImageColors = function(img, count){
 }
 Palette.prototype.randomColor = function(){
     if(this.colors.length > 0) {
-        return this.colors[randomInt(0, this.colors.length)];
+        return this.colors[app.randomInt(this.colors.length-1)];
     }
     return false;
 };
 
 Palette.prototype.randomImgColor = function(){
     if(this.imgcolors.length > 0) {
-        return this.imgcolors[randomInt(0, this.imgcolors.length)];
+        return this.imgcolors[app.randomInt(this.imgcolors.length-1)];
     }
     return false;
 };

@@ -15,8 +15,8 @@ function Project(){
   this.crossing = 0;
   this.wave = new Wave();
   this.peoples = [];
-
   app.images[1].resize(this.width, this.height);
+
 
 
 

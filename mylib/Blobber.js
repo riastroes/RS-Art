@@ -44,7 +44,7 @@ Blobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight, m
   for (var i = 0; i < corners; i += 1) {
     var wradius = random(this.wminradius, this.wmaxradius);
     var hradius = random(this.hminradius, this.hmaxradius);
-    p = posOnEllipse(this.center,wradius, hradius, this.corners, i + r);
+    p = app.posOnEllipse(this.center,wradius, hradius, this.corners, i + r);
     append(this.pos, p);
   }
 

@@ -5,7 +5,7 @@ var app;
 function setup() {
 
     app = new App("Ferry VR", windowWidth, windowHeight);
-    app.loadResources("signature.png, ij.jpeg", "toet.wav,explosion.wav");
+    app.loadResources("signature.png, ij-min.jpg", "toet.wav,explosion.wav");
 
     //
 
@@ -22,6 +22,7 @@ function draw() {
 
         if(app.isnot(app.project)){
           app.project = new Project();
+
 
         }
         else{
@@ -139,5 +140,15 @@ function draw() {
     else{
         println("loading resources ...");
     }
+
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  app.images[1].resize(windowWidth/2, windowHeight);
+}
+function touchStarted() {
+
+    var fs = fullscreen();
+    fullscreen(!fs);
 
 }

@@ -16,7 +16,7 @@ function App(name, appwidth, appheight, canvastype){
             this.acanvas = createCanvas(appwidth, appheight, SVG);
         }
         else {
-            this.acanvas = createCanvas(displayWidth, displayHeight, SVG);
+            this.acanvas = createCanvas(windowWidth, windowHeight, SVG);
         }
         break;
       }
@@ -25,7 +25,7 @@ function App(name, appwidth, appheight, canvastype){
             this.acanvas = createCanvas(appwidth, appheight);
         }
         else {
-            this.acanvas = createCanvas(displayWidth, displayHeight);
+            this.acanvas = createCanvas(windowWidth, windowHeight);
         }
         break;
       }
@@ -34,7 +34,7 @@ function App(name, appwidth, appheight, canvastype){
             this.acanvas = createCanvas(appwidth, appheight);
         }
         else {
-            this.acanvas = createCanvas(displayWidth, displayHeight);
+            this.acanvas = createCanvas(windowWidth, windowHeight);
         }
         break;
       }

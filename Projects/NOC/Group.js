@@ -1,14 +1,17 @@
 function Group(max){
   this.creatures = [];
   this.max = max;
-  this.init();
   this.leader = -1;
+  this.init();
+
 }
 Group.prototype.init  = function(){
   for(var i = 0; i < this.max; i++){
     append(this.creatures, new Creature());
   }
+  this.chooseLeader();
 }
+
 Group.prototype.chooseLeader = function(){
   //leader is the one that is closest to the center
   var center = createVector(width/2, height/2);
@@ -23,12 +26,7 @@ Group.prototype.chooseLeader = function(){
   }
   if(this.leader>=0){
     for(var i = 0; i < this.creatures.length; i++){
-      if(i == this.leader){
-        this.creatures[i].leader = true;
-      }
-      else{
-        this.creatures[i].leader = false;
-      }
+      this.creatures[i].leader = this.creatures[this.leader];
     }
   }
 }
@@ -52,38 +50,28 @@ Group.prototype.chooseAdventurestLeader = function(){
   }
   if(this.leader>=0){
     for(var i = 0; i < this.creatures.length; i++){
-      if(i == this.leader){
-        this.creatures[i].leader = true;
-      }
-      else{
-        this.creatures[i].leader = false;
-      }
+      this.creatures[i].leader = this.creatures[this.leader];
     }
   }
 }
 Group.prototype.getLeader = function(){
   return this.creatures[this.leader];
 }
-Group.prototype.update = function(){
-  this.getLeader().moveRandom(0.01);
+Group.prototype.update = function(speed){
+  this.getLeader().moveRandom(speed);
   for(var i = 0; i < this.creatures.length; i++){
-
-      this.creatures[i].update(this.getLeader(), 0.01);
-
+      this.creatures[i].update( speed);
   }
-
 }
 Group.prototype.createBodyVectors = function(){
-  var center = this.creatures[this.leader].pos;
+  var center = this.getLeader().pos;
   var body = [];
 
   for(var i = 0; i < this.creatures.length; i++){
-    if(!this.creatures[i].leader){
+
       var pos = this.creatures[i].pos.copy();
       pos.sub(center);
-      append(body,pos);
-
-    }
+      append(body, pos);
   }
   return body;
 }
@@ -93,10 +81,10 @@ Group.prototype.draw = function(){
   }
 }
 Group.prototype.draw2 = function(){
-  var leader = this.creatures[this.leader];
+  var leader = this.getLeader();
   var blobber = new Blobber();
   blobber.initWithVectors(leader.pos, this.createBodyVectors());
   blobber.style(leader.strokecolor,leader.fillcolor, leader.thickness);
   blobber.draw();
-  
+
 }

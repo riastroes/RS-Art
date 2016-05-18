@@ -4,6 +4,7 @@
  "use strict";
 function Project(){
   this.groups = [] ;
+  this.groups2 = [] ;
   this.init();
 };
 
@@ -20,7 +21,7 @@ Project.prototype.style = function(nr){
 
 };
 Project.prototype.init = function(){
-  append(this.groups, new Group(5));
+  append(this.groups, new Group(85));
   this.groups[0].chooseLeader();
 }
 Project.prototype.draw = function(nr){
@@ -30,34 +31,21 @@ Project.prototype.draw = function(nr){
       break;
     }
     case 1:{
-      this.groups[0].update();
+      this.groups[0].update(0.1);
       this.groups[0].draw();
       break;
     }
     case 2:{
-      this.groups[0].chooseAdventurestLeader();
-      this.groups[0].update();
-      this.groups[0].draw();
+      //create more groups
+      append(this.groups2, new Group(6));
+      this.groups2[this.groups2.length-1].chooseAdventurestLeader();
       break;
     }
     case 3:{
-      //create more groups
-      append(this.groups, new Group(6));
-      break;
-    }
-    case 4:{
-      for(var i = 0; i < this.groups.length; i++){
-        this.groups[i].chooseAdventurestLeader();
-        this.groups[i].update();
-        this.groups[i].draw();
-      }
-      break;
-    }
-    case 5:{
-      for(var i = 0; i < this.groups.length; i++){
-        this.groups[i].chooseAdventurestLeader();
-        this.groups[i].update();
-        this.groups[i].draw2();
+      for(var i = 0; i < this.groups2.length; i++){
+
+        this.groups2[i].update(0.01);
+        this.groups2[i].draw2();
       }
       break;
     }

@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("TEMPLATE",800,800);
+    app = new App("TEMPLATE",windowWidth,windowHeight);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("signature.png");
@@ -40,35 +40,22 @@ function draw() {
               }
             case 1:{
                //
-               app.bg(10);
+               app.bg(1);
                app.project.draw(1);
-               app.runscene(100);
+               app.runscene(2000);
                break;
               }
             case 2:{
                //
-               app.bg(10);
+               app.bg(1);
                app.project.draw(2);
-               app.runscene(100);
+               app.runscene(4);
                break;
               }
-            case 3:{
-                 //
+          case 3:{
+                 //soft moving blobbers
+                 background(255);
                  app.project.draw(3);
-                 app.runscene(3);
-                 break;
-                }
-            case 4:{
-                 //
-                 app.bg(10);
-                 app.project.draw(4);
-                 app.runscene(100);
-                 break;
-                }
-            case 5:{
-                 //
-                 app.bg(20);
-                 app.project.draw(5);
                  app.runscene(2000);
                  break;
                 }

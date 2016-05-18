@@ -19,7 +19,7 @@ Creature.prototype.style = function(nr){
     case 1:{
       //random fillcolor
       this.strokecolor = app.pal.colors[1];
-      this.fillcolor = app.pal.tint(app.pal.randomColor(),20);
+      this.fillcolor = app.pal.tint(app.pal.randomColor(),50);
       this.thickness = 1;
       break;
     }
@@ -29,6 +29,7 @@ Creature.prototype.style = function(nr){
 Creature.prototype.draw = function(){
   app.style.set(this.strokecolor, this.fillcolor, this.thickness);
 
+  line(this.pos.x, this.pos.y, this.leader.pos.x, this.leader.pos.y);
   ellipse(this.pos.x, this.pos.y, this.size,this.size);
 
 }
@@ -38,10 +39,12 @@ Creature.prototype.moveRandom = function(speed){
 }
 Creature.prototype.moveDir = function(dir, speed){
   this.speed = speed;
+  //dir.add(this.walker.feelForce());
   this.walker.moveDir(dir, this.speed, this.size);
 }
 Creature.prototype.moveTo = function(pos, speed){
   this.speed = speed;
+  //pos.add(this.walker.feelForce());
   this.walker.moveTo(pos, this.speed, this.size);
 }
 Creature.prototype.grow = function(){
@@ -53,7 +56,7 @@ Creature.prototype.grow = function(){
   }
   this.size = constrain(this.size, 0, 50);
 }
-Creature.prototype.update = function(leader, speed){
+Creature.prototype.update = function(speed){
   this.grow();
-  this.moveTo(leader.pos,speed);
+  this.moveTo(this.leader.pos,speed);
 }

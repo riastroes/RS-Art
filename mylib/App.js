@@ -4,7 +4,7 @@
  * en general settings for the project(s)
  */
 "use strict";
-function App(name, appwidth, appheight, canvastype){
+function App(name, appwidth, appheight,  canvastype){
     pixelDensity(1);
     this.name = name;
     this.canvastype = canvastype;
@@ -22,10 +22,10 @@ function App(name, appwidth, appheight, canvastype){
       }
       case "webgl":{
         if(appwidth != undefined && appheight != undefined){
-            this.acanvas = createCanvas(appwidth, appheight);
+            this.acanvas = createCanvas(appwidth, appheight, WEBGL);
         }
         else {
-            this.acanvas = createCanvas(windowWidth, windowHeight);
+            this.acanvas = createCanvas(windowWidth, windowHeight, WEBGL);
         }
         break;
       }

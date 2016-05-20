@@ -1,5 +1,5 @@
 /**
- * Created by Ria Stroes on 10-4-2016.
+ * Created by Ria Stroes on 20-5-2016.
  */
  "use strict";
 function Project(){
@@ -25,6 +25,166 @@ Project.prototype.init = function(){
 Project.prototype.draw = function(nr){
   switch(nr){
     case 0:{
+      //from help reference
+
+      background(250);
+      push();
+      translate(-200, -200, -200);
+      normalMaterial();
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      plane(80);
+      pop();
+
+      push();
+      translate(-200, -200, 0);
+      normalMaterial();
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      plane(80);
+        pop();
+
+      push();
+      translate(-200, -200, 200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      plane(80);
+      pop();
+
+      push();
+      translate(0, -200, -200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      box(80, 80, 80);
+      pop();
+
+      push();
+      translate(0, -200, 0);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      box(80, 80, 80);
+      pop();
+
+      push();
+      translate(0, -200, 200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      box(80, 80, 80);
+      pop();
+
+
+      push();
+      translate(200, -200, -200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      cone(80, 80);
+      pop();
+
+      push();
+      translate(200, -200, 0);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      cone(80, 80);
+      pop();
+
+      push();
+      translate(200, -200, 200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      cone(80, 80);
+      pop();
+
+
+      push();
+      translate(-200, 200, -200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      cylinder(80, 80);
+      pop();
+
+      push();
+      translate(-200, 200, 0);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      cylinder(80, 80);
+      pop();
+
+      push();
+      translate(-200, 200, 200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      cylinder(80, 80);
+      pop();
+
+
+      push();
+      translate(0, 200, -200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      torus(80, 20);
+      pop();
+
+      push();
+      translate(0, 200, 0);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      torus(80, 20);
+      pop();
+
+      push();
+      translate(0, 200, 200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      torus(80, 20);
+      pop();
+
+
+      push();
+      translate(200, 200, -200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      sphere(80);
+      pop();
+
+      push();
+      translate(200, 200, 0);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      sphere(80);
+      pop();
+
+      push();
+      translate(200, 200, 200);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      sphere(80);
+      pop();
+
+      push();
+      translate(0,0,0);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      sphere(50);
+      pop();
 
       break;
     }

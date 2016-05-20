@@ -66,7 +66,7 @@ function draw() {
                 background(0);
                 app.name = "one flower";
                 app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,50));
-                app.big.style(0);
+                app.big.style(4);
                 app.runscene(0);
                 break;
             }
@@ -84,7 +84,7 @@ function draw() {
             }
             case 6:{
                 app.name ="lines on flower"
-                app.bg(app.pal.tint(app.pal.randomImgColor()));
+                app.bg(1);
 
                 app.big.grow(0.05);
                 app.big.lines(app.l);
@@ -93,8 +93,7 @@ function draw() {
                 break;
             }
             case 7:{
-                app.bg(app.pal.colors[3]);
-
+                background(255);
                 app.big.grow(-0.05);
                 app.big.lines(app.l);
                 app.l -=0.11;
@@ -104,16 +103,16 @@ function draw() {
             case 8:{
                // frameRate(1);
                 //app.big.grow(2);
-                background(255)
+                background(255);
                 app.name = "one flower";
                 app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,30));
-                app.big.style(2);
+                app.big.style(3);
                 app.runscene(0);
                  break;
                 }
             case 9:{
                 // frameRate(1);
-                app.bg(app.pal.colors[1]);
+                app.bg(1);
                 app.big.grow(0.001);
                 //app.big.split();
                 app.big.draw();
@@ -175,11 +174,11 @@ function draw() {
                 break;
             }
             case 16:{
-                app.bg(100);
+                app.bg(5);
                 app.big.live();
                 app.big.rotate(0.02);
                 app.big.draw();
-                app.runscene(1000);
+                app.runscene(500);
                 break;
             }
             case 17:{
@@ -192,7 +191,7 @@ function draw() {
                 break;
             }
             case 18:{
-                app.bg(app.pal.colors[1]);
+                background(255);
                 app.big.style(2);
                 app.big.live();
                 app.big.grow(-0.1);

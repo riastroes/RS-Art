@@ -65,7 +65,7 @@ BigBlobber.prototype.style = function(nr) {
          }
          case 4:{
            for (i = 0; i < this.blobbers.length; i++) {
-              this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
+              this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 1);
           }
            break;
          }

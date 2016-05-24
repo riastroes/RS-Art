@@ -39,13 +39,13 @@ function draw() {
                 break;
             }
             case 1:{
-                app.bg(5);
-
-                app.big.live();
-                app.big.rotate(0.01);
-                app.big.draw();
-
-                app.runscene(200);
+                // app.bg(5);
+                //
+                // app.big.live();
+                // app.big.rotate(0.01);
+                // app.big.draw();
+                //
+              app.runscene(0);
                 break;
             }
             case 2:{
@@ -63,7 +63,7 @@ function draw() {
                 break;
             }
             case 4:{
-                background(0);
+                background(255);
                 app.name = "one flower";
                 app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,50));
                 app.big.style(4);
@@ -71,9 +71,7 @@ function draw() {
                 break;
             }
             case 5:{
-              app.bg(app.pal.colors[3]);
-
-
+                background(app.pal.colors[3]);
 
                 app.big.grow(0.01);
                 app.big.live();
@@ -93,6 +91,7 @@ function draw() {
                 break;
             }
             case 7:{
+<<<<<<< Updated upstream
                 background(255);
                 app.big.grow(-0.05);
                 app.big.lines(app.l);
@@ -107,6 +106,22 @@ function draw() {
                 app.name = "one flower";
                 app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,30));
                 app.big.style(3);
+=======
+                // app.bg(app.pal.colors[3]);
+                //
+                // app.big.grow(-0.05);
+                // app.big.lines(app.l);
+                // app.l -=0.11;
+                app.runscene(0);
+                break;
+            }
+            case 8:{
+
+                background(255)
+                app.name = "one flower";
+                app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,30));
+                app.big.style(4);
+>>>>>>> Stashed changes
                 app.runscene(0);
                  break;
                 }
@@ -174,11 +189,19 @@ function draw() {
                 break;
             }
             case 16:{
+<<<<<<< Updated upstream
                 app.bg(5);
                 app.big.live();
                 app.big.rotate(0.02);
                 app.big.draw();
                 app.runscene(500);
+=======
+                app.bg(1);
+                app.big.live();
+                app.big.rotate(0.02);
+                app.big.draw();
+                app.runscene(200);
+>>>>>>> Stashed changes
                 break;
             }
             case 17:{
@@ -191,12 +214,17 @@ function draw() {
                 break;
             }
             case 18:{
+<<<<<<< Updated upstream
                 background(255);
                 app.big.style(2);
+=======
+                app.bg(app.pal.colors[1]);
+                app.big.style(3);
+>>>>>>> Stashed changes
                 app.big.live();
                 app.big.grow(-0.1);
                 //app.big.split();
-                app.big.rotate(0.1);
+                app.big.rotate(PI/8);
                 app.big.draw();
                 app.runscene(6);
                 break;
@@ -204,7 +232,7 @@ function draw() {
             case 19:{
                 app.big.style(4);
                 app.big.live();
-                app.big.rotate(0.1);
+                app.big.rotate(PI/8);
                 app.big.draw();
                 app.runscene(200);
                 break;

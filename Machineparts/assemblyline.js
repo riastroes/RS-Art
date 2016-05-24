@@ -1,14 +1,14 @@
-function Assemblyline(begin, end, points, pointsize, acolor){
+function Assemblyline(size, points, pointsize){
   //the pos of an assemblyline is at the center.
-  this.pos = begin.copy();
+  this.pos = createVector(0,0);
   this.points = points;
   this.pointsize = pointsize;
-  this.begin = p5.Vector.sub(begin, this.pos);
+  this.size = size;
+  this.begin = createVector(-this.size/2,0);
   this.begin.y += this.pointsize;
-  this.end = p5.Vector.sub(end, this.pos);
+  this.end = createVector(this.size/2,0);
   this.end.y += this.pointsize;
 
-  this.size = dist(this.begin.x, this.begin.y, this.end.x, this.end.y);
   this.pg = createGraphics(this.size+2,this.pointsize*2);
 
   this.center = createVector(this.pg.width/2, this.pg.height/2);
@@ -17,7 +17,7 @@ function Assemblyline(begin, end, points, pointsize, acolor){
 
   this.speed = 0;
   this.dir = 1;
-  this.color = acolor;
+
   this.outer = [];
   this.inner = [];
   this.connect =[];

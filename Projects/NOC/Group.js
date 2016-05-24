@@ -26,7 +26,12 @@ Group.prototype.chooseLeader = function(){
   }
   if(this.leader>=0){
     for(var i = 0; i < this.creatures.length; i++){
-      this.creatures[i].leader = this.creatures[this.leader];
+      if(this.leader === i){
+        this.creatures[i].leader = true;
+      }
+      else{
+        this.creatures[i].leader = this.creatures[this.leader];
+      }
     }
   }
 }
@@ -50,7 +55,12 @@ Group.prototype.chooseAdventurestLeader = function(){
   }
   if(this.leader>=0){
     for(var i = 0; i < this.creatures.length; i++){
-      this.creatures[i].leader = this.creatures[this.leader];
+      if(this.leader === i){
+        this.creatures[i].leader = true;
+      }
+      else{
+        this.creatures[i].leader = this.creatures[this.leader];
+      }
     }
   }
 }
@@ -75,12 +85,52 @@ Group.prototype.createBodyVectors = function(){
   }
   return body;
 }
-Group.prototype.draw = function(){
+Group.prototype.shrink = function(){
   for(var i = 0; i < this.creatures.length; i++){
-    this.creatures[i].draw();
+    if(this.creatures[i].leader != true){
+      var heading = p5.Vector.sub(this.creatures[i].leader.pos,this.creatures[i].pos);
+      heading.mult(0.03);
+      this.creatures[i].pos.add(heading);
+    }
   }
 }
-Group.prototype.draw2 = function(){
+Group.prototype.constrainVelocity = function(){
+  for(var i = 0; i < this.creatures.length; i++){
+    if(this.creatures[i].leader != true){
+      this.creatures[i].walker.velocity.x = constrain(this.creatures[i].walker.velocity.x,0,0.2);
+      this.creatures[i].walker.velocity.y = constrain(this.creatures[i].walker.velocity.y,0,0.2);
+    }
+  }
+}
+Group.prototype.style = function(nr){
+  for(var i = 0; i < this.creatures.length; i++){
+    this.creatures[i].style(nr);
+  }
+}
+Group.prototype.drawLines = function(){
+  for(var i = 0; i < this.creatures.length; i++){
+    this.creatures[i].drawLines();
+  }
+}
+Group.prototype.draw3 = function(){
+  for(var i = 0; i < this.creatures.length; i++){
+    this.creatures[i].style(3);
+    this.creatures[i].draw2();
+  }
+}
+Group.prototype.draw4 = function(){
+  for(var i = 0; i < this.creatures.length; i++){
+    this.creatures[i].style(2);
+    this.creatures[i].draw2();
+  }
+}
+Group.prototype.draw5 = function(shiftx){
+  for(var i = 0; i < this.creatures.length; i++){
+    this.creatures[i].style(3);
+    this.creatures[i].draw3(shiftx);
+  }
+}
+Group.prototype.drawBlobber = function(){
   var leader = this.getLeader();
   var blobber = new Blobber();
   blobber.initWithVectors(leader.pos, this.createBodyVectors());

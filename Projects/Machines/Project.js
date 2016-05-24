@@ -6,7 +6,6 @@ function Project(){
   this.rods =[];
   this.connectors =[];
   this.gears = [];
-  this.grid = new Grid(5,5,20,20,20,20);
   this.center = createVector(width/2, height/2);
   this.pal = new Palette(1);
   this.pal.fromImage(app.images[0], 8, "metal");
@@ -15,72 +14,108 @@ function Project(){
   this.b=0;
   this.begin = createVector(350,450);
   this.end = createVector(350,450);
-  this.colors= []
-  for(i = 0; i < 5; i++){
-    this.colors[i] = this.pal.tint(this.pal.colors[1],20 * (i+1));
-  }
+
 };
+Project.prototype.style = function(pal, nr){
+  switch(nr){
+    case 0:{
+      this.strokecolor = pal.colors[0];
+      this.fillcolor = pal.colors[1];
+      this.thickness = 1;
+      break;
+    }
+    case 1:{
+      this.strokecolor = pal.colors[1];
+      this.fillcolor = pal.colors[0];
+      this.thickness = 1;
+      break;
+    }
+    case 2:{
+      this.strokecolor = pal.colors[0];
+      this.fillcolor = pal.imgcolors[0];
+      this.thickness = 1;
+      break;
+    }
+  }
+  app.style.set(this.strokecolor, this.fillcolor, this.thickness);
+
+}
 
 
 Project.prototype.construct = function(){
 
-  this.rods[0] = new Rod(height-100,15,this.pal.imgcolors[1], this.pal.imgcolors[3], PI/2);
-  this.rods[0].connectTo(createVector(50,100),1,false,1,25,0);
-  this.rods[1] = new Rod(200,15,this.pal.imgcolors[1], this.pal.imgcolors[3], 0);
-  this.rods[1].connectTo(createVector(50,100),1,false,1,50,0);
-  //this.connectors[0] = new Connector(createVector(50,100), 20, 2, true);
+  // this.rods[0] = new Rod(height-100,15,this.pal.imgcolors[1], this.pal.imgcolors[3], PI/2);
+  // this.rods[0].connectTo(createVector(50,100),1,false,1,25,0);
+  // this.rods[1] = new Rod(200,15, 0);
+  // this.rods[1].connectTo(createVector(50,100),1,false,1,50,0);
+
+ //Gear(size, points, pointsize, connection)
+  this.gears[0] = new Gear(50,8,12,0);
+  this.gears[1] = new Gear(100,16,12,0);
+  this.gears[2] = new Gear(100,16,12,1);
 
 
+ this.aline = new Assemblyline(200, 16, 12);
 
-  this.gears[0] = new Gear(this.grid.cellwidth/2,8,12,0,this.colors[4]);
-  this.gears[0].pos = createVector(200,100);
-  this.gears[1] = new Gear(this.grid.cellwidth,16,12,0,this.colors[4]);
-  this.gears[2] = new Gear(this.grid.cellwidth,16,12,1,this.colors[1]);
-  //this.gears[3] = new Gear(this.grid.cellwidth/2,8,12,2,this.colors[2]);
-  //this.gears[4] = new Gear(this.grid.cellwidth/4,4,12,3,this.colors[2]);
+ this.gears[3] = new Gear(100,16,12,1);
+ this.gears[3].pos = createVector(400,300);
 
- this.end.x += (this.grid.cellwidth/2) * TWO_PI;
- this.aline = new Assemblyline(this.begin, this.end, 16, 12,this.colors[4]);
- this.gears[5] = new Gear(this.grid.cellwidth,16,12,1,this.colors[0]);
- this.gears[5].pos = this.aline.connect[2];
-//
- this.gears[5].pos.y += this.gears[5].size/2  ;
 
 
 }
-Project.prototype.change = function(nr){
+Project.prototype.update = function(nr){
+  switch(nr){
+    case 0:{
+      this.gears[0].pos = createVector(200,100);
+      this.gears[1].connectTo(this.gears[0],2);
+      this.gears[2].connectTo(this.gears[1],6);
 
-  this.gears[0].rotate(0.05);
-  this.gears[1].connectTo(this.gears[0],2);
-  this.gears[2].connectTo(this.gears[1],6);
-//  this.gears[3].connectTo(this.gears[0],11);
-//  this.gears[4].connectTo(this.gears[0],14);
+      this.gears[0].rotate(0.05);
+      this.gears[3].rot += (TWO_PI/this.gears[3].points)/100;
 
+      this.aline.connectTo(this.gears[3],9);
+      this.aline.pos.x  +=  (TWO_PI/this.gears[3].points)/100;
 
-  //this.gears[3].connectTo(this.gears[2],0);
-  //this.gears[4].connectTo(this.gears[3],0);
-  this.gears[5].rotate((TWO_PI/1000) *2);
-   if(this.gears[5].rot > 0){
-    this.aline.pos.x += ( (1.01787602)/2)*2;
+      // if(this.gears[3].rot > PI){
+      //   this.gears[3].dir = -this.gears[3].dir;
+      //   //this.aline.pos.x += TWO_PI/(this.gears[3].points);
+      //
+      //   //this.aline.pos.x += ( (1.01787602)/2)*2;
+      //   //this.gears[3].rotate((TWO_PI/1000) *2);
+      // }
+      // else if(this.gears[3] < 0){
+      //   this.gears[3].dir = -this.gears[3].dir;
+      //   //this.aline.pos.x -= (TWO_PI)/this.gears[3].points;
+      //   //this.aline.pos.x -= TWO_PI/(this.gears[3].points*100);
+      //   this.gears[3].rot += TWO_PI/(this.gears[3].points*100);
+      //
+      // }
+      break;
+    }
+    case 1:{
+      break;
+    }
   }
 }
 
 Project.prototype.draw = function(){
-  var i=0;
-  for(i=0; i < this.rods.length; i++){
-    this.rods[i].draw();
-  }
-//  for(i=0;i<this.gears.length;i++){
-for(i=0;i<3;i++){
+  // this.style(this.pal, 2);
+  //
+  // for(var i=0; i < this.rods.length; i++){
+  //   this.rods[i].draw();
+  // }
+  this.style(this.pal, 2);
+  for(var i=0;i<4;i++){
     this.gears[i].draw();
   }
+  this.style(this.pal, 2);
   this.aline.draw();
-  for(i=0; i < this.connectors.length; i++){
+  for(var i=0; i < this.connectors.length; i++){
     this.connectors[i].draw();
   }
 
 //  line(this.gears[4].pos.x, this.gears[4].pos.y, this.gears[0].pos.x, this.gears[0].pos.y);
-  fill(255);
+  //fill(255);
 
 
 }

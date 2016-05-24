@@ -8,15 +8,24 @@ function Project(){
 };
 
 Project.prototype.style = function(nr){
-  if(nr == 1){
-    app.style.set(app.pal.colors[0],false,1);
-  }
-  if(nr == 2){
-    app.style.set(app.pal.colors[0],app.pal.colors[3],1);
-  }
-  if(nr == 3){
-    app.style.set(app.pal.colors[0],false,1);
-  }
+
+    if(nr == 1){
+      this.strokecolor = app.pal.colors[0];
+      this.fillcolor = app.pal.colors[1];
+      this.thickness = 1;
+    }
+    if(nr == 2){
+      this.strokecolor = app.pal.colors[1];
+      this.fillcolor = app.pal.colors[0];
+      this.thickness = 1;
+    }
+    if(nr == 3){
+      this.strokecolor = app.pal.colors[1];
+      this.fillcolor = app.pal.randomImgColor;
+      this.thickness = 1;
+    }
+
+  };
 
 };
 Project.prototype.init = function(){

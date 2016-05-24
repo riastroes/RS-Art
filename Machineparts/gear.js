@@ -1,4 +1,4 @@
-function Gear(size, points, pointsize, connection, acolor){
+function Gear(size, points, pointsize, connection){
   // pos is the center of pg
   this.pos;
   this.size = size;
@@ -14,12 +14,13 @@ function Gear(size, points, pointsize, connection, acolor){
 
   this.speed = 0;
   this.dir = 1;
-  this.color = acolor;
   this.inner =[];
   this.outer =[];
   this.connection = connection;
   this.create();
 }
+
+
 Gear.prototype.create = function(){
 
 

@@ -19,21 +19,7 @@ function BigBlobber(mask){
 
 }
 
-// BigBlobber.prototype.style = function(nr){
-//     var i, ok = false ;
-//     if(app.isnot(nr)) {
-//
-//         for (i = 0; i < this.blobbers.length; i++) {
-//             this.blobbers[i].style(app.pal.colors[1], app.pal.tint(app.pal.randomImgColor(), 50), 3);
-//         }
-//     }
-//     else if(nr == 3){
-//         for (i = 0; i < this.blobbers.length; i++) {
-//             this.blobbers[i].style(app.pal.randomColor(), false,  3);
-//         }
-//       }
-//
-// }
+
 BigBlobber.prototype.style = function(nr) {
        switch(nr){
 
@@ -59,7 +45,7 @@ BigBlobber.prototype.style = function(nr) {
          }
          case 3:{
            for (i = 0; i < this.blobbers.length; i++) {
-              this.blobbers[i].style(app.pal.colors[1], app.pal.randomImgColor(), 1);
+              this.blobbers[i].style(app.pal.colors[1], app.pal.randomImgColor(), 0.3);
           }
            break;
          }

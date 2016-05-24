@@ -1,5 +1,5 @@
 /**
- * Created by Ria Stroes on 10-4-2016.
+ * Created by Ria Stroes on 10-5-2016.
  */
  "use strict";
 function Project(){
@@ -27,25 +27,69 @@ Project.prototype.init = function(){
 Project.prototype.draw = function(nr){
   switch(nr){
     case 0:{
-      this.groups[0].draw();
+      this.groups[0].drawLines();
       break;
     }
-    case 1:{
+    case 1:{//white lines
       this.groups[0].update(0.1);
-      this.groups[0].draw();
+      this.groups[0].style(1);
+      this.groups[0].drawLines();
       break;
     }
-    case 2:{
-      //create more groups
-      append(this.groups2, new Group(6));
-      this.groups2[this.groups2.length-1].chooseAdventurestLeader();
+    case 2:{//colored lines
+      this.groups[0].update(0.1);
+      this.groups[0].style(2);
+      this.groups[0].drawLines();
       break;
     }
     case 3:{
+      this.groups[0].update(0.1);
+      this.groups[0].style(3);
+      this.groups[0].drawBlobber();
+      break;
+    }
+    case 4:{
+      //create more groups
+      append(this.groups2, new Group(5));
+      this.groups2[this.groups2.length-1].chooseLeader();
+      this.groups2[this.groups2.length-1].style(3);
+      break;
+    }
+    case 5:{
       for(var i = 0; i < this.groups2.length; i++){
 
         this.groups2[i].update(0.01);
+        this.groups2[i].drawBlobber();
+      }
+      break;
+    }
+
+    case 6:{
+      for(var i = 0; i < this.groups2.length; i++){
+
+        this.groups2[i].update(0.01);
+        this.groups2[i].shrink();
+        this.groups2[i].drawBlobber();
+      }
+      break;
+    }
+    case 7:{
+      for(var i = 0; i < this.groups2.length; i++){
+
+        this.groups2[i].update(0.01);
+        this.groups2[i].keepsmall();
         this.groups2[i].draw2();
+      }
+      break;
+    }
+    case 8:{
+      for(var i = 0; i < this.groups2.length; i++){
+
+        this.groups2[i].update(0.01);
+        this.groups2[i].keepsmall();
+        this.groups2[i].constrainVelocity();
+        this.groups2[i].draw4();
+        this.groups2[i].draw5(20);
       }
       break;
     }

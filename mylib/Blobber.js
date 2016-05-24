@@ -55,8 +55,6 @@ Blobber.prototype.initWithVectors  = function(center, vectors){
   var ps = [];
   var angles = [];
   var index = [];
-  append(vectors,createVector(0,0));
-
 
   for (var i = 0; i < vectors.length; i++) {
     angles[i] = vectors[i].heading();

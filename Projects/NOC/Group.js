@@ -67,11 +67,18 @@ Group.prototype.chooseAdventurestLeader = function(){
 Group.prototype.getLeader = function(){
   return this.creatures[this.leader];
 }
+
 Group.prototype.update = function(speed){
   this.getLeader().moveRandom(speed);
   for(var i = 0; i < this.creatures.length; i++){
       this.creatures[i].update( speed);
   }
+}
+Group.prototype.dans = function(speed){
+  for(var i = 0; i < this.creatures.length-1; i++){
+      this.creatures[i].moveTo( this.creatures[i+1].pos, speed);
+  }
+  this.creatures[this.creatures.length-1].moveTo( this.creatures[0].pos, speed);
 }
 Group.prototype.createBodyVectors = function(){
   var center = this.getLeader().pos;
@@ -86,9 +93,10 @@ Group.prototype.createBodyVectors = function(){
   return body;
 }
 Group.prototype.shrink = function(){
+  var center = createVector(width/2, height/2);
   for(var i = 0; i < this.creatures.length; i++){
     if(this.creatures[i].leader != true){
-      var heading = p5.Vector.sub(this.creatures[i].leader.pos,this.creatures[i].pos);
+      var heading = p5.Vector.sub(center.pos,this.creatures[i].pos);
       heading.mult(0.03);
       this.creatures[i].pos.add(heading);
     }
@@ -111,6 +119,12 @@ Group.prototype.drawLines = function(){
   for(var i = 0; i < this.creatures.length; i++){
     this.creatures[i].drawLines();
   }
+}
+Group.prototype.drawWeb = function(){
+  for(var i = 0; i < this.creatures.length-1; i++){
+    this.creatures[i].drawWeb(this.creatures[i+1]);
+  }
+  this.creatures[this.creatures.length-1].drawWeb(this.creatures[0]);
 }
 Group.prototype.draw3 = function(){
   for(var i = 0; i < this.creatures.length; i++){

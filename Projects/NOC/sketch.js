@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = -1;
+        app.scene = 9;
       }
 
         switch(app.scene) {
@@ -95,17 +95,61 @@ function draw() {
                   }
             case 9:{
                   //clear screen
-                  background(0);
+                  background(255);
                   app.runscene(0);
                   break;
                  }
-             case 10:{
-                    //white lines + colored lines
+
+           case 10:{
+                  //new groups white lines
+                  app.bg(1);
+                  app.project.draw(9);
+                  app.runscene(0);
+                  break;
+                 }
+           case 11:{
+                  //colored lines on white
+                  //app.bg(1);
+                  app.project.draw(10);
+                  app.runscene(1000);
+                  break;
+                 }
+           case 12:{
+                  //colored lines on black
+                  if(frameCount % 3 == 0){
                     app.bg(1);
-                    app.project.draw(8);
-                    app.runscene(2000);
-                    break;
-                   }
+                  }
+                  app.project.draw(10);
+                  app.runscene(1000);
+                  break;
+                 }
+           case 13:{
+                  //yellow lines on black
+                  if(frameCount % 3 == 0){
+                    //slowly turning black
+                    app.bg(1);
+                  }
+
+                  app.project.draw(11);
+                  app.runscene(1000);
+                  break;
+                 }
+           case 14:{
+             background(0);
+             app.runscene(0);
+             break;
+           }
+           case 15:{
+                  //white lines on black, without a leader
+                  if(frameCount % 3 == 0){
+                    //slowly turning black
+                    app.bg(1);
+                  }
+
+                  app.project.draw(12);
+                  app.runscene(1000);
+                  break;
+                 }
             default:{
                 //wait
                 app.wait();

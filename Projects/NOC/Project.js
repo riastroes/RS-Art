@@ -5,6 +5,7 @@
 function Project(){
   this.groups = [] ;
   this.groups2 = [] ;
+  this.groups3 = [] ;
   this.init();
 };
 
@@ -90,6 +91,39 @@ Project.prototype.draw = function(nr){
         this.groups2[i].constrainVelocity();
         this.groups2[i].draw4();
         this.groups2[i].draw5(20);
+      }
+      break;
+    }
+    case 9:{
+      //create more groups
+      append(this.groups3, new Group(8));
+      //this.groups3[this.groups3.length-1].chooseLeader();
+      this.groups3[this.groups3.length-1].style(3);
+      break;
+    }
+    case 10:{
+      for(var i = 0; i < this.groups3.length; i++){
+
+        this.groups3[i].update(0.01);
+        this.groups3[i].drawLines();
+      }
+      break;
+    }
+    case 11:{
+      for(var i = 0; i < this.groups3.length; i++){
+        this.groups3[i].style(4);
+        this.groups3[i].update(0.01);
+        this.groups3[i].drawLines();
+      }
+      break;
+    }
+    case 12:{
+      for(var i = 0; i < this.groups3.length; i++){
+        this.groups3[i].style(1);
+        //DIT GAAT NOG FOUT
+        //this.groups3[i].shrink();
+        this.groups3[i].dans(0.01);
+        this.groups3[i].drawWeb();
       }
       break;
     }

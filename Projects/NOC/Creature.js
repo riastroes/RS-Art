@@ -37,6 +37,13 @@ Creature.prototype.style = function(nr){
       this.thickness = 0.1;
       break;
     }
+    case 4:{
+      //random fillcolor
+      this.strokecolor = app.pal.colors[4];
+      this.fillcolor = this.strokecolor;
+      this.thickness = 0.1;
+      break;
+    }
 
   }
 }
@@ -72,6 +79,12 @@ Creature.prototype.draw3 = function(shiftx){
   else{
     line(this.pos.x + shiftx, this.pos.y, this.leader.pos.x + shiftx, this.leader.pos.y);
   }
+}
+Creature.prototype.drawWeb = function(nextcreature){
+
+  app.style.set(this.strokecolor, this.fillcolor, this.thickness);
+  line(this.pos.x, this.pos.y, nextcreature.pos.x, nextcreature.pos.y);
+
 }
 Creature.prototype.moveRandom = function(speed){
   this.speed = speed;

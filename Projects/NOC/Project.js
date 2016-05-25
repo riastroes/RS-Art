@@ -78,8 +78,8 @@ Project.prototype.draw = function(nr){
       for(var i = 0; i < this.groups2.length; i++){
 
         this.groups2[i].update(0.01);
-        this.groups2[i].keepsmall();
-        this.groups2[i].draw2();
+        this.groups2[i].grow(createVector(width/2, height/2));
+        this.groups2[i].drawBlobber();
       }
       break;
     }
@@ -87,7 +87,7 @@ Project.prototype.draw = function(nr){
       for(var i = 0; i < this.groups2.length; i++){
 
         this.groups2[i].update(0.01);
-        this.groups2[i].keepsmall();
+        //this.groups2[i].shrink();
         this.groups2[i].constrainVelocity();
         this.groups2[i].draw4();
         this.groups2[i].draw5(20);
@@ -120,10 +120,54 @@ Project.prototype.draw = function(nr){
     case 12:{
       for(var i = 0; i < this.groups3.length; i++){
         this.groups3[i].style(1);
-        //DIT GAAT NOG FOUT
-        //this.groups3[i].shrink();
+
+        this.groups3[i].dans( 0.01);
+        this.groups3[i].drawLineWeb();
+      }
+      break;
+    }
+    case 13:{
+
+      for(var i = 0; i < this.groups3.length; i++){
+
+
+        this.groups3[i].shrink();
+
+        this.groups3[i].style(5);
         this.groups3[i].dans(0.01);
-        this.groups3[i].drawWeb();
+        this.groups3[i].drawLineWeb();
+      }
+      break;
+    }
+    case 14:{
+
+      for(var i = 0; i < this.groups3.length; i++){
+
+        this.groups3[i].grow(createVector(width/2, height/2));
+
+        this.groups3[i].style(6);
+        this.groups3[i].dans(0.001);
+        this.groups3[i].drawLineWeb();
+      }
+      break;
+    }
+    case 15:{
+      this.groups3 = [];
+      for(var i = 0; i < 15; i++){
+        append(this.groups3, new Group(8));
+        this.groups3[i].setNearPos(createVector(random(width), random(height)));
+      }
+    break;
+  }
+    case 16:{
+
+      for(var i = 0; i < this.groups3.length; i++){
+
+        this.groups3[i].growUP();
+
+        this.groups3[i].style(7);
+        this.groups3[i].update(0.01);
+        this.groups3[i].drawCurvedWeb();
       }
       break;
     }

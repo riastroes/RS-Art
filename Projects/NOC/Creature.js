@@ -44,6 +44,31 @@ Creature.prototype.style = function(nr){
       this.thickness = 0.1;
       break;
     }
+    case 5:{
+      //random fillcolor
+      colorMode(HSB, 360,100,100)
+      this.strokecolor = color((frameCount % 360), 100, 100);
+      this.fillcolor = this.strokecolor;
+      this.thickness = 0.1;
+      break;
+    }
+    case 6:{
+      //random fillcolor
+      colorMode(HSB, 360,100,100)
+      this.strokecolor = color((floor(frameCount/5) % 360), 100, 100);
+      this.fillcolor = this.strokecolor;
+      this.thickness = 0.1;
+      break;
+    }
+    case 7:{
+      //random fillcolor
+      colorMode(HSB, 360,100,100,100)
+      this.strokecolor = (color((floor(frameCount/3) % 360), 100, 100, 30));
+      this.fillcolor = this.strokecolor;
+      this.thickness = 0.01;
+      break;
+    }
+
 
   }
 }
@@ -80,7 +105,13 @@ Creature.prototype.draw3 = function(shiftx){
     line(this.pos.x + shiftx, this.pos.y, this.leader.pos.x + shiftx, this.leader.pos.y);
   }
 }
-Creature.prototype.drawWeb = function(nextcreature){
+Creature.prototype.drawCurvedWeb = function(nextcreature){
+
+  app.style.set(this.strokecolor, this.fillcolor, this.thickness);
+ curve(this.center.x, this.center.y, this.pos.x, this.pos.y, nextcreature.pos.x, nextcreature.pos.y, this.center.x, this.center.y);
+
+}
+Creature.prototype.drawLineWeb = function(nextcreature){
 
   app.style.set(this.strokecolor, this.fillcolor, this.thickness);
   line(this.pos.x, this.pos.y, nextcreature.pos.x, nextcreature.pos.y);

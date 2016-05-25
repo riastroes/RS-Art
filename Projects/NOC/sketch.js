@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 9;
+        app.scene = 0;
       }
 
         switch(app.scene) {
@@ -77,7 +77,7 @@ function draw() {
                  //soft moving and swelling blobbers
                  app.bg(5);
                  app.project.draw(6);
-                 app.runscene(3000);
+                 app.runscene(300);
                  break;
                 }
            case 7:{
@@ -111,7 +111,7 @@ function draw() {
                   //colored lines on white
                   //app.bg(1);
                   app.project.draw(10);
-                  app.runscene(1000);
+                  app.runscene(300);
                   break;
                  }
            case 12:{
@@ -120,7 +120,7 @@ function draw() {
                     app.bg(1);
                   }
                   app.project.draw(10);
-                  app.runscene(1000);
+                  app.runscene(300);
                   break;
                  }
            case 13:{
@@ -131,7 +131,7 @@ function draw() {
                   }
 
                   app.project.draw(11);
-                  app.runscene(1000);
+                  app.runscene(300);
                   break;
                  }
            case 14:{
@@ -141,13 +141,68 @@ function draw() {
            }
            case 15:{
                   //white lines on black, without a leader
-                  if(frameCount % 3 == 0){
+
+                  //if(frameCount % 3 == 0){
                     //slowly turning black
-                    app.bg(1);
-                  }
+                    app.bg(0.3);
+                  //}
 
                   app.project.draw(12);
-                  app.runscene(1000);
+                  app.runscene(300);
+                  break;
+                 }
+        case 16:{
+                  //white lines on black, without a leader
+                  app.bg(0.01);
+                  app.project.draw(12);
+                  app.runscene(500);
+                  break;
+                 }
+       case 17:{
+              //slowly changing color lines on black, without a leader
+              background(0);
+              app.runscene(0);
+              break;
+
+             }
+         case 18:{
+                //slowly changing color lines on black, without a leader
+                app.bg(0.01);
+
+                app.project.draw(13);
+                app.runscene(1000);
+                break;
+               }
+         case 19:{
+                //slowly changing color lines on black, without a leader
+                background(255);
+                app.runscene(0);
+                break;
+
+               }
+           case 20:{
+                  //slowly changing color lines on black, without a leader
+                  app.bg(0.01);
+
+                  app.project.draw(14);
+                  app.runscene(500);
+                  break;
+                 }
+           case 21:{
+                  //slowly changing color lines on black, without a leader
+                  background(255);
+
+                  app.project.draw(15);
+
+                  app.runscene(0);
+                  break;
+                 }
+           case 22:{
+                  //may be I found my tulips
+                  app.bg(1);
+
+                  app.project.draw(16);
+                  app.runscene(100);
                   break;
                  }
             default:{
@@ -161,7 +216,7 @@ function draw() {
 
         app.info.show();
         //function(skip, maxframes, show)
-        app.gifmaker.check(1, 160, false);
+        app.gifmaker.check(1, 50, false);
 
 
 

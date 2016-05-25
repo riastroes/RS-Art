@@ -81,25 +81,58 @@ Group.prototype.dans = function(speed){
   this.creatures[this.creatures.length-1].moveTo( this.creatures[0].pos, speed);
 }
 Group.prototype.createBodyVectors = function(){
-  var center = this.getLeader().pos;
+  this.center = this.getLeader().pos;
   var body = [];
 
   for(var i = 0; i < this.creatures.length; i++){
 
       var pos = this.creatures[i].pos.copy();
-      pos.sub(center);
+      pos.sub(this.center);
       append(body, pos);
   }
   return body;
 }
 Group.prototype.shrink = function(){
-  var center = createVector(width/2, height/2);
+  this.center = createVector(width/2, height/2);
   for(var i = 0; i < this.creatures.length; i++){
-    if(this.creatures[i].leader != true){
-      var heading = p5.Vector.sub(center.pos,this.creatures[i].pos);
+
+      var heading = p5.Vector.sub(this.creatures[i].pos, this.center);
       heading.mult(0.03);
+      this.creatures[i].pos.sub(heading);
+
+  }
+}
+Group.prototype.grow = function(pos){
+  this.center = pos.copy();
+  for(var i = 0; i < this.creatures.length; i++){
+
+      var heading = p5.Vector.sub(this.creatures[i].pos, this.center);
+      heading.setMag(0.1);
       this.creatures[i].pos.add(heading);
-    }
+
+  }
+}
+Group.prototype.setNearPos = function(pos){
+  this.center = pos.copy();
+  for(var i = 0; i < this.creatures.length; i++){
+      this.creatures[i].pos = this.center.copy();
+      this.creatures[i].heading = p5.Vector.fromAngle(i * (TWO_PI/this.creatures.length));
+      //this.creatures[i].heading.setMag(random(0,20));
+      this.creatures[i].pos.add(this.creatures[i].heading);
+      this.creatures[i].center = this.center;
+  }
+}
+Group.prototype.growUP = function(){
+  var up;
+  var speed = 1;
+  for(var i = 0; i < this.creatures.length; i++){
+      up = createVector(random(-speed,speed), random(-speed,0));
+      this.creatures[i].heading.add(up);
+      this.creatures[i].heading.normalize();
+      this.creatures[i].heading.mult(3);
+      this.creatures[i].pos.add(this.creatures[i].heading);
+
+
   }
 }
 Group.prototype.constrainVelocity = function(){
@@ -120,11 +153,17 @@ Group.prototype.drawLines = function(){
     this.creatures[i].drawLines();
   }
 }
-Group.prototype.drawWeb = function(){
+Group.prototype.drawLineWeb = function(){
   for(var i = 0; i < this.creatures.length-1; i++){
-    this.creatures[i].drawWeb(this.creatures[i+1]);
+    this.creatures[i].drawLineWeb(this.creatures[i+1]);
   }
-  this.creatures[this.creatures.length-1].drawWeb(this.creatures[0]);
+  this.creatures[this.creatures.length-1].drawLineWeb(this.creatures[0]);
+}
+Group.prototype.drawCurvedWeb = function(){
+  for(var i = 0; i < this.creatures.length-1; i++){
+    this.creatures[i].drawCurvedWeb(this.creatures[i+1]);
+  }
+  this.creatures[this.creatures.length-1].drawCurvedWeb(this.creatures[0]);
 }
 Group.prototype.draw3 = function(){
   for(var i = 0; i < this.creatures.length; i++){

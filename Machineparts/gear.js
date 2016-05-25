@@ -57,6 +57,13 @@ Gear.prototype.create = function(){
 
 
 }
+// Gear.prototype.getConnection = function(connection){
+//
+//   var connector = this.center.copy();
+//   connector.add(this.inner[connection]);
+//   ellipse(connector.x, connector.y, 10,10);
+//   return connector;
+// }
 Gear.prototype.rotate = function(speed){
   this.speed = speed;
   this.rot += this.dir * this.speed;
@@ -77,17 +84,17 @@ Gear.prototype.connectTo = function(gear,point){
   this.rot += this.dir * this.speed;
 }
 Gear.prototype.connectToAssemblyline = function(aline,point){
-  var c = gear.center.copy();
-  var p = gear.outer[point].copy();
+  var c = aline.center.copy();
+  var p = aline.outer[point].copy();
   var s = p5.Vector.sub(p, c);
 
   s.normalize();
-  s.mult(gear.radius + (this.size/2));
-  s.add(gear.pos);
+  s.mult(this.radius + (this.size/2));
+  s.add(this.pos);
 
   this.pos = s;
-  this.dir = -gear.dir;
-  this.speed = gear.speed * (gear.points/this.points);
+  this.dir = -this.dir;
+  this.speed = this.speed * (this.points/this.points);
   this.rot += this.dir * this.speed;
 }
 Gear.prototype.draw = function(){

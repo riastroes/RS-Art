@@ -24,6 +24,7 @@ function Assemblyline(size, points, pointsize){
   this.create();
 }
 Assemblyline.prototype.create = function(){
+
   var i;
   for(i = 0; i < this.points+1; i += 1 ){
 
@@ -38,7 +39,7 @@ Assemblyline.prototype.create = function(){
   }
   app.style.pg(this.pg, color(0,0,0), this.color,1);
   this.pg.rectMode(CORNER);
-  this.pg.rect(this.begin.x, this.begin.y, this.size, -this.pointsize);
+  this.pg.rect(0,0, this.size, -this.pointsize);
   this.pg.beginShape();
     for(var i = 0; i < this.points + 1; i += 1 ){
       this.pg.vertex(this.inner[i].x, this.inner[i].y);
@@ -48,24 +49,27 @@ Assemblyline.prototype.create = function(){
     }
   this.pg.endShape(CLOSE);
 
-  this.connect[0] = this.connectpos(0);
-  this.connect[1] = this.connectpos(int(this.points/2));
-  this.connect[2] = this.connectpos(this.points);
+  this.connect[0] = this.getConnection(0);
+  this.connect[1] = this.getConnection(int(this.points/2));
+  this.connect[2] = this.getConnection(this.points);
 }
 // Assemblyline.prototype.rotate = function(speed){
 //   this.speed = speed;
 //   this.rot += this.dir * this.speed;
 // }
-Assemblyline.prototype.connectTo = function(gear){
-  if(dist(this.pos.x, this.pos.y, gear.pos.x, gear.pos.y)< (this.size/2) +(gear.size/2)){
-    this.dir = -gear.dir;
-    this.speed = gear.speed * (gear.points/this.points);
-    this.rot += this.dir * this.speed;
-
-  }
-}
-Assemblyline.prototype.connectpos = function(i){
+// Assemblyline.prototype.connectTo = function(gear, connection){
+//   this.pos = gear.getConnection(connection).copy();
+//   this.pos.add(gear.pos);
+// //  if(dist(this.pos.x, this.pos.y, gear.pos.x, gear.pos.y)< (this.size/2) +(gear.size/2)){
+//     //this.dir = -gear.dir;
+//     this.speed = gear.speed * (gear.points/this.points);
+//     this.rot += this.dir * this.speed;
+//
+//   //}
+// }
+Assemblyline.prototype.getConnection = function(i){
     var con = p5.Vector.add(this.inner[i], this.pos);
+    con.add(this.center);
     con.x -= this.size/2;
     con.y -= this.pointsize;
     return con;

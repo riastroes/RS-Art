@@ -55,12 +55,14 @@ Project.prototype.construct = function(){
   this.gears[2] = new Gear(100,16,12,1);
 
 
- this.aline = new Assemblyline(200, 16, 12);
-
  this.gears[3] = new Gear(100,16,12,1);
- this.gears[3].pos = createVector(400,300);
 
 
+ var alinesize = TWO_PI * this.gears[3].radius;
+ this.aline = new Assemblyline(alinesize, 16, 12);
+ this.aline.pos = createVector(400,400);
+ this.gears[3].connectToAssemblyline(this.aline,0);
+  
 
 }
 Project.prototype.update = function(nr){
@@ -73,8 +75,8 @@ Project.prototype.update = function(nr){
       this.gears[0].rotate(0.05);
       this.gears[3].rot += (TWO_PI/this.gears[3].points)/100;
 
-      this.aline.connectTo(this.gears[3],9);
-      this.aline.pos.x  +=  (TWO_PI/this.gears[3].points)/100;
+      //this.aline.connectTo(this.gears[3],6);
+      //this.aline.pos.x  +=  (TWO_PI/this.gears[3].points)/100;
 
       // if(this.gears[3].rot > PI){
       //   this.gears[3].dir = -this.gears[3].dir;
@@ -110,9 +112,12 @@ Project.prototype.draw = function(){
   }
   this.style(this.pal, 2);
   this.aline.draw();
-  for(var i=0; i < this.connectors.length; i++){
-    this.connectors[i].draw();
-  }
+
+  var con = this.aline.getConnection(0);
+  ellipse(con.x, con.y, 10,10);
+  // for(var i=0; i < this.connectors.length; i++){
+  //   this.connectors[i].draw();
+  // }
 
 //  line(this.gears[4].pos.x, this.gears[4].pos.y, this.gears[0].pos.x, this.gears[0].pos.y);
   //fill(255);

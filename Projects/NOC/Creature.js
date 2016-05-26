@@ -63,9 +63,9 @@ Creature.prototype.style = function(nr){
     case 7:{
       //random fillcolor
       colorMode(HSB, 360,100,100,100)
-      this.strokecolor = (color((floor(frameCount/3) % 360), 100, 100, 30));
-      this.fillcolor = this.strokecolor;
-      this.thickness = 0.01;
+      this.strokecolor = color((floor(frameCount/3) % 360), 100, 100, 100);
+      this.fillcolor = color((floor(frameCount/3) % 360), 100, 100, 5);
+      this.thickness = 0.1;
       break;
     }
 

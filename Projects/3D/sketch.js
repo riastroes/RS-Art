@@ -7,7 +7,7 @@ function setup() {
     app = new App("TEMPLATE",800,800,WEBGL);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
-    app.loadResources("signature.png");
+    app.loadResources("signature.png, noc0.jpg");
 }
 
 function draw() {
@@ -25,6 +25,13 @@ function draw() {
           case 0:{
                //primatives
                 app.project.draw(0);
+                app.runscene(200);
+                break;
+              }
+          case 1:{
+               //primatives
+               background(255);
+                app.project.draw(1);
                 app.runscene(1000);
                 break;
               }

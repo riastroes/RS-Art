@@ -188,5 +188,14 @@ Project.prototype.draw = function(nr){
 
       break;
     }
+    case 1:{
+      push();
+      translate(0,0,0);
+      rotateX(frameCount * 0.01);
+      texture(app.images[1]);
+      sphere(250);
+      pop();
+      break;
+    }
   }
 }

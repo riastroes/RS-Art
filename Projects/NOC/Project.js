@@ -153,14 +153,15 @@ Project.prototype.draw = function(nr){
     }
     case 15:{
       this.groups3 = [];
-      for(var i = 0; i < 15; i++){
-        append(this.groups3, new Group(8));
-        this.groups3[i].setNearPos(createVector(random(width), random(height)));
-      }
+
     break;
   }
     case 16:{
+      if((frameCount % 10) === 1){
+        append(this.groups3, new Group(8));
+        this.groups3[this.groups3.length-1].setNearPos(createVector(random(width), random(height/2,height)));
 
+      }
       for(var i = 0; i < this.groups3.length; i++){
 
         this.groups3[i].growUP();
@@ -171,5 +172,26 @@ Project.prototype.draw = function(nr){
       }
       break;
     }
+    case 17:{
+      this.groups3 = [];
+
+    break;
+  }
+  case 18:{
+    if((frameCount % 10) === 1){
+      append(this.groups3, new Group(8));
+      this.groups3[this.groups3.length-1].setNearPos(createVector(random(width), random(height/2,height)));
+
+    }
+    for(var i = 0; i < this.groups3.length; i++){
+
+      this.groups3[i].growUP();
+
+      this.groups3[i].style(6);
+      this.groups3[i].update(0.01);
+      this.groups3[i].drawLineWeb();
+    }
+    break;
+  }
   }
 }

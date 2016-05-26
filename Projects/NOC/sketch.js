@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("NOC",windowWidth,windowHeight);
+    app = new App("NOC",540,540);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("signature.png");
@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 0;
+        app.scene = 21;
       }
 
         switch(app.scene) {
@@ -191,20 +191,50 @@ function draw() {
            case 21:{
                   //slowly changing color lines on black, without a leader
                   background(255);
-
                   app.project.draw(15);
-
                   app.runscene(0);
                   break;
                  }
            case 22:{
                   //may be I found my tulips
-                  app.bg(1);
+                  //background(255,5);
 
                   app.project.draw(16);
-                  app.runscene(100);
+                  app.runscene(60);
                   break;
                  }
+           case 23:{
+               app.wait(50);
+               break;
+           }
+           case 24:{
+                  //may be I found my tulips on white
+                  app.bg(0.01);
+
+                  app.project.draw(16);
+                  app.runscene(60);
+                  break;
+                 }
+          case 25:{
+              app.wait(50);
+              break;
+          }
+          case 26:{
+              //may be I found my tulips on black
+              background(0);
+
+              app.project.draw(17);
+              app.runscene(0);
+              break;
+          }
+          case 27:{
+
+              app.bg(0.1);
+
+              app.project.draw(18);
+              app.runscene(160);
+              break;
+          }
             default:{
                 //wait
                 app.wait();
@@ -216,7 +246,7 @@ function draw() {
 
         app.info.show();
         //function(skip, maxframes, show)
-        app.gifmaker.check(1, 50, false);
+        app.gifmaker.check(5, 120, false);
 
 
 

@@ -29,10 +29,17 @@ function draw() {
                 break;
               }
           case 1:{
-               //primatives
+               //sphere with image
                background(255);
                 app.project.draw(1);
-                app.runscene(1000);
+                app.runscene(300);
+                break;
+              }
+          case 2:{
+               //box with image
+               background(255);
+                app.project.draw(2);
+                app.runscene(300);
                 break;
               }
             default:{

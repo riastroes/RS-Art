@@ -208,5 +208,27 @@ Project.prototype.draw = function(nr){
       pop();
       break;
     }
+    case 3:{
+      push();
+      translate(0,0,0);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      texture(app.images[2]);
+      box(200,100, 75);
+      pop();
+      break;
+    }
+    case 4:{
+      push();
+      translate(0,0,0);
+      rotateZ(frameCount * 0.01);
+      rotateX(frameCount * 0.01);
+      rotateY(frameCount * 0.01);
+      texture(app.images[2]);
+      torus(200,100);
+      pop();
+      break;
+    }
   }
 }

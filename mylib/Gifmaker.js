@@ -23,7 +23,7 @@ Gifmaker.prototype.init = function(gifwidth, gifheight, speed, skip, maxframes, 
     this.gif = new GIF({
         workers: 2,
         quality: 40,
-        workerScript: "../../libraries/gif.worker.js",
+        workerScript: "../../../libraries/gif.worker.js",
         background:"#ffffff",
         width:this.width,
         height:this.height

@@ -95,6 +95,7 @@ Palette.prototype.fromImage = function(img, count){
     var c = 0;
     var attempt = 0;
     this.imgcolors = [];
+    var threshold = 250;
 
     img.loadPixels();
     while( c  < count){
@@ -102,8 +103,10 @@ Palette.prototype.fromImage = function(img, count){
       var i = int(r - (r % 4));
       acolor = color(img.pixels[i], img.pixels[i+1], img.pixels[i+2], img.pixels[i+3]);
       if(!app.contains(this.imgcolors, acolor) || attempt > 100){
-        append(this.imgcolors, acolor);
-        c++;
+        if(red(acolor)<threshold || green(acolor) < threshold || blue(acolor) < threshold){
+          append(this.imgcolors, acolor);
+          c++;
+        }
       }
         attempt++;
     }
@@ -114,6 +117,7 @@ Palette.prototype.addImageColors = function(img, count){
   var acolor;
   var c = 0;
   var attempt = 0;
+  var threshold = 250;
 
   img.loadPixels();
   while( c  < count){
@@ -121,8 +125,11 @@ Palette.prototype.addImageColors = function(img, count){
     var i = int(r - (r % 4));
     acolor = color(img.pixels[i], img.pixels[i+1], img.pixels[i+2], img.pixels[i+3]);
     if(!app.contains(this.imgcolors, acolor) || attempt > 100){
-      append(this.imgcolors, acolor);
-      c++;
+      if(red(acolor)<threshold || green(acolor) < threshold || blue(acolor) < threshold){
+        append(this.imgcolors, acolor);
+        c++;
+      }
+
     }
       attempt++;
   }

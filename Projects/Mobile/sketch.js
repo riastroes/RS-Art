@@ -4,8 +4,8 @@ var app;
 
 function setup() {
 
-    app = new App("Machines",800,800);
-    app.loadResources("metalcolors.jpg");
+    app = new App("Machines",windowWidth, windowHeight);
+    app.loadResources("spring.jpg");
     //frameRate(5);
 
 }
@@ -32,14 +32,27 @@ function draw() {
             }
             case 0:{
                 background(255);
-                app.project.construct();
+
+                app.project.construct(0);
                 app.runscene(0);
                 break;
             }
             case 1:{
                 background(255);
                 app.project.draw();
-                app.runscene(8000);
+                app.runscene(600);
+                break;
+            }
+            case 2:{
+                background(255);
+                app.project.construct(1);
+                app.runscene(0);
+                break;
+            }
+            case 3:{
+                background(255);
+                app.project.draw();
+                app.runscene(600);
                 break;
             }
 

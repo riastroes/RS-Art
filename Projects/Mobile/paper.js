@@ -11,9 +11,9 @@ Paper.prototype.style = function(nr, index){
       break;
 
     case 1:
-    
-    this.strokecolor = app.pal.tint(color(index % 360,100,100),10);
-    this.fillcolor = app.pal.tint(color(index % 360,100,100),3);
+
+    this.strokecolor = color(abs(index) % 360,100,100,10);
+    this.fillcolor = color(abs(index) % 360,50,100,3);
     this.thickness = 1;
       break;
     }

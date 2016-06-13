@@ -18,7 +18,7 @@ function draw() {
           app.project = new Project();
           app.pal = new Palette(2);
           app.pal.fromImage(app.images[0],10);
-          app.scene = 10;
+          app.scene = -1;
 
           frameRate(10);
         }
@@ -135,7 +135,7 @@ function draw() {
         }
 
         app.info.show();
-        app.gifmaker.check(10, 80, false);
+        app.gifmaker.check(1, 50, false);
 
 
     }

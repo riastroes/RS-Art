@@ -58,6 +58,14 @@ Mobile.prototype.draw = function(nr){
       this.mobile[0].draw2();
       break;
     }
+    case 3:{
+      this.style(app.pal, 0);
+      line(width/2,0, (width/2), 50);
+      for(var i = 0; i< this.mobile.length; i++){
+        this.mobile[i].draw3();
+      }
+      break;
+    }
 
 
   }

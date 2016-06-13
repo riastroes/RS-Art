@@ -112,6 +112,19 @@ Rod.prototype.style = function(pal, nr, index){
       this.thickness = 1;
       break;
     }
+    case 5:{
+      this.strokecolor = app.pal.tint(app.pal.imgcolors[0], 40);
+      this.fillcolor = app.pal.tint(app.pal.imgcolors[0], 3);
+      this.thickness = 1;
+      break;
+    }
+    case 6:{
+
+      this.strokecolor = app.pal.tint(color(index % 360,100,100),10);
+      this.fillcolor = app.pal.tint(color(index % 360,100,100),3);
+      this.thickness = 1;
+      break;
+    }
   }
   app.style.set(this.strokecolor, this.fillcolor, this.thickness);
 
@@ -185,25 +198,62 @@ Rod.prototype.draw1 = function(){
 
     line(this.left.x, this.left.y,this.left.x, this.left.y+50);
     line(this.right.x, this.right.y,this.right.x, this.right.y+50);
-    this.style(app.pal, 4, 0);
+    this.style(app.pal, 5, 0);
     this.change();
-    //ellipse(this.left.x , this.left.y +50 +(this.lmass),this.lmass*2,this.lmass*2);
+    ellipse(this.left.x , this.left.y +50 +(this.lmass),this.lmass*2,this.lmass*2);
 
     app.project.paper.pg.ellipse(this.left.x, this.left.y+50+(this.rmass), this.lmass*2, this.lmass*2);
-    this.style(app.pal, 4, 0);
-    //ellipse(this.right.x, this.right.y+50+(this.rmass),this.rmass*2, this.rmass*2);
+    this.style(app.pal, 5, 0);
+    ellipse(this.right.x, this.right.y+50+(this.rmass),this.rmass*2, this.rmass*2);
     app.project.paper.pg.ellipse(this.right.x ,  this.right.y+50+(this.rmass)  , this.rmass*2, this.rmass*2);
   }
 
   for(var c =0; c< this.children.length; c++){
-    this.children[c].draw()
+    this.children[c].draw1()
   }
   app.project.paper.pg.pop();
   pop();
 
 
 }
+Rod.prototype.draw3 = function(){
+  this.style(app.pal, 0,this.level+1);
 
+  push();
+  app.project.paper.pg.push()
+  app.project.paper.pg.translate(this.connect.x, this.connect.y);
+  translate(this.connect.x, this.connect.y);
+
+  if(this.level == 0){
+   this.rot += map(sin(this.a),-1,1, -0.1, 0.1);
+   this.a += 0.01;
+   this.rotate(this.rot);
+   if(this.rot> TWO_PI){ this.rot = 0;}
+  }
+  curve(this.lcontrol.x, this.lcontrol.y, this.left.x, this.left.y, this.right.x, this.right.y,  this.rcontrol.x, this.rcontrol.y);
+  if(this.level == 0){
+
+    line(this.left.x, this.left.y,this.left.x, this.left.y+50);
+    line(this.right.x, this.right.y,this.right.x, this.right.y+50);
+    this.style(app.pal, 6, floor(this.rot *100));
+    this.change();
+    ellipse(this.left.x , this.left.y +50 +(this.lmass),this.lmass*2,this.lmass*2);
+    app.project.paper.style(1, floor(this.rot *100));
+    app.project.paper.pg.ellipse(this.left.x, this.left.y+50+(this.rmass), this.lmass*2, this.lmass*2);
+    this.style(app.pal, 6, floor(this.rot * 100));
+    ellipse(this.right.x, this.right.y+50+(this.rmass),this.rmass*2, this.rmass*2);
+
+    app.project.paper.pg.ellipse(this.right.x ,  this.right.y+50+(this.rmass)  , this.rmass*2, this.rmass*2);
+  }
+
+  for(var c =0; c< this.children.length; c++){
+    this.children[c].draw3()
+  }
+  app.project.paper.pg.pop();
+  pop();
+
+
+}
 Rod.prototype.draw2 = function(){
 
   push();

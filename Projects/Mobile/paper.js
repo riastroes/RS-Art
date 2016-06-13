@@ -2,12 +2,19 @@ function Paper(){
   this.pg = createGraphics(width, height);
   this.style(0);
 }
-Paper.prototype.style = function(nr){
+Paper.prototype.style = function(nr, index){
   switch (nr) {
     case 0:
       this.strokecolor = app.pal.tint(app.pal.imgcolors[0], 40);
       this.fillcolor = app.pal.tint(app.pal.imgcolors[0], 3);
       this.thickness = 1;
+      break;
+
+    case 1:
+    
+    this.strokecolor = app.pal.tint(color(index % 360,100,100),10);
+    this.fillcolor = app.pal.tint(color(index % 360,100,100),3);
+    this.thickness = 1;
       break;
     }
   app.style.pg(this.pg, this.strokecolor, this.fillcolor, this.thickness);

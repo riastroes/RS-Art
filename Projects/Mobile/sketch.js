@@ -18,7 +18,7 @@ function draw() {
           app.project = new Project();
           app.pal = new Palette(2);
           app.pal.fromImage(app.images[0],10);
-          app.scene = -1;
+          app.scene = 10;
 
           frameRate(10);
         }
@@ -106,6 +106,20 @@ function draw() {
                 background(255);
                 app.project.update();
                 app.project.draw(4);
+                app.runscene(200);
+                break;
+            }
+            // case 10:{
+            //   //blowing waterbubbles
+            //     background(255);
+            //     app.project.construct(2);
+            //     app.runscene(0);
+            //     break;
+            // }
+            case 12:{
+                background(255);
+                app.project.update();
+                app.project.draw(6);
                 app.runscene(500);
                 break;
             }

@@ -81,6 +81,14 @@ Project.prototype.draw = function(nr){
       this.mobile.draw();
       break;
     }
+    case 6:{
+      this.paper.pg.colorMode(HSB,360,100,100);
+      colorMode(HSB,360,100,100);
+
+      this.paper.draw();
+      this.mobile.draw(3);
+      break;
+    }
   }
 
 }

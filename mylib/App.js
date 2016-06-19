@@ -262,13 +262,18 @@ App.prototype.runscene = function(framecounts){
         this.runcount -= 1;
     }
     if(this.runcount == 0){
-        this.scene++;
-        this.isrunning = false;
+      this.scene++;
+      this.isrunning = false;
     }
 };
-App.prototype.wait = function(framecounts){
+App.prototype.wait = function(framecounts, nextscene){
     if(framecounts > 0) {
-        this.lastscene = this.scene;
+        if(app.is(nextscene)){
+          this.lastscene = nextscene -1;
+        }
+        else{
+          this.lastscene = this.scene;
+        }
         this.scene = 99999;
         this.runcount =framecounts;
         this.isrunning  = true;
@@ -277,6 +282,7 @@ App.prototype.wait = function(framecounts){
         this.runscene();
         if(this.scene >99999){
             this.scene = this.lastscene + 1;
+
         }
 
     }
@@ -351,6 +357,77 @@ App.prototype.posOnLine = function(begin, end, maxsteps, step) {
     return s;
 
 };
+App.prototype.isPosOnLine = function(pos, a, b){
+  var isonline = false;
+  //lijnstuk ab
+  var AB = p5.Vector.sub(b, a);
+  var AP = p5.Vector.sub(pos, a);
+  if(AP.x >= p5.Vector.mult(AB,0).x && AP.x <= p5.Vector.mult(AB,1).x){
+    if(AP.y >= p5.Vector.mult(AB,0).y && AP.y <= p5.Vector.mult(AB,1).y){
+      isonline = true;
+    }
+  }
+  return isonline;
+}
+App.prototype.isPosOnLine2 = function(pos, a, b){
+  var is = false;
+  var isonline = false;
+  // var v, c;
+  // a.y = v * a.x + c;
+  // b.y = v * b.x + c;
+  // pos.y = v * pos.x + c;
+  //
+  // a.y - (v * a.x) = c;
+  // b.y = ( v * b.x ) + a.y - (v * a.x);
+  // b.y - a.y = (v * b.x) - ( v * a.x);
+  // b.y - a.y = v * ( b.x - a.x)
+  // ((b.y - a.y) /(b.x - a.x )) = v;
+
+  if(a.x != b.x){
+
+    if(pos.y == (((b.y - a.y) /(b.x - a.x ))* pos.x) + a.y - (((b.y - a.y) /(b.x - a.x ))  * a.x)){
+      is = true;
+    }
+  }
+  else{
+    if(pos.x == a.x){
+      is = true;
+    }
+  }
+  if(is){
+    if(a.mag() <= pos.mag() && pos.mag() <= b.mag()){
+      isonline = true;
+    }
+    if(b.mag() <= pos.mag() && pos.mag() <= a.mag()){
+      isonline = true;
+    }
+
+
+
+    // if(a.x <= b.x && a.y <= b.y){
+    //   if(pos.x >= a.x && pos.x <= b.x  && pos.y >= a.y && pos.y <= b.y){
+    //     isonline = true;
+    //   }
+    // }
+    // else if(b.x <= a.x && b.y <= a.y){
+    //   if(pos.x >= b.x && pos.x <= a.x  && pos.y >= b.y && pos.y <= a.y){
+    //     isonline = true;
+    //   }
+    // }
+    // else if(b.x <= a.x && a.y <= b.y){
+    //   if(pos.x >= b.x && pos.x <= a.x  && pos.y >= a.y && pos.y <= b.y){
+    //     isonline = true;
+    //   }
+    // }
+    // else if(a.x <= b.x && b.y <= a.y){
+    //   if(pos.x >= a.x && pos.x <= b.x  && pos.y >= b.y && pos.y <= a.y){
+    //     isonline = true;
+    //   }
+    // }
+  }
+
+  return isonline;
+}
 App.prototype.posInCircle = function(pos, center, radius) {
     var incircle = false;
     if (dist(pos.x, pos.y, center.x, center.y) < radius) {

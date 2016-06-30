@@ -18,14 +18,14 @@ Project.prototype.style = function(nr){
   }
 
 };
-Project.prototype.showText = function(msg){
+Project.prototype.showText = function(){
   this.style(0);
-  text(msg,50,50);
+  text(this.text,50,50);
 }
 Project.prototype.create = function(nr){
   switch(nr){
     case 0:{
-      this.showText("create space");
+      this.text ="create space";
       this.coll = new SpaceCollection();
       this.coll.addSpace();
       this.coll.spaces[0].add(0,200,100);
@@ -36,7 +36,7 @@ Project.prototype.create = function(nr){
       break;
     }
     case 1:{
-      this.showText("crossing lines");
+      this.text ="crossing lines";
       this.lines = new Lines();
       for(var i = 0; i < 100; i++){
         this.lines.add(random(-1,1), random(width));
@@ -46,7 +46,7 @@ Project.prototype.create = function(nr){
       break;
     }
     case 2:{
-      this.showText("crossing lines");
+      this.text ="crossing lines";
       this.lines = new Lines();
       // for(var i = 0; i < 10; i++){
       //   this.lines.add(random(-1,1), random(width));
@@ -54,7 +54,7 @@ Project.prototype.create = function(nr){
       break;
     }
     case 3:{
-      this.showText("crossing lines");
+      this.text ="crossing lines";
       this.lines.long(random(-1,1), random(width));
 
       this.lines.isCrossing(this.lines.def.length-1);
@@ -62,7 +62,7 @@ Project.prototype.create = function(nr){
       break;
     }
     case 4:{
-      this.showText("is pos on line");
+      this.text ="is pos on line";
       var a = createVector(400,300);
       var b = createVector(300,100);
       var p = createVector(400,210);
@@ -80,7 +80,7 @@ Project.prototype.create = function(nr){
 
     }
     case 5:{
-      this.showText("crossing lines");
+      this.text ="crossing lines";
       this.lines = new Lines();
       this.lines.add(0.5, 100);
       this.lines.add(-0.5, 200);
@@ -99,7 +99,7 @@ Project.prototype.draw = function(nr){
 
   switch(nr){
     case 0:{
-      this.showText(0);
+      this.showText();
       this.coll.spaces[0].change(3,1,0);
       this.coll.spaces[0].change(2,0,1);
       this.coll.spaces[0].change(1,-1,1);
@@ -109,7 +109,7 @@ Project.prototype.draw = function(nr){
     }
     case 1:{
 
-      this.showText(2);
+      this.showText();
       this.lines.draw();
       //this.lines.drawLine(0);
       this.lines.drawCrossings();

@@ -357,6 +357,7 @@ App.prototype.posOnLine = function(begin, end, maxsteps, step) {
     return s;
 
 };
+
 App.prototype.isPosOnLine = function(pos, a, b){
   var isonline = false;
   var AB, AP
@@ -369,10 +370,32 @@ App.prototype.isPosOnLine = function(pos, a, b){
       AB = p5.Vector.sub(a, b);
       AP = p5.Vector.sub(a, pos);
   }
-
-  if(AP.x >= p5.Vector.mult(AB,0).x && AP.x <= p5.Vector.mult(AB,1).x){
-    if(AP.y >= p5.Vector.mult(AB,0).y && AP.y <= p5.Vector.mult(AB,1).y){
-      isonline = true;
+  if(AP.x > 0){
+    if(AP.x >= p5.Vector.mult(AB,0).x && AP.x <= p5.Vector.mult(AB,1).x){
+      if(AP.y > 0){
+        if(AP.y >= p5.Vector.mult(AB,0).y && AP.y <= p5.Vector.mult(AB,1).y){
+          isonline = true;
+        }
+      }
+      else{
+        if(AP.y <= p5.Vector.mult(AB,0).y && AP.y >= p5.Vector.mult(AB,1).y){
+          isonline = true;
+        }
+      }
+    }
+  }
+  else{
+    if(AP.x <= p5.Vector.mult(AB,0).x && AP.x >= p5.Vector.mult(AB,1).x){
+      if(AP.y > 0){
+        if(AP.y >= p5.Vector.mult(AB,0).y && AP.y <= p5.Vector.mult(AB,1).y){
+          isonline = true;
+        }
+      }
+      else{
+        if(AP.y <= p5.Vector.mult(AB,0).y && AP.y >= p5.Vector.mult(AB,1).y){
+          isonline = true;
+        }
+      }
     }
   }
   return isonline;

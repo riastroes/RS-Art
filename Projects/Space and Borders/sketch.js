@@ -83,9 +83,10 @@ function draw() {
                 }
                 case 7:{
                      //create crossing lines
-                     background(255);
+                     background(color(200,200,255));
                      app.project.create(4);
-                      app.wait(50);
+                     app.project.draw(1);
+                      app.wait(150);
                       break;
                     }
 

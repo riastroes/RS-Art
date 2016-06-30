@@ -63,17 +63,19 @@ Project.prototype.create = function(nr){
     }
     case 4:{
       this.showText("is pos on line");
-      var a = createVector(200,310);
-      var b = createVector(400,310);
-      var p = createVector(200,210);
+      var a = createVector(400,300);
+      var b = createVector(300,100);
+      var p = createVector(400,210);
       line(a.x, a.y, b.x, b.y);
       if(app.isPosOnLine(p,a,b)){
 
         fill(color(255,0,0));
         ellipse(p.x, p.y, 10,10);
       }
-      fill(255);
-      ellipse(p.x, p.y, 10,10);
+      else{
+        fill(255);
+        ellipse(p.x, p.y, 10,10);
+      }
       break;
 
     }
@@ -85,6 +87,7 @@ Project.prototype.create = function(nr){
 
       this.lines.isCrossing(this.lines.def.length-1);
       this.lines.doublecross();
+
       break;
     }
 

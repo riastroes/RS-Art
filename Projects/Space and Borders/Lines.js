@@ -77,6 +77,7 @@ Lines.prototype.isCrossing = function(defline){
           var pos = createVector(0,0);
           pos.x = (this.def[j].y - this.def[i].y) / (this.def[i].x - this.def[j].x) ;
           pos.y = (this.def[i].x * pos.x) + this.def[i].y;
+           this.style(0);
            ellipse(pos.x, pos.y, 5,5);
           if(app.isPosOnLine(pos, createVector(this.x[(i*2)],this.y[(i*2)]), createVector(this.x[(i*2)+1],this.y[(i*2)+1]))){
               append(this.crossing, pos);

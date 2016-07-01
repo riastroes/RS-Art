@@ -32,64 +32,48 @@ Project.prototype.create = function(nr){
       this.coll.spaces[0].add(1,200,200);
       this.coll.spaces[0].add(2,300,200);
       this.coll.spaces[0].add(3,300,100);
+      this.lines = [];
+
+
 
       break;
     }
     case 1:{
       this.text ="crossing lines";
-      this.lines = new Lines();
-      for(var i = 0; i < 100; i++){
-        this.lines.add(random(-1,1), random(width));
+      var l = new Line(createVector(random(width),random(height)), createVector(random(width),random(height)));
+      for(var i = 0; i < this.lines.length; i++){
+
+        l.isCrossedAt(this.lines[i]);
       }
-      this.lines.cross();
-      this.lines.doublecross();
+      append(this.lines, l);
+
+
       break;
     }
     case 2:{
-      this.text ="crossing lines";
-      this.lines = new Lines();
-      // for(var i = 0; i < 10; i++){
-      //   this.lines.add(random(-1,1), random(width));
-      // }
+      this.lines = [];
       break;
     }
     case 3:{
-      this.text ="crossing lines";
-      this.lines.long(random(-1,1), random(width));
-
-      this.lines.isCrossing(this.lines.def.length-1);
-      this.lines.doublecross();
-      break;
-    }
-    case 4:{
-      this.text ="is pos on line";
-      var a = createVector(400,300);
-      var b = createVector(300,100);
-      var p = createVector(400,210);
-      line(a.x, a.y, b.x, b.y);
-      if(app.isPosOnLine(p,a,b)){
-
-        fill(color(255,0,0));
-        ellipse(p.x, p.y, 10,10);
+      this.text ="not crossing lines";
+      var crossing = false;
+      var l = new Line(createVector(random(width),random(height)), createVector(random(width),random(height)));
+      for(var i = 0; i < this.lines.length; i++){
+        if(!crossing){
+          crossing = l.isCrossedBy(this.lines[i]);
+        }
+        else{
+          break;
+        }
       }
-      else{
-        fill(255);
-        ellipse(p.x, p.y, 10,10);
+      if(!crossing){
+        append(this.lines, l);
       }
-      break;
 
-    }
-    case 5:{
-      this.text ="crossing lines";
-      this.lines = new Lines();
-      this.lines.add(0.5, 100);
-      this.lines.add(-0.5, 200);
-
-      this.lines.isCrossing(this.lines.def.length-1);
-      this.lines.doublecross();
 
       break;
     }
+
 
 
   }
@@ -105,15 +89,19 @@ Project.prototype.draw = function(nr){
       this.coll.spaces[0].change(1,-1,1);
       this.coll.spaces[0].change(0,0,3);
       this.coll.draw();
+
       break;
     }
     case 1:{
 
       this.showText();
-      this.lines.draw();
-      //this.lines.drawLine(0);
-      this.lines.drawCrossings();
-      this.lines.drawDoubleCrossings();
+      for(var i  in this.lines){
+        this.lines[i].draw();
+        for(var c in this.lines[i].crossings){
+          fill(0);
+          ellipse(this.lines[i].crossings[c].x, this.lines[i].crossings[c].y, 5,5);
+        }
+      }
 
 
       break;

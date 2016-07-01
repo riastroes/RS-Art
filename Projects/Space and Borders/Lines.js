@@ -58,16 +58,6 @@ Lines.prototype.long = function(a, c){
   }
 }
 
-Lines.prototype.short = function(a, b){
-
-  append(this.def, createDefLine(a,b));
-  //add two points
-  append(this.x, a.x);
-  append(this.y, a.y);
-  append(this.x, b.x);
-  append(this.y, b.y);
-
-}
 Lines.prototype.isCrossing = function(defline){
 
     var i = defline;
@@ -77,8 +67,7 @@ Lines.prototype.isCrossing = function(defline){
           var pos = createVector(0,0);
           pos.x = (this.def[j].y - this.def[i].y) / (this.def[i].x - this.def[j].x) ;
           pos.y = (this.def[i].x * pos.x) + this.def[i].y;
-           this.style(0);
-           ellipse(pos.x, pos.y, 5,5);
+
           if(app.isPosOnLine(pos, createVector(this.x[(i*2)],this.y[(i*2)]), createVector(this.x[(i*2)+1],this.y[(i*2)+1]))){
               append(this.crossing, pos);
             if(app.isPosOnLine(pos, createVector(this.x[(j*2)],this.y[(j*2)]), createVector(this.x[(j*2)+1],this.y[(j*2)+1]))){
@@ -178,4 +167,55 @@ Lines.prototype.drawDoubleCrossings = function(){
   for(var i = 0; i < this.doublecrossing.length; i++){
     ellipse(this.doublecrossing[i].x, this.doublecrossing[i].y, 10,10);
   }
+}
+/********** LINE *********/
+function Line (A, B){
+  this.A = A.copy();
+  this.B = B.copy();
+  this.crossings = [];
+  this.style(0);
+}
+Line.prototype.style = function(nr){
+
+    switch(nr){
+      case 0:
+        this.strokecolor = app.pal.colors[0];
+        this.fillcolor = false;
+        this.thickness = 1;
+        break
+      case 1:
+        this.strokecolor = app.pal.colors[0];
+        this.fillcolor = app.pal.imgcolors[0];
+        this.thickness = 1;
+        break;
+      case 2:
+        this.strokecolor = app.pal.imgcolors[0];
+        this.fillcolor = false;
+        this.thickness = 1;
+        break;
+    }
+
+};
+Line.prototype.isCrossedBy= function( aline ){
+  var iscrossed = false;
+  var AB = p5.Vector.sub(this.B, this.A);
+  var CD = p5.Vector.sub(aline.B, aline.A);
+  var pos = app.findIntersection(this.A, this.B, aline.A, aline.B);
+
+  if(pos != false){
+      iscrossed = true;
+  }
+  return iscrossed;
+}
+Line.prototype.isCrossedAt = function( aline ){
+
+  var pos = app.findIntersection(this.A, this.B, aline.A, aline.B);
+  if(pos != false){
+    append(this.crossings, pos);
+  }
+}
+Line.prototype.draw = function(){
+  app.style.set(this.strokecolor, this.fillcolor, this.thickness);
+  line(this.A.x, this.A.y, this.B.x, this.B.y);
+
 }

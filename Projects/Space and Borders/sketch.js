@@ -41,64 +41,44 @@ function draw() {
                //
                 background(255);
                 app.project.draw(0);
-                app.runscene(50);
+                app.wait(100);
                 break;
               }
               case 2:{
-                 //create crossing lines
+                 //create 10 lines
                  background(255);
                  app.project.create(1);
-                  app.runscene(0);
+                  app.runscene(99);
                   break;
                 }
 
-              case 3:{
-                 //
-                  //background(255);
+            case 3:{
+                 //draw lines
                   app.project.draw(1);
-                  app.wait(50);
+                  app.wait(200);
                   break;
                 }
-              case 4:{
-                 //create crossing lines
+            case 4:{
+               //create 100 not crossing lines
+               background(255);
+               app.project.create(2);
+                app.runscene(0);
+                break;
+              }
+            case 5:{
+                 //create 100 not crossing lines
                  background(255);
-                 app.project.create(2);
-                  app.runscene(0);
+                 app.project.create(3);
+                  app.runscene(199);
                   break;
                 }
-              case 5:{
-                   //create crossing lines
-                   background(255);
-                   app.project.create(3);
-                    app.runscene(0);
-                    break;
-                  }
+            case 6:{
+               //draw lines
+                app.project.draw(1);
+                app.wait(5000);
+                break;
+              }
 
-              case 6:{
-                  //
-                  background(255);
-                  app.project.draw(1);
-                  app.wait(100);
-                  break;
-                }
-                case 7:{
-                     //create crossing lines
-                     background(color(200,200,255));
-                     app.project.create(4);
-                     app.project.draw(1);
-                      app.wait(150);
-                      break;
-                    }
-
-                case 8:{
-                    //
-                    background(255);
-                    app.project.create(5);
-
-                    app.project.draw(1);
-                    app.wait(100, 8);
-                    break;
-                  }
             default:{
                 //wait
                 app.wait();

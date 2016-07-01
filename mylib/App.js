@@ -473,6 +473,56 @@ App.prototype.posInRect = function(pos, x, y, rectwidth, rectheight) {
     }
     return inrect;
 }
+App.prototype.findCircleLineIntersections = function(center, radius, slope, constant) {
+
+    // r: circle radius
+    // center: circle centre
+    // slope: slope of the line (y = slope * x + constant)
+
+
+    // get a, b, c values
+    var a = 1 + sq(slope);
+    var b = -center.x * 2 + (slope * (constant - center.y)) * 2;
+    var c = sq(center.x) + sq(constant - center.y) - sq(radius);
+
+    // get discriminant
+    var d = sq(b) - 4 * a * c;
+    if (d >= 0) {
+        // insert into quadratic formula
+        var intersections = [
+            (-b + sqrt(sq(b) - 4 * a * c)) / (2 * a),
+            (-b - sqrt(sq(b) - 4 * a * c)) / (2 * a)
+        ];
+        if (d == 0) {
+            // only 1 intersection
+            return [intersections[0]];
+        }
+        return intersections;
+    }
+    // no intersection
+    return [];
+}
+App.prototype.findIntersection = function(vA, vB, vC, vD){
+  var a = [vA.x,vA.y];
+  var b = [vB.x,vB.y];
+  var c = [vC.x,vC.y];
+  var d = [vD.x,vD.y];
+  var intersection = math.intersect(a,b,c,d);
+  if(intersection != []){
+    var pos =  createVector(intersection[0], intersection[1]);
+    if(this.isPosOnLine(pos, vA,vB) && this.isPosOnLine(pos, vC,vD)){
+      return pos;
+    }
+    else{
+      return false;
+    }
+  }
+  else{
+    return false;
+  }
+
+
+}
 App.prototype.sortVectors= function(vectors, newvectors) {
 
     newvectors = [];

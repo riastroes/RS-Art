@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("TEMPLATE",540,540);
+    app = new App("Crossing Lines",540,540);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("mooiekleuren.jpg");
@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = -1;
+        app.scene = 10;
       }
       else{
         switch(app.scene) {
@@ -75,7 +75,43 @@ function draw() {
             case 6:{
                //draw lines
                 app.project.draw(1);
-                app.wait(5000);
+                app.wait(200);
+                break;
+              }
+              case 7:{
+                 //create 600 not crossing short lines
+                 background(255);
+                 app.project.create(2);
+                  app.runscene(0);
+                  break;
+                }
+              case 8:{
+                   //create 1000 not crossing short lines
+                   background(255);
+                   app.project.create(4);
+                    app.runscene(999);
+                    break;
+                  }
+              case 9:{
+                 //draw lines
+                  app.project.draw(1);
+                  app.wait(100);
+                  break;
+                }
+              case 10:{
+                background(255);
+                app.project.create(5);
+                 app.runscene(0);
+                break;
+              }
+              case 11:{
+                app.project.create(6);
+                app.runscene(49);
+                break;
+              }
+              case 12:{
+                app.project.draw(1);
+                app.runscene(0);
                 break;
               }
 

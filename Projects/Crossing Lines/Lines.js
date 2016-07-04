@@ -172,7 +172,7 @@ Lines.prototype.drawDoubleCrossings = function(){
 function Line (A, B){
   this.A = A.copy();
   this.B = B.copy();
-  this.crossings = [];
+  this.crossing = [];
   this.style(0);
 }
 Line.prototype.style = function(nr){
@@ -211,7 +211,7 @@ Line.prototype.isCrossedAt = function( aline ){
 
   var pos = app.findIntersection(this.A, this.B, aline.A, aline.B);
   if(pos != false){
-    append(this.crossings, pos);
+    append(this.crossing, pos);
   }
 }
 Line.prototype.draw = function(){

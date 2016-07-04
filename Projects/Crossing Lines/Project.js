@@ -73,8 +73,46 @@ Project.prototype.create = function(nr){
 
       break;
     }
+    case 4:{
+      this.text ="not crossing short lines";
+      var crossing = false;
+      var x = random(width);
+      var y = random(height);
+      var l = new Line(createVector(x,y), createVector(x + random(-100,100),y + random(-100,100)));
+      for(var i = 0; i < this.lines.length; i++){
+        if(!crossing){
+          crossing = l.isCrossedBy(this.lines[i]);
+        }
+        else{
+          break;
+        }
+      }
+      if(!crossing){
+        append(this.lines, l);
+      }
 
 
+      break;
+    }
+    case 5:{
+      this.text = "lines between lines";
+      this.lines =[];
+      this.line1 = new Line(createVector(0, random(height)), createVector(width, random(height)));
+      this.line2 = new Line(createVector(0, random(height)), createVector(width, random(height)));
+      this.t = 0
+
+      break;
+    }
+    case 6:{
+      var pos1 = app.posOnLine(this.line1.A, this.line1.B, 150, this.t);
+      var pos2 = app.posOnLine(this.line2.A, this.line2.B, 50, this.t);
+      var line = new Line(pos1, pos2);
+      append(this.lines, line);
+      //append(line.crossing,pos1);
+      append(line.crossing,pos2);
+
+      this.t += 1;
+    }
 
   }
 }
@@ -97,9 +135,9 @@ Project.prototype.draw = function(nr){
       this.showText();
       for(var i  in this.lines){
         this.lines[i].draw();
-        for(var c in this.lines[i].crossings){
+        for(var c in this.lines[i].crossing){
           fill(0);
-          ellipse(this.lines[i].crossings[c].x, this.lines[i].crossings[c].y, 5,5);
+          ellipse(this.lines[i].crossing[c].x, this.lines[i].crossing[c].y, 5,5);
         }
       }
 

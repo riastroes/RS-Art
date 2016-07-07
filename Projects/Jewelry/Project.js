@@ -4,6 +4,7 @@
  "use strict";
 function Project(){
   this.text = "new project";
+
   this.init();
 };
 
@@ -26,18 +27,20 @@ Project.prototype.style = function(nr){
     }
 };
 Project.prototype.showText = function(){
-  this.style(0);
-  text(this.text,60,50);
+  //this.style(0);
+  //text(this.text,50,50);
 }
 
 Project.prototype.init = function(){
-
+  this.style(0);
+  this.text = "Jewel";
+  this.jewel = new Jewel(0, 250);
 }
 Project.prototype.draw = function(nr){
   this.showText();
   switch(nr){
     case 0:{
-
+      this.jewel.draw(0);
       break;
     }
   }

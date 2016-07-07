@@ -4,10 +4,10 @@ var app;
 
 function setup() {
 
-    app = new App("TEMPLATE",800,800,WEBGL);
+    app = new App("3D",800,800,WEBGL);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
-    app.loadResources("signature.png, noc0.jpg,IMG_1900.jpg");
+    app.loadResources("signature.png, nocc0.jpg,IMG_1900.jpg");
 }
 
 function draw() {
@@ -18,7 +18,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 0;
+        app.scene = 5;
       }
       else{
         switch(app.scene) {
@@ -54,6 +54,13 @@ function draw() {
                background(255);
                 app.project.draw(4);
                 app.runscene(300);
+                break;
+              }
+          case 5:{
+               //torus with image
+               background(255);
+                app.project.draw(5);
+                app.wait(0,5);
                 break;
               }
             default:{

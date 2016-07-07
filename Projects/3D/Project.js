@@ -20,7 +20,7 @@ Project.prototype.style = function(nr){
 
 };
 Project.prototype.init = function(){
-
+  this.jewel = new Jewel(0,300);
 }
 Project.prototype.draw = function(nr){
   switch(nr){
@@ -228,6 +228,10 @@ Project.prototype.draw = function(nr){
       texture(app.images[2]);
       torus(200,100);
       pop();
+      break;
+    }
+    case 5:{
+      this.jewel.draw(0);
       break;
     }
   }

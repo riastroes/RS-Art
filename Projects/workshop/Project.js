@@ -37,7 +37,12 @@ Project.prototype.draw = function(nr){
   this.showText();
   switch(nr){
     case 0:{
-
+      if (prediction) {
+          var x = mouseX;
+          var y = mouseY;
+          this.style(0);
+          ellipse(x,y, 50,50);
+      }
       break;
     }
   }

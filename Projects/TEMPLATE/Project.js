@@ -9,21 +9,27 @@ function Project(){
 
 Project.prototype.style = function(nr){
 
-    if(nr == 1){
-      this.strokecolor = app.pal.colors[0];
-      this.fillcolor = app.pal.colors[1];
-      this.thickness = 1;
-    }
-    if(nr == 2){
-      this.strokecolor = app.pal.colors[1];
-      this.fillcolor = app.pal.colors[0];
-      this.thickness = 1;
-    }
-    if(nr == 3){
-      this.strokecolor = app.pal.colors[1];
-      this.fillcolor = app.pal.randomImgColor;
-      this.thickness = 1;
-    }
+  switch(nr){
+    case 0:
+    this.strokecolor = app.pal.colors[0];
+    this.fillcolor = app.pal.colors[1];
+    this.thickness = 1;
+    break;
+    case 1:
+    this.strokecolor = app.pal.colors[1];
+    this.fillcolor = app.pal.colors[0];
+    this.thickness = 1;
+    break;
+    case 2:
+    this.strokecolor = app.pal.colors[0];
+    this.fillcolor = app.pal.randomImgColor();
+    this.thickness = 1;
+    break;
+
+  }
+
+  app.style.set(this.strokecolor, this.fillcolor, this.thickness);
+
 };
 Project.prototype.showText = function(){
   this.style(0);

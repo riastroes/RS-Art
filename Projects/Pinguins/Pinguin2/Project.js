@@ -3,7 +3,7 @@
  */
  "use strict";
 function Project(){
-  this.text = "Pinguin";
+  this.text = "Pinguins";
   this.init();
 };
 
@@ -27,29 +27,44 @@ Project.prototype.style = function(nr){
 };
 Project.prototype.showText = function(){
   this.style(0);
-  text(this.text,60,50);
+  text(this.text,40,50);
 }
 
 Project.prototype.init = function(){
-  this.pinguin = new Pinguin();
-  this.pinguin.target = createVector(random(width), random(height));
-  this.pinguin.walk();
+  this.pinguins=[];
+
 }
-Project.prototype.update = function(){
-  var d = abs(dist(this.pinguin.target.x, this.pinguin.target.y, this.pinguin.pos.x, this.pinguin.pos.y));
-  if(d < 30)
-  {
-    this.pinguin.walk();
+Project.prototype.update = function(count){
+  var p;
+  this.pinguins=[];
+  for(var i = 0; i < count; i++){
+    append(this.pinguins,new Pinguin());
+
   }
-  this.pinguin.update();
+ var w = width/(this.pinguins.length)
+  for(var i = 0; i < this.pinguins.length; i++){
+    p = createVector(-(w/2)+(w* (i+1)),height/2);
+    this.pinguins[i].update(p);
+  }
+
 
 }
 Project.prototype.draw = function(nr){
   this.showText();
+  var w = width/(this.pinguins.length);
+  if(frameCount % 50 ==2){
+    var i = app.randomInt(3);
+    var p = createVector(-(w/2)+(w* (i+1)),height/2);
+    this.pinguins[i].update(p);
+    //this.pinguins[i].head.rot += 1;
+  }
   switch(nr){
     case 0:{
 
-      this.pinguin.draw();
+      for(var i = 0; i < this.pinguins.length; i++){
+        this.pinguins[i].draw();
+      }
+
       break;
     }
   }

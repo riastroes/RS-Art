@@ -4,10 +4,10 @@ var app;
 
 function setup() {
 
-    app = new App("TEMPLATE",540,540);
+    app = new App("Pinguins",540,540);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
-    app.loadResources("spring.jpg");
+    app.loadResources("coolcolors.jpg");
 }
 
 function draw() {

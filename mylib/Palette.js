@@ -85,6 +85,15 @@ Palette.prototype.init = function(nr){
     this.add(7, color('#b8ec76')); //green
     this.add(8, color('#304de6')); //blue
   }
+  else if(this.nr == 8){  //tulips
+    this.add(2, color('#c30808')); //reds
+    this.add(3, color('#f47171')); //orange
+    this.add(4, color('#dcf421')); //purple
+    this.add(5, color('#87CEFA')); //licht blauw
+    this.add(6, color('#113d04')); //green
+    this.add(7, color('#b8ec76')); //green
+    this.add(8, color('#304de6')); //blue
+  }
 };
 
 
@@ -170,6 +179,9 @@ Palette.prototype.randomRGBColor = function(colorgroup){
     }
     return acolor;
 };
+Palette.prototype.transparent = function(){
+  return color(0,0,0,100);
+}
 Palette.prototype.tint = function(acolor, percentage){
   var p = (255/100) * percentage;
   return color(red(acolor), green(acolor), blue(acolor), p );

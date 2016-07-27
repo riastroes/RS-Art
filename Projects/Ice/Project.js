@@ -3,7 +3,7 @@
  */
  "use strict";
 function Project(){
-  this.text = "new project";
+  this.text = "ICE";
   this.init();
 };
 
@@ -38,13 +38,24 @@ Project.prototype.showText = function(){
 }
 
 Project.prototype.init = function(){
-
+  this.iceblocks = [];
+  // for(var i = 0 ; i < 20; i++){
+  //   this.iceblocks[i] = new Ice();
+  //   this.iceblocks[i].createIce();
+  // }
 }
 Project.prototype.draw = function(nr){
   this.showText();
   switch(nr){
     case 0:{
-
+      if(frameCount % 10 == 0){
+        var iceblock = new Ice();
+        append(this.iceblocks,iceblock);
+        iceblock.createIce();
+      }
+      for(var i = 0 ; i < this.iceblocks.length; i++){
+        this.iceblocks[i].draw();
+      }
       break;
     }
   }

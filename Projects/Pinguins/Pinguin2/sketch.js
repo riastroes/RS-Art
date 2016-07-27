@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("Pinguins",windowWidth,540);
+    app = new App("Pinguins",800,500);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("coolcolors.jpg");
@@ -46,7 +46,7 @@ function draw() {
 
               case 2:{
                   background(app.pal.colors[5]);
-                  app.project.update(14);
+                  app.project.update(7);
                   app.runscene(0);
                   break;
                 }

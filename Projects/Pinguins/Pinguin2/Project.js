@@ -3,7 +3,7 @@
  */
  "use strict";
 function Project(){
-  this.text = "Pinguins";
+  this.text = "Pinguins by Ria Stroes";
   this.init();
 };
 
@@ -27,7 +27,7 @@ Project.prototype.style = function(nr){
 };
 Project.prototype.showText = function(){
   this.style(0);
-  text(this.text,40,50);
+  text(this.text,width-180,height-10);
 }
 
 Project.prototype.init = function(){
@@ -41,9 +41,9 @@ Project.prototype.update = function(count){
     append(this.pinguins,new Pinguin());
 
   }
- var w = width/(this.pinguins.length)
+ var w =  (width-200)/(this.pinguins.length)
   for(var i = 0; i < this.pinguins.length; i++){
-    p = createVector(-(w/2)+(w* (i+1)),height/2);
+    p = createVector(100+(w/2)+(w*i),height/2);
     this.pinguins[i].update(p);
   }
 
@@ -51,10 +51,10 @@ Project.prototype.update = function(count){
 }
 Project.prototype.draw = function(nr){
   this.showText();
-  var w = width/(this.pinguins.length);
+  var w = (width-200)/(this.pinguins.length);
   if(frameCount % 50 ==2){
     var i = app.randomInt(3);
-    var p = createVector(-(w/2)+(w* (i+1)),height/2);
+    var p = createVector(100 +(w/2) +(w* i),height/2);
     this.pinguins[i].update(p);
     //this.pinguins[i].head.rot += 1;
   }

@@ -27,45 +27,58 @@ Project.prototype.style = function(nr){
 };
 Project.prototype.showText = function(){
   this.style(0);
-  text(this.text,width-180,height-10);
+  text(this.text,width-150,height-10);
 }
 
 Project.prototype.init = function(){
   this.pinguins=[];
 
 }
-Project.prototype.update = function(count){
+Project.prototype.update = function(nr, count){
   var p;
-  this.pinguins=[];
-  for(var i = 0; i < count; i++){
-    append(this.pinguins,new Pinguin());
+  switch(nr){
+    case 0:{
+      this.pinguins=[];
+      for(var i = 0; i < count; i++){
+        append(this.pinguins,new Pinguin());
+      }
+      var w =  (width-200)/(this.pinguins.length)
+      for(var i = 0; i < this.pinguins.length; i++){
+        p = createVector(100+(w/2)+(w*i),height/2);
+        this.pinguins[i].update(nr, p);
+      }
+      break;
+    }
+    case 1:{
+      this.pinguins=[];
+      for(var i = 0; i < count; i++){
+        append(this.pinguins,new Pinguin());
+      }
+      var w =  (width-200)/(this.pinguins.length)
+      for(var i = 0; i < this.pinguins.length; i++){
+        p = createVector(100+(w/2)+(w*i),height/2);
+        this.pinguins[i].update(nr, p);
+      }
 
-  }
- var w =  (width-200)/(this.pinguins.length)
-  for(var i = 0; i < this.pinguins.length; i++){
-    p = createVector(100+(w/2)+(w*i),height/2);
-    this.pinguins[i].update(p);
-  }
+      break;
+    }
 
+}
 
 }
 Project.prototype.draw = function(nr){
   this.showText();
   var w = (width-200)/(this.pinguins.length);
+  var r = map(noise(frameCount/100),0,1,-1,3);
   if(frameCount % 50 ==2){
-    var i = app.randomInt(3);
+    var i = app.randomInt(this.pinguins.length-1);
     var p = createVector(100 +(w/2) +(w* i),height/2);
-    this.pinguins[i].update(p);
-    //this.pinguins[i].head.rot += 1;
+    this.pinguins[i].update(0, p);
+    this.pinguins[i].head.rot += r;
   }
-  switch(nr){
-    case 0:{
 
-      for(var i = 0; i < this.pinguins.length; i++){
-        this.pinguins[i].draw();
-      }
-
-      break;
+    for(var i = 0; i < this.pinguins.length; i++){
+      this.pinguins[i].draw();
     }
-  }
+
 }

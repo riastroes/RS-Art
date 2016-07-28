@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("Pinguins",800,500);
+    app = new App("Pinguins",540,500);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("coolcolors.jpg");
@@ -33,24 +33,37 @@ function draw() {
             }
             case 0:{
                 background(app.pal.colors[5]);
-                app.project.update(4);
-                app.runscene(0);
+                app.project.update(1,1);
+                app.runscene(1);
                 break;
               }
             case 1:{
                 background(app.pal.colors[5]);
                 app.project.draw(0);
-                app.runscene(500);
+                app.runscene(1000);
                 break;
               }
 
-              case 2:{
+            case 2:{
+                background(app.pal.colors[5]);
+                app.project.update(0,4);
+                app.runscene(0);
+                break;
+              }
+            case 3:{
+                background(app.pal.colors[5]);
+                app.project.draw(0);
+                app.runscene(1000);
+                break;
+              }
+
+              case 4:{
                   background(app.pal.colors[5]);
-                  app.project.update(7);
+                  app.project.update(0,5);
                   app.runscene(0);
                   break;
                 }
-              case 3:{
+              case 5:{
                   background(app.pal.colors[5]);
                   app.project.draw(0);
                   app.runscene(5000);

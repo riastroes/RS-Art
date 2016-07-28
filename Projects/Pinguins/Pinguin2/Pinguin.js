@@ -11,6 +11,8 @@ function Pinguin(){
   this.leftfeed = new Blobber();
   this.rightfeed = new Blobber();
 
+  this.size = random(0.5,1);
+
   this.style(1);
 }
 
@@ -44,14 +46,15 @@ Pinguin.prototype.style = function(nr){
 
 }
 
-Pinguin.prototype.update = function(pos){
+Pinguin.prototype.update = function(nr, pos){
 
   this.pos = pos.copy();
+
 
   this.wings.init(createVector(0,0),6,100,150,300,300);
   this.wings.rot = 0;
 
-  this.body.init(createVector(0,50),6,70,100,200,200);
+  this.body.init(createVector(0,50),6,70,100,200,250);
   this.body.rot = 0;
 
 
@@ -66,11 +69,28 @@ Pinguin.prototype.update = function(pos){
   this.eye.init(createVector(0,-160),5,10,20,10,10);
   this.eye.rot = 0;
 
-  this.leftfeed.init(createVector(-20,150),3,50,50,50,50);
-  this.leftfeed.rot = 0;
+  //FEED
+  if(nr == 0){
 
-  this.rightfeed.init(createVector(20,150),3,50,50,50,50);
-  this.rightfeed.rot = 0;
+    this.leftfeed.init(createVector(-20,150),3,50,50,50,50);
+    this.leftfeed.rot = 0;
+
+    this.rightfeed.init(createVector(20,150),3,50,50,50,50);
+    this.rightfeed.rot = 0;
+  }
+  if(nr == 1){
+    this.leftfeed.init(createVector(-20,150),3,50,50,50,50);
+    var w = random(30);
+    this.leftfeed.pos[0].x += w;
+    this.leftfeed.pos[1].x += w;
+    this.leftfeed.rot = 0;
+
+    this.rightfeed.init(createVector(20,150),3,50,50,50,50);
+    var w = random(30);
+    this.rightfeed.pos[0].x -= w;
+    this.rightfeed.pos[1].x -= w;
+    this.rightfeed.rot = 0;
+  }
 
 
 }
@@ -78,12 +98,14 @@ Pinguin.prototype.drawHead = function(){
   this.style(1);
   this.head.style(this.strokecolor,this.fillcolor,this.thickness);
   this.head.draw();
-  this.style(0);
-  this.face.style(this.strokecolor,this.fillcolor,this.thickness);
-  this.face.draw();
-  this.style(3);
-  this.eye.style(this.strokecolor,this.fillcolor,this.thickness);
-  this.eye.draw();
+  if(this.head.rot < 0.75 || this.head.rot>2.25){
+    this.style(0);
+    this.face.style(this.strokecolor,this.fillcolor,this.thickness);
+    this.face.draw();
+    this.style(3);
+    this.eye.style(this.strokecolor,this.fillcolor,this.thickness);
+    this.eye.draw();
+  }
 
 }
 Pinguin.prototype.drawWings = function(){
@@ -103,29 +125,37 @@ Pinguin.prototype.drawBody = function(){
 
 }
 Pinguin.prototype.drawFeet = function(){
-  this.style(2);
-  this.leftfeed.style(this.strokecolor,this.fillcolor,this.thickness);
-  this.leftfeed.draw();
-  //this.leftfeed.showPoints();
 
-  this.style(2);
-  this.rightfeed.style(this.strokecolor,this.fillcolor,this.thickness);
-  this.rightfeed.draw();
-  //this.rightfeed.showPoints();
+
+      this.style(2);
+      this.leftfeed.style(this.strokecolor,this.fillcolor,this.thickness);
+      this.leftfeed.draw();
+      //this.leftfeed.showPoints();
+
+      this.style(2);
+      this.rightfeed.style(this.strokecolor,this.fillcolor,this.thickness);
+      this.rightfeed.draw();
+      //this.rightfeed.showPoints();
+
+
 }
 Pinguin.prototype.draw = function(){
+  //put small pinguins more in front
+  var y = (1- this.size)* 200;
+
+      push();
+        translate(this.pos.x, this.pos.y+y);
+        scale(this.size);
+        //feet
+        this.drawFeet(0);
+        //wings
+        this.drawWings();
+        //body
+        this.drawBody();
+        //head
+        this.drawHead();
+      pop();
 
 
 
-  push();
-    translate(this.pos.x, this.pos.y);
-    //feet
-    this.drawFeet();
-    //wings
-    this.drawWings();
-    //body
-    this.drawBody();
-    //head
-    this.drawHead();
-  pop();
 }

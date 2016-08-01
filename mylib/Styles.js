@@ -62,12 +62,12 @@ Style.prototype.pg = function (pg, strokecolor, fillcolor, strokeweight, rectmod
         pg.fill(fillcolor);
     }
     if(typeof(strokeweight) == "undefined"){
-        pg.strokeweight = 1;
+        pg.strokeWeight(1);
     }
     else{
-        pg.strokeweight = strokeweight;
+        pg.strokeWeight(strokeweight);
     }
-    pg.strokeWeight(strokeweight);
+
     if(typeof(rectmode) == "undefined"){
         pg.rectMode(CORNER);
     }

@@ -127,18 +127,84 @@ Project.prototype.draw = function(nr){
     case 3:{
       var pos = createVector(20,555);
       var rows = 1;
-      var stitches = 6;
+      var stitches = 12;
       var stitchheight = 80;
       var stitchwidth = 40;
       this.knitting.style(6);
       this.knitting.drawFirstRow(pos, stitches, stitchwidth, stitchheight);
       pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-      rows = 3;
+      rows = 6;
       this.knitting.drawRowPurl(pos, rows, stitches, stitchwidth, stitchheight);
       pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
       this.knitting.drawRowKnit(pos, rows, stitches, stitchwidth, stitchheight);
       pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
       this.knitting.drawLastRow(pos, stitches, stitchwidth, stitchheight);
+
+
+      break;
+    }
+    case 4:{
+
+
+      //this.text ="two knits, two purls";
+    //  this.showText();
+      var pos = createVector(20,555);
+      var rows = 1;
+      var stitches = 37;
+      var stitchheight = 25;
+      var stitchwidth = 15;
+
+
+      this.knitting.style(7);
+      this.knitting.drawFirstRow(pos, stitches, stitchwidth, stitchheight);
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      rows = 34;
+      var pat =[1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0];
+      //pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawPattern(pos, rows, stitches, stitchwidth, stitchheight,pat);
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+
+      this.knitting.drawLastRow(pos, stitches, stitchwidth, stitchheight);
+
+      stroke(this.knitting.strokecolor);
+      fill(this.knitting.strokecolor);
+      text("two knits, two puls by Ria Stroes",width-330, height-40 );
+
+
+      break;
+    }
+    case 5:{
+
+
+      //this.text ="two knits, two purls";
+    //  this.showText();
+      var pos = createVector(20,555);
+      var rows = 1;
+      var stitches = 36;
+      var stitchheight = 25;
+      var stitchwidth = 15;
+      var pat = [];
+
+      this.knitting.style(8);
+      this.knitting.drawFirstRow(pos, stitches, stitchwidth, stitchheight);
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+
+      rows = 1;
+      for(var i = 0; i < 16; i++){
+      pat =[0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,1,1];
+      //pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawPattern(pos, rows, stitches, stitchwidth, stitchheight,pat);
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      pat =[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,1,1];
+      //pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawPattern(pos, rows, stitches, stitchwidth, stitchheight,pat);
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      }
+      this.knitting.drawLastRow(pos, stitches, stitchwidth, stitchheight);
+
+      stroke(this.knitting.strokecolor);
+      fill(this.knitting.strokecolor);
+      text("stye by Ria Stroes",width-330, height-40 );
 
 
       break;

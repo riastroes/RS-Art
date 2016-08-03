@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("3D",800,800,WEBGL);
+    app = new App("3D",500,500,WEBGL);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("signature.png, nocc0.jpg,IMG_1900.jpg");

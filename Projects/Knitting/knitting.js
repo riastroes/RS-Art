@@ -60,7 +60,16 @@ Knitting.prototype.style = function(nr){
     this.fillcolor = false;
     this.thickness = 3;
     break;
-
+    case 7:
+    this.strokecolor = app.pal.tint( app.pal.randomImgColor(),30);
+    this.fillcolor = false;
+    this.thickness = 3;
+    break;
+    case 8:
+    this.strokecolor = app.pal.tint(app.pal.randomImgColor(),50);
+    this.fillcolor = false;
+    this.thickness = 4;
+    break;
 
   }
 
@@ -79,6 +88,18 @@ Knitting.prototype.init = function(topleft,topright,bottomleft, bottomright){
   this.stitchheight = this.bottomleft.y - this.topleft.y;
   this.style(1);
 
+}
+Knitting.prototype.pattern = function(pos,stitchwidth,stitchheight,pat){
+  for(var i = 0; i < pat.length; i++){
+    if(pat[i] == 0){
+      pos.x += stitchwidth;
+      this.knit(pos,stitchwidth, stitchheight);
+    }
+    if(pat[i] ==1){
+      pos.x += stitchwidth;
+      this.purl(pos,stitchwidth, stitchheight);
+    }
+  }
 }
 
 Knitting.prototype.knit = function(pos, stitchwidth, stitchheight){
@@ -283,7 +304,7 @@ Knitting.prototype.begin = function(pos, stitchwidth, stitchheight){
       curveVertex((6*w),(5*h));
 
     endShape();
-//this.style(3);
+
   beginShape();
 
     curveVertex((6*w),(18*h));
@@ -387,7 +408,7 @@ Knitting.prototype.end = function(pos, stitchwidth, stitchheight){
       //curveVertex((1*w),(5*h));
 
     endShape();
-//this.style(3);
+
       beginShape();
 
 
@@ -591,6 +612,22 @@ Knitting.prototype.drawRowPurl = function(pos, rows, stitches, stitchwidth,stitc
       p.x += stitchwidth;
       this.purl(p, stitchwidth, stitchheight);
     }
+    this.last(p, stitchwidth,stitchheight);
+    this.row++;
+  }
+}
+Knitting.prototype.drawPattern = function(pos, rows, stitches, stitchwidth,stitchheight,pat){
+  var p = pos.copy();
+
+ for(var r = 0; r < rows; r += 1){
+    p.x = pos.x;
+    p.y -= stitchheight/2;
+
+    this.first(p, stitchwidth,stitchheight);
+
+//this.style(7);
+    this.pattern(p, stitchwidth, stitchheight, pat);
+
     this.last(p, stitchwidth,stitchheight);
     this.row++;
   }

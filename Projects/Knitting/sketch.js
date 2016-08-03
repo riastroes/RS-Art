@@ -4,10 +4,10 @@ var app;
 
 function setup() {
 
-    app = new App("TEMPLATE",590,630,"svg");
+    app = new App("Knitting",590,630);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
-    app.loadResources("signature.png");
+    app.loadResources("coolcolors.jpg");
 }
 
 function draw() {
@@ -15,7 +15,7 @@ function draw() {
     if(app.isloaded) {
       if(app.pal.name != "beautiful"){
           app.pal = new Palette(7, "beautiful");
-          //app.pal.fromImage(app.images[1],10);
+          app.pal.fromImage(app.images[0],10);
       }
       if(app.isnot(app.project)){
         app.project = new Project();
@@ -65,6 +65,20 @@ function draw() {
                 app.wait(200);
                 break;
               }
+            case 5:{
+               //
+               background(app.pal.colors[1]);
+                app.project.draw(4);
+                app.wait(200);
+                break;
+              }
+              case 6:{
+                 //
+                 background(app.pal.colors[1]);
+                  app.project.draw(5);
+                  app.wait(200);
+                  break;
+                }
             default:{
                 //wait
                 app.wait();

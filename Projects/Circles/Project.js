@@ -3,16 +3,26 @@
  */
 function Project(){
   var i,c;
+  this.text ="circles";
 
-  this.circles = [];
+  
   this.grid = new Grid(7,7,50,50,50,50);
   this.center = createVector(width/2, height/2);
 
+
+};
+Project.prototype.init = function(){
+  this.circles = [];
   for(i = 0; i < this.grid.maxi; i++){
      c = new Circle(this.grid.get(i), 10);
      append(this.circles, c);
   }
-};
+}
+Project.prototype.showText = function(){
+  textSize(14);
+  textFont("Arial");
+  text(this.text, 50,50);
+}
 Project.prototype.move = function(){
   var i, hasmoved;
   var noc = [];
@@ -40,6 +50,7 @@ Project.prototype.scale = function(){
   }
 };
 Project.prototype.implotionCenter = function(){
+  this.text = "Implotion in Center";
   var i;
   for(i =0; i < this.circles.length; i++){
     hasmoved = this.circles[i].moveTo(i,this.circles,1, this.center);
@@ -52,6 +63,7 @@ Project.prototype.implotionCenter = function(){
   }
 };
 Project.prototype.attackBiggest = function(){
+  this.text = "Attack Biggest";
   var i, biggest, bigi;
   biggest = 0;
   for(i =0; i < this.circles.length; i++){
@@ -74,6 +86,7 @@ Project.prototype.attackBiggest = function(){
   }
 };
 Project.prototype.draw = function(){
+  this.showText();
   var i;
   for(i =0; i < this.circles.length; i++){
     this.circles[i].draw();

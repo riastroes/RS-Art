@@ -31,24 +31,37 @@ function draw() {
             }
             case 1:{
                 background(app.pal.colors[11]);
+                app.project.init();
+                app.runscene(0);
+                break;
+            }
+            case 2:{
+                background(app.pal.colors[11]);
                 app.project.move();
                 app.project.draw();
                 app.runscene(0);
                 break;
             }
 
-            case 2:{
+            case 3:{
                 background(app.pal.colors[11]);
                 app.project.implotionCenter();
                 app.project.draw();
+                app.runscene(500);
+                break;
+            }
+
+            case 4:{
+                background(app.pal.colors[11]);
+                app.project.init();
                 app.runscene(0);
                 break;
             }
-            case 3:{
+            case 5:{
                 background(app.pal.colors[2]);
                 app.project.attackBiggest();
                 app.project.draw();
-                app.runscene(1000);
+                app.runscene(500);
                 break;
             }
 

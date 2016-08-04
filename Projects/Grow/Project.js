@@ -3,7 +3,7 @@
  */
  "use strict";
 function Project(){
-  this.text = "new project";
+  this.text = "Cells";
   this.init();
 };
 
@@ -36,19 +36,25 @@ Project.prototype.showText = function(){
 
 Project.prototype.init = function(){
    this.cells = [];
-   this.pos = createVector(random(100,width-100), random(100,height-100));
-   append(this.cells, new Cell());
-   this.cells[0].init(this.pos);
+   for(var i = 0; i < 10; i++){
+     this.pos = createVector(random(100,width-100), random(100,height-100));
+     append(this.cells, new Cell());
+     this.cells[i].init(this.pos);
+   }
 }
 Project.prototype.update = function(){
    for(var i = 0; i < this.cells.length; i++){
-     this.cells[0].update();
+     this.cells[i].update(this.cells);
+
+   }
+   for(var i = 0; i < this.cells.length; i++){
+    this.cells[i].connectTo(i, this.cells);
    }
 }
 Project.prototype.draw = function(nr){
-  
+
   this.showText();
   for(var i = 0; i < this.cells.length; i++){
-    this.cells[0].draw();
+    this.cells[i].draw();
   }
 }

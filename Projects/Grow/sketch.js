@@ -33,17 +33,18 @@ function draw() {
             }
             case 0:{
                //
-                background(app.pal.colors[1]);
+
                 app.project.init();
                 app.runscene(0);
                 break;
               }
            case 1:{
                //
-               background(app.pal.colors[1]);
+               //app.bg(app.pal.tint( app.pal.colors[1],1));
+                background(app.pal.colors[1]);
                 app.project.update();
                 app.project.draw();
-                app.runscene(500);
+                app.runscene(1500);
                 break;
               }
             default:{

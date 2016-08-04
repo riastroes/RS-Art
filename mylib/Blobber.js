@@ -10,8 +10,6 @@ function Blobber(){
   this.rscale = random(-4,4);
   this.factor =1;
 }
-
-
 Blobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight, maxheight){
   //the flexibility of the blopper is dependend of the difference in minwidth and maxwidth and minheight and maxheight.
   this.pos = [];
@@ -81,7 +79,6 @@ Blobber.prototype.style = function(strokecolor, fillcolor,thickness){
   this.fillcolor = fillcolor;
   this.thickness = thickness;
 };
-
 Blobber.prototype.draw = function(pg){
   var i,s;
 
@@ -136,7 +133,6 @@ Blobber.prototype.draw = function(pg){
 
   pop();
 };
-
 Blobber.prototype.showCenter = function(){
   var newposition = this.recalcPosition(this.position);
   ellipse(newposition.x, newposition.y, 10, 10);
@@ -167,6 +163,25 @@ Blobber.prototype.showPoints = function(pg){
         pg.ellipse(this.pos[i].x, this.pos[i].y, 10, 10);
       }
     }
+
+  pop();
+};
+Blobber.prototype.showPoint = function(id, pg){
+
+  push();
+  translate(this.position.x, this.position.y);
+  scale(this.factor);
+  if(app.is(this.rot)){
+    rotate(this.rot);
+  }
+
+  if(typeof(pg) == "undefined") {
+    ellipse(this.pos[id].x, this.pos[id].y, 10, 10);
+  }
+  else{
+    pg.ellipse(this.pos[id].x, this.pos[id].y, 10, 10);
+  }
+
 
   pop();
 };
@@ -394,7 +409,6 @@ RegBlobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheight
   }
 
 };
-
 function TulipBlobber(){
   this.blobber = new Blobber();
   this.blobber.init = this.init;
@@ -438,7 +452,6 @@ TulipBlobber.prototype.init = function(pos, corners, minwidth, maxwidth, minheig
   }
 
 };
-
 function Tulip2Blobber(){
   this.blobber = new Blobber();
   this.blobber.init = this.init;

@@ -3,8 +3,8 @@
  */
  "use strict";
 function Project(){
-  this.text = "Cells";
-  this.init();
+  this.text = "People";
+
 };
 
 Project.prototype.style = function(nr){
@@ -16,7 +16,7 @@ Project.prototype.style = function(nr){
     this.thickness = 1;
     break;
     case 1:
-    this.strokecolor = false;
+    this.strokecolor = app.pal.colors[1];
     this.fillcolor = app.pal.colors[0];
     this.thickness = 1;
     break;
@@ -25,34 +25,28 @@ Project.prototype.style = function(nr){
     this.fillcolor = app.pal.randomImgColor();
     this.thickness = 1;
     break;
+
+
   }
+
   app.style.set(this.strokecolor, this.fillcolor, this.thickness);
 
 };
 Project.prototype.showText = function(){
-  this.style(1);
+  this.style(0);
   text(this.text,60,50);
 }
 
-Project.prototype.init = function(){
-   this.cells = [];
-   for(var i = 0; i < 10; i++){
-     this.pos = createVector(random(100,width-100), random(100,height-100));
-     append(this.cells, new Cell());
-     this.cells[i].init(this.pos);
-   }
-}
-Project.prototype.update = function(){
-   for(var i = 0; i < this.cells.length; i++){
-     this.cells[i].update();
-   }
+Project.prototype.create = function(){
+  this.people = [];
+  for(var i = 0; i < 10; i++){
+    append(this.people, new People(createVector(random(width), (height/2)+ (i * 10)),25));
 
+  }
 }
-Project.prototype.draw = function(nr){
-
+Project.prototype.draw = function(){
   this.showText();
-  for(var i = 0; i < this.cells.length; i++){
-
-    this.cells[i].draw();
+  for(var i = 0; i < 10; i++){
+    this.people[i].draw();
   }
 }

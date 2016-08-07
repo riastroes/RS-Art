@@ -11,8 +11,7 @@ Cell.prototype.init = function(pos){
   this.engine = new Engine();
   this.engine.position = this.pos;
   this.blob.position = this.pos;
-  this.isconnected = false;
-  this.connect = -1;
+
   this.style(1);
 
 }
@@ -35,41 +34,12 @@ Cell.prototype.style = function(nr){
 }
 
 Cell.prototype.update = function(cells){
-  if(!this.isconnected){
-
     this.engine.go(3);
     this.engine.update();
-  }
-  else{
-    this.follow(this.connect, cells);
-    this.engine.update();
-  }
-
-
 
 }
 Cell.prototype.follow = function(id, cells){
-  this.pos = cells[id].blob.pos[0];
-}
-Cell.prototype.connectTo =function(id, cells){
-
-  for(var i = 0; i < cells.length; i++){
-    if(id != i){
-      if(this.isconnected){break;}
-      else{
-        var d = this.pos.dist(cells[i].pos);
-        if( d <10){
-          cells[i].engine.direction = this.engine.direction;
-          this.isconnected = true;
-          this.connect = i;
-          this.blob.showPoint(0);
-          cells[i].blob.showPoint(0);
-          break;
-        }
-
-      }
-    }
-  }
+  this.pos = cells[id].pos;
 }
 
 Cell.prototype.draw = function(){

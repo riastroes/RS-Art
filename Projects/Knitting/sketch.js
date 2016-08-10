@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("Knitting",590,630);
+    app = new App("Knitting",590,630, SVG);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("coolcolors.jpg");
@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = -1;
+        app.scene = 6;
       }
       else{
         switch(app.scene) {
@@ -79,6 +79,62 @@ function draw() {
                   app.wait(200);
                   break;
                 }
+            case 7:{
+               //
+               background(app.pal.colors[1]);
+                app.project.draw(6);
+                app.wait(200);
+                break;
+              }
+              case 8:{
+                 //
+                 background(app.pal.colors[1]);
+                  app.project.draw(7);
+                  app.wait(200);
+                  break;
+                }
+              case 9:{
+                 //
+                 background(app.pal.colors[1]);
+                  app.project.draw(8);
+                  app.wait(200);
+                  break;
+                }
+            case 10:{
+               //
+               background(app.pal.colors[1]);
+                app.project.draw(9);
+                app.wait(200);
+                break;
+              }
+            case 11:{
+               //
+               background(app.pal.colors[1]);
+                app.project.draw(10);
+                app.wait(200);
+                break;
+              }
+            case 12:{
+               //
+               //background(app.pal.colors[1]);
+                app.project.draw(11);
+                app.wait(200);
+                break;
+              }
+              case 13:{
+                 //
+                 //background(app.pal.colors[1]);
+                  app.project.draw(12);
+                  app.wait(200);
+                  break;
+                }
+            case 14:{
+               //
+               //background(app.pal.colors[1]);
+                app.project.draw(13);
+                app.wait(200);
+                break;
+              }
             default:{
                 //wait
                 app.wait();

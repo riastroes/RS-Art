@@ -209,5 +209,136 @@ Project.prototype.draw = function(nr){
 
       break;
     }
+    case 6:{
+    // more knit
+    var pos = createVector(20,555);
+    var rows = 1;
+    var stitches = 12;
+    var stitchheight = 80;
+    var stitchwidth = 40;
+    this.knitting.style(0);
+    this.knitting.drawFirstRow(pos, stitches, stitchwidth, stitchheight);
+    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+    rows = 10;
+    //pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+    this.knitting.drawRowKnit3D(pos, rows, stitches, stitchwidth, stitchheight);
+    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+    this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
+
+
+      break;
+    }
+    case 7:{
+    // more purl
+    var pos = createVector(20,555);
+    var rows = 1;
+    var stitches = 12;
+    var stitchheight = 80;
+    var stitchwidth = 40;
+    this.knitting.style(0);
+    this.knitting.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
+    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+    rows = 10;
+    //pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+    this.knitting.drawRowPurl3D(pos, rows, stitches, stitchwidth, stitchheight);
+    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+    this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
+
+
+      break;
+    }
+    case 8:{
+    // two knit, two purl, 3D
+    var pos = createVector(20,555);
+    var rows = 1;
+    var stitches = 12;
+    var stitchheight = 80;
+    var stitchwidth = 40;
+    var pat1 =[1,1,0,0,1,1,0,0,1,1,0,0];//,1,1,0,0,1,1,0,0,1,1,1,0,0,1,1,0,0,1,1,0,0,1,1];
+
+    this.knitting.style(0);
+    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+
+    this.knitting.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
+    rows = 1;
+    for(var i = 0; i < 10; i++){
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawPattern3D(pos, rows, stitches, stitchwidth, stitchheight,pat1);
+    }
+    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+    this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
+
+
+      break;
+    }
+    case 9:{
+    // STYE, 3D
+    var pos = createVector(20,555);
+    var rows = 1;
+    var stitches = 12;
+    var stitchheight = 80;
+    var stitchwidth = 40;
+    var pat1 =[1,0,1,0,1,0,1,0,1,0,1,0];//,1,1,0,0,1,1,0,0,1,1,1,0,0,1,1,0,0,1,1,0,0,1,1];
+    var pat2 =[0,1,0,1,0,1,0,1,0,1,0,1];//,1,1,0,0,1,1,0,0,1,1,1,0,0,1,1,0,0,1,1,0,0,1,1];
+
+    this.knitting.style(0);
+    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+
+    this.knitting.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
+    rows = 1;
+    for(var i = 0; i < 10; i+=2){
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawPattern3D(pos, rows, stitches, stitchwidth, stitchheight,pat1);
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawPattern3D(pos, rows, stitches, stitchwidth, stitchheight,pat2);
+
+    }
+    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+    this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
+
+
+      break;
+    }
+
+    case 10:{
+      var pos = createVector(20,555);
+      var pat = [];
+      pat[0] =[1,1,0,0,1,1,0,0,1,1,0,0,1,1];
+      var pscale = 0.5;
+      this.knitting.drawFabric(pos,12,pat[0].length,35,70,pat,pscale);
+      break;
+    }
+    case 11:{
+      var pos = createVector(520,555);
+      var pat = [];
+      pat[0] =[1,1,0,0,1,1,0,0,1,1,0,0,1,1];
+      pat[1] =[1,1,0,0,1,1,0,0,1,1,0,0,1,1];
+      pat[2] =[0,0,1,1,0,0,1,1,0,0,1,1,0,0];
+      pat[3] =[0,0,1,1,0,0,1,1,0,0,1,1,0,0];
+      var pscale = 0.5;
+      this.knitting.drawFabric(pos,12,pat[0].length,35,70,pat,pscale);
+      break;
+    }
+    case 12:{
+      var pos = createVector(20,1010);
+      var pat = [];
+      pat[0] =[1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+      pat[1] =[0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+      var pscale = 0.5;
+      this.knitting.drawFabric(pos,12,pat[0].length,35,70,pat,pscale);
+      break;
+    }
+    case 13:{
+      var pos = createVector(520,1010);
+      var pat = [];
+      pat[0] =[1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+      pat[1] =[0,1,1,1,0,1,1,1,0,1,1,1,0,1];
+      pat[2] =[0,0,1,0,0,0,1,0,0,0,1,0,0,0];
+      pat[3] =[0,1,1,1,0,1,1,1,0,1,1,1,0,1];
+      var pscale = 0.5;
+      this.knitting.drawFabric(pos,12,pat[0].length,35,70,pat,pscale);
+      break;
+    }
+
   }
 }

@@ -31,7 +31,7 @@ Project.prototype.showText = function(){
 }
 
 Project.prototype.init = function(){
-  var scale = 5;
+  var scale = 10;
   var max = 18;
   this.pinguins=[];
   for(var i = 0; i < max; i++){
@@ -40,7 +40,7 @@ Project.prototype.init = function(){
 
 
   for(var i = 0; i < max; i++){
-    scale = random(2,4);
+    scale = random(4,8);
     append(this.pinguins, new Pinguin(i, scale));
   }
 
@@ -51,12 +51,12 @@ Project.prototype.update = function(){
   var pos;
   var max = 18;
   for(var i = 0; i < max; i++){
-    pos = createVector(80+((100*i)), height-120 + random(0,50));
+    pos = createVector(160+((200*i)), height-120 + random(0,50));
     this.pinguins[i].update(pos);
   }
   max = 18;
   for(var i = 18; i < ((max)*2); i++){
-    pos = createVector(100+(150*(i-18)), height-80 + random(0,50));
+    pos = createVector(200+(300*(i-18)), height-80 + random(0,50));
     this.pinguins[i].update(pos);
   }
 }

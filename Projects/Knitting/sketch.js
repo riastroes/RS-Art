@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 6;
+        app.scene = 0;
       }
       else{
         switch(app.scene) {
@@ -53,63 +53,63 @@ function draw() {
                 }
             case 3:{
                //
-               background(app.pal.colors[4]);
+               background(255);
                 app.project.draw(2);
                 app.wait(200);
                 break;
               }
             case 4:{
                //
-               background(app.pal.colors[1]);
+               background(255);
                 app.project.draw(3);
                 app.wait(200);
                 break;
               }
             case 5:{
                //
-               background(app.pal.colors[1]);
+               background(255);
                 app.project.draw(4);
                 app.wait(200);
                 break;
               }
               case 6:{
                  //
-                 background(app.pal.colors[1]);
+                 background(255);
                   app.project.draw(5);
                   app.wait(200);
                   break;
                 }
             case 7:{
                //
-               background(app.pal.colors[1]);
+               background(255);
                 app.project.draw(6);
                 app.wait(200);
                 break;
               }
               case 8:{
                  //
-                 background(app.pal.colors[1]);
+                background(255);
                   app.project.draw(7);
                   app.wait(200);
                   break;
                 }
               case 9:{
                  //
-                 background(app.pal.colors[1]);
+                background(255);
                   app.project.draw(8);
                   app.wait(200);
                   break;
                 }
             case 10:{
                //
-               background(app.pal.colors[1]);
+              background(255);
                 app.project.draw(9);
                 app.wait(200);
                 break;
               }
             case 11:{
                //
-               background(app.pal.colors[1]);
+              background(255);
                 app.project.draw(10);
                 app.wait(200);
                 break;

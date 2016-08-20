@@ -91,7 +91,6 @@ function draw() {
                 break;
             }
             case 7:{
-<<<<<<< Updated upstream
                 background(255);
                 app.big.grow(-0.05);
                 app.big.lines(app.l);
@@ -99,29 +98,14 @@ function draw() {
                 app.runscene(11);
                 break;
             }
-            case 8:{
-               // frameRate(1);
-                //app.big.grow(2);
-                background(255);
-                app.name = "one flower";
-                app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,30));
-                app.big.style(3);
-=======
-                // app.bg(app.pal.colors[3]);
-                //
-                // app.big.grow(-0.05);
-                // app.big.lines(app.l);
-                // app.l -=0.11;
-                app.runscene(0);
-                break;
-            }
+
             case 8:{
 
                 background(255)
                 app.name = "one flower";
                 app.big = new BigBlobber(app.grid.maskCircle(width/2, height/2,30));
                 app.big.style(4);
->>>>>>> Stashed changes
+
                 app.runscene(0);
                  break;
                 }
@@ -189,19 +173,13 @@ function draw() {
                 break;
             }
             case 16:{
-<<<<<<< Updated upstream
-                app.bg(5);
-                app.big.live();
-                app.big.rotate(0.02);
-                app.big.draw();
-                app.runscene(500);
-=======
+
                 app.bg(1);
                 app.big.live();
                 app.big.rotate(0.02);
                 app.big.draw();
                 app.runscene(200);
->>>>>>> Stashed changes
+
                 break;
             }
             case 17:{
@@ -214,13 +192,10 @@ function draw() {
                 break;
             }
             case 18:{
-<<<<<<< Updated upstream
-                background(255);
-                app.big.style(2);
-=======
+
                 app.bg(app.pal.colors[1]);
                 app.big.style(3);
->>>>>>> Stashed changes
+
                 app.big.live();
                 app.big.grow(-0.1);
                 //app.big.split();
@@ -235,6 +210,10 @@ function draw() {
                 app.big.rotate(PI/8);
                 app.big.draw();
                 app.runscene(200);
+                break;
+            }
+            case 20:{
+                app.wait(1,0);
                 break;
             }
 

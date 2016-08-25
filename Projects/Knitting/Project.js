@@ -43,10 +43,10 @@ Project.prototype.showText = function(){
 
 Project.prototype.init = function(){
   this.knitting = new Knitting();
-  this.knitting.init( createVector(100,100),
-                      createVector(300,100),
-                      createVector(100,400),
-                      createVector(300,400));
+  // this.knitting.init( createVector(100,100),
+  //                     createVector(300,100),
+  //                     createVector(100,400),
+  //                     createVector(300,400));
 
 }
 Project.prototype.draw = function(nr){
@@ -105,7 +105,7 @@ Project.prototype.draw = function(nr){
       this.knitting.drawRowKnit(pos, rows, stitches, stitchwidth, stitchheight);
       pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
       this.knitting.drawLastRow(pos, stitches, stitchwidth, stitchheight);
-//***
+
       pos = createVector(20,555);
       rows = 1;
       stitches = 20;
@@ -147,7 +147,7 @@ Project.prototype.draw = function(nr){
 
 
       //this.text ="two knits, two purls";
-    //  this.showText();
+
       var pos = createVector(20,555);
       var rows = 1;
       var stitches = 37;
@@ -177,7 +177,7 @@ Project.prototype.draw = function(nr){
 
 
       //this.text ="two knits, two purls";
-    //  this.showText();
+
       var pos = createVector(20,555);
       var rows = 1;
       var stitches = 36;
@@ -210,93 +210,84 @@ Project.prototype.draw = function(nr){
       break;
     }
     case 6:{
-    // more knit
-    var pos = createVector(20,555);
-    var rows = 1;
-    var stitches = 12;
-    var stitchheight = 80;
-    var stitchwidth = 40;
-    this.knitting.style(0);
-    this.knitting.drawFirstRow(pos, stitches, stitchwidth, stitchheight);
-    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-    rows = 10;
-    //pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-    this.knitting.drawRowKnit3D(pos, rows, stitches, stitchwidth, stitchheight);
-    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-    this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
-
-
+      var pos = createVector(20,555);
+      var rows = 1;
+      var stitches = 12;
+      var stitchheight = 80;
+      var stitchwidth = 40;
+      this.knitting.style(0);
+      this.knitting.drawFirstRow(pos, stitches, stitchwidth, stitchheight);
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      rows = 10;
+      //pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawRowKnit3D(pos, rows, stitches, stitchwidth, stitchheight);
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
       break;
     }
     case 7:{
-    // more purl
-    var pos = createVector(20,555);
-    var rows = 1;
-    var stitches = 12;
-    var stitchheight = 80;
-    var stitchwidth = 40;
-    this.knitting.style(0);
-    this.knitting.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
-    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-    rows = 10;
-    //pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-    this.knitting.drawRowPurl3D(pos, rows, stitches, stitchwidth, stitchheight);
-    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-    this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
-
-
+      // more purl
+      var pos = createVector(20,555);
+      var rows = 1;
+      var stitches = 12;
+      var stitchheight = 80;
+      var stitchwidth = 40;
+      this.knitting.style(0);
+      this.knitting.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      rows = 10;
+      //pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawRowPurl3D(pos, rows, stitches, stitchwidth, stitchheight);
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
       break;
     }
     case 8:{
-    // two knit, two purl, 3D
-    var pos = createVector(20,555);
-    var rows = 1;
-    var stitches = 12;
-    var stitchheight = 80;
-    var stitchwidth = 40;
-    var pat1 =[1,1,0,0,1,1,0,0,1,1,0,0];//,1,1,0,0,1,1,0,0,1,1,1,0,0,1,1,0,0,1,1,0,0,1,1];
+      // two knit, two purl, 3D
+      var pos = createVector(20,555);
+      var rows = 1;
+      var stitches = 12;
+      var stitchheight = 80;
+      var stitchwidth = 40;
+      var pat1 =[1,1,0,0,1,1,0,0,1,1,0,0];//,1,1,0,0,1,1,0,0,1,1,1,0,0,1,1,0,0,1,1,0,0,1,1];
 
-    this.knitting.style(0);
-    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-
-    this.knitting.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
-    rows = 1;
-    for(var i = 0; i < 10; i++){
+      this.knitting.style(0);
       pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-      this.knitting.drawPattern3D(pos, rows, stitches, stitchwidth, stitchheight,pat1);
-    }
-    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-    this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
 
-
+      this.knitting.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
+      rows = 1;
+      for(var i = 0; i < 10; i++){
+        pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+        this.knitting.drawPattern3D(pos, rows, stitches, stitchwidth, stitchheight,pat1);
+      }
+      pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+      this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
       break;
     }
     case 9:{
-    // STYE, 3D
-    var pos = createVector(20,555);
-    var rows = 1;
-    var stitches = 12;
-    var stitchheight = 80;
-    var stitchwidth = 40;
-    var pat1 =[1,0,1,0,1,0,1,0,1,0,1,0];//,1,1,0,0,1,1,0,0,1,1,1,0,0,1,1,0,0,1,1,0,0,1,1];
-    var pat2 =[0,1,0,1,0,1,0,1,0,1,0,1];//,1,1,0,0,1,1,0,0,1,1,1,0,0,1,1,0,0,1,1,0,0,1,1];
+      // STYE, 3D
+      var pos = createVector(20,555);
+      var rows = 1;
+      var stitches = 12;
+      var stitchheight = 80;
+      var stitchwidth = 40;
+      var pat1 =[1,0,1,0,1,0,1,0,1,0,1,0];//,1,1,0,0,1,1,0,0,1,1,1,0,0,1,1,0,0,1,1,0,0,1,1];
+      var pat2 =[0,1,0,1,0,1,0,1,0,1,0,1];//,1,1,0,0,1,1,0,0,1,1,1,0,0,1,1,0,0,1,1,0,0,1,1];
 
-    this.knitting.style(0);
-    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-
-    this.knitting.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
-    rows = 1;
-    for(var i = 0; i < 10; i+=2){
+      this.knitting.style(0);
       pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-      this.knitting.drawPattern3D(pos, rows, stitches, stitchwidth, stitchheight,pat1);
+
+      this.knitting.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
+      rows = 1;
+      for(var i = 0; i < 10; i+=2){
+        pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+        this.knitting.drawPattern3D(pos, rows, stitches, stitchwidth, stitchheight,pat1);
+        pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
+        this.knitting.drawPattern3D(pos, rows, stitches, stitchwidth, stitchheight,pat2);
+
+      }
       pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-      this.knitting.drawPattern3D(pos, rows, stitches, stitchwidth, stitchheight,pat2);
-
-    }
-    pos = createVector(pos.x, pos.y - (rows * stitchheight/2));
-    this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
-
-
+      this.knitting.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
       break;
     }
 
@@ -339,6 +330,21 @@ Project.prototype.draw = function(nr){
       this.knitting.drawFabric(pos,12,pat[0].length,35,70,pat,pscale);
       break;
     }
+    //generate knitting
+    case 14:{
+      var pos = createVector(100,100);
+      ellipse(pos.x, pos.y, 10,10);
+      var stitchwidth = 35;
+      var stitchheight = 70;
+      var stitches = 5;
+      var rows = 4;
+      var pat = [];
+      pat[0] = [0,0,0,0,0];
+      var pscale = 1;
+      pos.add(0,(rows/2 +1 * stitchheight));
+      this.knitting.drawFabric(pos, 4,stitches, stitchwidth, stitchheight,pat, pscale);
+      break;
 
+    }
   }
 }

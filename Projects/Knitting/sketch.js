@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 0;
+        app.scene = 15;
       }
       else{
         switch(app.scene) {
@@ -44,7 +44,7 @@ function draw() {
                 app.wait(200);
                 break;
               }
-              case 2:{
+            case 2:{
                  //
                  background(255);
                   app.project.draw(1);
@@ -72,7 +72,7 @@ function draw() {
                 app.wait(200);
                 break;
               }
-              case 6:{
+            case 6:{
                  //
                  background(255);
                   app.project.draw(5);
@@ -86,14 +86,14 @@ function draw() {
                 app.wait(200);
                 break;
               }
-              case 8:{
+            case 8:{
                  //
                 background(255);
                   app.project.draw(7);
                   app.wait(200);
                   break;
                 }
-              case 9:{
+            case 9:{
                  //
                 background(255);
                   app.project.draw(8);
@@ -101,7 +101,7 @@ function draw() {
                   break;
                 }
             case 10:{
-               //
+
               background(255);
                 app.project.draw(9);
                 app.wait(200);
@@ -115,13 +115,12 @@ function draw() {
                 break;
               }
             case 12:{
-               //
-               //background(app.pal.colors[1]);
+                //background(app.pal.colors[1]);
                 app.project.draw(11);
                 app.wait(200);
                 break;
               }
-              case 13:{
+            case 13:{
                  //
                  //background(app.pal.colors[1]);
                   app.project.draw(12);
@@ -135,6 +134,12 @@ function draw() {
                 app.wait(200);
                 break;
               }
+            case 15:{
+              //generate knitting
+              app.project.draw(14);
+              app.wait(0);
+              break;
+            }
             default:{
                 //wait
                 app.wait();

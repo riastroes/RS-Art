@@ -1047,25 +1047,23 @@ Knitting.prototype.drawPattern3D = function(pos, rows, stitches, stitchwidth,sti
   }
 }
 Knitting.prototype.drawFabric = function(pos,rows, stitches,stitchwidth,stitchheight,pat, pscale){
+
+  pos.add(-stitchwidth,(rows-1) * (stitchheight/2));
+
   push();
   scale(pscale);
 
   this.style(0);
-  var r = 1;
-  pos = createVector(pos.x, pos.y - (r * stitchheight/2));
-
   this.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
 
-  for(var i = 0; i < rows ; i+=pat.length){
-    for(var p = 0; p < pat.length; p++){
-
-      pos = createVector(pos.x, pos.y - (r * stitchheight/2));
-      this.drawPattern3D(pos, 1, stitches, stitchwidth, stitchheight,pat[p]);
-
+  for(var r = 0; r < rows ; r+=pat.length){
+    for(var s = 0; s < pat.length; s++){
+      pos = createVector(pos.x, pos.y - (stitchheight/2));
+      this.drawPattern3D(pos, 1, stitches, stitchwidth, stitchheight,pat[s]);
     }
   }
 
-  pos = createVector(pos.x, pos.y - (r * stitchheight/2));
+  pos = createVector(pos.x, pos.y - (stitchheight/2));
   this.drawLastRow3D(pos, stitches, stitchwidth, stitchheight);
   pop();
 }

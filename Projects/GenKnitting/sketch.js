@@ -73,6 +73,24 @@ function draw() {
               break;
             }
 
+            case 7:{
+              //create and draw outline
+              app.project.run(6);
+              app.runscene(0);
+              break;
+            }
+            case 8:{
+              //gcode genereren
+              app.project.run(7);
+              app.runscene(0);
+              break;
+            }
+            case 9:{
+              //save gcode
+              app.project.run(8);
+              app.runscene(200);
+              break;
+            }
 
             default:{
                 //wait

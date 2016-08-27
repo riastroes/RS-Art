@@ -39,6 +39,7 @@ Project.prototype.showText = function(){
 
 Project.prototype.init = function(){
   this.knitting = new GenKnitting(30,60);
+
 }
 Project.prototype.run = function(nr){
 
@@ -73,9 +74,13 @@ Project.prototype.run = function(nr){
     }
     case 3:{
       background(255);
-      this.knitting.createOutline(30,6);
-      this.knitting.drawOutline();
+      this.init();
+      this.knitting.create(createVector(100,100),3);
+      this.outline = new GenOutline(this.knitting.knitting);
+      this.outline.createOutline(30,6,1,1);
+      this.outline.drawOutline();
       this.knitting.draw();
+      this.outline.genOutline(createVector(100,100));
       this.knitting.genKnitting(createVector(100,100));
       break;
     }
@@ -83,14 +88,14 @@ Project.prototype.run = function(nr){
       //create gcode
       this.gcode = new Gcode();
       this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
-      this.gcode.createFirstLayer(this.knitting.genoutline, this.knitting.genknitting, 0);
+      this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0);
       this.gcode.createEnd();
       break;
     }
     case 5:{
       fill(0);
       textSize(24);
-      text("Save gcode now, press C", 100,50);
+      text("Save gcode test1 now, press C", 100,50);
       if (keyIsPressed === true){
         if(key === 'c'){
           this.gcode.save("test1.gcode");
@@ -101,6 +106,40 @@ Project.prototype.run = function(nr){
       break;
     }
     case 6:{
+      //in this test I only want a bigger skirt.
+      background(255);
+      this.init();
+      this.knitting.create(createVector(100,100),3);
+      this.outline = new GenOutline(this.knitting.knitting);
+      this.outline.createOutline(30,6,5,1);
+      this.outline.drawOutline();
+      this.knitting.draw();
+      this.outline.genOutline(createVector(100,100));
+      this.knitting.genKnitting(createVector(100,100));
+      break;
+    }
+    case 7:{
+      //create gcode
+      this.gcode = new Gcode();
+      this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
+      this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0);
+      this.gcode.createEnd();
+      break;
+    }
+    case 8:{
+      fill(0);
+      textSize(24);
+      text("Save gcode test 2 now, press C", 100,50);
+      if (keyIsPressed === true){
+        if(key === 'c'){
+          this.gcode.save("test2.gcode");
+        }
+        keyIsPressed =false;
+        return false;
+      }
+      break;
+    }
+    case 9:{
       background(255);
     }
   }

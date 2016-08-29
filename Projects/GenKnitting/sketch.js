@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = -1;
+        app.scene = 6;
       }
       else{
         switch(app.scene) {
@@ -32,66 +32,65 @@ function draw() {
               break;
             }
             case 0:{
-              app.project.init();
-              app.runscene(0);
-              break;
-            }
-            case 1:{
-              background(255);
+              //three stitches
               app.project.run(0);
               app.runscene(0);
               break;
             }
-            case 2:{
-              //gcode genereren
+            case 1:{
+              //save gcode
               app.project.run(1);
+              app.runscene(200);
+              break;
+            }
+            case 2:{
+              //three stitches and one outline
+              app.project.run(2);
               app.runscene(0);
               break;
             }
             case 3:{
               //save gcode
-              app.project.run(2);
+              app.project.run(3);
               app.runscene(200);
               break;
             }
             case 4:{
-              //create and draw outline
-              app.project.run(3);
-              app.runscene(0);
-              break;
-            }
-            case 5:{
-              //gcode genereren
+              //create and draw 10 outlines
               app.project.run(4);
               app.runscene(0);
               break;
             }
-            case 6:{
+            case 5:{
               //save gcode
               app.project.run(5);
               app.runscene(200);
               break;
             }
-
-            case 7:{
-              //create and draw outline
+            case 6:{
+              //create pattern 4
               app.project.run(6);
               app.runscene(0);
               break;
             }
-            case 8:{
-              //gcode genereren
+            case 7:{
+              //save gcode
               app.project.run(7);
+              app.runscene(200);
+              break;
+            }
+            case 8:{
+              //create pattern 5
+              app.project.run(8);
               app.runscene(0);
               break;
             }
             case 9:{
               //save gcode
-              app.project.run(8);
+              app.project.run(9);
               app.runscene(200);
               break;
             }
-
             default:{
                 //wait
                 app.wait();

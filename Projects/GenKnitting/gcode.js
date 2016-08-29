@@ -49,29 +49,27 @@ Gcode.prototype.createOutline = function(outline,nozzle, layerheight, speed){
   append(this.commands, ";END create outline");
 
 }
-Gcode.prototype.createFirstLayer = function(genoutline,genknitting,z){
+Gcode.prototype.createFirstLayer = function(genoutline,genknitting,z, speed){
   //function(arr, nozzle, layerheight, speed)
-  this.moveToStart(genoutline[0].x, genoutline[0].y, z);
-  this.createOutline(genoutline,0.4,0.4,4800);
+  this.moveToStart(genoutline[0].x, genoutline[0].y, z, speed);
+  this.createOutline(genoutline,0.4,0.4,speed);
   this.moveTo(genknitting[0].x, genknitting[0].y, z);
-  this.createPath(genknitting,0.4,0.4,4800);
+  this.createPath(genknitting,0.4,0.4,speed);
 }
-Gcode.prototype.moveToStart = function(x, y, z){
+Gcode.prototype.moveToStart = function(x, y, z, speed){
   //move to start position
   append(this.commands, ";move to start positions");
-  append(this.commands, "G1 Z" + z + " F7800.000     ;move to Z position" );
-  append(this.commands, "G1 E-2.00000 F2400.000     ;move to Extruder position" );
+  append(this.commands, "G1 Z" + z + " F" + (speed*2) + "     ;move to Z position" );
   append(this.commands, "G92 E0                     ;reset Extruder position" );
-  append(this.commands, "G1 X" + x +" Y" + y + " F7800.000     ;move to beginning of outline");
-  append(this.commands, "G1 E2.00000 F2400.000     ;move to Extruder position" );
+  append(this.commands, "G1 X" + x +" Y" + y + " F" + speed +"     ;move to beginning of outline");
 
 }
-Gcode.prototype.moveTo = function(x, y, z){
+Gcode.prototype.moveTo = function(x, y, z, speed){
   //move to start position
   append(this.commands, ";move to");
-  append(this.commands, "G1 Z" + z + " F7800.000        ;move to Z position" );
+  append(this.commands, "G1 Z" + z + " F" + (speed*2) + "       ;move to Z position" );
   append(this.commands, "G92 E0                     ;reset Extruder position" );
-  append(this.commands, "G1 X" + x +" Y" + y + " F7800.000     ;move to beginning of knitting");
+  append(this.commands, "G1 X" + x +" Y" + y + " F" + speed +"     ;move to beginning of knitting");
 
 }
 Gcode.prototype.createPath = function(arr, nozzle, layerheight, speed){
@@ -89,7 +87,7 @@ Gcode.prototype.createPath = function(arr, nozzle, layerheight, speed){
     append(this.commands, "G1 X" + arr[i].x +" Y" + arr[i].y + " E" + e.toFixed(3));
 
   }
-  
+
   append(this.commands, ";End create path");
 }
 

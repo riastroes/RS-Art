@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 6;
+        app.scene = 10;
       }
       else{
         switch(app.scene) {
@@ -88,6 +88,42 @@ function draw() {
             case 9:{
               //save gcode
               app.project.run(9);
+              app.runscene(200);
+              break;
+            }
+            case 10:{
+              //test thickness line
+              app.project.run(10);
+              app.runscene(0);
+              break;
+            }
+            case 11:{
+              //save gcode
+              app.project.run(11);
+              app.runscene(200);
+              break;
+            }
+            case 12:{
+              //test two-four layers, without crossing
+              app.project.run(12);
+              app.runscene(0);
+              break;
+            }
+            case 13:{
+              //save gcode
+              app.project.run(13);
+              app.runscene(200);
+              break;
+            }
+            case 14:{
+              //test two layers, without crossing
+              app.project.run(14);
+              app.runscene(0);
+              break;
+            }
+            case 15:{
+              //save gcode
+              app.project.run(15);
               app.runscene(200);
               break;
             }

@@ -9,12 +9,12 @@ Outline.prototype.style = function(nr){
     case 0:
     this.strokecolor = app.pal.colors[0];
     this.fillcolor = false
-    this.thickness = 1;
+    this.thickness = 4;
     break;
     case 1:
     this.strokecolor = app.pal.colors[0];
     this.fillcolor = false
-    this.thickness = 0.1;
+    this.thickness = 0.4;
     break;
   }
  app.style.set(this.strokecolor, this.fillcolor, this.thickness);

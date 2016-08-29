@@ -46,6 +46,10 @@ Project.prototype.run = function(nr){
     case 0:{
       //three stitches
       background(255);
+      fill(0);
+      textSize(18);
+      text("Save gcode test0 now, press c", 100,50);
+      text("case 1:Only the heading", 100,80);
       var posdrawing = createVector(100,140);
       var posprinting = createVector(100,100);
       this.knitting = new Knitting(90,180); //stitchwidth, stitchheight
@@ -61,10 +65,7 @@ Project.prototype.run = function(nr){
       break;
     }
     case 1:{
-      fill(0);
-      textSize(18);
-      text("Save gcode test0 now, press c", 100,50);
-      text("case 1:Only the heading", 100,80);
+
       if (keyIsPressed === true){
         if(key === 'c'){
           this.gcode.save("test0.gcode");
@@ -77,6 +78,11 @@ Project.prototype.run = function(nr){
     case 2:{
       //draw 3 stitches ,one outline and generate gcode
       background(255);
+      fill(0);
+      textSize(18);
+      text("Save gcode test1 now, press c", 100,50);
+      text("case 3:Three stitches, one outline", 100,80);
+
       var posdrawing = createVector(100,140);
       var posprint = createVector(100,100);
       var posshowprint = createVector(0,400);
@@ -100,10 +106,6 @@ Project.prototype.run = function(nr){
       break;
     }
     case 3:{
-      fill(0);
-      textSize(18);
-      text("Save gcode test1 now, press c", 100,50);
-      text("case 3:Three stitches, one outline", 100,80);
 
       if (keyIsPressed === true){
         if(key === 'c'){
@@ -117,6 +119,10 @@ Project.prototype.run = function(nr){
     case 4:{
       //draw 3 stitches, 10 outlines en genrate gcode
       background(255);
+      fill(0);
+      textSize(18);
+      text("Save gcode test2 now, press c", 100,50);
+      text("case 5: Three stitches, ten outlines", 100,80);
       var posdrawing = createVector(100,140);
       var posprint = createVector(80,120);
       var posshowprint = createVector(100,500);
@@ -140,10 +146,7 @@ Project.prototype.run = function(nr){
       break;
     }
     case 5:{
-      fill(0);
-      textSize(18);
-      text("Save gcode test2 now, press c", 100,50);
-      text("case 5: Three stitches, ten outlines", 100,80);
+
 
       if (keyIsPressed === true){
         if(key === 'c'){
@@ -157,10 +160,15 @@ Project.prototype.run = function(nr){
     case 6:{
       // draw pattern, ten outlines and generate gcode
       background(255);
+      fill(0);
+      textSize(18);
+      text("Save gcode test3 now, press c", 100,50);
+      text("case 7: pattern 4", 100,80);
+
       var posdrawing = createVector(100,540);
       var posprint = createVector(80,120);
       var posshowprint = createVector(100,700);
-      this.showBed(posshowprint,0.2);//position, scale
+      this.showBed(posshowprint,2);//position, scale
       this.knitting = new Knitting(90,180); //stitchwidth, stitchheight
       this.knitting.createPattern(4);
       this.knitting.draw(posdrawing);
@@ -180,10 +188,6 @@ Project.prototype.run = function(nr){
       break;
     }
     case 7:{
-      fill(0);
-      textSize(18);
-      text("Save gcode test3 now, press c", 100,50);
-      text("case 7: pattern 4", 100,80);
 
       if (keyIsPressed === true){
         if(key === 'c'){
@@ -197,10 +201,15 @@ Project.prototype.run = function(nr){
     case 8:{
       // draw pattern, ten outlines and generate gcode, very small
       background(255);
+      fill(0);
+      textSize(18);
+      text("Save gcode test4 now, press c", 100,50);
+      text("case 9: Pattern 5", 100,80);
+
       var posdrawing = createVector(100,340);
       var posprint = createVector(80,120);
       var posshowprint = createVector(100,440);
-      this.showBed(posshowprint,5);//position, scale
+      this.showBed(posshowprint,2);//position, scale
       this.knitting = new Knitting(50,100); //stitchwidth, stitchheight
       this.knitting.createPattern(5);
       this.knitting.draw(posdrawing);
@@ -220,10 +229,7 @@ Project.prototype.run = function(nr){
       break;
     }
     case 9:{
-      fill(0);
-      textSize(18);
-      text("Save gcode test4 now, press c", 100,50);
-      text("case 9: Pattern 5", 100,80);
+
 
       if (keyIsPressed === true){
         if(key === 'c'){
@@ -234,10 +240,142 @@ Project.prototype.run = function(nr){
       }
       break;
     }
-    case 16:{
-      background(255);
-    }
+
+  case 10:{
+    //draw 3 stitches ,one outline and generate gcode
+    //test thickness of print in one layer
+    background(255);
+    fill(0);
+    textSize(18);
+    text("Save gcode test5 now, press c", 100,50);
+    text("case 11: Thickness of print in one layer", 100,80);
+
+    var posdrawing = createVector(100,200);
+    var posprint = createVector(100,100);
+    var posshowprint = createVector(0,400);
+    this.knitting = new Knitting(90,180); //stitchwidth, stitchheight
+    this.knitting.createRowLR(3);
+    this.knitting.draw(posdrawing);
+    this.knitting.genKnitting(posprint,0.1);//position, scale
+    this.knitting.showGenKnitting(this.knitting.genknitting,posshowprint, 2); //scale
+
+    //one outline;
+    this.outline = new Outline(this.knitting.knitting);
+    this.outline.createOutline(30,6,40,4);//marge,cornersteps,size,step
+    this.outline.drawOutline(posdrawing);
+    this.outline.genOutline(posprint,0.1);//position, scale
+    this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
+      //create gcode
+    this.gcode = new Gcode();
+    this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
+    this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0, 2400);
+    this.gcode.createEnd();
+    break;
   }
+  case 11:{
+
+
+    if (keyIsPressed === true){
+      if(key === 'c'){
+        this.gcode.save("test5.gcode");
+      }
+      keyIsPressed =false;
+      return false;
+    }
+    break;
+  }
+  case 12:{
+    //draw 3 stitches ,one outline and generate gcode
+    //test thickness of print in one layer
+    background(255);
+    fill(0);
+    textSize(18);
+    text("Save gcode test6 now, press c", 100,50);
+    text("case 13: Test two-four layers, without crossing", 100,80);
+
+    var posdrawing = createVector(100,200);
+    var posprint = createVector(100,100);
+    var posshowprint = createVector(0,400);
+    this.knitting = new Knitting(90,180); //stitchwidth, stitchheight
+    this.knitting.createRowLR(3);
+    this.knitting.draw(posdrawing);
+    this.knitting.genKnitting(posprint,0.1);//position, scale
+    this.knitting.showGenKnitting(this.knitting.genknitting,posshowprint, 2); //scale
+
+    //one outline;
+    this.outline = new Outline(this.knitting.knitting);
+    this.outline.createOutline(30,6,40,4);//marge,cornersteps,size,step
+    this.outline.drawOutline(posdrawing);
+    this.outline.genOutline(posprint,0.1);//position, scale
+    this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
+      //create gcode
+    this.gcode = new Gcode();
+    this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
+    this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0, 2400);//z, speed
+    this.gcode.createNextLayer(this.knitting.genknitting, 0.4, 2400);//z, speed
+    //this.gcode.createNextLayer(this.knitting.genknitting, 0.7, 2400);//z, speed
+    //this.gcode.createNextLayer(this.knitting.genknitting, 1.0, 2400);//z, speed
+    this.gcode.createEnd();
+    break;
+  }
+  case 13:{
+
+    if (keyIsPressed === true){
+      if(key === 'c'){
+        this.gcode.save("test6.gcode");
+      }
+      keyIsPressed =false;
+      return false;
+    }
+    break;
+  }
+  case 14:{
+    //draw 2 rows
+    //test crossing lines
+    background(255);
+    fill(0);
+    textSize(18);
+    text("Save gcode test7 now, press c", 100,50);
+    text("case 15: Two rows, Test crossing lines", 100,80);
+
+    var posdrawing = createVector(100,300);
+    var posprint = createVector(100,100);
+    var posshowprint = createVector(0,500);
+    this.knitting = new Knitting(90,180); //stitchwidth, stitchheight
+    this.knitting.createPattern(2);
+    this.knitting.draw(posdrawing);
+    this.knitting.genKnitting(posprint,0.1);//position, scale
+    this.knitting.showGenKnitting(this.knitting.genknitting,posshowprint, 2); //scale
+
+    //one outline;
+    this.outline = new Outline(this.knitting.knitting);
+    this.outline.createOutline(30,6,40,4);//marge,cornersteps,size,step
+    this.outline.drawOutline(posdrawing);
+    this.outline.genOutline(posprint,0.1);//position, scale
+    this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
+      //create gcode
+    this.gcode = new Gcode();
+    this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
+    this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0, 2400);//z, speed
+    this.gcode.createEnd();
+    break;
+  }
+  case 15:{
+
+
+    if (keyIsPressed === true){
+      if(key === 'c'){
+        this.gcode.save("test7.gcode");
+      }
+      keyIsPressed =false;
+      return false;
+    }
+    break;
+  }
+  case 16:{
+    background(255);
+  }
+}
 }
 Project.prototype.showBed = function(pos, pscale){
   push();

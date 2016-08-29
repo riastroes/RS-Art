@@ -18,17 +18,17 @@ Knitting.prototype.style = function(nr){
     case 0:
     this.strokecolor = app.pal.colors[0];
     this.fillcolor = false
-    this.thickness = 1;
+    this.thickness = 4;
     break;
     case 1:
     this.strokecolor = app.pal.colors[2];
     this.fillcolor = false
-    this.thickness = 1;
+    this.thickness = 4;
     break;
     case 2:
     this.strokecolor = app.pal.colors[2];
     this.fillcolor = false
-    this.thickness = 0.1;
+    this.thickness = 0.4;
     break;
   }
  app.style.set(this.strokecolor, this.fillcolor, this.thickness);
@@ -277,7 +277,7 @@ Knitting.prototype.draw = function(pos){
   push();
   translate(pos.x, pos.y);
     ellipse(this.knitting[0].x, this.knitting[0].y,10,10);
-    for(var i= 1; i < this.knitting.length-9; i++){
+    for(var i= 1; i < this.knitting.length; i++){
       line(this.knitting[i-1].x, this.knitting[i-1].y,this.knitting[i].x, this.knitting[i].y);
       ellipse(this.knitting[i].x, this.knitting[i].y,3,3);
     }
@@ -312,12 +312,12 @@ Knitting.prototype.createPattern= function(nr){
      break;
      case 5:
      //startrow  LR
-     this.stitches = 30;
-     this.createStartRowLR(30);//setup
-     this.createRowRL(30,1);//row 1 up
-     this.createRowLR(30);//row 2
-     this.createRowRL(30);//row
-     this.createEndRowLR(30);//row
+     this.stitches = 40;
+     this.createStartRowLR(this.stitches);//setup
+     this.createRowRL(this.stitches,1);//row 1 up
+     this.createRowLR(this.stitches);//row 2
+     this.createRowRL(this.stitches);//row
+     this.createEndRowLR(this.stitches);//row
      break;
    }
 }

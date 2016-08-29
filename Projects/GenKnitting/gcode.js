@@ -51,10 +51,17 @@ Gcode.prototype.createOutline = function(outline,nozzle, layerheight, speed){
 }
 Gcode.prototype.createFirstLayer = function(genoutline,genknitting,z, speed){
   //function(arr, nozzle, layerheight, speed)
+  this.nozzle = 0.4
   this.moveToStart(genoutline[0].x, genoutline[0].y, z, speed);
-  this.createOutline(genoutline,0.4,0.4,speed);
+  this.createOutline(genoutline,this.nozzle,z,speed);
   this.moveTo(genknitting[0].x, genknitting[0].y, z);
-  this.createPath(genknitting,0.4,0.4,speed);
+  this.createPath(genknitting,this.nozzle,z,speed);
+}
+Gcode.prototype.createNextLayer = function(genknitting,z, speed){
+  //function(arr, nozzle, layerheight, speed)
+  this.nozzle = 0.4
+  this.moveTo(genknitting[0].x, genknitting[0].y, z);
+  this.createPath(genknitting,this.nozzle,z,speed);
 }
 Gcode.prototype.moveToStart = function(x, y, z, speed){
   //move to start position

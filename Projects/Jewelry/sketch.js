@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("Jewelry",800,800,"svg");
+    app = new App("Jewelry",800,800,"WEBGL");
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("rood-blauw.png,zebra1.jpg,eye.jpg");

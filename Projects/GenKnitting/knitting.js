@@ -319,12 +319,21 @@ Knitting.prototype.createPattern= function(nr){
      this.createRowRL(this.stitches);//row
      this.createEndRowLR(this.stitches);//row
      break;
+     case 6:
+     //startrow  LR
+     this.stitches = 20;
+     this.createStartRowLR(this.stitches);//setup
+     this.createRowRL(this.stitches,1);//row 1 up
+     this.createRowLR(this.stitches);//row 2
+     this.createRowRL(this.stitches);//row
+     this.createEndRowLR(this.stitches);//row
+     break;
    }
 }
 Knitting.prototype.genKnitting = function(offset, scale){
   var x, y;
 
-  for(var i= 1; i < this.knitting.length -9; i++){
+  for(var i= 0; i < this.knitting.length -9; i++){
     x = offset.x + (this.knitting[i].x *scale);
     y = offset.y-(this.knitting[i].y *scale);
     append(this.genknitting, createVector(x.toFixed(3), y.toFixed(3)));

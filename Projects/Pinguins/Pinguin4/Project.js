@@ -3,7 +3,7 @@
  */
  "use strict";
 function Project(){
-  this.text = "Pinguins by Ria Stroes";
+  this.text = "Penguins by Ria Stroes";
   this.init();
 };
 

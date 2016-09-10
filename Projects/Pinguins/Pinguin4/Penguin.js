@@ -32,17 +32,17 @@ Pinguin.prototype.style = function(nr){
     case 2:
     this.strokecolor = app.pal.colors[0];
     this.fillcolor = app.pal.colors[0];
-    this.thickness = 1/ this.scale;
+    this.thickness = 1/this.scale;
     break;
     case 3:
     this.strokecolor = app.pal.colors[0];
     this.fillcolor = app.pal.colors[1];
-    this.thickness = (1/ this.scale) * 3;
+    this.thickness = (1/ this.scale);
     break;
     case 4:
     this.strokecolor = app.pal.colors[0];
     this.fillcolor = app.pal.colors[0];
-    this.thickness = (1/ this.scale) ;
+    this.thickness = (1/ this.scale);
     break;
     }
 
@@ -189,12 +189,14 @@ Pinguin.prototype.drawHead = function(){
   endShape();
 }
 Pinguin.prototype.drawEye = function(nr){
+
   if(this.id == 8 ){
     this.style(3);
     ellipse(3,-41,4,5);
     if(nr == 0){
 
   }
+    this.style(2);
     ellipse(4,-41,2,3);
   }
   else{
@@ -203,8 +205,10 @@ Pinguin.prototype.drawEye = function(nr){
     if(nr == 0){
 
   }
+    this.style(2);
     ellipse(-4,-41,2,3);
   }
+
 }
 Pinguin.prototype.drawCoat = function(){
   //coat
@@ -258,8 +262,8 @@ Pinguin.prototype.drawPinguin = function(nr){
 }
 else{
   this.style(4);
-  rect(this.leftfoot[3].x+1, this.leftfoot[3].y-30, 1, 30);
-  rect(this.rightfoot[0].x, this.rightfoot[0].y-30, 1, 30);
+  rect(this.leftfoot[3].x+1, this.leftfoot[3].y-10, 1, 10);
+  rect(this.rightfoot[0].x, this.rightfoot[0].y-10, 1, 10);
   this.drawFeet(nr);
   this.style(4);
   this.drawWings(nr);

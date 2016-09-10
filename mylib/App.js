@@ -54,6 +54,8 @@ function App(name, appwidth, appheight,  canvastype){
     this.isrunning = false;
     this.runcount =0;
     this.scene = 0;
+    this.params = getURLParams();
+
 
     //styles and colors
     this.pal = new Palette(0);
@@ -266,6 +268,12 @@ App.prototype.runscene = function(framecounts){
       this.isrunning = false;
     }
 };
+App.prototype.nextscene = function(nextscene){
+    this.runcount = 1;
+    this.scene = nextscene-1;
+
+};
+
 App.prototype.wait = function(framecounts, nextscene){
     if(framecounts > 0) {
         if(app.is(nextscene)){

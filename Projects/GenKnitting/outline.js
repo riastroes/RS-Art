@@ -20,11 +20,11 @@ Outline.prototype.style = function(nr){
  app.style.set(this.strokecolor, this.fillcolor, this.thickness);
 
 };
-Outline.prototype.createOutline = function(marge,cornersteps,size, step){
+Outline.prototype.createOutline = function(marge,cornersteps,rounds,roundthickness){
   //create an outline -marge- pixels outside the knitting
   //create corners with -cornersteps- positions
-  //go round -size- times
-  //distance between rounds is -step-
+  //go round -rounds- times
+  //distance between rounds is -roundthickness-
   this.outline = [];
   var m = marge;
 
@@ -49,7 +49,7 @@ Outline.prototype.createOutline = function(marge,cornersteps,size, step){
     var center;
     var pos;
 
-    for(var s = 0 ; s < size; s+= step){
+    for(var s = (rounds*roundthickness) ; s >=0; s-= roundthickness){
 
       center = createVector(minx, maxy);
       pos = center.copy();

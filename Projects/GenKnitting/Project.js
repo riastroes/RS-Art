@@ -40,6 +40,19 @@ Project.prototype.showText = function(){
 
 Project.prototype.run = function(nr){
 
+  //testset
+  var test =[];
+  var tempbed = 70;       append(test, ";tempbed = " + tempbed);
+  var tempextruder = 210; append(test, ";tempextruder = " + tempextruder);
+  var nozzle = 0.4;       append(test, ";nozzle = " + nozzle);
+  var firstlayerheight= 0.27; append(test, ";firstlayerheight = " +firstlayerheight);
+  var layerheight = 0.3;  append(test, ";layerheight = " +layerheight);
+  var speed = 2400;       append(test, ";speed = " + speed);
+  var outlinerounds = 10; append(test, ";outlinerounds = "+ outlinerounds);
+  var outlinerounddist = 4; append(test, ";outlinerounddist = " + outlinerounddist);
+  var maxlayers = 5; append(test, ";maxlayers = " + maxlayers);
+
+
   switch(nr){
 
     //generate knitting
@@ -48,7 +61,7 @@ Project.prototype.run = function(nr){
       background(255);
       fill(0);
       textSize(18);
-      text("Save gcode test0 now, press c", 100,50);
+      text("test0.gcode, press c", 100,50);
       text("case 1:Only the heading", 100,80);
       var posdrawing = createVector(100,140);
       var posprinting = createVector(100,100);
@@ -56,11 +69,11 @@ Project.prototype.run = function(nr){
       this.knitting.createRowLR(3); //pos, stitches
 
       this.knitting.draw(posdrawing);
-      this.knitting.genKnitting(posprinting);
+      this.knitting.genKnitting(posprinting, 0.1);
       //create gcode, only the heading
       this.gcode = new Gcode();
-      this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
-      this.gcode.moveToStart(this.knitting.knitting[0].x, this.knitting.knitting[0].y);
+      this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
+      this.gcode.moveToStart(this.knitting.knitting[0].x, this.knitting.knitting[0].y, firstlayerheight, speed);
       this.gcode.createEnd();
       break;
     }
@@ -80,7 +93,7 @@ Project.prototype.run = function(nr){
       background(255);
       fill(0);
       textSize(18);
-      text("Save gcode test1 now, press c", 100,50);
+      text("test1.gcode, press c", 100,50);
       text("case 3:Three stitches, one outline", 100,80);
 
       var posdrawing = createVector(100,140);
@@ -94,14 +107,14 @@ Project.prototype.run = function(nr){
 
       //one outline;
       this.outline = new Outline(this.knitting.knitting);
-      this.outline.createOutline(30,6,1,1);//marge,cornersteps,size,step
+      this.outline.createOutline(30,6,outlinerounds,outlinerounddist);//marge,cornersteps,size,step
       this.outline.drawOutline(posdrawing);
       this.outline.genOutline(posprint,0.1);//position, scale
       this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
         //create gcode
       this.gcode = new Gcode();
-      this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
-      this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0, 2400);
+      this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
+      this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, nozzle, firstlayerheight, speed);
       this.gcode.createEnd();
       break;
     }
@@ -121,7 +134,7 @@ Project.prototype.run = function(nr){
       background(255);
       fill(0);
       textSize(18);
-      text("Save gcode test2 now, press c", 100,50);
+      text("test2.gcode, press c", 100,50);
       text("case 5: Three stitches, ten outlines", 100,80);
       var posdrawing = createVector(100,140);
       var posprint = createVector(80,120);
@@ -134,14 +147,14 @@ Project.prototype.run = function(nr){
       this.knitting.showGenKnitting(this.knitting.genknitting,posshowprint, 2); //scale
       //ten outlines;
       this.outline = new Outline(this.knitting.knitting);
-      this.outline.createOutline(30,6,10,1); //marge,cornersteps,size,step
+      this.outline.createOutline(30,6,outlinerounds,outlinerounddist); //marge,cornersteps,size,step
       this.outline.drawOutline(posdrawing);
       this.outline.genOutline(posprint,0.1);//position, scale
       this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
       //create gcode
       this.gcode = new Gcode();
-      this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
-      this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0, 2400);
+      this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
+      this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, nozzle, firstlayerheight, speed);
       this.gcode.createEnd();
       break;
     }
@@ -162,7 +175,7 @@ Project.prototype.run = function(nr){
       background(255);
       fill(0);
       textSize(18);
-      text("Save gcode test3 now, press c", 100,50);
+      text("test3.gcode, press c", 100,50);
       text("case 7: pattern 4", 100,80);
 
       var posdrawing = createVector(100,540);
@@ -176,14 +189,15 @@ Project.prototype.run = function(nr){
       this.knitting.showGenKnitting(this.knitting.genknitting,posshowprint, 2); //scale
       //ten outlines;
       this.outline = new Outline(this.knitting.knitting);
-      this.outline.createOutline(30,6,10,1); //marge,cornersteps,size,step
+      this.outline.createOutline(30,6,outlinerounds,outlinerounddist); //marge,cornersteps,size,step
       this.outline.drawOutline(posdrawing);
       this.outline.genOutline(posprint,210/2000);//position, scale
       this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
       //create gcode
       this.gcode = new Gcode();
-      this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
-      this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0, 2400);
+      this.gcode.createHeading(tempextruder, tempbed,test); //temperature extruder, temperature bed
+      this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, nozzle, firstlayerheight, speed);
+
       this.gcode.createEnd();
       break;
     }
@@ -203,28 +217,33 @@ Project.prototype.run = function(nr){
       background(255);
       fill(0);
       textSize(18);
-      text("Save gcode test4 now, press c", 100,50);
+      text("test4.gcode, press c", 100,50);
       text("case 9: Pattern 5", 100,80);
 
       var posdrawing = createVector(100,340);
-      var posprint = createVector(80,120);
+      var posprint = createVector(10,50);
       var posshowprint = createVector(100,440);
       this.showBed(posshowprint,2);//position, scale
-      this.knitting = new Knitting(50,100); //stitchwidth, stitchheight
+      this.knitting = new Knitting(40,80); //stitchwidth, stitchheight
       this.knitting.createPattern(5);
       this.knitting.draw(posdrawing);
-      this.knitting.genKnitting(posprint,210/2000);//position, scale
+      this.knitting.genKnitting(posprint,220/2000);//position, scale
       this.knitting.showGenKnitting(this.knitting.genknitting,posshowprint, 2); //scale
       //ten outlines;
       this.outline = new Outline(this.knitting.knitting);
-      this.outline.createOutline(30,6,10,1); //marge,cornersteps,size,step
+      this.outline.createOutline(30,6,outlinerounds,outlinerounddist); //marge,cornersteps,size,step
       this.outline.drawOutline(posdrawing);
-      this.outline.genOutline(posprint,210/2000);//position, scale
+      this.outline.genOutline(posprint,220/2000);//position, scale
       this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
       //create gcode
       this.gcode = new Gcode();
-      this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
-      this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0, 2400);
+      this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
+      this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, nozzle, firstlayerheight, speed);
+      var z = layerheight;
+      for(var l=0; l<maxlayers; l++){
+        z += layerheight;
+        this.gcode.createNextLayer(this.knitting.genknitting, nozzle, layerheight,z,speed);
+      }
       this.gcode.createEnd();
       break;
     }
@@ -247,7 +266,7 @@ Project.prototype.run = function(nr){
     background(255);
     fill(0);
     textSize(18);
-    text("Save gcode test5 now, press c", 100,50);
+    text("test5.gcode, press c", 100,50);
     text("case 11: Thickness of print in one layer", 100,80);
 
     var posdrawing = createVector(100,200);
@@ -261,14 +280,14 @@ Project.prototype.run = function(nr){
 
     //one outline;
     this.outline = new Outline(this.knitting.knitting);
-    this.outline.createOutline(30,6,40,4);//marge,cornersteps,size,step
+    this.outline.createOutline(30,6,outlinerounds,outlinerounddist);//marge,cornersteps,size,step
     this.outline.drawOutline(posdrawing);
     this.outline.genOutline(posprint,0.1);//position, scale
     this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
       //create gcode
     this.gcode = new Gcode();
-    this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
-    this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0, 2400);
+    this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
+    this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, nozzle, firstlayerheight, speed);
     this.gcode.createEnd();
     break;
   }
@@ -290,7 +309,7 @@ Project.prototype.run = function(nr){
     background(255);
     fill(0);
     textSize(18);
-    text("Save gcode test6 now, press c", 100,50);
+    text("test6.gcode, press c", 100,50);
     text("case 13: Test two-four layers, without crossing", 100,80);
 
     var posdrawing = createVector(100,200);
@@ -304,17 +323,19 @@ Project.prototype.run = function(nr){
 
     //one outline;
     this.outline = new Outline(this.knitting.knitting);
-    this.outline.createOutline(30,6,40,4);//marge,cornersteps,size,step
+    this.outline.createOutline(30,6,outlinerounds,outlinerounddist);//marge,cornersteps,size,step
     this.outline.drawOutline(posdrawing);
     this.outline.genOutline(posprint,0.1);//position, scale
     this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
       //create gcode
     this.gcode = new Gcode();
-    this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
-    this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0, 2400);//z, speed
-    this.gcode.createNextLayer(this.knitting.genknitting, 0.4, 2400);//z, speed
-    //this.gcode.createNextLayer(this.knitting.genknitting, 0.7, 2400);//z, speed
-    //this.gcode.createNextLayer(this.knitting.genknitting, 1.0, 2400);//z, speed
+    this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
+    this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting,nozzle, firstlayerheight, speed);//
+    var z = layerheight;
+    for(var l=0; l<maxlayers; l++){
+      z += layerheight;
+      this.gcode.createNextLayer(this.knitting.genknitting,nozzle, layerheight,z,speed);
+    }
     this.gcode.createEnd();
     break;
   }
@@ -335,28 +356,28 @@ Project.prototype.run = function(nr){
     background(255);
     fill(0);
     textSize(18);
-    text("Save gcode test7 now, press c", 100,50);
+    text("test7.gcode, press c", 100,50);
     text("case 15: Two rows, Test crossing lines", 100,80);
 
-    var posdrawing = createVector(100,300);
-    var posprint = createVector(100,100);
+    var posdrawing = createVector(100,500);
+    var posprint = createVector(50,100);
     var posshowprint = createVector(0,500);
-    this.knitting = new Knitting(90,180); //stitchwidth, stitchheight
-    this.knitting.createPattern(2);
+    this.knitting = new Knitting(45,90); //stitchwidth, stitchheight
+    this.knitting.createPattern(6);
     this.knitting.draw(posdrawing);
     this.knitting.genKnitting(posprint,0.1);//position, scale
     this.knitting.showGenKnitting(this.knitting.genknitting,posshowprint, 2); //scale
 
     //one outline;
     this.outline = new Outline(this.knitting.knitting);
-    this.outline.createOutline(30,6,40,4);//marge,cornersteps,size,step
+    this.outline.createOutline(30,6,outlinerounds,outlinerounddist);//marge,cornersteps,size,step
     this.outline.drawOutline(posdrawing);
     this.outline.genOutline(posprint,0.1);//position, scale
     this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
       //create gcode
     this.gcode = new Gcode();
-    this.gcode.createHeading(210, 70); //temperature extruder, temperature bed
-    this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting, 0, 2400);//z, speed
+    this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
+    this.gcode.createFirstLayer(this.outline.genoutline, this.knitting.genknitting,nozzle, firstlayerheight, speed);//z, speed
     this.gcode.createEnd();
     break;
   }

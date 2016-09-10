@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 10;
+        app.scene = 0;
       }
       else{
         switch(app.scene) {

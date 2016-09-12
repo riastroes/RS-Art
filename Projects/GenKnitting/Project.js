@@ -395,8 +395,79 @@ Project.prototype.run = function(nr){
   }
   case 16:{
     background(255);
+    break;
+
   }
-}
+  case 20:{
+    background(255);
+    fill(0);
+    textSize(18);
+    text("test8.gcode, press c", 100,50);
+    text("case 20: TEST straight LINES", 100,80);
+
+    var posdrawing = createVector(100,200);
+    var posprint = createVector(100,100);
+    var posshowprint = createVector(100,350);
+    this.showBed(posshowprint,0.1);//position, scale
+    this.test = new Test();
+    this.test.createLines();
+    this.test.draw(posdrawing,1);
+    this.test.genTestLines(posprint,0.1);//position, scale
+    this.test.showGenTest(this.test.gentest,posshowprint, 1); //scale
+    //create gcode
+    this.gcode = new Gcode();
+    this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
+    this.gcode.testLayer(this.test.gentest, nozzle, firstlayerheight, speed);//z, speed
+    this.gcode.createEnd();
+    break;
+
+  }
+  case 21:{
+    if (keyIsPressed === true){
+      if(key === 'c'){
+        this.gcode.save("test8.gcode");
+      }
+      keyIsPressed =false;
+      return false;
+    }
+    break;
+
+  }
+  case 22:{
+    background(255);
+    fill(0);
+    textSize(18);
+    text("test9.gcode, press c", 100,50);
+    text("case 22: TEST straight LINES with retreat", 100,80);
+
+    var posdrawing = createVector(100,200);
+    var posprint = createVector(100,100);
+    var posshowprint = createVector(100,350);
+    this.showBed(posshowprint,0.1);//position, scale
+    this.test = new Test();
+    this.test.createLines();
+    this.test.draw(posdrawing,1);
+    this.test.genTestLines(posprint,0.1);//position, scale
+    this.test.showGenTest(this.test.gentest,posshowprint, 1); //scale
+    //create gcode
+    this.gcode = new Gcode();
+    this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
+    this.gcode.testLayer1(this.test.gentest, nozzle, firstlayerheight, speed);//z, speed
+    this.gcode.createEnd();
+    break;
+
+  }
+  case 23:{
+      if (keyIsPressed === true){
+        if(key === 'c'){
+          this.gcode.save("test9.gcode");
+        }
+        keyIsPressed =false;
+        return false;
+      }
+      break;
+    }
+  }
 }
 Project.prototype.showBed = function(pos, pscale){
   push();

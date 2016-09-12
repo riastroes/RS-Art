@@ -4,6 +4,7 @@
  "use strict";
 function Project(){
   this.text = "new project";
+  this.fractal = new Fractal();
 
 };
 
@@ -37,17 +38,9 @@ Project.prototype.showText = function(){
   text(this.text,60,50);
 }
 
-Project.prototype.run = function(nr){
-  switch(nr){
-    case 0:{
-      background(255);
-      this.fractal = new Fractal();
-      break;
-    }
-  }
-}
+
 Project.prototype.draw = function(nr){
-  this.showText();
+  
   switch(nr){
     case 0:{
       this.fractal.drawEllipses(300,500,500, 50);
@@ -76,6 +69,36 @@ Project.prototype.draw = function(nr){
     case 5:{
       background(255);
       this.fractal.drawRect(300,400,40);
+      break;
+    }
+    case 6:{
+      background(255);
+      push();
+      translate(300,350);
+      rotate(2);
+      scale(0.1);
+      this.rot = 0;
+      this.fractal.drawLines(-50,1000,30,30,1);
+      pop();
+
+      break;
+    }
+    case 7:{
+      background(255);
+
+      break;
+    }
+    case 8:{
+      push();
+      translate(300,250);
+      rotate(2);
+      scale(0.1);
+      this.rot = 0;
+      this.fractal.drawLines2(-50,1000,30,30,1);
+      pop();
+
+      break;
+
       break;
     }
   }

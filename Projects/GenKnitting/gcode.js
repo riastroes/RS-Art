@@ -139,3 +139,43 @@ Gcode.prototype.createEnd = function(){
 Gcode.prototype.save = function(name){
   saveStrings(this.commands, name);
 }
+
+Gcode.prototype.testLayer = function(test, nozzle,layerheight, speed){
+  var z = layerheight;
+  append(this.commands, ";move to start positions");
+  append(this.commands, "G0 F9000 X" + test[0].x +" Y" + test[0].y + " Z" + z + "     ;move to Z position" );
+  append(this.commands, "G0 F" + speed + " ;move to beginning of outline");
+
+  var d,e, newe;
+  e = 0;
+  for(i = 1; i < test.length-1; i+=2){
+    d = p5.Vector.dist(test[i], test[i+1]);
+    newe = layerheight * nozzle * d;
+    e += newe;
+    append(this.commands, "G1 X" + test[i].x +" Y" + test[i].y + " E" + e.toFixed(3));
+    append(this.commands, "G0 X" + test[i+1].x +" Y" + test[i+1].y);
+
+  }
+}
+
+  Gcode.prototype.testLayer1 = function(test, nozzle,layerheight, speed){
+    var z = layerheight;
+    append(this.commands, ";move to start positions");
+    append(this.commands, "G0 F9000 X" + test[0].x +" Y" + test[0].y + " Z" + z + "     ;move to Z position" );
+    append(this.commands, "G0 F" + speed + " ;move to beginning of outline");
+
+    var d,e, newe;
+    var i;
+    e = 0;
+    for(i = 1; i < test.length-1; i+=2){
+      d = p5.Vector.dist(test[i], test[i+1]);
+      newe = layerheight * nozzle * d;
+      e += newe;
+
+      append(this.commands, "G1 X" + test[i].x +" Y" + test[i].y + " E" + e.toFixed(3));
+      append(this.commands, "G10");
+      append(this.commands, "G0 X" + test[i+1].x +" Y" + test[i+1].y);
+      append(this.commands, "G11");
+
+    }   
+  }

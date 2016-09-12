@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 0;
+        app.scene = 20;
       }
       else{
         switch(app.scene) {
@@ -124,6 +124,30 @@ function draw() {
             case 15:{
               //save gcode
               app.project.run(15);
+              app.runscene(200);
+              break;
+            }
+            case 20:{
+              //test streight lines
+              app.project.run(20);
+              app.runscene(0);
+              break;
+            }
+            case 21:{
+              //save gcode
+              app.project.run(21);
+              app.runscene(200);
+              break;
+            }
+            case 22:{
+              //test streight lines and retreat filament
+              app.project.run(22);
+              app.runscene(0);
+              break;
+            }
+            case 23:{
+              //save gcode
+              app.project.run(23);
               app.runscene(200);
               break;
             }

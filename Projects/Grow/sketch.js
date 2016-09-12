@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("TEMPLATE",540,540);
+    app = new App("TEMPLATE",windowWidth, windowHeight);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("coolcolors.jpg");
@@ -44,7 +44,7 @@ function draw() {
                 background(app.pal.colors[1]);
                 app.project.update();
                 app.project.draw();
-                app.runscene(1500);
+                app.runscene(5000);
                 break;
               }
             default:{

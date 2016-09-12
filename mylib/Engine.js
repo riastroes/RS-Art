@@ -20,22 +20,26 @@ Engine.prototype.seek = function(target){
 }
 Engine.prototype.wander = function(speed){
   this.maxspeed = speed;
+  this.mindBorders(0.3);
+
   this.direction.x = map(noise(this.a),0,1,-speed,speed);
   this.direction.y = map(noise(10 + this.a),0,1,-speed,speed);
   this.a += 0.1;
 
-  this.mindBorders(0.3);
+
   this.applyForce(this.direction);
 }
 Engine.prototype.go = function(speed){
   this.maxspeed = speed;
+  this.mindBorders(5);
   if(frameCount % app.randomInt(100) == 0){
     this.direction.x = map(noise(this.a),0,1,-speed,speed);
     this.direction.y = map(noise(10 + this.a),0,1,-speed,speed);
     this.a += 0.1;
   }
-  this.mindBorders(0.3);
+
   this.applyForce(this.direction);
+
 
 }
 Engine.prototype.mindBorders = function(speed){
@@ -52,15 +56,26 @@ Engine.prototype.mindBorders = function(speed){
   if(this.position.y > height - 100){
     force.y = map(this.position.y, height - 100, height, 0,-speed);
   }
-  if(force.x != 0 || force.y !=0){
-    this.direction = force.copy();
-  }
 
+  this.applyForce(force);
 
 }
+Engine.prototype.mindAttackers = function(attackers, speed) {
+  var force = createVector(0,0);
+  for(var i = 0; i < attackers.length; i++){
+    force.x = map(attackers[i].pos.x - this.position.x,-100,100,speed,-speed);
+    force.x =constrain(force.x, -speed,speed);
+    force.y = map(attackers[i].pos.y - this.position.y,-100,100,speed,-speed);
+    force.y =constrain(force.y, -speed,speed);
+  }
+
+  this.applyForce(force);
+}
+
 Engine.prototype.applyForce = function(force) {
   this.acceleration.add(force);
 }
+
 Engine.prototype.update = function() {
   this.velocity.add(this.acceleration);
   this.velocity.limit(this.maxspeed);

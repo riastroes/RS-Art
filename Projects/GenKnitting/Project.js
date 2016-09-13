@@ -12,8 +12,8 @@ Project.prototype.style = function(nr){
   switch(nr){
     case 0:
     this.strokecolor = app.pal.colors[0];
-    this.fillcolor = app.pal.colors[0];
-    this.thickness = 5;
+    this.fillcolor = app.pal.colors[1];
+    this.thickness = 1;
     break;
     case 1:
     this.strokecolor = app.pal.colors[1];
@@ -434,6 +434,7 @@ Project.prototype.run = function(nr){
 
   }
   case 22:{
+    this.style(0);
     background(255);
     fill(0);
     textSize(18);
@@ -454,7 +455,9 @@ Project.prototype.run = function(nr){
     this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
     this.gcode.testLayer1(this.test.gentest, nozzle, firstlayerheight, speed);//z, speed
     this.gcode.createEnd();
-    break;
+    console.log(this.test.lines);
+console.log(this.test.gentest);
+        break;
 
   }
   case 23:{

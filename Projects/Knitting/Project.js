@@ -332,8 +332,9 @@ Project.prototype.draw = function(nr){
     }
     //generate knitting
     case 14:{
+      background(255);
       var pos = createVector(100,100);
-      ellipse(pos.x, pos.y, 10,10);
+      //ellipse(pos.x, pos.y, 10,10);
       var stitchwidth = 35;
       var stitchheight = 70;
       var stitches = 5;
@@ -342,6 +343,7 @@ Project.prototype.draw = function(nr){
       pat[0] = [0,0,0,0,0];
       var pscale = 1;
       pos.add(0,(rows/2 +1 * stitchheight));
+
       this.knitting.drawFabric(pos, 4,stitches, stitchwidth, stitchheight,pat, pscale);
       break;
 

@@ -16,8 +16,10 @@ M82 ;set extruder to absolute mode
 G90 ;absolute positioning
 M107 ;start with the fan off
 M109 S180 B210 F1;activate auto temp min 180 max 210 scaling factor 1 (for PLA)
+M140 S60
+M190 S60
 G28; Home Axis
-G29; Z-Probe the bed (requires Z-Probe!)
+
 G1 Z5.0 F9000 ;move the head 5mm up for CYA clearance
 G92 E0 ;zero the extruded length
 M117 Cleaning...;Put Cleaning message on screen
@@ -32,14 +34,24 @@ M117 Printing...;Put printing message on LCD screen
 ;move to start positions
 G0 F9000 X100 Y100 Z0.27     ;move to Z position
 G0 F2400 ;move to beginning of outline
-G1 X100 Y100 E1.080
-G0 X100.000 Y110.000
-G1 X120.000 Y110.000 E3.495
-G0 X100.000 Y120.000
-G1 X130.000 Y120.000 E6.910
-G0 X100.000 Y130.000
-G1 X140.000 Y130.000 E11.363
-G0 X100.000 Y140.000
+G1 X100.000 Y110.000 E2.160
+G0 X120.000 Y110.000
+G1 X100.000 Y120.000 E5.400
+G0 X130.000 Y120.000
+G1 X100.000 Y130.000 E9.720
+G0 X140.000 Y130.000
+G1 X100.000 Y140.000 E15.120
+G0 X150.000 Y140.000
+G1 X100.000 Y145.000 E20.520
+G0 X150.000 Y145.000
+G1 X100.000 Y150.000 E27.000
+G0 X160.000 Y150.000
+G1 X100.000 Y155.000 E32.400
+G0 X150.000 Y155.000
+G1 X100.000 Y160.000 E39.960
+G0 X170.000 Y160.000
+G1 X100.000 Y165.000 E47.520
+G0 X170.000 Y165.000
 M107         ;turn off fan
 M104 S0      ;turn off temperature
 M140 S0      ;heated bed heater off

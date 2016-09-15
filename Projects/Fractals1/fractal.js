@@ -292,15 +292,21 @@ Fractal.prototype.draw11= function(x,y,rot,level){
     this.style(0);
     ellipse(10,20,20,20);
     ellipse(40,20,20,20);
-    ellipse(10,25,10,10);
-    ellipse(40,25,10,10);
+
     rect(20,20,10,30);
 
 
 this.style(1);
+if(rot < -PI/15){
 triangle(25,50,45,60,10,60);
     ellipse(10,25,10,10);
     ellipse(40,25,10,10);
+  }
+  else{
+    triangle(25,60,45,50,10,50);
+        ellipse(15,20,10,10);
+        ellipse(45,20,10,10);
+  }
 
   if(level < 10){
     this.draw11(20,20,rot,level+1);

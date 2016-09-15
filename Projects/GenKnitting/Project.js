@@ -448,15 +448,23 @@ Project.prototype.run = function(nr){
     this.test = new Test();
     this.test.createLines();
     this.test.draw(posdrawing,1);
+    this.test.genTestPreLines(posprint,0.1);
     this.test.genTestLines(posprint,0.1);//position, scale
     this.test.showGenTest(this.test.gentest,posshowprint, 1); //scale
     //create gcode
     this.gcode = new Gcode();
     this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
+    this.gcode.createFirstLines(this.test.genpretest, nozzle, firstlayerheight, speed);
     this.gcode.testLayer1(this.test.gentest, nozzle, firstlayerheight, speed);//z, speed
+    var z = firstlayerheight + layerheight;
+    for(var i = 0; i < 10; i++){
+      this.gcode.testLayer2(this.test.gentest, nozzle, layerheight, z, speed);//z, speed
+      z += layerheight;
+    }
+    this.gcode.testLayer2(this.test.gentest, nozzle, layerheight, z, speed);//z, speed
     this.gcode.createEnd();
     console.log(this.test.lines);
-console.log(this.test.gentest);
+    console.log(this.test.gentest);
         break;
 
   }

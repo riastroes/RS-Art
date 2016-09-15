@@ -76,6 +76,11 @@ Knitting.prototype.style = function(nr){
     this.fillcolor = false;
     this.thickness = 7;
     break;
+    case 10:
+    this.strokecolor = app.pal.colors[0];
+    this.fillcolor = false;
+    this.thickness = 1;
+    break;
 
   }
 
@@ -151,7 +156,7 @@ Knitting.prototype.knit3D = function(pos, stitchwidth, stitchheight){
       curveVertex((10*w),(8*h));
 
     endShape();
-    this.style(9);
+    this.style(10);
     beginShape();
       curveVertex((1*w),(9*h));
       curveVertex((3*w),(8*h));
@@ -205,7 +210,7 @@ Knitting.prototype.purl3D = function(pos, stitchwidth, stitchheight){
       curveVertex((10*w),(8*h));
 
     endShape();
-    this.style(9);
+    this.style(10);
     beginShape();
     curveVertex((1*w),(4*h));
     curveVertex((1*w),(2*h));
@@ -434,7 +439,7 @@ Knitting.prototype.setup3D = function(pos, stitchwidth, stitchheight){
     curveVertex((1*w),(2*h));
 
     endShape();
-    this.style(9);
+    this.style(10);
     beginShape();
       curveVertex((1*w),(5*h));
       curveVertex((1*w),(2*h));
@@ -545,7 +550,7 @@ Knitting.prototype.begin3D = function(pos, stitchwidth, stitchheight){
       curveVertex((1*w),(2*h));
 
     endShape();
-    this.style(9);
+    this.style(10);
     beginShape();
       curveVertex((2*w),(5*h));
       curveVertex((1*w),(2*h));
@@ -689,7 +694,7 @@ Knitting.prototype.end3D = function(pos, stitchwidth, stitchheight){
       curveVertex((1*w),(5*h));
       curveVertex((0*w),(5*h));
     endShape();
-    this.style(9);
+    this.style(10);
       beginShape();
 
       curveVertex((5*w),(7*h));
@@ -778,7 +783,7 @@ Knitting.prototype.ending3D = function(pos, stitchwidth, stitchheight){
       curveVertex((5*w),(8*h));
       curveVertex((7*w),(9*h));
     endShape();
-    this.style(9);
+    this.style(10);
 
     beginShape();
       curveVertex((5*w),(7*h));
@@ -1053,7 +1058,7 @@ Knitting.prototype.drawFabric = function(pos,rows, stitches,stitchwidth,stitchhe
   push();
   scale(pscale);
 
-  this.style(0);
+  this.style(10);
   this.drawFirstRow3D(pos, stitches, stitchwidth, stitchheight);
 
   for(var r = 0; r < rows ; r+=pat.length){

@@ -81,7 +81,7 @@ Palette.prototype.init = function(nr){
     this.add(7, color('#b8ec76')); //green
     this.add(8, color('#304de6')); //blue
     break;
-    case 8:
+    case 8://
     this.add(2, color('#c30808')); //reds
     this.add(3, color('#f47171')); //orange
     this.add(4, color('#dcf421')); //purple
@@ -96,7 +96,22 @@ Palette.prototype.init = function(nr){
     this.add(4, color('#051ec8')); //donker blauw
     this.add(5, color('#f4f922')); //geel
     break;
-
+    case 10://blue
+    this.add(2, color('#dae1ed')); //sfeer diepte
+    this.add(3, color('#909db3')); //
+    this.add(4, color('#374865')); //
+    this.add(5, color('#334665')); //
+    this.add(6, color('#0f1d36')); //
+    break;
+    case 11://friesland
+    this.add(2, color('#f07f0a')); //orange roofs
+    this.add(3, color('#5eb643')); //green grass
+    this.add(4, color('#6c7905')); //green trees
+    this.add(5, color('#87CEFA')); //licht blauw
+    this.add(6, color('#113d04')); //green
+    this.add(7, color('#b8ec76')); //green
+    this.add(8, color('#304de6')); //blue
+    break;
   }
 
 };
@@ -202,26 +217,40 @@ Palette.prototype.frameCountImgColor = function(frames){
     return undefined;
 }
 
-Palette.prototype.show = function(){
+Palette.prototype.show = function(ypos){
   var i,x,y,w;
   noStroke();
   for(i = 0; i< this.colors.length; i++){
     w = width/this.colors.length;
+    if(w>100){w = 100;}
     x = i * w;
-    y = 0;
+    if(app.is(ypos)){
+        y = ypos;
+    }
+    else{
+      y = 0;
+    }
+
     fill(this.colors[i]);
     ellipse(x + (w/2), y + (w/2), w,w);
     fill(this.colors[0]);
     text(i,x + (w/2), y + (w/2));
   }
 }
-Palette.prototype.showImgColors = function(){
+Palette.prototype.showImgColors = function(ypos){
   var i,x,y,w;
   noStroke();
   for(i = 0; i< this.imgcolors.length; i++){
     w = width/this.imgcolors.length;
+    if(w>100){w = 100;}
     x = i * w;
-    y = 0;
+    if(app.is(ypos)){
+        y = ypos;
+    }
+    else{
+      y = 0;
+    }
+
     fill(this.imgcolors[i]);
     ellipse(x + (w/2), y + (w/2)+w, w,w);
     fill(this.imgcolors[0]);

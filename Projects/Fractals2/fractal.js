@@ -90,14 +90,15 @@ Fractal.prototype.draw2 = function(x,y,s,level){
 }
 Fractal.prototype.draw3 = function(x,y,s,level){
   this.style(2);
+  this.level = level + 1;
   var pos = createVector(x,y);
 
   this.if(pos, 50, 7);
-  if(this.level < 100){
-    this.draw3(x + 10, y, s,level++);
+  if(this.level<10){
+    this.draw3(x + 10, y, s, this.level);
   }
 }
-Fractal.prototype.if = function(pos, perc, level){
+Fractal.prototype.if = function(pos, perc){
 
   var newpos = pos.copy();
   newpos.y +=10;
@@ -105,18 +106,18 @@ Fractal.prototype.if = function(pos, perc, level){
   newpos.x -= 10;
 
   line(pos.x, pos.y+10 , newpos.x , newpos.y)
-  if(level < 200){
-    level +=1;
+  if(pos.y < height){
+
 
     if(random(100) < perc){
-      this.if(newpos, perc, level);
+      this.if(newpos, perc);
     }
     else{
-      this.else(newpos, perc, level);
+      this.else(newpos, perc);
     }
   }
 }
-Fractal.prototype.else= function(pos, perc, level){
+Fractal.prototype.else= function(pos, perc){
 
   var newpos = pos.copy();
   newpos.y +=10;
@@ -124,13 +125,13 @@ Fractal.prototype.else= function(pos, perc, level){
   newpos.x += 10;
 
   line(pos.x, pos.y+10 , newpos.x , newpos.y);
-  if(level < 200){
-    level +=1;
+  if(pos.y < height){
+
     if(random(100) > perc){
-      this.else(newpos, perc, level);
+      this.else(newpos, perc);
     }
     else{
-      this.if(newpos, perc, level);
+      this.if(newpos, perc);
     }
   }
 }

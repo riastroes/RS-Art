@@ -8,6 +8,7 @@ function App(name, appwidth, appheight,  canvastype){
     pixelDensity(1);
     this.name = name;
     this.canvastype = canvastype;
+    this.waitcount = 0;
 
 
     switch(this.canvastype){
@@ -264,24 +265,13 @@ App.prototype.runscene = function(framecounts){
         this.runcount -= 1;
     }
     if(this.runcount == 0){
-      this.scene++;
-      this.isrunning = false;
+        this.scene++;
+        this.isrunning = false;
     }
 };
-App.prototype.nextscene = function(nextscene){
-    this.runcount = 1;
-    this.scene = nextscene-1;
-
-};
-
-App.prototype.wait = function(framecounts, nextscene){
+App.prototype.wait = function(framecounts){
     if(framecounts > 0) {
-        if(app.is(nextscene)){
-          this.lastscene = nextscene -1;
-        }
-        else{
-          this.lastscene = this.scene;
-        }
+        this.lastscene = this.scene;
         this.scene = 99999;
         this.runcount =framecounts;
         this.isrunning  = true;
@@ -290,7 +280,6 @@ App.prototype.wait = function(framecounts, nextscene){
         this.runscene();
         if(this.scene >99999){
             this.scene = this.lastscene + 1;
-
         }
 
     }

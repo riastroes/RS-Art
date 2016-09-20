@@ -4,7 +4,7 @@ var app;
 
 function setup(){
 
-    app = new App("Fractals",3000,3000);
+    app = new App("Fractals",600,1000);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("signature.png, coolcolors.jpg, friesland2.jpeg");
@@ -52,70 +52,17 @@ function draw() {
               }
             case 3:{
                //
+                app.project.draw(3);
+                app.runscene(0);
+                break;
+              }
+            case 4:{
+               //
                 app.project.draw(4);
                 app.runscene(0);
                 break;
               }
-              case 4:{
-                 //
-                  app.project.draw(5);
-                  app.runscene(5);
-                  break;
-                }
-          case 5:{
-             //
-              app.project.draw(6);
-              app.runscene(5);
-              break;
-            }
-            case 6:{
-               //
-                background(255);
-                app.runscene(0);
-                break;
-              }
-              case 7:{
-                 //
-                  app.project.draw(7);
-                  app.runscene(10);
-                  break;
-                }
-            case 8:{
-               //
-                background(255);
-                app.runscene(0);
-                break;
-              }
-            case 9:{
-                 //
-                  app.project.draw(8);
-                  app.runscene(10);
-                  break;
-                }
-            case 10:{
-               //
-                background(app.images[2]);
-                app.runscene(0);
-                break;
-              }
-            case 11:{
-               //
-                app.project.draw(9);
-                app.runscene(10);
-                break;
-              }
-              case 12:{
-                 //
-                  app.project.draw(10);
-                  app.runscene(0);
-                  break;
-                }
-                case 13:{
-                   //
-                    app.project.draw(11);
-                    app.runscene(0);
-                    break;
-                  }
+
             default:{
                 //wait
                 app.wait();

@@ -1,8 +1,8 @@
 function Birds(tops){
   this.birds = [];
   this.pg = createGraphics(width,height);
-  for(var i = 0; i < tops.length; i +=2){
-    append(this.birds, new Bird(this.pg, tops[i], tops[i+1]));
+  for(var i = 2; i < tops.length-2; i +=2){
+    append(this.birds, new Bird(this.pg,tops[i-2], tops[i-1], tops[i], tops[i+1]));
   }
 }
 Birds.prototype.draw = function(){
@@ -28,15 +28,17 @@ Birds.prototype.draw = function(){
   image(this.pg, 0,0);
 }
 
-
-
-
-function Bird(pg,pos, poswidth){
+function Bird(pg,posleft, posleftwidth, posright, posrightwidth){
   this.pg = pg;
-  this.pos = pos;
-  this.poswidth = poswidth;
-  this.leglength = random(50,100);
-  this.legpos = createVector(this.pos.x + random(this.poswidth), this.pos.y-this.leglength)
+  this.posleft = posleft.copy();
+  this.posright = posright.copy();
+  this.posleftwidth = posleftwidth;
+  this.posrightwidth = posrightwidth;
+
+  this.footleft = createVector(this.posleft.x + random(this.posleftwidth), this.posleft.y);
+  this.footright = createVector(this.posright.x + random(this.posrightwidth), this.posright.y);
+
+  this.legpos = createVector(this.footleft.x +((this.footright.x - this.footleft.x)/2), this.footright.y - 100);
 }
 Bird.prototype.style = function(nr){
   switch(nr){
@@ -76,21 +78,18 @@ Bird.prototype.style = function(nr){
 }
 Bird.prototype.drawLegs = function(){
   this.style(0);
-  var foot = createVector(this.pos.x+ random(this.poswidth), this.pos.y);
-  this.pg.line(this.legpos.x, this.legpos.y, foot.x, foot.y);
- this.pg.line(foot.x, foot.y-10,foot.x+10, foot.y);
- this.pg.line(foot.x, foot.y-10,foot.x-10, foot.y);
- this.pg.line(foot.x, foot.y-10,foot.x, foot.y);
-  var l = random(-this.leglength/2,this.leglength/2);
-  var knee = createVector(this.legpos.x + random(-30,30),this.legpos.y + l);
-  this.pg.line(knee.x, knee.y,this.legpos.x, this.legpos.y);
-  l = random(0,this.leglength);
-  foot =createVector(knee.x + random(-30,30),knee.y + l);
 
-  this.pg.line(knee.x, knee.y,  foot.x, foot.y);
-  this.pg.line(foot.x, foot.y,foot.x+10, foot.y+10);
-  this.pg.line(foot.x, foot.y,foot.x-10, foot.y+10);
-  this.pg.line(foot.x, foot.y,foot.x, foot.y+10);
+this.pg.line(this.legpos.x, this.legpos.y, this.footleft.x, this.footleft.y);
+this.pg.line(this.legpos.x, this.legpos.y, this.footright.x, this.footright.y);
+
+
+  this.pg.line(this.footleft.x, this.footleft.y,this.footleft.x+10, this.footleft.y+10);
+  this.pg.line(this.footleft.x, this.footleft.y,this.footleft.x-10, this.footleft.y+10);
+  this.pg.line(this.footleft.x, this.footleft.y,this.footleft.x, this.footleft.y+10);
+
+  this.pg.line(this.footright.x, this.footright.y,this.footright.x+10, this.footright.y+10);
+  this.pg.line(this.footright.x, this.footright.y,this.footright.x-10, this.footright.y+10);
+  this.pg.line(this.footright.x, this.footright.y,this.footright.x, this.footright.y+10);
 }
 Bird.prototype.drawBody = function(){
   this.style(1);

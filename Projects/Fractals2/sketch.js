@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 0;
+        app.scene = -1;
         frameRate(1);
       }
       else{
@@ -29,37 +29,44 @@ function draw() {
               background(app.pal.colors[1]);
               app.pal.show();
               app.pal.showImgColors();
-              app.wait(50);
+              app.wait(2);
               break;
             }
+
             case 0:{
-               //
-                app.project.draw(0);
-                app.runscene(0);
-                break;
-              }
-            case 1:{
                //
                 app.project.draw(1);
                 app.runscene(0);
                 break;
               }
-            case 2:{
+            case 1:{
                //
                 app.project.draw(2);
                 app.runscene(0);
                 break;
               }
-            case 3:{
+            case 2:{
                //
                 app.project.draw(3);
                 app.runscene(0);
                 break;
               }
-            case 4:{
+            case 3:{
                //
                 app.project.draw(4);
-                app.runscene(0);
+                app.wait(3);
+                break;
+              }
+            case 4:{
+               //
+                app.project.draw(5);
+                app.wait(3);
+                break;
+              }
+            case 5:{
+               //
+                app.project.draw(6);
+                app.wait(3);
                 break;
               }
 

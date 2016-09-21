@@ -91,7 +91,7 @@ Project.prototype.draw = function(nr){
       break;
     }
     case 3:{
-      //if ruitjes papier alle baan
+      //ruitjes papier 1 baan
       background(220);
       var level =0;
       this.fractal.draw3(0,0,50, level);
@@ -108,6 +108,34 @@ Project.prototype.draw = function(nr){
       translate(0,0);
       for(var i = 0; i < width; i += 10){
         this.fractal.draw3(i,0,50);
+      }
+      pop();
+      break;
+    }
+    case 5:{
+      //if ruitjes papier alle banen in andere style
+      background(255);
+      this.text = "Fractals " + nr;
+      this.showText();
+      push();
+      translate(0,0);
+      for(var i = 0; i < width; i += 10){
+        this.fractal.draw4(i,0,100,0);
+        this.fractal.draw3(i,0,100,0);
+      }
+      pop();
+      break;
+    }
+    case 6:{
+      //if ruitjes papier alle banen in andere style
+      background(255);
+      this.text = "Fractals " + nr;
+      this.showText();
+      push();
+      translate(0,0);
+      for(var i = 0; i < width; i += 10){
+        this.fractal.draw5(i,0,100,0);
+
       }
       pop();
       break;

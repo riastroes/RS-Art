@@ -4,6 +4,7 @@
  "use strict";
 function Project(){
   this.text = "Software Machine";
+  this.init();
 };
 
 Project.prototype.style = function(nr){
@@ -26,13 +27,14 @@ Project.prototype.showText = function(){
 }
 
 Project.prototype.init = function(){
-  this.machine = new Machine(400,400);
+  this.machine = new Machine(800,800);
+  this.machine.create();
+  this.machine.run();
 }
 Project.prototype.run = function(nr){
 
   switch(nr){
     case 0:{
-      this.init();
       this.machine.draw();
       break;
     }

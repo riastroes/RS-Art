@@ -4,10 +4,10 @@ var app;
 
 function setup() {
 
-    app = new App("TEMPLATE",540,540);
+    app = new App("TEMPLATE",1000,1000);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
-    app.loadResources("signature.png");
+    app.loadResources("signature.png, coolcolors.jpg");
 }
 
 function draw() {
@@ -15,11 +15,12 @@ function draw() {
     if(app.isloaded) {
       if(app.pal.name != "beautiful"){
           app.pal = new Palette(7, "beautiful");
-          //app.pal.fromImage(app.images[1],10);
+          app.pal.fromImage(app.images[1],10);
       }
       if(app.isnot(app.project)){
         app.project = new Project();
         app.scene = -1;
+        frameRate(60);
       }
       else{
         switch(app.scene) {
@@ -34,7 +35,7 @@ function draw() {
             case 0:{
                //
                 app.project.run(0);
-                app.runscene(50);
+                app.runscene(800);
                 break;
               }
             default:{

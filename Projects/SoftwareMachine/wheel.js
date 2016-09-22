@@ -2,36 +2,37 @@
  * Created by Ria Stroes on 22-9-2016.
  */
  "use strict";
-function Wheel(pg){
-   this.width = pwidth;
-   this.height = pheight;
-   this.pg = pg;
-   this.parts = [];
+function Wheel(pg,pos, size){
 
+   this.pg = pg;
+   this.pos = pos.copy();
+   this.size = size;
+   this.rot = 0;
+   this.speed = 0;
 };
 
-Machine.prototype.style = function(nr){
+Wheel.prototype.style = function(nr){
 
   switch(nr){
     case 0:
-    this.strokecolor = app.pal.colors[0];
-    this.fillcolor = app.pal.colors[1];
-    this.thickness = 1;
+    this.strokecolor = app.pal.imgcolors[0];
+    this.fillcolor = app.pal.imgcolors[1];
+    this.thickness = this.size/5;
     break;
-
-
   }
-  app.style.set(this.strokecolor, this.fillcolor, this.thickness);
+  app.style.pg(this.pg, this.strokecolor, this.fillcolor, this.thickness);
 
 };
-Machine.prototype.draw = function(){
-
-  for(var i = 0; i < this.parts.length; i++){
-    this.parts[i].draw(this.pg);
-  }
-  background(255);
-  this.pg.background(220);
-  rectMode(CENTER);
-  image(this.pg, width/2, height/2);
-
+Wheel.prototype.run = function(){
+  this.speed = 0.1;
+}
+Wheel.prototype.draw = function(){
+  this.style(0);
+  this.pg.push();
+  this.pg.translate(this.pos.x, this.pos.y);
+  this.pg.rotate(this.rot);
+  this.pg.ellipse(0,0, this.size,this.size);
+  this.pg.line(0,0, this.size/2, 0);
+  this.pg.pop();
+  this.rot += this.speed;
 }

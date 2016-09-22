@@ -3,16 +3,15 @@
  */
  "use strict";
 function Project(){
-  this.text = "new Project";
-  this.init();
+  this.text = "Software Machine";
 };
 
 Project.prototype.style = function(nr){
 
   switch(nr){
     case 0:
-    this.strokecolor = app.pal.colors[0];
-    this.fillcolor = app.pal.colors[1];
+    this.strokecolor = false;
+    this.fillcolor = app.pal.colors[0];
     this.thickness = 1;
     break;
 
@@ -27,15 +26,16 @@ Project.prototype.showText = function(){
 }
 
 Project.prototype.init = function(){
-
+  this.machine = new Machine(400,400);
 }
-Project.prototype.draw = function(nr){
+Project.prototype.run = function(nr){
+
   switch(nr){
     case 0:{
-      background(255);
+      this.init();
+      this.machine.draw();
       break;
     }
   }
   this.showText();
-
 }

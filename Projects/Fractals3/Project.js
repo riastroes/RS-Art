@@ -3,7 +3,6 @@
  */
  "use strict";
 function Project(){
-  this.text = "new Project";
   this.init();
 };
 
@@ -15,6 +14,12 @@ Project.prototype.style = function(nr){
     this.fillcolor = app.pal.colors[1];
     this.thickness = 1;
     break;
+    case 1:
+    this.strokecolor = false;
+    this.fillcolor = app.pal.colors[1];
+    this.thickness = 1;
+    break;
+
 
 
   }
@@ -22,20 +27,32 @@ Project.prototype.style = function(nr){
 
 };
 Project.prototype.showText = function(){
-  this.style(0);
-  text(this.text,60,80);
+  this.style(1);
+  text(this.text,60,50);
 }
 
 Project.prototype.init = function(){
+  this.text ="fractals";
+  this.pos = createVector(width/2,-100);
+  this.fractals = new Fractals(this.pos);
+
 
 }
-Project.prototype.draw = function(nr){
+Project.prototype.run = function(nr){
+
   switch(nr){
     case 0:{
-      background(255);
+
+      this.text ="fractals 0";
+      this.fractals.draw0(0);
+      break;
+    }
+    case 1:{
+      
+      this.text ="fractals 1";
+      this.fractals.draw1(100,0);
       break;
     }
   }
   this.showText();
-
 }

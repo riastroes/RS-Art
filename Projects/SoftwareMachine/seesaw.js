@@ -18,12 +18,12 @@ SeeSaw.prototype.style = function(nr){
     case 0:
     this.strokecolor = app.pal.imgcolors[0];
     this.fillcolor = app.pal.imgcolors[1];
-    this.thickness = 5;
+    this.thickness = 20;
     break;
     case 1:
     this.strokecolor = app.pal.imgcolors[0];
     this.fillcolor = app.pal.imgcolors[1];
-    this.thickness = 2;
+    this.thickness = 10;
     break;
   }
   app.style.pg(this.pg,this.strokecolor, this.fillcolor, this.thickness);
@@ -31,17 +31,17 @@ SeeSaw.prototype.style = function(nr){
 };
 
 SeeSaw.prototype.run = function(){
-  this.speed = 0.05;
+  this.speed = 0.01;
 
 }
 SeeSaw.prototype.move = function(){
 
   if(this.rot > PI/4 ){
-    this.speed = -0.05
+    this.speed = -0.01
 
   }
   else if( this.rot <= -PI/4){
-    this.speed = 0.05;
+    this.speed = 0.01;
   }
   this.rot += this.speed;
 
@@ -56,8 +56,8 @@ SeeSaw.prototype.draw =function(){
   this.pg.ellipse(0,0,30,30);
   this.pg.line(this.left.x , this.left.y, this.right.x , this.right.y);
   this.style(1);
-  this.pg.rect(this.left.x  , this.left.y -20, 40,40);
-  this.pg.rect(this.right.x - 40 , this.right.y -20, 40,40);
+  this.pg.rect(this.left.x  , this.left.y -40, 60,40);
+  this.pg.rect(this.right.x - 60 , this.right.y -40, 60,40);
   this.pg.pop();
 
 }

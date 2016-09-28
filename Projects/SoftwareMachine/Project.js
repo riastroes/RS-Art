@@ -35,6 +35,9 @@ Project.prototype.run = function(nr){
 
   switch(nr){
     case 0:{
+      if((frameCount % 50) == 0){
+        this.machine.add();
+      }
       this.machine.draw();
       break;
     }

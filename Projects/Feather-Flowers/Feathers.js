@@ -25,39 +25,44 @@ function Feather(size, maxwidth){
 
 
   }
-  this.style(2);
+
 }
-Feather.prototype.style = function(nr){
 
-    if(nr == 0){
-      this.strokecolor = app.pal.colors[1];
-      this.fillcolor = app.pal.colors[1];
-      this.thickness = 1;
-    }
-    if(nr == 1){
-      this.strokecolor = app.pal.colors[1];
-      this.fillcolor = app.pal.tint(app.pal.randomImgColor(),10);
-      this.thickness = 1;
-    }
-    if(nr == 2){
-      this.strokecolor = false;
-      this.fillcolor = app.pal.randomImgColor();
-      this.thickness = 1;
-    }
-
-};
 Feather.prototype.draw = function(x, y, rot){
   var pos, end, v;
   for(var r = 0; r < TWO_PI; r+= PI/4){
     //this.rachis.style(0);
     //this.rachis.draw(x, y , rot);
-    this.rachis.style(1);
+    this.style(2);
     for(var i = 0; i < this.vane.length; i++){
       this.vane[i].draw(x,y,r + rot);
     }
   }
 
 }
+Feather.prototype.style = function(nr){
+
+  switch(nr){
+     case 0:
+       this.strokecolor = app.pal.colors[0];
+       this.fillcolor = app.pal.colors[1];
+       this.thickness = 1;
+     break;
+     case 1:
+       this.strokecolor = app.pal.colors[1];
+       this.fillcolor = app.pal.tint(app.pal.randomImgColor(),10);
+       this.thickness = 0.2;
+     break;
+     case 2:
+       this.strokecolor = app.pal.tint(app.pal.randomImgColor(),10);
+       this.fillcolor = false;
+       this.thickness = 1;
+     break;
+     }
+    app.style.set(this.strokecolor, this.fillcolor, this.thickness);
+
+};
+
 /************************************/
 function Curve(vC1,vB, vT,  vC2){
   this.begin = vB.copy();
@@ -65,28 +70,8 @@ function Curve(vC1,vB, vT,  vC2){
   this.control1 = vC1.copy();
   this.control2 = vC2.copy();
 
-  this.style(1);
 }
-Curve.prototype.style = function(nr){
 
-    if(nr == 0){
-      this.strokecolor = app.pal.colors[1];
-      this.fillcolor = false;
-      this.thickness = 0.2;
-    }
-    if(nr == 1){
-      this.strokecolor = app.pal.colors[1];
-      this.fillcolor = app.pal.tint(app.pal.randomImgColor(),10);
-
-      this.thickness = 0.2;
-    }
-    if(nr == 2){
-      this.strokecolor = false;
-      this.fillcolor = app.pal.randomImgColor;
-      this.thickness = 1;
-    }
-
-};
 Curve.prototype.point = function(t){
   //t is between 0, 1
   var pos = createVector(0,0);
@@ -100,13 +85,12 @@ Curve.prototype.draw = function(x,y, rot){
   translate(x,y);
   scale(1.3);
   rotate(rot);
-  app.style.set(this.strokecolor, this.fillcolor, this.thickness);
   curve(this.control1.x, this.control1.y, this.begin.x, this.begin.y,
   this.top.x, this.top.y, this.control2.x, this.control2.y);
     //
-  // ellipse(this.begin.x, this.begin.y, 5,5);
-  //ellipse(this.control1.x, this.control1.y, 5,5);
-  //ellipse(this.control2.x, this.control2.y, 5,5);
+  // ellipse(this.top.x, this.top.y, 5,5);
+  // ellipse(this.control1.x, this.control1.y, 5,5);
+  // ellipse(this.control2.x, this.control2.y, 5,5);
   pop();
 
 }

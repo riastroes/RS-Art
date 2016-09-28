@@ -7,13 +7,56 @@ function Soft(pg, pfrom, pto, pos){
    this.from = pfrom.copy();
    this.to = pto.copy();
    this.controlpos = pfrom.copy();
-   this.speed;
+   this.speed = 1;
    this.step = 0;
    this.pos = pos.copy();
    this.rot = 0;
    this.drop = 0;
+   this.isdropped = false;
+   this.size = 30;
+   if(random(100)<50){
+     this.type = "ellipse";
+   }
+   else{
+     this.type ="rect";
+   }
 };
 
+
+Soft.prototype.run = function(){
+  this.speed = 1;
+
+}
+Soft.prototype.move = function(){
+  if(this.step < 100){
+    this.controlpos = app.posOnLine(this.from, this.to, 100, this.step);
+    this.step += this.speed;
+  }
+  else{
+
+    if(this.rot > PI /2 ){
+      this.drop += 1;
+      this.pos.x += this.drop;
+
+    }
+    else if(this.isdropped == false){
+        this.rot += 0.1;
+    }
+
+  }
+  if(this.drop >27 && this.isdropped == false){
+    this.controlpos = app.project.machine.parts[4].center.copy();
+    var s = app.project.machine.parts[4].size/2;
+    this.pos = createVector(random(s-60,s),0);
+    this.isdropped = true;
+    this.rot = 0;
+
+  }
+  else if(this.isdropped && this.rot > -PI){
+    this.rot -= 0.01;
+  }
+
+}
 Soft.prototype.style = function(nr){
 
   switch(nr){
@@ -22,40 +65,10 @@ Soft.prototype.style = function(nr){
     this.fillcolor = app.pal.colors[0];
     this.thickness = 1;
     break;
-
-
   }
   app.style.pg(this.pg,this.strokecolor, this.fillcolor, this.thickness);
 
 };
-Soft.prototype.run = function(){
-  this.speed = 1;
-
-}
-Soft.prototype.move = function(){
-  if(this.step < 100){
-  this.controlpos = app.posOnLine(this.from, this.to, 100, this.step);
-
-  this.step += this.speed;
-  }
-  else{
-
-    if(this.rot > PI /2 ){
-      this.drop += 1;
-      this.pos.x += this.drop;
-      if(this.pos.y > app.project.machine.seesaw.right.y){
-        this.controlpos = app.project.machine.seesaw.center;
-        this.pos = this.controlpos.copy();
-        this.pos.x += app.project.machine.seesaw.size/2;
-      }
-    }
-    else{
-        this.rot += 0.1;
-    }
-  }
-
-
-}
 Soft.prototype.draw =function(){
   this.style(0);
 
@@ -64,11 +77,13 @@ Soft.prototype.draw =function(){
   this.pg.translate(this.controlpos.x, this.controlpos.y);
   this.pg.ellipse(0, 0, 10,10);
   this.pg.rotate(this.rot);
-  this.pg.ellipse(this.pos.x , this.pos.y, 10,10);
-  this.pg.line(this.pos.x , this.pos.y, this.pos.x+5 , this.pos.y + 15);
-  this.pg.ellipse(this.pos.x-10 , this.pos.y, 10,10);
-  this.pg.line(this.pos.x-10 , this.pos.y, this.pos.x-15 , this.pos.y + 15);
-  this.pg.ellipse(this.pos.x+10 , this.pos.y, 5,5);
+  if(this.type == "ellipse"){
+    this.pg.ellipse(this.pos.x , this.pos.y, this.size, this.size);
+  }
+  else{
+    this.pg.rect(this.pos.x, this.pos.y -(this.size/2), 10,this.size);
+  }
+
   this.pg.pop();
 
 }

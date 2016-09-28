@@ -11,27 +11,27 @@ function Machine(pwidth, pheight){
 
 };
 Machine.prototype.create = function(){
-  var pos1, wheel1, size1;
-  var pos2, wheel2, size2;
+  var  wheel1, size1;
+  var  wheel2, size2;
   var pos3,pos4, band1;
   var pos5,pos6, band2;
   var pos7;
 
-  pos1 = createVector(100,100);
-  size1 = 90;
-  wheel1 = new Wheel(this.pg,pos1,90);
+  this.pos1 = createVector(100,100);
+  this.size1 = 90;
+  wheel1 = new Wheel(this.pg,this.pos1,this.size1);
 
 
-  pos2 = createVector(400,100);
+  this.pos2 = createVector(400,100);
   size2 = 100;
-  wheel2 = new Wheel(this.pg,pos2,120);
+  wheel2 = new Wheel(this.pg,this.pos2,120);
 
-  pos3 = app.posOnCircle(pos1,size1/2, TWO_PI, -(PI/2));
-  pos4 = app.posOnCircle(pos2,size2/2, TWO_PI, -(PI/2));
+  pos3 = app.posOnCircle(this.pos1,this.size1/2, TWO_PI, -(PI/2));
+  pos4 = app.posOnCircle(this.pos2,size2/2, TWO_PI, -(PI/2));
   band1 = new Band(this.pg, pos3, pos4,15);
 
-  pos5 = app.posOnCircle(pos1,size1/2, TWO_PI, (PI/2));
-  pos6 = app.posOnCircle(pos2,size2/2, TWO_PI, (PI/2));
+  pos5 = app.posOnCircle(this.pos1,this.size1/2, TWO_PI, (PI/2));
+  pos6 = app.posOnCircle(this.pos2,size2/2, TWO_PI, (PI/2));
   band2 = new Band(this.pg, pos6, pos5,15);
 
   pos7 =createVector(300, 500);
@@ -44,9 +44,13 @@ Machine.prototype.create = function(){
   append(this.parts, wheel2);
   append(this.parts, this.seesaw);
 
-  var pos = createVector(0,-size1+20);
-  this.software[0] = new Soft(this.pg, pos1, pos2,pos );
+  var pos = createVector(0,-this.size1+20);
+  this.software[0] = new Soft(this.pg, this.pos1, this.pos2,pos );
 
+}
+Machine.prototype.add = function(){
+  var pos = createVector(0,-this.size1+20);
+  append(this.software, new Soft(this.pg, this.pos1, this.pos2,pos ));
 }
 Machine.prototype.style = function(nr){
 
@@ -79,6 +83,6 @@ Machine.prototype.draw = function(){
     this.software[i].draw();
   }
   background(255);
- image(this.pg, 50,82);
+  image(this.pg, 50,82);
 
 }

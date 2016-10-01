@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("Feathers",540,540);
+    app = new App("Feathers",windowWidth, windowHeight);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("rood-geel-blauw.png");
@@ -33,17 +33,21 @@ function draw() {
             }
             case 0:{
                //
-               if(frameCount%5 ==0){
+
                background(255);
-             }
+
                app.project.init();
                app.runscene(0);
                break;
              }
              case 1:{
                app.project.draw(0);
-               app.wait(50,0);
+               app.runscene(8500);
                break;
+             }
+             case 2:{
+              app.scene = 0;
+              break;
              }
 
             default:{

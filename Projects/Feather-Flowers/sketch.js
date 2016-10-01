@@ -20,6 +20,7 @@ function draw() {
       if(app.isnot(app.project)){
         app.project = new Project();
         app.scene = -1;
+        frameRate(1);
       }
       else{
         switch(app.scene) {
@@ -28,7 +29,7 @@ function draw() {
               background(app.pal.colors[1]);
               app.pal.show();
               app.pal.showImgColors();
-              app.wait(50);
+              app.wait(1);
               break;
             }
             case 0:{

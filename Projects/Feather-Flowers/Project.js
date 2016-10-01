@@ -43,7 +43,12 @@ Project.prototype.init = function(){
  }
 }
 Project.prototype.draw = function(nr){
+  background(255);
+  var center = createVector(width/2, height/2);
+  var rot = 0;
   for(var i = 0; i < 10; i++){
-  this.feathers[i].draw();
+  this.feathers[i].draw(center.x, center.y,rot);
+  rot= 0.1;
  }
+
 }

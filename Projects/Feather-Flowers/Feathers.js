@@ -6,6 +6,7 @@ function Feather(size, maxwidth){
   this.control1 = createVector(random(500),random(500));
   this.control2 = createVector(random(500),random(500));
   this.rachis = new Curve(this.control1, this.begin, this.top, this.control2);
+  
   this.vane = [];
   for(var i = 0; i< 60; i++){
     var pos = this.rachis.point(i/60);

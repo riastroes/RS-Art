@@ -4,10 +4,10 @@ var app;
 
 function setup() {
 
-    app = new App("Division",540,540);
+    app = new App("Diamonds",540,540);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
-    app.loadResources("signature.png, diamonds.png, coolcolors.jpg");
+    app.loadResources("signature.png, diamonds.png, paars.png");
 
 }
 

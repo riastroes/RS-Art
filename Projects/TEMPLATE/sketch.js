@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("TEMPLATE",540,540);
+    app = new App("TEMPLATE",windowWidth, windowHeight);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("signature.png");
@@ -55,4 +55,7 @@ function draw() {
         println("loading resources ...");
     }
 
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }

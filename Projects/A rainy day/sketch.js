@@ -15,7 +15,8 @@ function draw() {
     if(app.isloaded) {
       if(app.pal.name != "beautiful"){
           app.pal = new Palette(7, "beautiful");
-          //app.pal.fromImage(app.images[1],10);
+          app.pal.fromImage(app.images[3],10);
+
       }
       if(app.isnot(app.project)){
         app.project = new Project();

@@ -284,6 +284,11 @@ App.prototype.wait = function(framecounts){
 
     }
 };
+App.prototype.nextscene = function(){
+
+      this.runcount = 1;
+
+};
 App.prototype.counter = function(start, stop){
     if(this.isnot(this.c)){
         this.c = start;

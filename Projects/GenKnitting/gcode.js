@@ -177,10 +177,8 @@ Gcode.prototype.createFirstLines = function(test, nozzle,layerheight, speed){
     newe = layerheight * nozzle * d;
     this.e += newe;
     //if(i !=0){
-    append(this.commands, "G10");
     append(this.commands, "G0 X" + test[i+1].x +" Y" + test[i+1].y);
     //}
-    append(this.commands, "G11");
     append(this.commands, "G1 X" + test[i].x +" Y" + test[i].y + " E" + this.e.toFixed(3));
 
 
@@ -196,10 +194,8 @@ Gcode.prototype.createFirstLines = function(test, nozzle,layerheight, speed){
       newe = layerheight * nozzle * d;
       this.e += newe;
       //if(i !=0){
-      append(this.commands, "G10");
       append(this.commands, "G0 X" + test[i+1].x +" Y" + test[i+1].y);
       //}
-      append(this.commands, "G11");
       append(this.commands, "G1 X" + test[i].x +" Y" + test[i].y + " E" + this.e.toFixed(3));
 
 
@@ -221,10 +217,8 @@ Gcode.prototype.createFirstLines = function(test, nozzle,layerheight, speed){
       newe = layerheight * nozzle * d;
       this.e += newe;
       //if(i !=0){
-      append(this.commands, "G10");
       append(this.commands, "G0 X" + test[i+1].x +" Y" + test[i+1].y);
       //}
-      append(this.commands, "G11");
       append(this.commands, "G1 X" + test[i].x +" Y" + test[i].y + " E" + this.e.toFixed(3));
 
 

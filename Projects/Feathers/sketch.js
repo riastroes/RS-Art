@@ -42,7 +42,7 @@ function draw() {
              }
              case 1:{
                app.project.draw(0);
-               app.runscene(8500);
+               app.runscene(80000);
                break;
              }
              case 2:{

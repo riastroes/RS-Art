@@ -425,7 +425,7 @@ Project.prototype.run = function(nr){
   case 21:{
     if (keyIsPressed === true){
       if(key === 'c'){
-        this.gcode.save("test8.gcode");
+        this.gcode.save("test9.gcode");
       }
       keyIsPressed =false;
       return false;
@@ -439,29 +439,43 @@ Project.prototype.run = function(nr){
     fill(0);
     textSize(18);
     text("test9.gcode, press c", 100,50);
-    text("case 22: TEST straight LINES with retreat", 100,80);
+    text("case 22: TEST straight LINES", 100,80);
 
     var posdrawing = createVector(100,200);
     var posprint = createVector(100,100);
     var posshowprint = createVector(100,350);
     this.showBed(posshowprint,0.1);//position, scale
     this.test = new Test();
+    this.test.createFirstLines();
     this.test.createLines();
     this.test.draw(posdrawing,1);
     this.test.genTestPreLines(posprint,0.1);
+
     this.test.genTestLines(posprint,0.1);//position, scale
     this.test.showGenTest(this.test.gentest,posshowprint, 1); //scale
+    //one outline;
+    // this.outline = new Outline(this.test.lines);
+    // this.outline.createOutline(30,6,outlinerounds,outlinerounddist);//marge,cornersteps,size,step
+    // this.outline.drawOutline(posdrawing);
+    // this.outline.genOutline(posprint,0.1);//position, scale
+    // this.outline.showGenOutline(this.outline.genoutline,posshowprint, 2); //scale
+
+
     //create gcode
     this.gcode = new Gcode();
     this.gcode.createHeading(tempextruder, tempbed, test); //temperature extruder, temperature bed
-    this.gcode.createFirstLines(this.test.genpretest, nozzle, firstlayerheight, speed);
+    //this.gcode.createFirstLines(this.test.genpretest, nozzle, firstlayerheight, speed);
+    //this.gcode.createFirstLayer(this.outline.genoutline, this.test.gentest,nozzle, firstlayerheight, speed);//z, speed
+    //this.gcode.createFirstLines(this.test.genpretest, nozzle, firstlayerheight, speed);//z, speed
+    this.gcode.testLayer1(this.test.genpretest, nozzle, firstlayerheight, speed);//z, speed
+
     this.gcode.testLayer1(this.test.gentest, nozzle, firstlayerheight, speed);//z, speed
     var z = firstlayerheight + layerheight;
-    for(var i = 0; i < 10; i++){
+    for(var i = 0; i < 0; i++){
       this.gcode.testLayer2(this.test.gentest, nozzle, layerheight, z, speed);//z, speed
       z += layerheight;
     }
-    this.gcode.testLayer2(this.test.gentest, nozzle, layerheight, z, speed);//z, speed
+    //this.gcode.testLayer2(this.test.gentest, nozzle, layerheight, z, speed);//z, speed
     this.gcode.createEnd();
     console.log(this.test.lines);
     console.log(this.test.gentest);

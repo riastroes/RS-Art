@@ -39,7 +39,7 @@ Drop.prototype.controlSize = function(min, max){
 Drop.prototype.draw = function(){
   this.style(1);
   ellipse(this.pos.x,this.pos.y, this.size, this.size);
-  this.pos.x  += map(noise(this.a),0,1,-0.5,0.6);
+  this.pos.x  += map(noise(this.a),0,1,-0.5,0.5);
   this.pos.y +=1
   this.controlSize(1,10);
 

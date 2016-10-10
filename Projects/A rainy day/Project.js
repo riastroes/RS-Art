@@ -32,6 +32,30 @@ Project.prototype.init = function(nr){
   switch(nr)
   {
     case 0: {
+      noStroke();
+      background(0);
+      fill(app.pal.randomImgColor());
+      ellipse(50,0,100,100);
+      fill(app.pal.randomImgColor());
+      ellipse(100,0,100,100);
+      fill(app.pal.randomImgColor());
+      ellipse(150,0,100,100);
+      fill(app.pal.randomImgColor());
+      ellipse(200,0,100,100);
+      fill(app.pal.randomImgColor());
+      ellipse(250,0,100,100);
+      fill(app.pal.randomImgColor());
+      ellipse(300,0,100,100);
+      fill(app.pal.randomImgColor());
+      ellipse(350,0,100,100);
+      fill(app.pal.randomImgColor());
+      ellipse(400,0,100,100);
+      fill(app.pal.randomImgColor());
+      ellipse(450,0,100,100);
+      fill(app.pal.randomImgColor());
+      ellipse(500,0,100,100);
+      fill(app.pal.randomImgColor());
+      ellipse(550,0,100,100);
       break;
     }
     case 1: {

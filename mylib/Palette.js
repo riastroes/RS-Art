@@ -141,6 +141,30 @@ Palette.prototype.fromImage = function(img, count){
 
 };
 Palette.prototype.addImageColors = function(img, count){
+
+  //OLD FUNCTION
+  var acolor;
+  var c = 0;
+  var attempt = 0;
+  var threshold = 250;
+
+  img.loadPixels();
+  while( c  < count){
+    var r = random(img.pixels.length - 4);
+    var i = int(r - (r % 4));
+    acolor = color(img.pixels[i], img.pixels[i+1], img.pixels[i+2], img.pixels[i+3]);
+    if(!app.contains(this.imgcolors, acolor) || attempt > 100){
+      if(red(acolor)<threshold || green(acolor) < threshold || blue(acolor) < threshold){
+        append(this.imgcolors, acolor);
+        c++;
+      }
+
+    }
+      attempt++;
+  }
+
+}
+Palette.prototype.addImgColors = function(img, count){
   var acolor;
   var c = 0;
   var attempt = 0;
@@ -256,6 +280,33 @@ Palette.prototype.showImgColors = function(ypos){
     fill(this.imgcolors[0]);
     text(i,x + (w/2), y + (w/2)+w);
   }
+}
+
+Palette.prototype.sortImgColors = function(){
+  var found = true;
+  var help,count =0;
+  var sum1, sum2;
+  while(found && count <100){
+    found = false;
+    for(var c = 0; c < this.imgcolors.length-1; c+=1){
+      sum1 = red(this.imgcolors[c]) + green(this.imgcolors[c]) + blue(this.imgcolors[c]);
+      sum2 = red(this.imgcolors[c+1]) + green(this.imgcolors[c+1]) + blue(this.imgcolors[c+1]);
+      if(sum1 > sum2){
+        help = this.imgcolors[c];
+        this.imgcolors[c] = this.imgcolors[c+1];
+        this.imgcolors[c+1] = help;
+        found = true;
+      }
+    }
+    count++;
+  }
+  if(count ==100){
+    println("error in sort");
+  }
+  else{
+    println("sort in " + count);
+  }
+
 }
 function NamedPalette(name){
   this.name = name;

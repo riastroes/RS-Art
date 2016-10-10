@@ -6,7 +6,7 @@ function setup() {
 
     app = new App("Beziers",640,540);
     app.resourcepath ="resources";
-    app.loadResources("grijsblauw.jpg, groenblauw.jpg, mosterd.jpg, lichtblauw.jpg");
+    app.loadResources("grijsblauw.png, blauwgroen.png, mosterd.png, lichtblauw.png");
     //frameRate(5);
 
 }

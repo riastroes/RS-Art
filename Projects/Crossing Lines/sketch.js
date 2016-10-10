@@ -19,7 +19,7 @@ function draw() {
       }
       if(app.isnot(app.project)){
         app.project = new Project();
-        app.scene = 10;
+        app.scene = -1;
       }
       else{
         switch(app.scene) {
@@ -44,21 +44,20 @@ function draw() {
                 app.wait(100);
                 break;
               }
-              case 2:{
+            case 2:{
                  //create 10 lines
                  background(255);
                  app.project.create(1);
-                  app.runscene(99);
-                  break;
-                }
-
+                 app.runscene(99);
+                 break;
+              }
             case 3:{
-                 //draw lines
+                 //draw crossing lines
                   app.project.draw(1);
                   app.wait(200);
                   break;
-                }
-            case 4:{
+              }
+            case 44:{
                //create 100 not crossing lines
                background(255);
                app.project.create(2);

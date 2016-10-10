@@ -12,6 +12,11 @@ Test.prototype.style = function(nr){
     this.fillcolor = false;
     this.thickness = 4;
     break;
+    case 1:
+    this.strokecolor = app.pal.colors[0];
+    this.fillcolor = false;
+    this.thickness = 0.4;
+    break;
   }
  app.style.set(this.strokecolor, this.fillcolor, this.thickness);
 
@@ -25,10 +30,7 @@ Test.prototype.createFirstLines = function(){
   append(this.prelines, createVector(0,140));
   append(this.prelines, createVector(400,140));
   append(this.prelines, createVector(0,200));
-  append(this.prelines, createVector(300,200));
-
-  append(this.prelines, createVector(0,300));
-  append(this.prelines, createVector(400,300));
+  append(this.prelines, createVector(400,200));
 
 }
 Test.prototype.createLines = function(){
@@ -42,33 +44,9 @@ Test.prototype.createLines = function(){
   append(this.lines, createVector(500,450));
 
   append(this.lines, createVector(0,500));
-  append(this.lines, createVector(600,500));
+  append(this.lines, createVector(500,500));
 
-  append(this.lines, createVector(0,550));
-  append(this.lines, createVector(500,550));
 
-  append(this.lines, createVector(0,600));
-  append(this.lines, createVector(700,600));
-
-  append(this.lines, createVector(0,650));
-  append(this.lines, createVector(700,650));
-
-  append(this.lines, createVector(0,680));
-  append(this.lines, createVector(500,680));
-
-  append(this.lines, createVector(0,700));
-  append(this.lines, createVector(700,700));
-
-  append(this.lines, createVector(0,720));
-  append(this.lines, createVector(700,720));
-  append(this.lines, createVector(0,740));
-  append(this.lines, createVector(700,740));
-  append(this.lines, createVector(0,760));
-  append(this.lines, createVector(700,760));
-  append(this.lines, createVector(0,780));
-  append(this.lines, createVector(700,780));
-  append(this.lines, createVector(0,800));
-  append(this.lines, createVector(700,800));
 }
 Test.prototype.draw = function(offset, scale){
   var x,y,x1,y1;

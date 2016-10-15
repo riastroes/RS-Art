@@ -4,7 +4,7 @@
  "use strict";
 function Project(){
   this.text = "Curtain with holes";
-  this.init();
+  //this.init();
 };
 
 Project.prototype.style = function(nr,a){
@@ -49,51 +49,58 @@ Project.prototype.showText = function(){
 Project.prototype.init = function(){
   this.center = createVector(width/2, height/2);
   this.lines = [];
-  var margin = (height - (50 * 10))/2;
-  for( var x = margin; x < width-margin; x += 5){
+  this.margin = (height - (50 * 10))/2;
+  for( var x = this.margin; x < (width-this.margin); x += 5){
     //function Chain(start,distance, length,  min , max, margin){
-    append(this.lines, new Chain(createVector(x, margin),10, 50,(PI/2)-0.1,(PI/2)+0.1, margin));
+    append(this.lines, new Chain(createVector(x, this.margin),20, 30,(PI/2)-0.1,(PI/2)+0.1, this.margin));
   }
+
+  var pos,radius, force;
+  this.forces =[];
+  for(var c = 0; c < 10; c++){
+    pos = createVector(random(width), random(height));
+    radius = app.random(50, 100);
+    force = 1;
+    append(this.forces, new Force(pos, radius, force));
+  }
+  this.style(3);
 }
-Project.prototype.addForce = function(center,chain, radius, force){
-  for(var i = 0 ; i < chain.pos.length; i++){
-    var dis = p5.Vector.sub(center, chain.pos[i]);
-    var len = mag(dis.x, dis.y);
-    if(len < radius){
-      dis.normalize();
-      dis.mult(len/force);
-      chain.pos[i].add(dis);
-    }
+// Project.prototype.addForce = function(center,chain){
+//   for(var j = 0 ; j < chain.pos.length; j++){
+//     this.dis = p5.Vector.sub(center, chain.pos[j]);
+//     this.len = mag(this.dis.x, this.dis.y);
+//     if(this.len < this.radius){
+//       this.dis.normalize();
+//       this.dis.mult(this.len/this.force);
+//       chain.pos[j].add(this.dis);
+//     }
+//   }
+//   return chain;
+// }
+Project.prototype.changeForces = function(){
+  for(var c = 0; c < 10; c++){
+    this.forces[c].change(5);
   }
-  return chain;
 }
 Project.prototype.draw = function(nr){
-  var radius,force;
+
   switch(nr){
     case 0:{
 
-      var max = this.lines.length;
-      var forces =[];
+      this.changeForces();
       for(var c = 0; c < 10; c++){
-        forces[c] = createVector(random(100,width-100), random(100,height-100));
-
+        this.forces[c].show();
       }
 
 
-      this.style(3);
-      radius = random(50,150);
-      force = random(1,4);
-
-      for(var i = 0; i< max;i++){
-
-        for(var c = 0; c < 10; c++){
-          force = 2 + (c % 4);
-          this.lines[i] = this.addForce(forces[c],this.lines[i],radius, force);
-        }
-
-          this.lines[i].show();
+      for(var i = 0; i< this.lines.length;i++){
+        // for(var c = 0;  c < this.forces.length; c++){
+        //   this.force = 2 + (c % 4);
+        //   this.addForce(this.forces[c],this.lines[i]);
+        // }
+        this.lines[i].addForces(this.forces);
+        this.lines[i].show();
       }
-
       break;
     }
   }

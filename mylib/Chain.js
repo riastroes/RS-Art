@@ -36,11 +36,11 @@ Chain.prototype.checkMargin = function(pos, margin){
 
 Chain.prototype.show = function(){
 
-  ellipse(this.pos[0].x,this.pos[0].y,10,10);
+
   for(var i = 1; i < this.pos.length; i++){
 
     line(this.pos[i-1].x,this.pos[i-1].y,this.pos[i].x,this.pos[i].y)
-    ellipse(this.pos[i].x,this.pos[i].y,10,10);
+    //ellipse(this.pos[i].x,this.pos[i].y,10,10);
   }
 }
 Chain.prototype.svg = function(){

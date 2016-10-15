@@ -247,13 +247,23 @@ App.prototype.isnot = function(param){
     }
     return ok;
 };
+App.prototype.random = function(min, max){
+  //never max;
+  if(app.is(max)){
+    return min + (Math.random() * (max - min));
+  }
+  else{
+      return Math.random() * min;
+  }
+
+}
 App.prototype.randomInt = function(min, max){
     if(app.is(max)){
-        return floor(random(min,max+1));
+        return floor(this.random(min,max+1));
 
     }
     else{
-        return floor(random(min+1));
+        return floor(this.random(min+1));
     }
 };
 App.prototype.runscene = function(framecounts){

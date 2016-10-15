@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("Curtains with holes 2",windowWidth,windowHeight, "svg");
+    app = new App("Lasercutter Design 1",1200,220,"svg");
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("mosterd.png");
@@ -15,8 +15,8 @@ function draw() {
     if(app.isloaded) {
       if(app.pal.name != "beautiful"){
           app.pal = new Palette(7, "beautiful");
-          app.pal.fromImage(app.images[0],5);
-          app.pal.sortImgColors();
+          //app.pal.fromImage(app.images[0],5);
+          //app.pal.sortImgColors();
       }
       if(app.isnot(app.project)){
         app.project = new Project();
@@ -27,31 +27,18 @@ function draw() {
           case -1:{
             background(app.pal.colors[1]);
             app.pal.show();
-            app.pal.showImgColors();
+            //app.pal.showImgColors();
             app.wait(50);
             break;
           }
 
             case 0:{
-               //
-                background(255);
-                app.project.init();
-                app.project.draw(0);
-                app.runscene(0);
+                //background(255);
+                app.project.draw();
+
                 break;
               }
-            case 1:{
-              background(255);
 
-              //app.project.moveForces();
-              app.project.draw(0);
-              app.runscene(2000);
-              break;
-            }
-            case 2:{
-              app.scene = 0;
-              break;
-            }
             default:{
                 //wait
                 app.wait();

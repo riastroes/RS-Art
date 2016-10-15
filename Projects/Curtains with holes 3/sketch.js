@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("Curtains with holes 2",windowWidth,windowHeight, "svg");
+    app = new App("Curtains with holes 2",540,540, "svg");
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("mosterd.png");
@@ -33,25 +33,11 @@ function draw() {
           }
 
             case 0:{
-               //
                 background(255);
-                app.project.init();
-                app.project.draw(0);
-                app.runscene(0);
+                app.project.draw();
                 break;
               }
-            case 1:{
-              background(255);
 
-              //app.project.moveForces();
-              app.project.draw(0);
-              app.runscene(2000);
-              break;
-            }
-            case 2:{
-              app.scene = 0;
-              break;
-            }
             default:{
                 //wait
                 app.wait();

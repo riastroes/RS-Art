@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("Feathers",540,540);
+    app = new App("Feathers",2900,2100);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("skincolors2.png, grays.png");

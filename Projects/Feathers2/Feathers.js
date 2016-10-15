@@ -2,7 +2,7 @@ function Feather(x,y){
    this.center = createVector(width/2, height/2);
    this.start = createVector(x,y);
    this.top = this.start.copy();
-   this.top.y -= 50;
+   this.top.y -= 250;
 
    this.control1 = this.start.copy();
    this.control1.y += 10;

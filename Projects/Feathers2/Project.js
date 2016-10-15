@@ -41,7 +41,7 @@ Project.prototype.init = function(){
   var pos;
   var center = createVector(width/2, height/2);
   for(var i = 0; i < 9; i++){
-  pos = app.posOnCircle(center, 100, 9, i);
+  pos = app.posOnCircle(center, 500, 9, i);
   this.feathers[i] = new Feather(pos.x, pos.y);
  }
 }

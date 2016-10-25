@@ -21,11 +21,11 @@ Palette.prototype.init = function(nr){
   this.add(1, color('#ffffff')); // white
 
   switch(this.nr){
-    case 1:   //basic
-    this.add(2, color(128,128,128)); //gray
+    case 1:   //ebook
+    this.add(2, color(200,200,200)); //gray
     this.add(3, color(255,0,0));   //red
     this.add(4, color(0,255,0));   //green
-    this.add(5, color(0,0,255));   // blue
+    this.add(5, color("#0066FF"));   // helder blue
     this.add(6, color(255,255,0)); // yellow
     this.add(7, color(0,255,255)); // licht blauw
     this.add(8, color(255,0,255)); // paars

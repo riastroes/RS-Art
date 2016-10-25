@@ -27,16 +27,21 @@ function draw() {
             case -1:{
               background(app.pal.colors[1]);
               app.pal.show();
-              //app.pal.showImgColors();
               app.wait(50);
               break;
             }
             case 0:{
                //
-                app.project.draw();
-                app.runscene(50);
+                background(255);
+                app.project.init();
+                app.runscene(0);
                 break;
               }
+            case 1:{
+              app.project.draw();
+              app.runscene(2050);
+              break;
+            }
             default:{
                 //wait
                 app.wait();

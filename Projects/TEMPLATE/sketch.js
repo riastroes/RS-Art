@@ -31,12 +31,7 @@ function draw() {
               app.wait(50);
               break;
             }
-            case 0:{
-               //
-
-                app.runscene(50);
-                break;
-              }
+            
             default:{
                 //wait
                 app.wait();

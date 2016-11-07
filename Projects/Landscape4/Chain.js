@@ -66,12 +66,12 @@ Chain.prototype.checkCondition = function(nr, pos){
       break;
     }
     case 1:{
-      this.center = createVector(width-500, 180);
-      if(dist(pos.x, pos.y, this.center.x, this.center.y) < 100){
+      this.center = createVector(2200, 600);
+      if(dist(pos.x, pos.y, this.center.x, this.center.y) < 200){
         isOk = false;
       }
-      this.center = createVector(width-500, 600);
-      if(dist(pos.x, pos.y, this.center.x, this.center.y) < 200){
+      this.center = createVector(2200, 1500);
+      if(dist(pos.x, pos.y, this.center.x, this.center.y) < 400){
         isOk = false;
       }
 
@@ -87,25 +87,34 @@ Chain.prototype.addForce = function(){
 
     force = p5.Vector.sub(this.pos[i], center);
     force.normalize();
-    force.mult(100);
+    force.mult(200);
     this.pos[i].add(force);
   }
-  var center = createVector(width,0);
+  var center = createVector(3750,0);
   var force;
   for(var i = 0; i < this.pos.length; i++){
 
     force = p5.Vector.sub(this.pos[i], center);
     force.normalize();
-    force.mult(100);
+    force.mult(200);
     this.pos[i].add(force);
   }
-  var center = createVector(width-500, 550);
+  var center = createVector(2200, 600);
   var force;
   for(var i = 0; i < this.pos.length; i++){
 
     force = p5.Vector.sub(center,this.pos[i] );
     force.normalize();
-    force.mult(100);
+    force.mult(200);
+    this.pos[i].add(force);
+  }
+  var center = createVector(2200, 1500);
+  var force;
+  for(var i = 0; i < this.pos.length; i++){
+
+    force = p5.Vector.sub(center,this.pos[i] );
+    force.normalize();
+    force.mult(-200);
     this.pos[i].add(force);
   }
 }

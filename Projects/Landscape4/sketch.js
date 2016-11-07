@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("Landscape2",windowWidth, windowHeight);
+    app = new App("Landscape2",3750,2500);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("blauwen.png, groenen.png");
@@ -46,6 +46,7 @@ function draw() {
               }
             case 1:{
               app.project.draw(1);
+              saveCanvas('landscape1', 'jpg');
               app.runscene(0);
               break;
              }
@@ -54,27 +55,42 @@ function draw() {
                app.runscene(500);
                break;
               }
-             case 3:{
+            case 3:{
+               saveCanvas('landscape2', 'jpg');
+               app.runscene(0);
+               break;
+              }
+             case 4:{
               app.project.init(5,2);
               app.runscene(0);
 
               break;
              }
-             case 4:{
+             case 5:{
                app.project.draw(3);
                app.runscene(10);
                break;
               }
-            case 5:{
+            case 6:{
               app.project.draw(4);
               app.runscene(500);
               break;
              }
-             case 6:{
+             case 7:{
+                saveCanvas('landscape3', 'jpg');
+                app.runscene(0);
+                break;
+               }
+             case 8:{
                app.project.draw(5);
                app.runscene(500);
                break;
               }
+              case 9:{
+                 saveCanvas('landscape4', 'jpg');
+                 app.runscene(0);
+                 break;
+                }
             default:{
                 //wait
                 app.wait();

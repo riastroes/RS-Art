@@ -3,7 +3,7 @@
  */
  "use strict";
 function Project(){
-  this.text = "Landscape3";
+  this.text = "Landscape4";
   this.dens = pixelDensity();
   this.init();
 };
@@ -72,10 +72,9 @@ Project.prototype.init = function(mase, a){ //mase = vertical space, a = angle d
   this.lines = [];
   this.mase = mase;
   this.a = a;
-  this.knots = ceil((width) /this.mase);
-  for( var y = 20; y < height-300; y += 2){
-    //function Chain(start,distance, length,  min , max, margin){
-    append(this.lines, new Chain(createVector(random(50,150),y), this.mase, this.knots, -(this.a/2), (this.a/2), 50, 0));
+  this.knots = ceil(3750 /this.mase);
+  for( var y = 50; y < (height-100)/2; y += 2){
+    append(this.lines, new Chain(createVector(random(100,200),y), this.mase, this.knots, -(this.a/2), (this.a/2), 100, 0));
   }
   this.horizon(this.mase, this.knots);
   this.rain = [];
@@ -83,14 +82,14 @@ Project.prototype.init = function(mase, a){ //mase = vertical space, a = angle d
 }
 Project.prototype.horizon = function(mase, len){
   this.hor = [];
-   append(this.hor, new Chain(createVector(50,(height/2)+50), mase, len, -0.5, 0.5, 50, 0));
+   append(this.hor, new Chain(createVector(50,1000), mase, len, -0.5, 0.5, 50, 0));
 }
 Project.prototype.raining = function(){
   var x,y,c,i;
   for(var r = 0; r < 10; r++){
 
-    x = app.randomInt(width);
-    y = app.randomInt(height);
+    x = app.randomInt(3750);
+    y = app.randomInt(2500);
     i = (y * width * 4 * this.dens) + (x * 4 * this.dens);
 
     c = color(pixels[i],pixels[i+1],pixels[i+2],pixels[i+3]);
@@ -104,8 +103,8 @@ Project.prototype.draw = function(nr){
   switch(nr){
     case 0:{
       this.style(3,10);
-      this.center = createVector(width-500, 180);
-      ellipse(this.center.x, this.center.y,200,200);
+      this.center = createVector(2200, 600);
+      ellipse(this.center.x, this.center.y,400,400);
       var max = this.lines.length;
       for(var i = 0; i< max;i++){
         if(i < max/2){
@@ -117,10 +116,11 @@ Project.prototype.draw = function(nr){
           this.lines[i].addForce();
           this.lines[i].svg();
       }
-      this.style(6, 0.1);
+      this.style(6, 1);
       for(var h = 0; h < this.hor.length;h++){
          this.hor[h].svg();
       }
+      this.style(6, 0.1);
       break;
     }
     case 1:{
@@ -136,20 +136,16 @@ Project.prototype.draw = function(nr){
       f = this.rain.length -f;
       for(var i = f; i < this.rain.length; i++){
         this.rain[i].draw2();
-
       }
-
-
       var max = this.lines.length;
       var i = app.randomInt(max-1);
-        if(i < max/2){
-          this.style(4,floor(map(i,0,max/2,10,0)));
-        }
-        else{
-          this.style(5,floor(map(i,max/2, max, 0,10)));
-        }
-          //this.lines[i].addForce();
-          this.lines[i].svg();
+      if(i < max/2){
+        this.style(4,floor(map(i,0,max/2,10,0)));
+      }
+      else{
+        this.style(5,floor(map(i,max/2, max, 0,10)));
+      }
+      this.lines[i].svg();
 
       this.style(6, 0.01);
       for(var h = 0; h < this.hor.length;h++){
@@ -158,31 +154,27 @@ Project.prototype.draw = function(nr){
       break;
     }
     case 3:{
-       this.style(3,5);
-        this.center = createVector(width-500, 180);
-        ellipse(this.center.x, this.center.y,200,200);
-        this.style(3,2);
-        this.center = createVector(width-500, 600);
-        ellipse(this.center.x, this.center.y,400,400);
-        break;
+      this.style(3,5);
+      this.center = createVector(2200,600);
+      ellipse(this.center.x, this.center.y,400,400);
+      this.style(3,2);
+      this.center = createVector(2200, 1500);
+      ellipse(this.center.x, this.center.y,800,800);
+      break;
     }
     case 4:{
 
       var max = this.lines.length;
-        var i = app.randomInt(max-1);
-        if(i < max/2){
-          this.style(4,floor(map(i,0,max/2,0,10)));
-        }
-        else{
-          this.style(5,floor(map(i,max/2, max, 0,10)));
-        }
-        //  this.lines[i].addForce();
-          this.lines[i].svg();
+      var i = app.randomInt(max-1);
+      if(i < max/2){
+        this.style(4,floor(map(i,0,max/2,0,10)));
+      }
+      else{
+        this.style(5,floor(map(i,max/2, max, 0,10)));
+      }
 
-      // this.style(6, 0.1);
-      // for(var h = 0; h < this.hor.length;h++){
-      //    this.hor[h].svg();
-      // }
+      this.lines[i].svg();
+
       break;
     }
     case 5:{
@@ -193,10 +185,7 @@ Project.prototype.draw = function(nr){
       this.style(7);
 
       this.lines[i].svg();
-      // this.style(6, 0.01);
-      // for(var h = 0; h < this.hor.length;h++){
-      //    this.hor[h].svg();
-      // }
+
       break;
     }
   }

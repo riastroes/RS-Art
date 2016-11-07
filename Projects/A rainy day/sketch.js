@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("A RAINY DAY",540,540);
+    app = new App("A RAINY DAY",7500,5000);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("signature.png, friesland.jpg, ria.jpg, sad.jpg");

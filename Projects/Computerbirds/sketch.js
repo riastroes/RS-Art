@@ -4,7 +4,7 @@ var app;
 
 function setup() {
 
-    app = new App("TEMPLATE",3000,1000);
+    app = new App("TEMPLATE",4500,2700);
     //first parameter, string with images comma-separated
     //second parameter, string with sounds comma-separated
     app.loadResources("signature.png");
@@ -25,7 +25,7 @@ function draw() {
         switch(app.scene) {
 
             case -1:{
-              background(app.pal.colors[1]);
+              //background(app.pal.colors[1]);
               app.pal.show();
               app.pal.showImgColors();
               app.wait(50);
@@ -33,7 +33,7 @@ function draw() {
             }
             case 0:{
                //
-                background(255);
+              //  background(255);
                 app.project.draw(0);
                 app.runscene(0);
                 break;
